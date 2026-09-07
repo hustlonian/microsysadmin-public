@@ -10,7 +10,7 @@
     "retired_count": 150,
     "retired_directory_count": 1,
     "retired_directory_mode_repair_count": 0,
-    "catalog_revision": "07ae5fa3996d3f4836d0d52dd56d224185cc26d85b07cafe2be80b85882ea00b",
+    "catalog_revision": "ba6b8d44fc41c1fa121537557f7b10ba19e2a94fbe0205d6ce30cbf5be1ad125",
     "selection": {
         "strategy": "all_eligible_release_files_locked_vendor_and_cause_specific_directory_topology",
         "provenance": {
@@ -635,10 +635,10 @@
             "check_id": "ARTIFACT-C0037",
             "diagnosis_id": "ARTIFACT-D0037",
             "path": "build-release.sh",
-            "baseline": "doctor/baselines/release-artifacts/blobs/12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
-            "sha256": "12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
+            "baseline": "doctor/baselines/release-artifacts/blobs/6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030",
+            "sha256": "6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030",
             "mode": 493,
-            "size": 7943,
+            "size": 8058,
             "definition_files": [
                 "Checks/ARTIFACT-0037-build-release-sh.json",
                 "Diagnoses/ARTIFACT-0037-build-release-sh.json",

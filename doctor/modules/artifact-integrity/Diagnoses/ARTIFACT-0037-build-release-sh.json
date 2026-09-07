@@ -8,7 +8,7 @@
     },
     "diagnosis": {
         "condition": "Managed release artifact build-release.sh is missing, modified, or has the wrong mode.",
-        "expected_state": "SHA-256 12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77 with mode 0755.",
+        "expected_state": "SHA-256 6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030 with mode 0755.",
         "probable_cause": "Local release artifact drift occurred after installation or update.",
         "confidence": 1,
         "related_repair_ids": [

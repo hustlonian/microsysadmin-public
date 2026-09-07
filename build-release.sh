@@ -85,6 +85,8 @@ mkdir -p "$staging_root"
 
 while IFS= read -r entry; do
     [[ -z "$entry" || "$entry" == \#* ]] && continue
+    # Production dependencies are materialized from locked blobs below.
+    [[ "$entry" == "vendor" ]] && continue
     source_path="$app_root/$entry"
     [[ -e "$source_path" ]] || { echo "Allow-listed release path is missing: $entry" >&2; exit 1; }
     cp -a --no-preserve=ownership -- "$source_path" "$staging_root/"

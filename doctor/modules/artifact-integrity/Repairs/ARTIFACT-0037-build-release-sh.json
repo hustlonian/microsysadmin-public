@@ -49,7 +49,7 @@
         "conflicts": [],
         "files_read": [
             "{APP_ROOT}/build-release.sh",
-            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77"
+            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030"
         ],
         "files_modified": [
             "{APP_ROOT}/build-release.sh"
@@ -82,8 +82,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-0037",
         "path": "{APP_ROOT}/build-release.sh",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
-        "sha256": "12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030",
+        "sha256": "6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030",
         "mode": 493
     },
     "actions": [
@@ -91,8 +91,8 @@
             "type": "restore_managed_artifact",
             "repair_id": "ARTIFACT-0037",
             "path": "{APP_ROOT}/build-release.sh",
-            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
-            "sha256": "12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
+            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030",
+            "sha256": "6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030",
             "mode": 493,
             "description": "Atomically restore build-release.sh from its exact local release baseline."
         }
@@ -104,8 +104,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-0037",
         "path": "{APP_ROOT}/build-release.sh",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
-        "sha256": "12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030",
+        "sha256": "6429d14ad5bf72e9d27350b40d9633f14f9a1e93517dc18278dc1070137bf030",
         "mode": 493
     },
     "rollback": {

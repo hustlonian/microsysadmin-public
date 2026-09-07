@@ -1,4 +1,4 @@
-#!/opt/lampp/bin/php
+#!/usr/bin/env php
 <?php
 
 declare(strict_types=1);

@@ -1,4 +1,4 @@
-#!/opt/lampp/bin/php
+#!/usr/bin/env php
 <?php
 
 declare(strict_types=1);
@@ -81,15 +81,15 @@ try {
     $backups = new BackupManager($filesystem, $temporary . '/runtime/backups');
     $environment = new EnvironmentContext([
         'os_id' => 'ubuntu', 'os_family' => 'debian', 'php_version' => PHP_VERSION,
-        'laravel_detected' => true, 'commands' => ['php' => '/opt/lampp/bin/php'],
+        'laravel_detected' => true, 'commands' => ['php' => PHP_BINARY],
     ]);
     $context = new DoctorContext('doc_test_execution', $environment, $temporary . '/project', [], $runner, $filesystem, $backups, $audit, $redactor);
 
     $argumentMarker = $temporary . '/must-not-exist';
-    $command = $runner->run(['/opt/lampp/bin/php', '-r', 'echo $argv[1];', '; touch ' . $argumentMarker], 3);
+    $command = $runner->run([PHP_BINARY, '-r', 'echo $argv[1];', '; touch ' . $argumentMarker], 3);
     $assert($command->successful() && str_contains((string) $command->get('stdout'), '; touch '), 'Structured command arguments are passed literally.');
     $assert(!file_exists($argumentMarker), 'Structured command arguments cannot inject a shell command.');
-    $timed = $runner->run(['/opt/lampp/bin/php', '-r', 'usleep(2000000);'], 1);
+    $timed = $runner->run([PHP_BINARY, '-r', 'usleep(2000000);'], 1);
     $assert(!$timed->successful() && (bool) $timed->get('timed_out'), 'Process timeouts are enforced and never reported as success.');
 
     $composerStub = $temporary . '/composer';
@@ -195,7 +195,7 @@ SH);
         'Backup schedule repair is classified for zero-interaction safe-with-backup execution.');
     $backupContext = new DoctorContext(
         'doc_test_execution',
-        new EnvironmentContext(['commands' => ['crontab' => $crontabStub, 'xampp-php' => '/opt/lampp/bin/php']]),
+        new EnvironmentContext(['commands' => ['crontab' => $crontabStub, 'xampp-php' => PHP_BINARY]]),
         $temporary . '/project',
         ['doctor_runtime_root' => $temporary . '/runtime'],
         $runner,
