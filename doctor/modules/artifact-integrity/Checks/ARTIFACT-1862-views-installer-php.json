@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1862",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/installer.php",
+        "summary": "Verify views/installer.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1862",
+        "path": "{APP_ROOT}/views/installer.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/17d73c7a2aee227cb0c8d61f812a73ec020c7ac4cbf135cbb4088f3d35f6f722",
+        "sha256": "17d73c7a2aee227cb0c8d61f812a73ec020c7ac4cbf135cbb4088f3d35f6f722",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

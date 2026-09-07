@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1557",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Repairs/REDIS-0008-RedisDataDirectoryMissing.json",
+        "summary": "Verify doctor/modules/redis/Repairs/REDIS-0008-RedisDataDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1557",
+        "path": "{APP_ROOT}/doctor/modules/redis/Repairs/REDIS-0008-RedisDataDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/dd48cd10929fe28eb94927094cbff599cef366b3e672dcdcf46e4909209fae09",
+        "sha256": "dd48cd10929fe28eb94927094cbff599cef366b3e672dcdcf46e4909209fae09",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

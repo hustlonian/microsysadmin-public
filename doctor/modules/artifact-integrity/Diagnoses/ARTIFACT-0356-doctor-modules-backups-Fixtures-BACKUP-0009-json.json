@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0356",
+        "check_id": "ARTIFACT-C0356",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/backups/Fixtures/BACKUP-0009.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/backups/Fixtures/BACKUP-0009.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 3f00c6867f414e42a8c6865720075caf6dfc9969517d8a6317e54d31f0bac420 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0356"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

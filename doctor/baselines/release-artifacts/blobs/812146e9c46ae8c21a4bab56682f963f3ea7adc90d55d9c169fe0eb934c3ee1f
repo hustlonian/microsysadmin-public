@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "MYSQL-C0010",
+        "module": "mysql",
+        "name": "Restore the missing MySQL Unix socket",
+        "summary": "Restore the missing MySQL Unix socket.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mysql",
+            "mysql-socket-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_exists",
+        "path": "/opt/lampp/var/mysql/mysql.sock"
+    },
+    "failure_status": "FAIL"
+}

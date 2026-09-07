@@ -1,0 +1,31 @@
+{
+    "metadata": {
+        "check_id": "QUEUE-C0004",
+        "module": "queue",
+        "name": "Correct invalid Supervisor configuration",
+        "summary": "Correct invalid Supervisor configuration.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "queue",
+            "supervisor-configuration-invalid"
+        ]
+    },
+    "supports": {
+        "queue_expected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "supervisorctl"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "supervisorctl",
+            "status"
+        ],
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

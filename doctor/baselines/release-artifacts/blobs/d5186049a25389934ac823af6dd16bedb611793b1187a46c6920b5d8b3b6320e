@@ -1,0 +1,31 @@
+{
+    "metadata": {
+        "check_id": "GIT-C0003",
+        "module": "git",
+        "name": "Recover corrupt Git repository objects",
+        "summary": "Recover corrupt Git repository objects.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "git",
+            "repository-object-corruption"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "git"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "git",
+            "-c",
+            "safe.directory={PROJECT}",
+            "fsck",
+            "--no-dangling"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

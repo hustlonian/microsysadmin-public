@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1353",
+        "check_id": "ARTIFACT-C1353",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/php/Checks/PHP-0009-SessionDirectoryNotWritable.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/php/Checks/PHP-0009-SessionDirectoryNotWritable.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 8686889a2471d393fa8c6b39b6a23bcc89ced495cf2a63c925af69a74594c223 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1353"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,42 @@
+[
+    {
+        "repair_id": "PHP-0002",
+        "fixture": "../Fixtures/PHP-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PHP-0003",
+        "fixture": "../Fixtures/PHP-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PHP-0004",
+        "fixture": "../Fixtures/PHP-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PHP-0005",
+        "fixture": "../Fixtures/PHP-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PHP-0006",
+        "fixture": "../Fixtures/PHP-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PHP-0007",
+        "fixture": "../Fixtures/PHP-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PHP-0008",
+        "fixture": "../Fixtures/PHP-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PHP-0009",
+        "fixture": "../Fixtures/PHP-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

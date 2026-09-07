@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "DNS-C0002",
+        "module": "dns",
+        "name": "Restore local hostname resolution",
+        "summary": "Restore local hostname resolution.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "dns",
+            "hostname-resolution-failure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "dns_resolves",
+        "host": "LinuxLite7"
+    },
+    "failure_status": "FAIL"
+}

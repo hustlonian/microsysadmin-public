@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1825",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact packaging/logrotate/microsysadmin",
+        "summary": "Verify packaging/logrotate/microsysadmin against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1825",
+        "path": "{APP_ROOT}/packaging/logrotate/microsysadmin",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c0e9304a0d1db0dee974d5b3e69708167dea969b339bf8f2916501d0f7d56a2c",
+        "sha256": "c0e9304a0d1db0dee974d5b3e69708167dea969b339bf8f2916501d0f7d56a2c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

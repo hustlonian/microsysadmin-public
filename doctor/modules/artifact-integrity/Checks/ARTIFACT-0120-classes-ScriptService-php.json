@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0120",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/ScriptService.php",
+        "summary": "Verify classes/ScriptService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0120",
+        "path": "{APP_ROOT}/classes/ScriptService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/be11d5a10e65874fe17da21b98294749111c7b3237d87cc4636e775867b93cfa",
+        "sha256": "be11d5a10e65874fe17da21b98294749111c7b3237d87cc4636e775867b93cfa",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

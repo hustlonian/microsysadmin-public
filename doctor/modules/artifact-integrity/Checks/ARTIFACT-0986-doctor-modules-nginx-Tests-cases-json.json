@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0986",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Tests/cases.json",
+        "summary": "Verify doctor/modules/nginx/Tests/cases.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0986",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Tests/cases.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2c538518ebb4cd284e7a1c5f9f543c517c0713592d0bbf2e91132ee37a97e674",
+        "sha256": "2c538518ebb4cd284e7a1c5f9f543c517c0713592d0bbf2e91132ee37a97e674",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

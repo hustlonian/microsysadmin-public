@@ -1,0 +1,5 @@
+# SSL-0005: Renew a TLS certificate nearing expiration
+
+Applies to the fixed local XAMPP certificate when less than 14 days of validity remain. The scoped privileged helper uses the existing private key, validates key/certificate matching and the new validity window, and reloads Apache.
+
+Before mutation the helper creates an exact local backup and returns its path plus SHA-256 audit reference. Rollback accepts only that managed namespace and hash, restores the byte-exact certificate, validates its key match, and reloads Apache again.

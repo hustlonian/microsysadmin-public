@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0495",
+    "artifact": "doctor/modules/dns/Diagnoses/DNS-0001-LocalhostResolutionFailure.json",
+    "baseline_sha256": "f591124d7fb675f05762dd4f114c2858bdd205d47115343638ed6aaf49082478",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,133 @@
+{
+    "metadata": {
+        "repair_id": "LARAVEL-0009",
+        "module": "laravel",
+        "name": "Create the missing Laravel public storage symlink",
+        "summary": "Create the missing Laravel public storage symlink.",
+        "problem_description": "Create the missing Laravel public storage symlink.",
+        "symptoms": [
+            "storage symlink missing"
+        ],
+        "probable_causes": [
+            "The observed storage symlink missing condition differs from the required state."
+        ],
+        "severity": "HIGH",
+        "risk_level": "LOW",
+        "automation_class": "AUTO_SAFE",
+        "default_execution_policy": "safe",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "scoped write or service-control permission"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{PROJECT}/public/storage"
+        ],
+        "files_modified": [
+            "{PROJECT}/public/storage"
+        ],
+        "directories_modified": [
+            "{PROJECT}/storage",
+            "{PROJECT}/storage/app",
+            "{PROJECT}/storage/app/public"
+        ],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "none-required",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "1-5 minutes",
+        "verification_method": "Re-run the independent LARAVEL-C0009 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "laravel",
+            "storage-symlink-missing",
+            "high"
+        ],
+        "documentation_reference": "modules/laravel/Docs/LARAVEL-0009.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores one bounded supported state",
+        "support_issue_family": "laravel",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "symlink_target",
+        "path": "{PROJECT}/public/storage",
+        "target": "{PROJECT}/storage/app/public"
+    },
+    "actions": [
+        {
+            "type": "create_directory",
+            "path": "{PROJECT}/storage/app/public",
+            "mode": 509,
+            "description": "Create the public storage target and capture any missing bounded parent chain."
+        },
+        {
+            "type": "create_symlink",
+            "path": "{PROJECT}/public/storage",
+            "target": "{PROJECT}/storage/app/public",
+            "description": "Link public/storage to the known Laravel storage target."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "symlink_target",
+        "path": "{PROJECT}/public/storage",
+        "target": "{PROJECT}/storage/app/public"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "none-required",
+        "primitive": "create_directory",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.laravel-0009",
+        "primitive": "create_directory",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "laravel",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1668",
+        "check_id": "ARTIFACT-C1668",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/ssl/Commercial/SSL-0008.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/ssl/Commercial/SSL-0008.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 3f63aac9214a96b58210cafbf2e530ab5537aeb0b5537243921603a2734223aa with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1668"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

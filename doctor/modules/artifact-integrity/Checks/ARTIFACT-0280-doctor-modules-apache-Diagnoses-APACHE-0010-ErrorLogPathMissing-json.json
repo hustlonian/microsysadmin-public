@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0280",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Diagnoses/APACHE-0010-ErrorLogPathMissing.json",
+        "summary": "Verify doctor/modules/apache/Diagnoses/APACHE-0010-ErrorLogPathMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0280",
+        "path": "{APP_ROOT}/doctor/modules/apache/Diagnoses/APACHE-0010-ErrorLogPathMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0ed2f5dbc6df033567ba8e4fc67441bc10b87d7fb5c06b6b38bca67c66334a51",
+        "sha256": "0ed2f5dbc6df033567ba8e4fc67441bc10b87d7fb5c06b6b38bca67c66334a51",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

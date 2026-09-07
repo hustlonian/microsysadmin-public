@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0291",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Docs/BATCH-001.md",
+        "summary": "Verify doctor/modules/apache/Docs/BATCH-001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0291",
+        "path": "{APP_ROOT}/doctor/modules/apache/Docs/BATCH-001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/033c53487ec705dec93e6805316c86114dfdfbaebaa8775b7dbe5a8adfcaa22f",
+        "sha256": "033c53487ec705dec93e6805316c86114dfdfbaebaa8775b7dbe5a8adfcaa22f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

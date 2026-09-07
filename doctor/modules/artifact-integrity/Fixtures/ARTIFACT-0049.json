@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0049",
+    "artifact": "classes/CommandRunner.php",
+    "baseline_sha256": "94cbb58f66cad02e53d48e3f6f7f6f613bd3e047203fcf5602f1de383e42b8f9",
+    "mode": "0664",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

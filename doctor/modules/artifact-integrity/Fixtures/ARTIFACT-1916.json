@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1916",
+    "artifact": "vendor/monolog/monolog/src/Monolog/Formatter/FlowdockFormatter.php",
+    "baseline_sha256": "d89cbd496e793f5b572e536dc81ab6d4dbd592e4ef0331df10098e51d04558a6",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2123",
+        "check_id": "ARTIFACT-C2123",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/symfony/process/ExecutableFinder.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/symfony/process/ExecutableFinder.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 39df2a82aaef2c1bdc09370122f16dc9b32f234e29376cc27c18e553e4aba1e5 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2123"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

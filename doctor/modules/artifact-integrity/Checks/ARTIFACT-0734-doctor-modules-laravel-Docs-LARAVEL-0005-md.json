@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0734",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Docs/LARAVEL-0005.md",
+        "summary": "Verify doctor/modules/laravel/Docs/LARAVEL-0005.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0734",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Docs/LARAVEL-0005.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4612a4285a95b7b023205e34c6841490bbd20f5c9647f6cac15b01b4c4fec139",
+        "sha256": "4612a4285a95b7b023205e34c6841490bbd20f5c9647f6cac15b01b4c4fec139",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

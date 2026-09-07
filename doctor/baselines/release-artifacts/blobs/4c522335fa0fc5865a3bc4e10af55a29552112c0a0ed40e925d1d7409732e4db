@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "COMPOSER-C0001",
+        "module": "composer",
+        "name": "Install the missing Composer executable",
+        "summary": "Install the missing Composer executable.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "composer",
+            "composer-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "composer"
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,21 @@
+# XAMPP/LAMPP batch 001 implementation report
+
+- Module: xampp
+- Batch: 001
+- Repair IDs added: XAMPP-0001, XAMPP-0002, XAMPP-0003, XAMPP-0004, XAMPP-0005, XAMPP-0006, XAMPP-0007, XAMPP-0008, XAMPP-0009, XAMPP-0010
+- Checks added: 10
+- Diagnoses added: 10
+- Automated or approval-controlled repairs implemented: 2
+- Report-only findings added: 8
+- Fixtures added: 10
+- Contract test cases added: 10
+- Verification methods added: 10 independent probe replays
+- Rollback methods added: 0
+- Compatibility coverage: Linux, XAMPP/LAMPP, PHP 8.2+, with environment support gates
+- Unsupported conditions: skipped when commands, framework context, queue context, container context, or primary web-server context is absent
+- Safety decisions: destructive and ambiguous operations remain report-only; commands use structured arguments; scoped mutations are locked and verified
+- Remaining long-term inventory target: 60 checks and 30 repairs
+- Recommended next batch: add the next highest-value distribution/version-specific causes without reusing IDs
+- Files changed: module manifest, Module.php, 10 check units, 10 diagnosis units, 10 repair/report units, 10 fixtures, 10 documentation pages, inventory, test cases, README
+- Commands required to test: `/opt/lampp/bin/php doctor/tests/run.php` and `doctor/bin/doctor scan --module=xampp`
+- Test results: recorded in `doctor/reports/IMPLEMENTATION-REPORT-2026-08-01.md`; this file does not fabricate future results.

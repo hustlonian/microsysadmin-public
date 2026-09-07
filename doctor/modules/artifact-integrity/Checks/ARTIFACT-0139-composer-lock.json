@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0139",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact composer.lock",
+        "summary": "Verify composer.lock against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0139",
+        "path": "{APP_ROOT}/composer.lock",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7f53f757cca499b134a528d6aed01327172ffa90f7471496d73aea8c3a29e1e6",
+        "sha256": "7f53f757cca499b134a528d6aed01327172ffa90f7471496d73aea8c3a29e1e6",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

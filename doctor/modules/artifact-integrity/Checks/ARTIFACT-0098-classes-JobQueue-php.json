@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0098",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/JobQueue.php",
+        "summary": "Verify classes/JobQueue.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0098",
+        "path": "{APP_ROOT}/classes/JobQueue.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1",
+        "sha256": "1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

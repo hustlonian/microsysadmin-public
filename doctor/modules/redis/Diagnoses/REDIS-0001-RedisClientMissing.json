@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "REDIS-D0001",
+        "check_id": "REDIS-C0001",
+        "module": "redis",
+        "name": "Install the missing Redis client diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Install the missing Redis client.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed redis client missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "REDIS-0001"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

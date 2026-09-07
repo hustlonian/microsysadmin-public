@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1843",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/install-gate.php",
+        "summary": "Verify scripts/install-gate.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1843",
+        "path": "{APP_ROOT}/scripts/install-gate.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d02365d259ce33918a06bf2c2274631a9476d68735ba2b75cb7415e52ad56e42",
+        "sha256": "d02365d259ce33918a06bf2c2274631a9476d68735ba2b75cb7415e52ad56e42",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

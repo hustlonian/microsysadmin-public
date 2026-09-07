@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0950",
+    "artifact": "doctor/modules/nginx/Diagnoses/NGINX-0008-NginxHttpListenerUnavailable.json",
+    "baseline_sha256": "81d12ac11fce9b0e68ac9e914eea688250395a6dac1d0690476d0c7de9e0433f",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

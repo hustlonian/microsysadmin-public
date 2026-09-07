@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0381",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Checks/COMPOSER-0009-ComposerSelfCheckFailure.json",
+        "summary": "Verify doctor/modules/composer/Checks/COMPOSER-0009-ComposerSelfCheckFailure.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0381",
+        "path": "{APP_ROOT}/doctor/modules/composer/Checks/COMPOSER-0009-ComposerSelfCheckFailure.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a010ccaad5f55968258a602c7ef2b97a0a2495452e6bfbed84ced6d44ffe1356",
+        "sha256": "a010ccaad5f55968258a602c7ef2b97a0a2495452e6bfbed84ced6d44ffe1356",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,123 @@
+{
+    "metadata": {
+        "repair_id": "ARTIFACT-2147",
+        "module": "artifact-integrity",
+        "name": "Restore missing managed release directory config",
+        "summary": "Restore missing release directory config.",
+        "problem_description": "The managed release directory config is missing from the installed topology.",
+        "symptoms": [
+            "missing release directory"
+        ],
+        "probable_causes": [
+            "incomplete update",
+            "local directory deletion"
+        ],
+        "severity": "HIGH",
+        "risk_level": "LOW",
+        "automation_class": "AUTO_SAFE",
+        "default_execution_policy": "safe",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "all local MicroSysAdmin deployments"
+        ],
+        "supported_versions": [
+            "release baseline schema 3"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "not framework-dependent"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "write access to this application-owned directory chain"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [],
+        "files_modified": [],
+        "directories_modified": [
+            "{APP_ROOT}/config"
+        ],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "Primitive-owned exact device/inode and before-mode journal; created paths are removed only while unchanged and empty.",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "<1 second",
+        "verification_method": "Re-run ARTIFACT-C2147 and require the non-symbolic directory to be present.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "artifact-integrity",
+            "directory-topology",
+            "local-only",
+            "zero-interaction",
+            "identity-guarded-rollback"
+        ],
+        "documentation_reference": "modules/artifact-integrity/Docs/managed-directory-restoration.md"
+    },
+    "confidence": 1,
+    "detection": {
+        "type": "managed_directory_missing",
+        "repair_id": "ARTIFACT-2147",
+        "path": "{APP_ROOT}/config",
+        "mode": 493,
+        "condition": "missing"
+    },
+    "actions": [
+        {
+            "type": "restore_managed_directory",
+            "repair_id": "ARTIFACT-2147",
+            "path": "{APP_ROOT}/config",
+            "mode": 493,
+            "condition": "missing",
+            "description": "Restore config and any missing manifest-authorized parent directories."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "managed_directory_missing",
+        "repair_id": "ARTIFACT-2147",
+        "path": "{APP_ROOT}/config",
+        "mode": 493,
+        "condition": "missing"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "remove only unchanged empty directories created by this action in reverse order",
+        "primitive": "restore_managed_directory",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.artifact-2147",
+        "primitive": "restore_managed_directory",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "missing-release-directory",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-tested"
+    }
+}

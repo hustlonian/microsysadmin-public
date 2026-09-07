@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0729",
+        "check_id": "ARTIFACT-C0729",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/laravel/Docs/BATCH-001.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/laravel/Docs/BATCH-001.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 3fa55a89d2a632e4230b57ffa0040e4ea8dadbae891e2b26341387391a1907c0 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0729"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0144",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact controllers/ApiController.php",
+        "summary": "Verify controllers/ApiController.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0144",
+        "path": "{APP_ROOT}/controllers/ApiController.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/553ceb9e78757155e1325838a15cd29b94d5a77ef4509421da699beed32df250",
+        "sha256": "553ceb9e78757155e1325838a15cd29b94d5a77ef4509421da699beed32df250",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

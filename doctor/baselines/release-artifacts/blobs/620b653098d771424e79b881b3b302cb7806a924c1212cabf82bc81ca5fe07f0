@@ -1,0 +1,125 @@
+{
+    "metadata": {
+        "repair_id": "XAMPP-0010",
+        "module": "xampp",
+        "name": "Restore the missing XAMPP log directory",
+        "summary": "Restore the missing XAMPP log directory.",
+        "problem_description": "Restore the missing XAMPP log directory.",
+        "symptoms": [
+            "Restore the missing XAMPP log directory."
+        ],
+        "probable_causes": [
+            "The observed xampp log directory missing condition differs from the required state."
+        ],
+        "severity": "HIGH",
+        "risk_level": "LOW",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "default_execution_policy": "safe-with-backup",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "not framework-dependent"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "scoped privileged helper access to the fixed XAMPP logs path"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "/opt/lampp/logs"
+        ],
+        "files_modified": [
+            "/opt/lampp/logs"
+        ],
+        "directories_modified": [
+            "/opt/lampp/logs"
+        ],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "exact helper-created directory identity with empty-directory rollback guard",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "<1 minute",
+        "verification_method": "Re-run the independent XAMPP-C0010 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "xampp",
+            "xampp-log-directory-missing",
+            "sdk-generated",
+            "create_known_directory"
+        ],
+        "documentation_reference": "modules/xampp/Docs/XAMPP-0010.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores a bounded supported state",
+        "support_issue_family": "xampp-log-directory",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "directory_exists",
+        "path": "/opt/lampp/logs"
+    },
+    "actions": [
+        {
+            "type": "create_known_directory",
+            "target": "xampp-logs",
+            "path": "/opt/lampp/logs",
+            "timeout": 60,
+            "description": "Create only the fixed XAMPP logs directory through the allowlisted helper token."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "directory_exists",
+        "path": "/opt/lampp/logs"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "exact helper-created directory identity with empty-directory rollback guard",
+        "primitive": "create_known_directory",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.xampp-0010",
+        "primitive": "create_known_directory",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "xampp-log-directory",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

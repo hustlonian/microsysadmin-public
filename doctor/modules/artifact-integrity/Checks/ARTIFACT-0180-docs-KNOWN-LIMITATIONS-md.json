@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0180",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/KNOWN-LIMITATIONS.md",
+        "summary": "Verify docs/KNOWN-LIMITATIONS.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0180",
+        "path": "{APP_ROOT}/docs/KNOWN-LIMITATIONS.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2466feb36637df1caee2a7950e9c7ffe09f625d521fc7ae1ad746e7cf6453d08",
+        "sha256": "2466feb36637df1caee2a7950e9c7ffe09f625d521fc7ae1ad746e7cf6453d08",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

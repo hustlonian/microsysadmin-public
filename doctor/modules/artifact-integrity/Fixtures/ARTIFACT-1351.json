@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1351",
+    "artifact": "doctor/modules/php/Checks/PHP-0007-FileinfoExtensionMissing.json",
+    "baseline_sha256": "1529a20369bfd0f66d1d596a1e838a32e9d67abde737e272669046442118cdcd",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

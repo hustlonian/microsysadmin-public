@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1753",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Diagnoses/XAMPP-0006-XamppApacheStopped.json",
+        "summary": "Verify doctor/modules/xampp/Diagnoses/XAMPP-0006-XamppApacheStopped.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1753",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Diagnoses/XAMPP-0006-XamppApacheStopped.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a9dbcbb6ed5f1e73fa645e28aae2650b09e15b1739d978c6d4e6f8bd5c7ad51d",
+        "sha256": "a9dbcbb6ed5f1e73fa645e28aae2650b09e15b1739d978c6d4e6f8bd5c7ad51d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

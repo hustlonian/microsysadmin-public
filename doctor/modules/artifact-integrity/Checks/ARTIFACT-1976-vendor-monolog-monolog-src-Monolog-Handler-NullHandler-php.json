@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1976",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/NullHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/NullHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1976",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/NullHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1a9a267a4a060c5001a3c6cf9d8592fc7f80be2deff753c14207fc91f91eb4f3",
+        "sha256": "1a9a267a4a060c5001a3c6cf9d8592fc7f80be2deff753c14207fc91f91eb4f3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

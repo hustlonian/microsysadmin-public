@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0116",
+    "artifact": "classes/RateLimitException.php",
+    "baseline_sha256": "29be37b111ca683d115098f177ed20f18ee8f246a5a5f0e92c8e9732477d7736",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

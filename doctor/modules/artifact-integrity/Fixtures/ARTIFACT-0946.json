@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0946",
+    "artifact": "doctor/modules/nginx/Diagnoses/NGINX-0004-NginxConfigurationInvalid.json",
+    "baseline_sha256": "608d9d621626889cd2e492b2dbbe4fad616e861dfa154dd20d83c7a462aa30e9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

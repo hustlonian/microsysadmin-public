@@ -1,0 +1,122 @@
+{
+    "metadata": {
+        "repair_id": "CRON-0003",
+        "module": "cron",
+        "name": "Enable the disabled cron scheduler service",
+        "summary": "Enable the disabled cron scheduler service.",
+        "problem_description": "Enable the disabled cron scheduler service.",
+        "symptoms": [
+            "cron service disabled"
+        ],
+        "probable_causes": [
+            "The observed cron service disabled condition differs from the required state."
+        ],
+        "severity": "HIGH",
+        "risk_level": "MEDIUM",
+        "automation_class": "APPROVAL_REQUIRED",
+        "default_execution_policy": "manual",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [
+            "systemctl"
+        ],
+        "required_packages": [],
+        "required_permissions": [
+            "scoped write or service-control permission"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [],
+        "files_modified": [],
+        "directories_modified": [],
+        "services_affected": [
+            "cron"
+        ],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "capture the exact pre-repair service boot-enabled state",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "1-5 minutes",
+        "verification_method": "Re-run the independent CRON-C0003 probe after execution.",
+        "repair_version": "1.1.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "cron",
+            "cron-service-disabled",
+            "high"
+        ],
+        "documentation_reference": "modules/cron/Docs/CRON-0003.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores one bounded supported state",
+        "support_issue_family": "cron",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "service_enabled",
+        "service": "cron"
+    },
+    "actions": [
+        {
+            "type": "service_action",
+            "service": "cron",
+            "action": "enable",
+            "verification_timeout": 20,
+            "description": "Enable cron at boot."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "service_enabled",
+        "service": "cron"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "capture the exact pre-repair service boot-enabled state",
+        "primitive": "service_action",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.cron-0003",
+        "primitive": "service_action",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "cron",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

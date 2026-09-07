@@ -1,0 +1,408 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+repository_root="$(cd "$script_dir/../.." && pwd)"
+vm_image="microsysadmin/github-test-vm:ubuntu-24.04"
+canary_image="microsysadmin/clean-install-canary:ubuntu-24.04-v2"
+mysql_image="mysql:8.0"
+vm_container="microsysadmin-github-test-vm"
+canary_container="microsysadmin-clean-install-canary"
+mysql_container="microsysadmin-github-test-mysql"
+network_name="microsysadmin-github-test"
+workspace_volume="microsysadmin-github-test-workspace"
+mysql_password="microsysadmin-ci-root"
+act_version="0.2.89"
+
+usage() {
+    cat <<'USAGE'
+Usage: tools/github-test-vm/vm COMMAND [ARG]
+
+Commands:
+  up                    Build and start the Ubuntu test machine and MySQL
+  shell                 Open an interactive shell as the unprivileged tester
+  test [MODE]           Run mirrored CI checks: all, repository, or install
+  actions [JOB]         Run the actual ci.yml with act; JOB is optional
+  install-clean         Clone and install in a reset clean Ubuntu 24.04 machine
+  canary                Alias for install-clean
+  sync                  Replace the VM checkout with current safe local files
+  status                Show machine, database, and Docker health
+  down                  Stop and remove containers; keep the workspace volume
+  destroy               Remove containers, network, and workspace volume
+  rebuild               Rebuild the VM image and recreate its container
+USAGE
+}
+
+require_docker() {
+    command -v docker >/dev/null 2>&1 || {
+        echo "Docker is required but was not found." >&2
+        exit 1
+    }
+    docker info >/dev/null
+}
+
+container_exists() {
+    docker container inspect "$1" >/dev/null 2>&1
+}
+
+container_running() {
+    [[ "$(docker inspect --format '{{.State.Running}}' "$1" 2>/dev/null || true)" == "true" ]]
+}
+
+ensure_image() {
+    if ! docker image inspect "$vm_image" >/dev/null 2>&1; then
+        docker build \
+            --file "$script_dir/Dockerfile" \
+            --tag "$vm_image" \
+            "$script_dir"
+    fi
+}
+
+ensure_canary_image() {
+    if ! docker image inspect "$canary_image" >/dev/null 2>&1; then
+        docker build \
+            --file "$script_dir/Dockerfile.clean" \
+            --tag "$canary_image" \
+            "$script_dir"
+    fi
+}
+
+prepare_canary_origin() {
+    local origin_root="$1"
+    local checkout="$origin_root/checkout" patch="$origin_root/worktree.patch" untracked="$origin_root/untracked"
+    git -c safe.directory="$repository_root" clone \
+        --local --no-hardlinks --no-recurse-submodules \
+        "$repository_root" "$checkout" >/dev/null
+    git -c safe.directory="$repository_root" -C "$repository_root" diff \
+        --binary --full-index HEAD > "$patch"
+    if [[ -s "$patch" ]]; then
+        git -C "$checkout" apply --whitespace=nowarn "$patch"
+    fi
+    git -c safe.directory="$repository_root" -C "$repository_root" \
+        ls-files --others --exclude-standard -z > "$untracked"
+    if [[ -s "$untracked" ]]; then
+        (
+            cd "$repository_root"
+            tar --null --files-from="$untracked" -cf -
+        ) | tar -xf - -C "$checkout"
+    fi
+    git -C "$checkout" config user.name "MicroSysAdmin Canary"
+    git -C "$checkout" config user.email "canary@microsysadmin.invalid"
+    git -C "$checkout" add -A
+    if ! git -C "$checkout" diff --cached --quiet; then
+        git -C "$checkout" commit -q -m "ephemeral clean-install canary source"
+    fi
+    git clone --bare "$checkout" "$origin_root/origin.git" >/dev/null
+}
+
+wait_for_canary_systemd() {
+    local attempt=1 state=""
+    while [[ "$attempt" -le 60 ]]; do
+        state="$(docker exec "$canary_container" systemctl is-system-running 2>/dev/null || true)"
+        if [[ "$state" == "running" || "$state" == "degraded" ]]; then
+            return 0
+        fi
+        sleep 2
+        attempt=$((attempt + 1))
+    done
+    docker logs --tail 80 "$canary_container" >&2 || true
+    echo "Clean canary systemd did not become ready (last state: $state)." >&2
+    return 1
+}
+
+run_clean_canary() {
+    require_docker
+    ensure_canary_image
+    local origin_root report_host report_container status
+    origin_root="$(mktemp -d /tmp/microsysadmin-canary-origin.XXXXXXXX)"
+    report_host="/tmp/microsysadmin-canary-report-$(date -u +%Y%m%dT%H%M%SZ)"
+    prepare_canary_origin "$origin_root"
+    if container_exists "$canary_container"; then
+        docker rm --force "$canary_container" >/dev/null
+    fi
+    docker run --detach \
+        --name "$canary_container" \
+        --hostname microsysadmin-canary \
+        --label microsysadmin.github-test-vm=true \
+        --privileged \
+        --cgroupns=host \
+        --tmpfs /run \
+        --tmpfs /run/lock \
+        --volume /sys/fs/cgroup:/sys/fs/cgroup:rw \
+        "$canary_image" >/dev/null
+    wait_for_canary_systemd
+    docker cp "$origin_root/origin.git" "$canary_container:/srv/microsysadmin-origin.git"
+
+    set +e
+    docker exec "$canary_container" bash -lc '
+        set -Eeuo pipefail
+        git config --system --add safe.directory /srv/microsysadmin-origin.git
+        runuser -u tester -- git -c safe.directory=/srv/microsysadmin-origin.git \
+            clone file:///srv/microsysadmin-origin.git /home/tester/microsysadmin
+        export MICROSYSADMIN_CANARY_SOURCE_ROOT=/home/tester/microsysadmin
+        cd /home/tester/microsysadmin
+        runuser -u tester -- sudo ./install.sh
+        ./tests/clean-install-canary.sh
+    '
+    status=$?
+    set -e
+
+    report_container="$(docker exec "$canary_container" bash -lc 'find /var/lib/microsysadmin/canary-reports -mindepth 1 -maxdepth 1 -type d | sort | tail -n1' 2>/dev/null || true)"
+    if [[ -n "$report_container" ]]; then
+        mkdir -p "$report_host"
+        docker cp "$canary_container:$report_container/." "$report_host/"
+        echo "Clean-install canary reports: $report_host"
+    fi
+    rm -rf -- "$origin_root"
+    if [[ "$status" -ne 0 ]]; then
+        echo "Clean-install canary failed; container retained for inspection: $canary_container" >&2
+        return "$status"
+    fi
+    echo "Clean Ubuntu 24.04 one-command installation canary PASS."
+}
+
+ensure_network() {
+    if ! docker network inspect "$network_name" >/dev/null 2>&1; then
+        docker network create \
+            --label microsysadmin.github-test-vm=true \
+            "$network_name" >/dev/null
+    fi
+}
+
+ensure_volume() {
+    if ! docker volume inspect "$workspace_volume" >/dev/null 2>&1; then
+        docker volume create \
+            --label microsysadmin.github-test-vm=true \
+            "$workspace_volume" >/dev/null
+    fi
+}
+
+ensure_mysql() {
+    if ! container_exists "$mysql_container"; then
+        docker run --detach \
+            --name "$mysql_container" \
+            --label microsysadmin.github-test-vm=true \
+            --network "$network_name" \
+            --network-alias mysql \
+            --env "MYSQL_ROOT_PASSWORD=$mysql_password" \
+            --health-cmd="mysqladmin ping --host=127.0.0.1 --user=root --password=$mysql_password" \
+            --health-interval=5s \
+            --health-timeout=5s \
+            --health-retries=20 \
+            "$mysql_image" >/dev/null
+    elif ! container_running "$mysql_container"; then
+        docker start "$mysql_container" >/dev/null
+    fi
+}
+
+ensure_vm() {
+    if ! container_exists "$vm_container"; then
+        docker run --detach \
+            --name "$vm_container" \
+            --label microsysadmin.github-test-vm=true \
+            --init \
+            --network "$network_name" \
+            --env MICROSYSADMIN_TEST_DB_HOST=mysql \
+            --env MICROSYSADMIN_TEST_DB_PORT=3306 \
+            --env MICROSYSADMIN_TEST_DB_USER=root \
+            --env "MICROSYSADMIN_TEST_DB_PASSWORD=$mysql_password" \
+            --mount "type=bind,source=$repository_root,target=/source,readonly" \
+            --mount "type=volume,source=$workspace_volume,target=/workspace" \
+            "$vm_image" >/dev/null
+    elif ! container_running "$vm_container"; then
+        docker start "$vm_container" >/dev/null
+    fi
+}
+
+verify_vm_started() {
+    sleep 1
+    if container_running "$vm_container"; then
+        return 0
+    fi
+    docker logs --tail 40 "$vm_container" >&2 || true
+    echo "The Linux test machine exited during startup." >&2
+    return 1
+}
+
+wait_for_mysql() {
+    local health=""
+    local attempt=1
+    while [[ "$attempt" -le 60 ]]; do
+        health="$(docker inspect --format '{{if .State.Health}}{{.State.Health.Status}}{{else}}unknown{{end}}' "$mysql_container")"
+        if [[ "$health" == "healthy" ]]; then
+            return 0
+        fi
+        if [[ "$health" == "unhealthy" ]]; then
+            docker logs --tail 40 "$mysql_container" >&2
+            echo "MySQL became unhealthy." >&2
+            return 1
+        fi
+        sleep 2
+        attempt=$((attempt + 1))
+    done
+    echo "Timed out waiting for MySQL (last status: $health)." >&2
+    return 1
+}
+
+up() {
+    require_docker
+    ensure_image
+    ensure_network
+    ensure_volume
+    ensure_mysql
+    ensure_vm
+    verify_vm_started
+    wait_for_mysql
+    echo "Linux test machine is ready: $vm_container"
+}
+
+remove_containers() {
+    if container_exists "$vm_container"; then
+        docker rm --force "$vm_container" >/dev/null
+    fi
+    if container_exists "$mysql_container"; then
+        docker rm --force "$mysql_container" >/dev/null
+    fi
+}
+
+ensure_act() {
+    local architecture archive cache_root checksum_url archive_url
+    case "$(uname -m)" in
+        x86_64|amd64) architecture="x86_64" ;;
+        aarch64|arm64) architecture="arm64" ;;
+        *)
+            echo "act is not configured for architecture: $(uname -m)" >&2
+            exit 1
+            ;;
+    esac
+
+    archive="act_Linux_${architecture}.tar.gz"
+    cache_root="${MICROSYSADMIN_ACT_CACHE:-${TMPDIR:-/tmp}/microsysadmin-act-v${act_version}}"
+    checksum_url="https://github.com/nektos/act/releases/download/v${act_version}/checksums.txt"
+    archive_url="https://github.com/nektos/act/releases/download/v${act_version}/${archive}"
+    mkdir -p "$cache_root"
+
+    if [[ ! -x "$cache_root/act" ]]; then
+        echo "Downloading act v$act_version..." >&2
+        curl --fail --location --silent --show-error \
+            "$checksum_url" \
+            --output "$cache_root/checksums.txt"
+        curl --fail --location --silent --show-error \
+            "$archive_url" \
+            --output "$cache_root/$archive"
+        (
+            cd "$cache_root"
+            grep "  $archive$" checksums.txt | sha256sum --check -
+            tar -xzf "$archive" act
+            chmod 0755 act
+        ) >&2
+    fi
+
+    printf '%s\n' "$cache_root/act"
+}
+
+command_name="${1:-}"
+case "$command_name" in
+    up)
+        up
+        ;;
+    shell)
+        up
+        docker exec \
+            --interactive \
+            --tty \
+            --user tester \
+            --workdir /workspace/microsysadmin \
+            "$vm_container" bash
+        ;;
+    test)
+        mode="${2:-all}"
+        up
+        docker exec \
+            --user tester \
+            --workdir /workspace/microsysadmin \
+            "$vm_container" \
+            /usr/local/bin/run-microsysadmin-ci.sh "$mode"
+        ;;
+    actions)
+        require_docker
+        act_binary="$(ensure_act)"
+        act_arguments=(
+            push
+            --workflows "$repository_root/.github/workflows/ci.yml"
+            --platform "ubuntu-24.04=ghcr.io/catthehacker/ubuntu:act-24.04"
+        )
+        if [[ -n "${2:-}" ]]; then
+            act_arguments+=(--job "$2")
+            if [[ "$2" == "clean-install" ]]; then
+                # act otherwise shares the host network, which makes a clean
+                # Apache/MariaDB install collide with the developer machine.
+                act_arguments+=(--network bridge)
+            fi
+        fi
+        if [[ -n "${GITHUB_TOKEN:-}" ]]; then
+            act_arguments+=(--secret GITHUB_TOKEN)
+        fi
+        if [[ "$(uname -m)" == "aarch64" || "$(uname -m)" == "arm64" ]]; then
+            act_arguments+=(--container-architecture linux/amd64)
+        fi
+        (
+            cd "$repository_root"
+            "$act_binary" "${act_arguments[@]}"
+        )
+        ;;
+    install-clean|canary)
+        run_clean_canary
+        ;;
+    sync)
+        up
+        docker exec "$vm_container" /usr/local/bin/seed-workspace.sh --replace
+        echo "VM checkout synchronized from the safe local Git file set."
+        ;;
+    status)
+        require_docker
+        docker ps --all \
+            --filter "label=microsysadmin.github-test-vm=true" \
+            --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}'
+        ;;
+    down)
+        require_docker
+        remove_containers
+        if container_exists "$canary_container"; then
+            docker rm --force "$canary_container" >/dev/null
+        fi
+        docker network rm "$network_name" >/dev/null 2>&1 || true
+        echo "Test containers removed; workspace volume retained."
+        ;;
+    destroy)
+        require_docker
+        remove_containers
+        if container_exists "$canary_container"; then
+            docker rm --force "$canary_container" >/dev/null
+        fi
+        docker network rm "$network_name" >/dev/null 2>&1 || true
+        if docker volume inspect "$workspace_volume" >/dev/null 2>&1; then
+            docker volume rm "$workspace_volume" >/dev/null
+        fi
+        echo "Test containers, network, and workspace volume removed."
+        ;;
+    rebuild)
+        require_docker
+        if container_exists "$vm_container"; then
+            docker rm --force "$vm_container" >/dev/null
+        fi
+        docker build \
+            --pull \
+            --file "$script_dir/Dockerfile" \
+            --tag "$vm_image" \
+            "$script_dir"
+        up
+        ;;
+    -h|--help|help)
+        usage
+        ;;
+    *)
+        usage >&2
+        exit 64
+        ;;
+esac

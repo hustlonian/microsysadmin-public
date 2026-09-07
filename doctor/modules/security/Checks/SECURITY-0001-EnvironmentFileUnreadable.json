@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0001",
+        "module": "security",
+        "name": "Correct an unreadable application environment file",
+        "summary": "Correct an unreadable application environment file.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "environment-file-unreadable"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "path_readable",
+        "path": "{PROJECT}/.env"
+    },
+    "failure_status": "FAIL"
+}

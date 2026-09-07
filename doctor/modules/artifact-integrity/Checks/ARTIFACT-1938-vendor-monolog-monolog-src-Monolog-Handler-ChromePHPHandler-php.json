@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1938",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/ChromePHPHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/ChromePHPHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1938",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/ChromePHPHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f4c92b4b357a6b332cebc20f66e8cc0c8534c7aae9a54c10e9daf67095d50194",
+        "sha256": "f4c92b4b357a6b332cebc20f66e8cc0c8534c7aae9a54c10e9daf67095d50194",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

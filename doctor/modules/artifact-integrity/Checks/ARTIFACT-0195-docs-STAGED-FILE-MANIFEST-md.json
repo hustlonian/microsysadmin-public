@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0195",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/STAGED-FILE-MANIFEST.md",
+        "summary": "Verify docs/STAGED-FILE-MANIFEST.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0195",
+        "path": "{APP_ROOT}/docs/STAGED-FILE-MANIFEST.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/61b1f9c6757c69e08366e9e9e9a8f88c88801c86f7a7999f994455fc669bfa2f",
+        "sha256": "61b1f9c6757c69e08366e9e9e9a8f88c88801c86f7a7999f994455fc669bfa2f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

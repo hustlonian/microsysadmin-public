@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1798",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Primitives/ArtisanPrimitive.php",
+        "summary": "Verify doctor/sdk/Primitives/ArtisanPrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1798",
+        "path": "{APP_ROOT}/doctor/sdk/Primitives/ArtisanPrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/13fb7342226fe90a17dd459b70500dadd22410987e2e4e89adbe391f3bf9e3f9",
+        "sha256": "13fb7342226fe90a17dd459b70500dadd22410987e2e4e89adbe391f3bf9e3f9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

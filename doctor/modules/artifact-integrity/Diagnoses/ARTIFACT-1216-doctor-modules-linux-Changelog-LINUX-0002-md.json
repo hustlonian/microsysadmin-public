@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1216",
+        "check_id": "ARTIFACT-C1216",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/linux/Changelog/LINUX-0002.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/linux/Changelog/LINUX-0002.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 9c1196d6bc0feeff83b1c4463761f5652b37538204e481cc85346c27bcdd6ef1 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1216"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1908",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/composer.json",
+        "summary": "Verify vendor/monolog/monolog/composer.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1908",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/composer.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b6df971c180a65adb5ddfea6ac5900960809bd3c93696123396dcf48631ccab1",
+        "sha256": "b6df971c180a65adb5ddfea6ac5900960809bd3c93696123396dcf48631ccab1",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

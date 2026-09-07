@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "MYSQL-C0005",
+        "module": "mysql",
+        "name": "Restore the missing application users table",
+        "summary": "Restore the missing application users table.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "mysql",
+            "users-table-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "database_table_exists",
+        "database": "microsysadmin",
+        "table": "users"
+    },
+    "failure_status": "FAIL"
+}

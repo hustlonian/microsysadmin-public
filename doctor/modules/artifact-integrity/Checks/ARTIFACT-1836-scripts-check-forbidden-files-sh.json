@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1836",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/check-forbidden-files.sh",
+        "summary": "Verify scripts/check-forbidden-files.sh against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1836",
+        "path": "{APP_ROOT}/scripts/check-forbidden-files.sh",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/76d8956fe746bb901b1b5146853fb4d1784a76a27f84783ed510f6bf4ae6b53e",
+        "sha256": "76d8956fe746bb901b1b5146853fb4d1784a76a27f84783ed510f6bf4ae6b53e",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

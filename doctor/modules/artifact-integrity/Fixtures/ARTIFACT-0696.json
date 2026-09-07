@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0696",
+    "artifact": "doctor/modules/git/Repairs/GIT-0001-GitMissing.json",
+    "baseline_sha256": "630b34a847bcccf92a69698d6351a1187c0445156134ea39c9d37cd1f1946580",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

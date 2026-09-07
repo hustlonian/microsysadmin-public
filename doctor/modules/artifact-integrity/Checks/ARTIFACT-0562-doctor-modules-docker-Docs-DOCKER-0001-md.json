@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0562",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Docs/DOCKER-0001.md",
+        "summary": "Verify doctor/modules/docker/Docs/DOCKER-0001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0562",
+        "path": "{APP_ROOT}/doctor/modules/docker/Docs/DOCKER-0001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9492965b82a436cfaa7474b05f09ec40304d412d54b789f66fd371db33cd2bea",
+        "sha256": "9492965b82a436cfaa7474b05f09ec40304d412d54b789f66fd371db33cd2bea",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

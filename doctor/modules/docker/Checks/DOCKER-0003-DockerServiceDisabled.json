@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0003",
+        "module": "docker",
+        "name": "Enable the disabled Docker service",
+        "summary": "Enable the disabled Docker service.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "docker-service-disabled"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_enabled",
+        "service": "docker"
+    },
+    "failure_status": "FAIL"
+}

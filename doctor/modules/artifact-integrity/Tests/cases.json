@@ -1,0 +1,23 @@
+{
+    "artifact_count": 1992,
+    "directory_count": 255,
+    "directory_mode_repair_count": 255,
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenario_count": 7506,
+    "required_outcomes": [
+        "detect",
+        "diagnose",
+        "plan",
+        "backup",
+        "repair",
+        "verify",
+        "rollback",
+        "idempotent"
+    ],
+    "network_access": false,
+    "external_interaction": false
+}

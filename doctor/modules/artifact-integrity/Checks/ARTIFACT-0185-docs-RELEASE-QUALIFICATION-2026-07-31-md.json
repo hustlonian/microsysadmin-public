@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0185",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/RELEASE-QUALIFICATION-2026-07-31.md",
+        "summary": "Verify docs/RELEASE-QUALIFICATION-2026-07-31.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0185",
+        "path": "{APP_ROOT}/docs/RELEASE-QUALIFICATION-2026-07-31.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2a80ce3718acbd6473232bc07b6b07883773aa45edf4c8eaac6a8ae57cb91d67",
+        "sha256": "2a80ce3718acbd6473232bc07b6b07883773aa45edf4c8eaac6a8ae57cb91d67",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0143",
+        "check_id": "ARTIFACT-C0143",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for controllers/AgentController.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact controllers/AgentController.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 214b8625c5763bb312453533af3f4727f8acb4be4ff7513d84e46bb44e3f2fba with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0143"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

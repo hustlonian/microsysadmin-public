@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "APACHE-C0010",
+        "module": "apache",
+        "name": "Create the missing Apache error-log path",
+        "summary": "Create the missing Apache error-log path.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "apache",
+            "error-log-path-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "apache",
+            "xampp"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/opt/lampp/logs/error_log"
+    },
+    "failure_status": "FAIL"
+}

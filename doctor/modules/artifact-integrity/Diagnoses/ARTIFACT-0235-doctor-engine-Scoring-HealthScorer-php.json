@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0235",
+        "check_id": "ARTIFACT-C0235",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/engine/Scoring/HealthScorer.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/engine/Scoring/HealthScorer.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 792861249361513719da5dac72707626b9ec53d20a5f16dafd9ab6e0fa76b169 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0235"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

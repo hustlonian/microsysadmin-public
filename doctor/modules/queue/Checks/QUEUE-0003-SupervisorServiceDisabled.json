@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "QUEUE-C0003",
+        "module": "queue",
+        "name": "Enable the disabled Supervisor service",
+        "summary": "Enable the disabled Supervisor service.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "queue",
+            "supervisor-service-disabled"
+        ]
+    },
+    "supports": {
+        "queue_expected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_enabled",
+        "service": "supervisor"
+    },
+    "failure_status": "FAIL"
+}

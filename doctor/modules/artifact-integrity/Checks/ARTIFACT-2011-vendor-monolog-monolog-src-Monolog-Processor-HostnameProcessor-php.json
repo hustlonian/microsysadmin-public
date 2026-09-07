@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2011",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Processor/HostnameProcessor.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Processor/HostnameProcessor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2011",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Processor/HostnameProcessor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f71edaa35ce1e7c48b0aa88d6c8c994ee3a80513f3c60271a7a20a40a5af1691",
+        "sha256": "f71edaa35ce1e7c48b0aa88d6c8c994ee3a80513f3c60271a7a20a40a5af1691",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

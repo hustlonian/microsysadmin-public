@@ -1,0 +1,9 @@
+{
+    "repair_id": "SECURITY-0003",
+    "commercial_tier": "professional",
+    "customer_impact": "restores a bounded supported state",
+    "support_issue_family": "xampp-private-key-directory",
+    "automation_class": "AUTO_WITH_BACKUP",
+    "risk_level": "LOW",
+    "quality_gate": "contract-suite-required"
+}

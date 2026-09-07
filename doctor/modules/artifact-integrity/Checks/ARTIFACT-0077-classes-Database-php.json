@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0077",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Database.php",
+        "summary": "Verify classes/Database.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0077",
+        "path": "{APP_ROOT}/classes/Database.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6335de18118d937ff9f63957311f86aa2573acc5ad595dc5d2db9feb9f6fe7eb",
+        "sha256": "6335de18118d937ff9f63957311f86aa2573acc5ad595dc5d2db9feb9f6fe7eb",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

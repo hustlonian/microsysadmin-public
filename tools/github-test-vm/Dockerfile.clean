@@ -1,0 +1,27 @@
+FROM ubuntu:24.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+ENV container=docker
+
+# A customer must already have Git, sudo, and CA roots in order to execute the
+# documented clone command. Application runtime packages are intentionally not
+# present; install.sh must install them.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        git \
+        sudo \
+        systemd \
+        systemd-sysv \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && systemctl mask \
+        dev-hugepages.mount \
+        sys-fs-fuse-connections.mount
+
+RUN useradd --create-home --shell /bin/bash tester \
+    && printf '%s\n' 'tester ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/tester \
+    && chmod 0440 /etc/sudoers.d/tester
+
+STOPSIGNAL SIGRTMIN+3
+CMD ["/sbin/init"]

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1960",
+        "check_id": "ARTIFACT-C1960",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/monolog/monolog/src/Monolog/Handler/GroupHandler.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/monolog/monolog/src/Monolog/Handler/GroupHandler.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 92939f1497458997a28592c1e86e94ff7b0ae50564309fa8edd89db9788a09e8 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1960"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1855",
+        "check_id": "ARTIFACT-C1855",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for scripts/service-control",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact scripts/service-control is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e395d4fab808776e2eefcf0766ec1cd0c268fd9c5633d8ad115c235dd6271283 with mode 0775.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1855"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

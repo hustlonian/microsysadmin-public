@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0048",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/BackupService.php",
+        "summary": "Verify classes/BackupService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0048",
+        "path": "{APP_ROOT}/classes/BackupService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3815a961f15f177772728dacf7c771a0201cf71cb1c5c3689fba829eb763fd76",
+        "sha256": "3815a961f15f177772728dacf7c771a0201cf71cb1c5c3689fba829eb763fd76",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

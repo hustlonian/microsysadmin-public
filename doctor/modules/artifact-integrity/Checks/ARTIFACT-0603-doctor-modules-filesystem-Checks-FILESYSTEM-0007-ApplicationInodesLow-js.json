@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0603",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Checks/FILESYSTEM-0007-ApplicationInodesLow.json",
+        "summary": "Verify doctor/modules/filesystem/Checks/FILESYSTEM-0007-ApplicationInodesLow.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0603",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Checks/FILESYSTEM-0007-ApplicationInodesLow.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/395cfb659b1bff7be5381220a76aeae29b1596c69c3c438cb7c85eefb277683d",
+        "sha256": "395cfb659b1bff7be5381220a76aeae29b1596c69c3c438cb7c85eefb277683d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

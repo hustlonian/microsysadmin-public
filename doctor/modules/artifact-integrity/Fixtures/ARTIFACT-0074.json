@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0074",
+    "artifact": "classes/CronService.php",
+    "baseline_sha256": "1d97e28a5b2bc00395d7a75de5f4db5c85b0b60dbb30834e5ab998a84bc9cd39",
+    "mode": "0664",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

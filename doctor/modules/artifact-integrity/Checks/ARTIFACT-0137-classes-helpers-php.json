@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0137",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/helpers.php",
+        "summary": "Verify classes/helpers.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0137",
+        "path": "{APP_ROOT}/classes/helpers.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/df625b90f449eee2ccf79306b3014ef536acee307923c899b1d54bf7d1a92d12",
+        "sha256": "df625b90f449eee2ccf79306b3014ef536acee307923c899b1d54bf7d1a92d12",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

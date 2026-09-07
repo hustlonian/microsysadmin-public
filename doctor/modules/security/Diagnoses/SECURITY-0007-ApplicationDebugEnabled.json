@@ -1,0 +1,50 @@
+{
+    "metadata": {
+        "diagnosis_id": "SECURITY-D0007",
+        "check_id": "SECURITY-C0007",
+        "module": "security",
+        "name": "Disable Laravel debug output in production diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Disable Laravel debug output in production.",
+        "expected_state": "For APP_ENV=production, APP_DEBUG is absent or an exact supported false value.",
+        "probable_cause": "The observed application debug enabled condition differs from the required state.",
+        "confidence": 0.9499999999999999555910790149937383830547332763671875,
+        "related_repair_ids": [
+            "SECURITY-0007"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "Only an execution-owned project .env with unambiguous APP_ENV=production and one enabled APP_DEBUG assignment is changed; a secret-safe exact snapshot and post-repair hash guard support rollback."
+    },
+    "repair_generation": {
+        "repair_id": "SECURITY-0007",
+        "name": "Disable Laravel debug output in production",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "risk_level": "LOW",
+        "backup_strategy": "secret-safe exact .env snapshot with post-repair hash guard",
+        "detection": {
+            "type": "production_debug_disabled",
+            "path": "{PROJECT}/.env",
+            "require_mutable": true
+        },
+        "files_modified": [
+            "{PROJECT}/.env"
+        ],
+        "required_permissions": [
+            "execution-account ownership and write access to the project .env"
+        ],
+        "action": {
+            "type": "set_env_value",
+            "repair_id": "SECURITY-0007",
+            "path": "{PROJECT}/.env",
+            "key": "APP_DEBUG",
+            "value": "false",
+            "guard_key": "APP_ENV",
+            "guard_value": "production",
+            "description": "Set the one unambiguous production APP_DEBUG assignment to false without recording any other environment values."
+        },
+        "commercial_tier": "professional",
+        "support_issue_family": "production-debug-exposure"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0607",
+        "check_id": "ARTIFACT-C0607",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/filesystem/Diagnoses/FILESYSTEM-0001-ProjectRootMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/filesystem/Diagnoses/FILESYSTEM-0001-ProjectRootMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e2976e02eb98d1b870268e8d0afbc9c44569727237b3569a756cf434eb8b3835 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0607"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

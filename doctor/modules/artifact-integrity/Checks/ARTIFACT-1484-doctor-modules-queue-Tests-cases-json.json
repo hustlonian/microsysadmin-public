@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1484",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/queue/Tests/cases.json",
+        "summary": "Verify doctor/modules/queue/Tests/cases.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1484",
+        "path": "{APP_ROOT}/doctor/modules/queue/Tests/cases.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/31a587ca46d681e12cf5d34a1a7a6f8c01f5298a39b503511f5ebce5de00af86",
+        "sha256": "31a587ca46d681e12cf5d34a1a7a6f8c01f5298a39b503511f5ebce5de00af86",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

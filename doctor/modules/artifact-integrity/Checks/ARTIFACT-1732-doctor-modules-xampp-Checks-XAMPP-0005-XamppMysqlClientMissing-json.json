@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1732",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Checks/XAMPP-0005-XamppMysqlClientMissing.json",
+        "summary": "Verify doctor/modules/xampp/Checks/XAMPP-0005-XamppMysqlClientMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1732",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Checks/XAMPP-0005-XamppMysqlClientMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/604cf13c0f104d042daa29e3eb7a5af74d3af35a392075d8b03c06aa17b49180",
+        "sha256": "604cf13c0f104d042daa29e3eb7a5af74d3af35a392075d8b03c06aa17b49180",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

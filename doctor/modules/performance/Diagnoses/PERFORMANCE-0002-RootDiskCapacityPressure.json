@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "PERFORMANCE-D0002",
+        "check_id": "PERFORMANCE-C0002",
+        "module": "performance",
+        "name": "Reduce root filesystem capacity pressure diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Reduce root filesystem capacity pressure.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed root disk capacity pressure condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "PERFORMANCE-0002"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

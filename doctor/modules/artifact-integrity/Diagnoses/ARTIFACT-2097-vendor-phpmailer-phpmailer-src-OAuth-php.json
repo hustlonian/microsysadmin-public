@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2097",
+        "check_id": "ARTIFACT-C2097",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/phpmailer/phpmailer/src/OAuth.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/phpmailer/phpmailer/src/OAuth.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 44b2c9a3b6e538a65b90261251f197d700e2eb90d51d4944fb80577263210fb4 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2097"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

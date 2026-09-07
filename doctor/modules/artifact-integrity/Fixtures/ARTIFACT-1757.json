@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1757",
+    "artifact": "doctor/modules/xampp/Diagnoses/XAMPP-0010-XamppLogDirectoryMissing.json",
+    "baseline_sha256": "84257b2b3650576065b3d2e4dafa3836b219073727aba6238f1dc541ce0723ca",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,35 @@
+# Machine/customer state
+config/config.php
+.env
+.git
+.agents
+storage
+dist
+tests
+doctor/reports
+doctor/tests
+doctor/tools
+
+# Internal development/audit records are not customer documentation
+docs/COMMERCIAL-SCALABILITY-AUDIT.md
+docs/COMMERCIAL-READINESS-REPORT.md
+docs/SCALABILITY-AUDIT.md
+docs/SCALABILITY-READINESS-REPORT.md
+docs/SECURITY-AUDIT.md
+docs/IMPLEMENTATION-MANIFEST.md
+docs/HOST-HEALTH-REMEDIATION.md
+docs/BETA-RELEASE-CONFIGURATION-AUDIT.md
+docs/BETA-1.1.0-BUILD-REPORT.md
+docs/BETA-1.1.0-VERIFICATION.md
+docs/BETA-LAUNCH-READINESS.md
+docs/SECOND-MACHINE-CANARY-RESULTS.md
+
+# Local project conversion and repair utilities; not product runtime
+scripts/convert_crm_to_laravel_form.php
+scripts/convert_standalone_sites_to_laravel.php
+scripts/fix_mailgui_laravel_routes.php
+scripts/move_site_standalone_extras_to_legacy.php
+scripts/patch_site_public_rewrite_bases.php
+
+# Development-only hosted-hub mock
+tools

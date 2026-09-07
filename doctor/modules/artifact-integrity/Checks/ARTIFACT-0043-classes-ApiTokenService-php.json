@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0043",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/ApiTokenService.php",
+        "summary": "Verify classes/ApiTokenService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0043",
+        "path": "{APP_ROOT}/classes/ApiTokenService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9240d57a5bc5c19cf929c8faf91c124ee1a9376d7d6abfcb72ad6cfe8293fcb4",
+        "sha256": "9240d57a5bc5c19cf929c8faf91c124ee1a9376d7d6abfcb72ad6cfe8293fcb4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

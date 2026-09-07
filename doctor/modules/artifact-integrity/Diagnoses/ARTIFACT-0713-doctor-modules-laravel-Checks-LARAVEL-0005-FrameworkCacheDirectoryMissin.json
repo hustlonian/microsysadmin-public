@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0713",
+        "check_id": "ARTIFACT-C0713",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/laravel/Checks/LARAVEL-0005-FrameworkCacheDirectoryMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/laravel/Checks/LARAVEL-0005-FrameworkCacheDirectoryMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 d07b4df27830fca2eb6f679affbc8d9d811768f28a781214d9b1252ec50f6802 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0713"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

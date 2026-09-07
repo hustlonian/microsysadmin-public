@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0177",
+        "check_id": "ARTIFACT-C0177",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for docs/HUB-CONNECTION.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact docs/HUB-CONNECTION.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 dc9e207bbaa20f274596f09759dc9245aa08a74efe3c8d7d867cdfc1054467ad with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0177"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

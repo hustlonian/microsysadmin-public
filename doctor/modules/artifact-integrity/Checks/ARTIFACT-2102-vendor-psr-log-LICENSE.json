@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2102",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/psr/log/LICENSE",
+        "summary": "Verify vendor/psr/log/LICENSE against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2102",
+        "path": "{APP_ROOT}/vendor/psr/log/LICENSE",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6e944907067bae93c00a9f2ad51032243820b22df34b77c77690d46cb2e98e24",
+        "sha256": "6e944907067bae93c00a9f2ad51032243820b22df34b77c77690d46cb2e98e24",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

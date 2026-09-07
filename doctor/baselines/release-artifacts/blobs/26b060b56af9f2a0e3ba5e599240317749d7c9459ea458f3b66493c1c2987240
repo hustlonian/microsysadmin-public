@@ -1,0 +1,112 @@
+{
+    "metadata": {
+        "repair_id": "BACKUP-0002",
+        "module": "backups",
+        "name": "Correct an unwritable backup root",
+        "summary": "Correct an unwritable backup root.",
+        "problem_description": "Correct an unwritable backup root.",
+        "symptoms": [
+            "backup root not writable"
+        ],
+        "probable_causes": [
+            "The observed backup root not writable condition differs from the required state."
+        ],
+        "severity": "CRITICAL",
+        "risk_level": "MEDIUM",
+        "automation_class": "REPORT_ONLY",
+        "default_execution_policy": "manual",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "read"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{STORAGE_PATH}/backups"
+        ],
+        "files_modified": [],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "none-required",
+        "rollback_supported": false,
+        "destructive": false,
+        "estimated_duration": "<1 minute review",
+        "verification_method": "Re-run the independent BACKUP-C0002 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "backups",
+            "backup-root-not-writable",
+            "critical"
+        ],
+        "documentation_reference": "modules/backups/Docs/BACKUP-0002.md",
+        "commercial_tier": "advisory",
+        "customer_impact": "provides evidence and operator guidance",
+        "support_issue_family": "backups",
+        "safety_review": "advisory-only"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "path_writable",
+        "path": "{STORAGE_PATH}/backups"
+    },
+    "actions": [],
+    "backup_paths": [],
+    "verification": {
+        "type": "path_writable",
+        "path": "{STORAGE_PATH}/backups"
+    },
+    "rollback": {
+        "supported": false,
+        "strategy": "not-yet-implemented",
+        "primitive": null,
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.backup-0002",
+        "primitive": null,
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "advisory",
+        "support_issue_family": "backups",
+        "deterministic": null,
+        "bounded": null,
+        "reversible": null,
+        "independently_verifiable": null,
+        "quality_status": "advisory-only"
+    }
+}

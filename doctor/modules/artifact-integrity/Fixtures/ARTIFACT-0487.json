@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0487",
+    "artifact": "doctor/modules/dns/Checks/DNS-0003-ResolverConfigurationMissing.json",
+    "baseline_sha256": "7bde8a9a5cf8802301472f6b54f50edfe45b621f27b0a19c711d212d0a8d7b8e",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

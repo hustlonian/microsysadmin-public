@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "NGINX-C0009",
+        "module": "nginx",
+        "name": "Restore the unavailable Nginx HTTPS listener",
+        "summary": "Restore the unavailable Nginx HTTPS listener.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "nginx",
+            "nginx-https-listener-unavailable"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "nginx"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "tcp_connect",
+        "host": "127.0.0.1",
+        "port": 443,
+        "timeout": 1
+    },
+    "failure_status": "FAIL"
+}

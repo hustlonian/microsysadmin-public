@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1664",
+    "artifact": "doctor/modules/ssl/Commercial/SSL-0004.json",
+    "baseline_sha256": "624ce7d34af759f9da8b9832868b442ff71283d55a367ec2f87737b1cc537d20",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

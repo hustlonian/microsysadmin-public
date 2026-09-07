@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1966",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/LogEntriesHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/LogEntriesHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1966",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/LogEntriesHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/dab2ab36249acaf1cf62a88c1b02f833310fcce5b2cbe57244949125782ec259",
+        "sha256": "dab2ab36249acaf1cf62a88c1b02f833310fcce5b2cbe57244949125782ec259",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

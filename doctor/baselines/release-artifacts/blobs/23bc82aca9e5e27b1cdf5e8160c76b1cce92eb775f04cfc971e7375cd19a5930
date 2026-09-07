@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "MAIL-D0008",
+        "check_id": "MAIL-C0008",
+        "module": "mail",
+        "name": "Configure the application sender address diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Configure the application sender address.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed mail from address unconfigured condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "MAIL-0008"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

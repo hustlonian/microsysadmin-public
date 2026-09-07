@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1595",
+    "artifact": "doctor/modules/security/Diagnoses/SECURITY-0003-PrivateKeyDirectoryMissing.json",
+    "baseline_sha256": "77990e0ed516dd38cef795f7b20e558fe3bcee2a231db4ca8419c73c2ee4fbcd",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

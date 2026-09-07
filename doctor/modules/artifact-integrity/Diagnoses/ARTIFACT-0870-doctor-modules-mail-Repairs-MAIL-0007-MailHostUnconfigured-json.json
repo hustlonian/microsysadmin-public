@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0870",
+        "check_id": "ARTIFACT-C0870",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/mail/Repairs/MAIL-0007-MailHostUnconfigured.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/mail/Repairs/MAIL-0007-MailHostUnconfigured.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e4efb5343c2cafb3b5a4e6ce40f5558f104bae1d69f8bfdaa57dcb1560a68a0a with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0870"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "LARAVEL-C0009",
+        "module": "laravel",
+        "name": "Create the missing Laravel public storage symlink",
+        "summary": "Create the missing Laravel public storage symlink.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "laravel",
+            "storage-symlink-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "symlink_target",
+        "path": "{PROJECT}/public/storage",
+        "target": "{PROJECT}/storage/app/public"
+    },
+    "failure_status": "FAIL"
+}

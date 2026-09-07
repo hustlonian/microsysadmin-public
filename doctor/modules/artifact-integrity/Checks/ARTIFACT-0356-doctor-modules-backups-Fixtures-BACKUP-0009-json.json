@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0356",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Fixtures/BACKUP-0009.json",
+        "summary": "Verify doctor/modules/backups/Fixtures/BACKUP-0009.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0356",
+        "path": "{APP_ROOT}/doctor/modules/backups/Fixtures/BACKUP-0009.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3f00c6867f414e42a8c6865720075caf6dfc9969517d8a6317e54d31f0bac420",
+        "sha256": "3f00c6867f414e42a8c6865720075caf6dfc9969517d8a6317e54d31f0bac420",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

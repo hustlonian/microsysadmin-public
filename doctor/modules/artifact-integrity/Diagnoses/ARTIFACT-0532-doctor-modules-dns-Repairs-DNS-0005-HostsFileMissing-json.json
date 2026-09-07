@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0532",
+        "check_id": "ARTIFACT-C0532",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/dns/Repairs/DNS-0005-HostsFileMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/dns/Repairs/DNS-0005-HostsFileMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 62683c9a40dba68eeef0bdb16bf59dcfc3dccfe4c69ec8d0d02b5010730f376f with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0532"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

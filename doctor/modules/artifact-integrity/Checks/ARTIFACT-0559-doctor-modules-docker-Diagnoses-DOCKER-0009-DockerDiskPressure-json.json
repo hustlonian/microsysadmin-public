@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0559",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Diagnoses/DOCKER-0009-DockerDiskPressure.json",
+        "summary": "Verify doctor/modules/docker/Diagnoses/DOCKER-0009-DockerDiskPressure.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0559",
+        "path": "{APP_ROOT}/doctor/modules/docker/Diagnoses/DOCKER-0009-DockerDiskPressure.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a417979c9b7e4cab95185b48ae528ee97a8f7f5f0c46f30a0f1aedc313b938b3",
+        "sha256": "a417979c9b7e4cab95185b48ae528ee97a8f7f5f0c46f30a0f1aedc313b938b3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2100",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/phpmailer/phpmailer/src/POP3.php",
+        "summary": "Verify vendor/phpmailer/phpmailer/src/POP3.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2100",
+        "path": "{APP_ROOT}/vendor/phpmailer/phpmailer/src/POP3.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ca5878d97c447d7129b1629a805091ef103cac7dac5f6b87cebb5d8510941087",
+        "sha256": "ca5878d97c447d7129b1629a805091ef103cac7dac5f6b87cebb5d8510941087",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

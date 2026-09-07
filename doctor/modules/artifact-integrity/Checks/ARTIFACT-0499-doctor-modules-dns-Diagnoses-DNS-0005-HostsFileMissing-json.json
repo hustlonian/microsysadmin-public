@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0499",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Diagnoses/DNS-0005-HostsFileMissing.json",
+        "summary": "Verify doctor/modules/dns/Diagnoses/DNS-0005-HostsFileMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0499",
+        "path": "{APP_ROOT}/doctor/modules/dns/Diagnoses/DNS-0005-HostsFileMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/421594fcc9b95516e2e26392ed07575d0b1e925281aad61803bf1df02819c84d",
+        "sha256": "421594fcc9b95516e2e26392ed07575d0b1e925281aad61803bf1df02819c84d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

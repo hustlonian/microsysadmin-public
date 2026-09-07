@@ -1,0 +1,21 @@
+# Linux batch 001 implementation report
+
+- Module: linux
+- Batch: 001
+- Repair IDs added: LINUX-0001, LINUX-0002, LINUX-0003, LINUX-0004, LINUX-0005, LINUX-0006, LINUX-0007, LINUX-0008, LINUX-0009, LINUX-0010
+- Checks added: 10
+- Diagnoses added: 10
+- Automated or approval-controlled repairs implemented: 3
+- Report-only findings added: 7
+- Fixtures added: 10
+- Contract test cases added: 10
+- Verification methods added: 10 independent probe replays
+- Rollback methods added: 0
+- Compatibility coverage: Linux, XAMPP/LAMPP, PHP 8.2+, with environment support gates
+- Unsupported conditions: skipped when commands, framework context, queue context, container context, or primary web-server context is absent
+- Safety decisions: destructive and ambiguous operations remain report-only; commands use structured arguments; scoped mutations are locked and verified
+- Remaining long-term inventory target: 70 checks and 30 repairs
+- Recommended next batch: add the next highest-value distribution/version-specific causes without reusing IDs
+- Files changed: module manifest, Module.php, 10 check units, 10 diagnosis units, 10 repair/report units, 10 fixtures, 10 documentation pages, inventory, test cases, README
+- Commands required to test: `/opt/lampp/bin/php doctor/tests/run.php` and `doctor/bin/doctor scan --module=linux`
+- Test results: recorded in `doctor/reports/IMPLEMENTATION-REPORT-2026-08-01.md`; this file does not fabricate future results.

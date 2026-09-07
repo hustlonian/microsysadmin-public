@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0768",
+    "artifact": "doctor/modules/linux/Checks/LINUX-0004-CaCertificatesMissing.json",
+    "baseline_sha256": "07521425ab4945267d0c1fd2191ac5457e1818fe9065699b61e6c5c1d62aa073",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,17 @@
+{
+    "repair_id": "ARTIFACT-2178",
+    "directory": "doctor/modules/apache/Diagnoses",
+    "mode": "0755",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "a non-symbolic directory passes regardless of its independently owned mode state",
+        "missing_chain": "missing manifest parents are created, verified, and removed in reverse order on rollback",
+        "obstruction": "symbolic or non-directory obstruction is excluded from automatic mutation"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

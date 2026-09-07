@@ -1,0 +1,14 @@
+{
+    "repair_id": "GIT-0007",
+    "commercial_tier": "professional",
+    "customer_impact": "restores a bounded supported state",
+    "support_issue_family": "git-stale-lock",
+    "automation_class": "AUTO_WITH_BACKUP",
+    "risk_level": "LOW",
+    "sdk_primitives": [
+        "quarantine_stale_git_lock"
+    ],
+    "quality_status": "contract-ready",
+    "rollback_supported": true,
+    "verification_defined": true
+}

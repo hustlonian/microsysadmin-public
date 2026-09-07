@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1926",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/LogstashFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/LogstashFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1926",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/LogstashFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/40c84cee9d935f9606e67e8e236458f16423dfb6b7cb2355f3cb4f0c4b060890",
+        "sha256": "40c84cee9d935f9606e67e8e236458f16423dfb6b7cb2355f3cb4f0c4b060890",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

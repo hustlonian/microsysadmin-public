@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1852",
+    "artifact": "scripts/rollback-cli.php",
+    "baseline_sha256": "ad12b1738d22d137725c9d1620009eed0053ec79655d218abdb06bd82d915e80",
+    "mode": "0755",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

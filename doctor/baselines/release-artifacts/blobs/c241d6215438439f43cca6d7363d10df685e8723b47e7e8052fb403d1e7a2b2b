@@ -1,0 +1,24 @@
+{
+    "repair_id": "CRON-0004",
+    "diagnosis_id": "CRON-D0004",
+    "check_id": "CRON-C0004",
+    "primitive": "ensure_crontab_entry",
+    "healthy_fixture": {
+        "probe_expected": true
+    },
+    "failure_fixture": {
+        "probe_expected": false
+    },
+    "assertions": [
+        "detection",
+        "root-cause",
+        "exact-plan",
+        "backup",
+        "repair",
+        "verification",
+        "rollback",
+        "verification-after-rollback",
+        "audit",
+        "idempotency"
+    ]
+}

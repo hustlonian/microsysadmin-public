@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2008",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Logger.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Logger.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2008",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Logger.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/fe7a0a0a924ff3b2174c8b7b8decdf6691fb3daea0994b2b60a7218a93acdfaf",
+        "sha256": "fe7a0a0a924ff3b2174c8b7b8decdf6691fb3daea0994b2b60a7218a93acdfaf",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

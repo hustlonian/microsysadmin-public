@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1802",
+    "artifact": "doctor/sdk/Primitives/DoctorPrivilegedPrimitive.php",
+    "baseline_sha256": "00c7af42d59b78c0d64c27b501c03d2616f4f7556a4853c0c36908b9cf76024d",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

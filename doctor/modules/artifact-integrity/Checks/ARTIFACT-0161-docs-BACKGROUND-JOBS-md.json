@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0161",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/BACKGROUND-JOBS.md",
+        "summary": "Verify docs/BACKGROUND-JOBS.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0161",
+        "path": "{APP_ROOT}/docs/BACKGROUND-JOBS.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8cc3e233ca3b38663e91e98ceb4e6d958269685e3bc5bcf60068ff69874bf26c",
+        "sha256": "8cc3e233ca3b38663e91e98ceb4e6d958269685e3bc5bcf60068ff69874bf26c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

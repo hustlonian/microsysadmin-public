@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0190",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/SECOND-MACHINE-CANARY.md",
+        "summary": "Verify docs/SECOND-MACHINE-CANARY.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0190",
+        "path": "{APP_ROOT}/docs/SECOND-MACHINE-CANARY.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/eb54ebf5f9d98337ec595ac221d79bcc5dc3bca18d19a1bab0a3b5f31471590a",
+        "sha256": "eb54ebf5f9d98337ec595ac221d79bcc5dc3bca18d19a1bab0a3b5f31471590a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

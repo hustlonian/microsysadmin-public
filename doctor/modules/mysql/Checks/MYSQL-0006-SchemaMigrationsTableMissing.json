@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "MYSQL-C0006",
+        "module": "mysql",
+        "name": "Restore the missing schema-migrations table",
+        "summary": "Restore the missing schema-migrations table.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mysql",
+            "schema-migrations-table-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "database_table_exists",
+        "database": "microsysadmin",
+        "table": "schema_migrations"
+    },
+    "failure_status": "FAIL"
+}

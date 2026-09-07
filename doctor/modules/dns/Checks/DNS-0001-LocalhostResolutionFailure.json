@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "DNS-C0001",
+        "module": "dns",
+        "name": "Restore localhost name resolution",
+        "summary": "Restore localhost name resolution.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "dns",
+            "localhost-resolution-failure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "dns_resolves",
+        "host": "localhost"
+    },
+    "failure_status": "FAIL"
+}

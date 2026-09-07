@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "FILESYSTEM-C0009",
+        "module": "filesystem",
+        "name": "Repair a broken project public storage link",
+        "summary": "Repair a broken project public storage link.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "filesystem",
+            "broken-public-storage-link"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "symlink_wrong_target",
+        "path": "{PROJECT}/public/storage",
+        "target": "{PROJECT}/storage/app/public"
+    },
+    "failure_status": "FAIL"
+}

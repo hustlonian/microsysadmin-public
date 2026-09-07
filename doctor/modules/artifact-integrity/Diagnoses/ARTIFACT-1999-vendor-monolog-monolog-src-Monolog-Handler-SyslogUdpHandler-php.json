@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1999",
+        "check_id": "ARTIFACT-C1999",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/monolog/monolog/src/Monolog/Handler/SyslogUdpHandler.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/monolog/monolog/src/Monolog/Handler/SyslogUdpHandler.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 577d7733061ff27dff04988cd0efce07b8165264e780b470468596e9d6e50989 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1999"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

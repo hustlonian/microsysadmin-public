@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1528",
+        "check_id": "ARTIFACT-C1528",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/redis/Docs/REDIS-0001.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/redis/Docs/REDIS-0001.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 7c62c99d109024bc5603ca61848db42be7b10c99c5e2331d97484f96b150bf1f with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1528"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

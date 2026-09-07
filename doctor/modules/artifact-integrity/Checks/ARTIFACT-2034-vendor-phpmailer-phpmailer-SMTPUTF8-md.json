@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2034",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/phpmailer/phpmailer/SMTPUTF8.md",
+        "summary": "Verify vendor/phpmailer/phpmailer/SMTPUTF8.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2034",
+        "path": "{APP_ROOT}/vendor/phpmailer/phpmailer/SMTPUTF8.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/eb3409266849cdb958db6d939b70a31097767f87e0e1003353528a746423a013",
+        "sha256": "eb3409266849cdb958db6d939b70a31097767f87e0e1003353528a746423a013",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

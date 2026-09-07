@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0093",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/HttpHubClient.php",
+        "summary": "Verify classes/HttpHubClient.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0093",
+        "path": "{APP_ROOT}/classes/HttpHubClient.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/785494ecc3ae0015ffab41b94fe79330cfbb7bf12a71c79d43785e84224de32a",
+        "sha256": "785494ecc3ae0015ffab41b94fe79330cfbb7bf12a71c79d43785e84224de32a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

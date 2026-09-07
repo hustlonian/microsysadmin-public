@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0937",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Checks/NGINX-0005-NginxConfigurationMissing.json",
+        "summary": "Verify doctor/modules/nginx/Checks/NGINX-0005-NginxConfigurationMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0937",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Checks/NGINX-0005-NginxConfigurationMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/79743967bf4944a34c049163af0d5d240fda23db249012a2f71f8c1fe52f93be",
+        "sha256": "79743967bf4944a34c049163af0d5d240fda23db249012a2f71f8c1fe52f93be",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

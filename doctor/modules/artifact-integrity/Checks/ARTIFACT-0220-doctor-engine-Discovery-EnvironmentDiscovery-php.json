@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0220",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Discovery/EnvironmentDiscovery.php",
+        "summary": "Verify doctor/engine/Discovery/EnvironmentDiscovery.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0220",
+        "path": "{APP_ROOT}/doctor/engine/Discovery/EnvironmentDiscovery.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e1c29f22dd56db573ea9b3ab56cc333712510283839a8a67d254f443c01095c6",
+        "sha256": "e1c29f22dd56db573ea9b3ab56cc333712510283839a8a67d254f443c01095c6",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

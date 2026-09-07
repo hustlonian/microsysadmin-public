@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0833",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Diagnoses/MAIL-0003-SmtpEndpointUnavailable.json",
+        "summary": "Verify doctor/modules/mail/Diagnoses/MAIL-0003-SmtpEndpointUnavailable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0833",
+        "path": "{APP_ROOT}/doctor/modules/mail/Diagnoses/MAIL-0003-SmtpEndpointUnavailable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/629287d3f9a5f53bf768ea7f142a8bd362231770efc6f8a217857497dfc449d4",
+        "sha256": "629287d3f9a5f53bf768ea7f142a8bd362231770efc6f8a217857497dfc449d4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

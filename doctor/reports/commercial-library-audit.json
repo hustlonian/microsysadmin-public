@@ -1,0 +1,649 @@
+{
+    "generated_at": "2026-08-02T21:01:09+00:00",
+    "counts": {
+        "definitions": 2682,
+        "checks": 2682,
+        "diagnoses": 2682,
+        "inventory_records": 3304,
+        "executable": 2547,
+        "fully_automatic": 2528,
+        "approval_required": 19,
+        "report_only": 135,
+        "prohibited": 0
+    },
+    "coverage": {
+        "automation_percent": 94.969999999999998863131622783839702606201171875,
+        "fully_automatic_percent": 94.2600000000000051159076974727213382720947265625,
+        "rollback_percent": 100,
+        "verification_percent": 100,
+        "diagnosis_percent": 100,
+        "documentation_percent": 100,
+        "contract_percent": 100,
+        "audit_metadata_percent": 100,
+        "changelog_percent": 100,
+        "commercial_metadata_percent": 100,
+        "sdk_action_percent": 100
+    },
+    "coverage_counts": {
+        "rollback": 2547,
+        "verification": 2547,
+        "diagnosis": 2682,
+        "documentation": 2682,
+        "fixture": 2682,
+        "contract": 2682,
+        "audit_metadata": 2682,
+        "changelog": 2682,
+        "commercial_metadata": 2682,
+        "sdk_actions": 2547
+    },
+    "modules": {
+        "apache": {
+            "display_name": "Apache",
+            "definitions": 10,
+            "executable": 1,
+            "report_only": 9,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "artifact-integrity": {
+            "display_name": "Artifact Integrity",
+            "definitions": 2500,
+            "executable": 2500,
+            "report_only": 0,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "backups": {
+            "display_name": "Backups",
+            "definitions": 10,
+            "executable": 3,
+            "report_only": 7,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "composer": {
+            "display_name": "Composer",
+            "definitions": 9,
+            "executable": 2,
+            "report_only": 7,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "cron": {
+            "display_name": "Cron",
+            "definitions": 8,
+            "executable": 4,
+            "report_only": 4,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "dns": {
+            "display_name": "DNS",
+            "definitions": 8,
+            "executable": 0,
+            "report_only": 8,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "docker": {
+            "display_name": "Docker",
+            "definitions": 10,
+            "executable": 2,
+            "report_only": 8,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "filesystem": {
+            "display_name": "Filesystem",
+            "definitions": 8,
+            "executable": 3,
+            "report_only": 5,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "git": {
+            "display_name": "Git",
+            "definitions": 10,
+            "executable": 1,
+            "report_only": 9,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "laravel": {
+            "display_name": "Laravel",
+            "definitions": 10,
+            "executable": 9,
+            "report_only": 1,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "linux": {
+            "display_name": "Linux",
+            "definitions": 7,
+            "executable": 1,
+            "report_only": 6,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "mail": {
+            "display_name": "Mail",
+            "definitions": 8,
+            "executable": 2,
+            "report_only": 6,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "mysql": {
+            "display_name": "MySQL and MariaDB",
+            "definitions": 9,
+            "executable": 1,
+            "report_only": 8,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "nginx": {
+            "display_name": "Nginx",
+            "definitions": 10,
+            "executable": 2,
+            "report_only": 8,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "performance": {
+            "display_name": "Performance",
+            "definitions": 8,
+            "executable": 3,
+            "report_only": 5,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "php": {
+            "display_name": "PHP",
+            "definitions": 8,
+            "executable": 0,
+            "report_only": 8,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "queue": {
+            "display_name": "Queue and Supervisor",
+            "definitions": 10,
+            "executable": 3,
+            "report_only": 7,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "redis": {
+            "display_name": "Redis",
+            "definitions": 10,
+            "executable": 2,
+            "report_only": 8,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "security": {
+            "display_name": "Security",
+            "definitions": 10,
+            "executable": 4,
+            "report_only": 6,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "ssl": {
+            "display_name": "SSL/TLS",
+            "definitions": 10,
+            "executable": 2,
+            "report_only": 8,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        },
+        "xampp": {
+            "display_name": "XAMPP/LAMPP",
+            "definitions": 9,
+            "executable": 2,
+            "report_only": 7,
+            "rollback_debt": 0,
+            "quality_defects": 0,
+            "quality_gate": "PASS"
+        }
+    },
+    "modules_completed": [
+        "apache",
+        "artifact-integrity",
+        "backups",
+        "composer",
+        "cron",
+        "dns",
+        "docker",
+        "filesystem",
+        "git",
+        "laravel",
+        "linux",
+        "mail",
+        "mysql",
+        "nginx",
+        "performance",
+        "php",
+        "queue",
+        "redis",
+        "security",
+        "ssl",
+        "xampp"
+    ],
+    "modules_needing_work": [],
+    "sdk_primitives": {
+        "artisan_command": {
+            "type": "artisan_command",
+            "category": "laravel",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "BackupManager plus hash-guarded removal of created effect files",
+            "safety_class": "artisan-command-and-effect-allowlist",
+            "allowed_commands": [
+                "config:cache",
+                "config:clear"
+            ],
+            "required_fields": [
+                "command",
+                "effects"
+            ]
+        },
+        "atomic_write": {
+            "type": "atomic_write",
+            "category": "filesystem",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "backup-manager",
+            "internal_backup": false,
+            "safety_class": "bounded-path",
+            "required_fields": [
+                "path",
+                "contents"
+            ]
+        },
+        "chmod": {
+            "type": "chmod",
+            "category": "filesystem",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "backup-manager",
+            "internal_backup": false,
+            "safety_class": "bounded-path",
+            "required_fields": [
+                "path",
+                "mode"
+            ]
+        },
+        "composer_command": {
+            "type": "composer_command",
+            "category": "composer",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "bounded exact vendor-tree snapshot or exact created-tree removal",
+            "internal_backup": true,
+            "safety_class": "locked-offline-no-plugins-no-scripts",
+            "allowed_commands": [
+                "install-locked",
+                "dump-autoload-optimized"
+            ],
+            "required_fields": [
+                "command"
+            ]
+        },
+        "copy_file": {
+            "type": "copy_file",
+            "category": "filesystem",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "automatic",
+            "internal_backup": true,
+            "safety_class": "bounded-path",
+            "required_fields": [
+                "source",
+                "path"
+            ]
+        },
+        "create_directory": {
+            "type": "create_directory",
+            "category": "filesystem",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "reverse identity-and-mode-guarded removal of helper-created empty directory chain",
+            "internal_backup": true,
+            "safety_class": "bounded-identity-guarded-directory-chain",
+            "required_fields": [
+                "path"
+            ]
+        },
+        "create_known_directory": {
+            "type": "create_known_directory",
+            "category": "privileged-filesystem",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "remove only the exact helper-created directory while its identity is unchanged and it remains empty",
+            "internal_backup": true,
+            "safety_class": "fixed-token-empty-directory",
+            "required_fields": [
+                "target",
+                "path"
+            ],
+            "allowed_targets": [
+                "xampp-logs",
+                "xampp-ssl-key"
+            ]
+        },
+        "create_symlink": {
+            "type": "create_symlink",
+            "category": "filesystem",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "automatic",
+            "internal_backup": true,
+            "safety_class": "bounded-path",
+            "required_fields": [
+                "path",
+                "target"
+            ]
+        },
+        "deduplicate_crontab_entry": {
+            "type": "deduplicate_crontab_entry",
+            "category": "cron",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "complete-crontab-snapshot",
+            "internal_backup": true,
+            "safety_class": "structured-command-exact-marker",
+            "required_fields": [
+                "marker"
+            ]
+        },
+        "doctor_action": {
+            "type": "doctor_action",
+            "category": "privileged-local",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "helper-owned validated backup reference",
+            "internal_backup": true,
+            "safety_class": "exact-privileged-helper-allowlist",
+            "allowed_actions": [
+                "enable-opcache",
+                "renew-local-tls"
+            ],
+            "required_fields": [
+                "action",
+                "path"
+            ]
+        },
+        "ensure_crontab_entry": {
+            "type": "ensure_crontab_entry",
+            "category": "cron",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "complete-crontab-snapshot",
+            "internal_backup": true,
+            "safety_class": "structured-command-exact-marker",
+            "required_fields": [
+                "schedule",
+                "command",
+                "marker"
+            ]
+        },
+        "ensure_crontab_line": {
+            "type": "ensure_crontab_line",
+            "category": "cron",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "complete-crontab-snapshot",
+            "internal_backup": true,
+            "safety_class": "structured-command-exact-marker",
+            "required_fields": [
+                "schedule",
+                "script",
+                "marker"
+            ]
+        },
+        "quarantine_stale_git_lock": {
+            "type": "quarantine_stale_git_lock",
+            "category": "git",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "exact lock snapshot restored only while the repaired path remains absent",
+            "internal_backup": true,
+            "safety_class": "aged-unowned-exact-git-index-lock",
+            "required_fields": [
+                "repair_id",
+                "path",
+                "minimum_age_seconds"
+            ]
+        },
+        "repair_symlink": {
+            "type": "repair_symlink",
+            "category": "filesystem",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "automatic",
+            "internal_backup": true,
+            "safety_class": "bounded-path",
+            "required_fields": [
+                "path",
+                "target"
+            ]
+        },
+        "restore_managed_artifact": {
+            "type": "restore_managed_artifact",
+            "category": "filesystem",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "automatic",
+            "internal_backup": true,
+            "safety_class": "exact-release-manifest",
+            "required_fields": [
+                "repair_id",
+                "path",
+                "baseline",
+                "sha256",
+                "mode"
+            ]
+        },
+        "restore_managed_directory": {
+            "type": "restore_managed_directory",
+            "category": "filesystem",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "automatic",
+            "internal_backup": true,
+            "safety_class": "exact-release-manifest",
+            "required_fields": [
+                "repair_id",
+                "path",
+                "mode",
+                "condition"
+            ]
+        },
+        "run_command": {
+            "type": "run_command",
+            "category": "command",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": "definition-dependent",
+            "rollback": "backup-manager-or-compensating-action",
+            "safety_class": "structured-command",
+            "required_fields": [
+                "command"
+            ]
+        },
+        "service_action": {
+            "type": "service_action",
+            "category": "service",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "captured-pre-repair-running-or-enabled-state",
+            "internal_backup": true,
+            "safety_class": "reversible-service-state-transition",
+            "allowed_actions": [
+                "start",
+                "stop",
+                "enable",
+                "disable"
+            ],
+            "required_fields": [
+                "service",
+                "action"
+            ]
+        },
+        "set_env_value": {
+            "type": "set_env_value",
+            "category": "configuration",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "secret-safe exact file snapshot with post-repair hash guard",
+            "internal_backup": true,
+            "safety_class": "allowlisted-production-dotenv-transition",
+            "required_fields": [
+                "repair_id",
+                "path",
+                "key",
+                "value",
+                "guard_key",
+                "guard_value"
+            ],
+            "allowed_key_values": {
+                "APP_DEBUG": [
+                    "false"
+                ]
+            }
+        },
+        "time_sync": {
+            "type": "time_sync",
+            "category": "linux",
+            "local_only": true,
+            "structured_arguments": true,
+            "reversible": true,
+            "rollback": "restore exact prior NTP-enabled state through scoped helper",
+            "internal_backup": true,
+            "safety_class": "boolean-time-sync-state",
+            "required_fields": [
+                "enabled"
+            ]
+        }
+    },
+    "duplicate_logic": {
+        "repeated_action_signatures": [
+            {
+                "count": 2,
+                "repair_ids": [
+                    "COMPOSER-0005",
+                    "LARAVEL-0003"
+                ],
+                "signature": "{\"type\":\"composer_command\",\"command\":\"install-locked\",\"timeout\":600,\"max_files\":50000,\"max_bytes\":536870912,\"description\":\"Install only locally cached locked dependencies with plugins, scripts, interaction, and network disabled.\"}"
+            },
+            {
+                "count": 2,
+                "repair_ids": [
+                    "COMPOSER-0006",
+                    "PERFORMANCE-0007"
+                ],
+                "signature": "{\"type\":\"composer_command\",\"command\":\"dump-autoload-optimized\",\"timeout\":300,\"max_files\":50000,\"max_bytes\":536870912,\"description\":\"Regenerate optimized autoload metadata with plugins, scripts, interaction, and network disabled.\"}"
+            }
+        ],
+        "repeated_command_signatures": [
+            {
+                "count": 2,
+                "repair_ids": [
+                    "COMPOSER-0005",
+                    "LARAVEL-0003"
+                ],
+                "signature": "\"install-locked\""
+            },
+            {
+                "count": 2,
+                "repair_ids": [
+                    "COMPOSER-0006",
+                    "PERFORMANCE-0007"
+                ],
+                "signature": "\"dump-autoload-optimized\""
+            }
+        ],
+        "repeated_verification_signatures": [
+            {
+                "count": 2,
+                "repair_ids": [
+                    "APACHE-0002",
+                    "XAMPP-0006"
+                ],
+                "signature": "{\"type\":\"service_active\",\"service\":\"apache\"}"
+            },
+            {
+                "count": 2,
+                "repair_ids": [
+                    "COMPOSER-0006",
+                    "LARAVEL-0003"
+                ],
+                "signature": "{\"type\":\"file_exists\",\"path\":\"{PROJECT}/vendor/autoload.php\"}"
+            }
+        ]
+    },
+    "defects": {
+        "duplicate_ids": [],
+        "orphan_checks": [],
+        "orphan_diagnoses": [],
+        "unreachable_repairs": [],
+        "unsafe_automation": [],
+        "unknown_primitives": [],
+        "missing_documentation": [],
+        "missing_fixtures": [],
+        "missing_contracts": [],
+        "missing_changelog": [],
+        "missing_commercial_metadata": [],
+        "rollback_debt": [],
+        "audit_primitive_mismatch": [],
+        "orphan_test_cases": [],
+        "duplicate_lifecycle_owners": []
+    },
+    "quality_score": 100,
+    "scale_progress": {
+        "definition_target": 5000,
+        "definition_percent": 53.6400000000000005684341886080801486968994140625,
+        "executable_target": 2500,
+        "executable_percent": 101.8799999999999954525264911353588104248046875
+    },
+    "commercial_readiness_score": 93.3299999999999982946974341757595539093017578125
+}

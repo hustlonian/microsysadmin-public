@@ -1,0 +1,47 @@
+[
+    {
+        "repair_id": "COMPOSER-0001",
+        "fixture": "../Fixtures/COMPOSER-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "COMPOSER-0002",
+        "fixture": "../Fixtures/COMPOSER-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "COMPOSER-0003",
+        "fixture": "../Fixtures/COMPOSER-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "COMPOSER-0004",
+        "fixture": "../Fixtures/COMPOSER-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "COMPOSER-0005",
+        "fixture": "../Fixtures/COMPOSER-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "COMPOSER-0006",
+        "fixture": "../Fixtures/COMPOSER-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "COMPOSER-0007",
+        "fixture": "../Fixtures/COMPOSER-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "COMPOSER-0008",
+        "fixture": "../Fixtures/COMPOSER-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "COMPOSER-0009",
+        "fixture": "../Fixtures/COMPOSER-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

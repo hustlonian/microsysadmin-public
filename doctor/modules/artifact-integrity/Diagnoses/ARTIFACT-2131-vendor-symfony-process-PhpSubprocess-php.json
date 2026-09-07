@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2131",
+        "check_id": "ARTIFACT-C2131",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/symfony/process/PhpSubprocess.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/symfony/process/PhpSubprocess.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 705daadf547b5ffe363185c9fcfeab4df73850e4fc4112658f99f0663070f8f7 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2131"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

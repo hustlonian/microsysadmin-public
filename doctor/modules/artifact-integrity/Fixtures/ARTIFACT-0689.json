@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0689",
+    "artifact": "doctor/modules/git/Fixtures/GIT-0006.json",
+    "baseline_sha256": "c04ffda6d9e184876215a720f770e2a74b319289ca04c24b53c03ee74a01e4d9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

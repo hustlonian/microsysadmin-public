@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0307",
+    "artifact": "doctor/modules/apache/Repairs/APACHE-0004-RewriteModuleMissing.json",
+    "baseline_sha256": "0b43608688999003295b87c0c8e4f14b2ad3b41441b122f0758d34978ec77e53",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,133 @@
+{
+    "metadata": {
+        "repair_id": "CRON-0005",
+        "module": "cron",
+        "name": "Remove duplicate Laravel scheduler entries",
+        "summary": "Remove duplicate Laravel scheduler entries.",
+        "problem_description": "Remove duplicate Laravel scheduler entries.",
+        "symptoms": [
+            "Remove duplicate Laravel scheduler entries."
+        ],
+        "probable_causes": [
+            "The observed duplicate laravel scheduler entry condition differs from the required state."
+        ],
+        "severity": "MEDIUM",
+        "risk_level": "LOW",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "default_execution_policy": "safe-with-backup",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "not framework-dependent"
+        ],
+        "required_commands": [
+            "crontab"
+        ],
+        "required_packages": [],
+        "required_permissions": [
+            "bounded local repair scope"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [],
+        "files_modified": [],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "complete service-account crontab snapshot with post-repair hash guard",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "<1 minute",
+        "verification_method": "Re-run the independent CRON-C0005 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "cron",
+            "duplicate-laravel-scheduler-entry",
+            "sdk-generated",
+            "deduplicate_crontab_entry"
+        ],
+        "documentation_reference": "modules/cron/Docs/CRON-0005.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores a bounded supported state",
+        "support_issue_family": "laravel-scheduler",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "command_occurrences",
+        "command": [
+            "crontab",
+            "-l"
+        ],
+        "needle": "# MicroSysAdmin Doctor CRON-0004",
+        "minimum": 0,
+        "maximum": 1,
+        "timeout": 20
+    },
+    "actions": [
+        {
+            "type": "deduplicate_crontab_entry",
+            "marker": "MicroSysAdmin Doctor CRON-0004",
+            "description": "Keep the first exact Doctor-managed Laravel scheduler entry and remove only later entries with the same permanent marker."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "command_occurrences",
+        "command": [
+            "crontab",
+            "-l"
+        ],
+        "needle": "# MicroSysAdmin Doctor CRON-0004",
+        "minimum": 0,
+        "maximum": 1,
+        "timeout": 20
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "complete service-account crontab snapshot with post-repair hash guard",
+        "primitive": "deduplicate_crontab_entry",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.cron-0005",
+        "primitive": "deduplicate_crontab_entry",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "laravel-scheduler",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

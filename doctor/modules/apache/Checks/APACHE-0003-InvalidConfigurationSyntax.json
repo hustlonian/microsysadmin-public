@@ -1,0 +1,32 @@
+{
+    "metadata": {
+        "check_id": "APACHE-C0003",
+        "module": "apache",
+        "name": "Correct invalid Apache configuration syntax",
+        "summary": "Correct invalid Apache configuration syntax.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "apache",
+            "invalid-configuration-syntax"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "apache",
+            "xampp"
+        ]
+    },
+    "requires_commands": [
+        "xampp-httpd"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "xampp-httpd",
+            "-t"
+        ],
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

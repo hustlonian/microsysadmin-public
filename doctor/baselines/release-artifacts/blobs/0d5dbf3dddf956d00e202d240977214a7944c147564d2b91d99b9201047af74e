@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "PERFORMANCE-C0006",
+        "module": "performance",
+        "name": "Enable correctly bounded Apache KeepAlive",
+        "summary": "Enable correctly bounded Apache KeepAlive.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "performance",
+            "apache-keepalive-disabled"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "/opt/lampp/etc/extra/httpd-default.conf",
+        "contains": "KeepAlive On"
+    },
+    "failure_status": "FAIL"
+}

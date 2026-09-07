@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0773",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Checks/LINUX-0009-SystemLogDirectoryMissing.json",
+        "summary": "Verify doctor/modules/linux/Checks/LINUX-0009-SystemLogDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0773",
+        "path": "{APP_ROOT}/doctor/modules/linux/Checks/LINUX-0009-SystemLogDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4fb7e33cd6bb6354d199915d85f32724ee3b554461de5e7ec2ad866ff00bc3e7",
+        "sha256": "4fb7e33cd6bb6354d199915d85f32724ee3b554461de5e7ec2ad866ff00bc3e7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

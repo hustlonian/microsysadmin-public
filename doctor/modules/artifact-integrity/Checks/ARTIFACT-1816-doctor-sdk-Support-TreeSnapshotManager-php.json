@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1816",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Support/TreeSnapshotManager.php",
+        "summary": "Verify doctor/sdk/Support/TreeSnapshotManager.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1816",
+        "path": "{APP_ROOT}/doctor/sdk/Support/TreeSnapshotManager.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d9e1cfd523788b39a15ce27aeca6feb27bb1d95aaf0bc4249a62dd7512e4a30a",
+        "sha256": "d9e1cfd523788b39a15ce27aeca6feb27bb1d95aaf0bc4249a62dd7512e4a30a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

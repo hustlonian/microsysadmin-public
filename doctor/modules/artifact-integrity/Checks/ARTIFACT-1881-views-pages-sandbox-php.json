@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1881",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/pages/sandbox.php",
+        "summary": "Verify views/pages/sandbox.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1881",
+        "path": "{APP_ROOT}/views/pages/sandbox.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e932c6809f664cb7861470ac1c0cc2b35a58443dfd58074530396091613fdfdd",
+        "sha256": "e932c6809f664cb7861470ac1c0cc2b35a58443dfd58074530396091613fdfdd",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

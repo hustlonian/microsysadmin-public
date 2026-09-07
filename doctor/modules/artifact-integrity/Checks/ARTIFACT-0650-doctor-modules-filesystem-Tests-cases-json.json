@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0650",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Tests/cases.json",
+        "summary": "Verify doctor/modules/filesystem/Tests/cases.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0650",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Tests/cases.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/984e564b9a5c51d17a28c9e16b57745ac2142c4f619054de03f2f11419933471",
+        "sha256": "984e564b9a5c51d17a28c9e16b57745ac2142c4f619054de03f2f11419933471",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

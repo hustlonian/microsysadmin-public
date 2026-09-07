@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0110",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/MysqlService.php",
+        "summary": "Verify classes/MysqlService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0110",
+        "path": "{APP_ROOT}/classes/MysqlService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b645b893ac90de63bfd18ac4f241a2cb56ce4b1c5725b79ccc5d10d2e296dd1d",
+        "sha256": "b645b893ac90de63bfd18ac4f241a2cb56ce4b1c5725b79ccc5d10d2e296dd1d",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

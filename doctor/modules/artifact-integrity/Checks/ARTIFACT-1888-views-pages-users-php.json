@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1888",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/pages/users.php",
+        "summary": "Verify views/pages/users.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1888",
+        "path": "{APP_ROOT}/views/pages/users.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5c693fb477ad9811422e5d740dbf5aad4f78de983fca350b71c7b2334b752c5e",
+        "sha256": "5c693fb477ad9811422e5d740dbf5aad4f78de983fca350b71c7b2334b752c5e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

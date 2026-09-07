@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0359",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/README.md",
+        "summary": "Verify doctor/modules/backups/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0359",
+        "path": "{APP_ROOT}/doctor/modules/backups/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f9c9ed4321beacc2c04a59a9c00aac109bcd38a854acad3cd78c8ffc62630391",
+        "sha256": "f9c9ed4321beacc2c04a59a9c00aac109bcd38a854acad3cd78c8ffc62630391",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

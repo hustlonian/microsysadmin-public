@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1875",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/pages/laravel.php",
+        "summary": "Verify views/pages/laravel.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1875",
+        "path": "{APP_ROOT}/views/pages/laravel.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f17d527daa29b6b60748184ecc1a38a013410ad639ea134564f8045b5b746ee1",
+        "sha256": "f17d527daa29b6b60748184ecc1a38a013410ad639ea134564f8045b5b746ee1",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

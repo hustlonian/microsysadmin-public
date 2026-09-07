@@ -1,0 +1,19 @@
+[Unit]
+Description=MicroSysAdmin durable job worker
+After=network.target mysql.service mariadb.service
+
+[Service]
+Type=simple
+User=@MICROSYSADMIN_USER@
+Group=@MICROSYSADMIN_GROUP@
+WorkingDirectory=@MICROSYSADMIN_APP_ROOT@
+ExecStart=@MICROSYSADMIN_PHP_BINARY@ @MICROSYSADMIN_APP_ROOT@/scripts/job-worker.php
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=@MICROSYSADMIN_WRITABLE_PATHS@
+
+[Install]
+WantedBy=multi-user.target

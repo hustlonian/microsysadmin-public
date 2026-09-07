@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "GIT-D0003",
+        "check_id": "GIT-C0003",
+        "module": "git",
+        "name": "Recover corrupt Git repository objects diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Recover corrupt Git repository objects.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed repository object corruption condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "GIT-0003"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

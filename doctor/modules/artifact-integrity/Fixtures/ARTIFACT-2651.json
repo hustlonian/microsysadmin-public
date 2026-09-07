@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-2651",
+    "artifact": "scripts/materialize-locked-composer-vendor.php",
+    "baseline_sha256": "7772e0e9190a589e0420a018721184fff332a090fa733a4ed83ce0c56f30fb1c",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

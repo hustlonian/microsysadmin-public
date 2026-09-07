@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "FILESYSTEM-C0010",
+        "module": "filesystem",
+        "name": "Restore unavailable temporary workspace storage",
+        "summary": "Restore unavailable temporary workspace storage.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "filesystem",
+            "temporary-workspace-unavailable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_writable",
+        "path": "/tmp"
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0976",
+        "check_id": "ARTIFACT-C0976",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/nginx/Repairs/NGINX-0001-NginxMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/nginx/Repairs/NGINX-0001-NginxMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 67a7bb89dd067ad63cad792ac981a94bef436448ffbed6fe22c68325e79d4716 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0976"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

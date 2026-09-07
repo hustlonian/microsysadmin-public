@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1559",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Repairs/REDIS-0010-LaravelRedisConfigurationMissing.json",
+        "summary": "Verify doctor/modules/redis/Repairs/REDIS-0010-LaravelRedisConfigurationMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1559",
+        "path": "{APP_ROOT}/doctor/modules/redis/Repairs/REDIS-0010-LaravelRedisConfigurationMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2f61b1d107e133e962cb1f46eb4aa0985901bccabeb2ee55b16b80472c631933",
+        "sha256": "2f61b1d107e133e962cb1f46eb4aa0985901bccabeb2ee55b16b80472c631933",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

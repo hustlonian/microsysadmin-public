@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0228",
+    "artifact": "doctor/engine/Planning/PolicyEngine.php",
+    "baseline_sha256": "14e7ad90c8136a4cb6e5a206646a8d7525e41da8aba0d6539519c185ba9419be",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

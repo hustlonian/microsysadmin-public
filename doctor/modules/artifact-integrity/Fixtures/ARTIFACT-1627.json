@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1627",
+    "artifact": "doctor/modules/security/Repairs/SECURITY-0002-EnvironmentFileWorldAccessible.json",
+    "baseline_sha256": "e507286ee8384567efbd8a1f6675b7a6861ea5ce5f5e9296e8a707cd357feb0a",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

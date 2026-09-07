@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "MAIL-C0001",
+        "module": "mail",
+        "name": "Install a missing sendmail-compatible command",
+        "summary": "Install a missing sendmail-compatible command.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mail",
+            "sendmail-command-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "sendmail"
+    },
+    "failure_status": "FAIL"
+}

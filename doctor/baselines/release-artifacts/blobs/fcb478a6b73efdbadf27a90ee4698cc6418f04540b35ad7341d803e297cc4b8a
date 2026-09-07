@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "APACHE-D0003",
+        "check_id": "APACHE-C0003",
+        "module": "apache",
+        "name": "Correct invalid Apache configuration syntax diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Correct invalid Apache configuration syntax.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed invalid configuration syntax condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "APACHE-0003"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

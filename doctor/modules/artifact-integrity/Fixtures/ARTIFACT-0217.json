@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0217",
+    "artifact": "doctor/engine/Contracts/RepairInterface.php",
+    "baseline_sha256": "ed91be0f7351913df3beb4095547db0df65161f483e9184333b3f295bc290b85",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

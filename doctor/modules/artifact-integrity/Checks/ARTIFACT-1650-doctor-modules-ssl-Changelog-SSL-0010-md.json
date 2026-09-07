@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1650",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Changelog/SSL-0010.md",
+        "summary": "Verify doctor/modules/ssl/Changelog/SSL-0010.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1650",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Changelog/SSL-0010.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f0ff5ff8fd0a10c5b0cbc1038e3e1e0320cefca45ac4c59b57200fee6aebe8f9",
+        "sha256": "f0ff5ff8fd0a10c5b0cbc1038e3e1e0320cefca45ac4c59b57200fee6aebe8f9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

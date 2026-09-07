@@ -1,0 +1,31 @@
+{
+    "metadata": {
+        "check_id": "GIT-C0010",
+        "module": "git",
+        "name": "Configure a missing repository Git author email",
+        "summary": "Configure a missing repository Git author email.",
+        "severity": "LOW",
+        "version": "1.0.0",
+        "tags": [
+            "git",
+            "user-email-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "git"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "git",
+            "config",
+            "--get",
+            "user.email"
+        ],
+        "cwd": "{PROJECT}",
+        "healthy_when_path_not_writable": "{PROJECT}/.git",
+        "timeout": 30
+    },
+    "failure_status": "WARNING"
+}

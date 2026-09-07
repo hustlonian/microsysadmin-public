@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "NGINX-C0001",
+        "module": "nginx",
+        "name": "Install the missing Nginx executable",
+        "summary": "Install the missing Nginx executable.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "nginx",
+            "nginx-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "nginx"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "nginx"
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2012",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Processor/IntrospectionProcessor.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Processor/IntrospectionProcessor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2012",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Processor/IntrospectionProcessor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e6abb7cd2ee5f885d111f5b436feaa2891470da6e0a72cbbb1836c79bf41a85f",
+        "sha256": "e6abb7cd2ee5f885d111f5b436feaa2891470da6e0a72cbbb1836c79bf41a85f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

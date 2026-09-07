@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "DOCKER-D0005",
+        "check_id": "DOCKER-C0005",
+        "module": "docker",
+        "name": "Restore the missing Docker Compose definition diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore the missing Docker Compose definition.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed compose file missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "DOCKER-0005"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

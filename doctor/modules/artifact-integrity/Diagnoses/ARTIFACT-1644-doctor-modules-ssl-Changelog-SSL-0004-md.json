@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1644",
+        "check_id": "ARTIFACT-C1644",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/ssl/Changelog/SSL-0004.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/ssl/Changelog/SSL-0004.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e9ce30b7dd4f5a449fe4a355d55b32920ece2ebd0917359b11715b323eae849a with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1644"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

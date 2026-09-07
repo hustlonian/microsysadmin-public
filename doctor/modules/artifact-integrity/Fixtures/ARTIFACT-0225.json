@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0225",
+    "artifact": "doctor/engine/Logging/DoctorAuditLogger.php",
+    "baseline_sha256": "6329e7a6fcfc0a7fe4e9da677f95b2ab7ee5ad2f883770c9792d6dce97a41db5",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,19 @@
+# GIT-0007
+
+Added executable repair: Remove a verified stale Git index lock.
+
+- Primitive: `quarantine_stale_git_lock`
+- Automation: `AUTO_WITH_BACKUP`
+- Risk: `LOW`
+- Verification: `GIT-C0007`
+- Rollback: automatic
+
+<!-- commercial-contract:start -->
+## Current commercial classification
+
+- Automation: `AUTO_WITH_BACKUP`
+- Primitive: `quarantine_stale_git_lock`
+- Rollback: `supported`
+- Verification: `defined`
+- Commercial status: `contract-ready`
+<!-- commercial-contract:end -->

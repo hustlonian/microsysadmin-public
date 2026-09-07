@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "XAMPP-C0009",
+        "module": "xampp",
+        "name": "Restore the missing XAMPP document root",
+        "summary": "Restore the missing XAMPP document root.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "xampp",
+            "xampp-htdocs-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/opt/lampp/htdocs"
+    },
+    "failure_status": "FAIL"
+}

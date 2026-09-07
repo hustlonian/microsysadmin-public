@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0262",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Checks/APACHE-0002-ApacheServiceStopped.json",
+        "summary": "Verify doctor/modules/apache/Checks/APACHE-0002-ApacheServiceStopped.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0262",
+        "path": "{APP_ROOT}/doctor/modules/apache/Checks/APACHE-0002-ApacheServiceStopped.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/cd65dc15f128358e091b34ad4d44aa7735e2e2f13864850b50a5818ed9d7cb6b",
+        "sha256": "cd65dc15f128358e091b34ad4d44aa7735e2e2f13864850b50a5818ed9d7cb6b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

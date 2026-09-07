@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "SSL-D0008",
+        "check_id": "SSL-C0008",
+        "module": "ssl",
+        "name": "Install the missing Certbot client diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Install the missing Certbot client.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed certbot missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "SSL-0008"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

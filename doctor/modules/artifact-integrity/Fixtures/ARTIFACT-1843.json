@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1843",
+    "artifact": "scripts/install-gate.php",
+    "baseline_sha256": "d02365d259ce33918a06bf2c2274631a9476d68735ba2b75cb7415e52ad56e42",
+    "mode": "0755",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

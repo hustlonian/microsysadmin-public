@@ -1,0 +1,28 @@
+{
+    "metadata": {
+        "check_id": "PERFORMANCE-C0001",
+        "module": "performance",
+        "name": "Enable the missing PHP OPcache extension",
+        "summary": "Enable the missing PHP OPcache extension.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "performance",
+            "opcache-extension-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "xampp-php"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "xampp-php",
+            "-r",
+            "exit(extension_loaded(\"Zend OPcache\") ? 0 : 1);"
+        ],
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

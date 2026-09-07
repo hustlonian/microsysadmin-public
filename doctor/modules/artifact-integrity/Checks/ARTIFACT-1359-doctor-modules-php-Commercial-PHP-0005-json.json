@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1359",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/Commercial/PHP-0005.json",
+        "summary": "Verify doctor/modules/php/Commercial/PHP-0005.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1359",
+        "path": "{APP_ROOT}/doctor/modules/php/Commercial/PHP-0005.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a7470916a74d8aee9215f2f78b6c5a89cfaa8e57e04dac0edb5aa44a3f750c4d",
+        "sha256": "a7470916a74d8aee9215f2f78b6c5a89cfaa8e57e04dac0edb5aa44a3f750c4d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

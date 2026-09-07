@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1680",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Diagnoses/SSL-0010-PrivateKeyDirectoryUnsafe.json",
+        "summary": "Verify doctor/modules/ssl/Diagnoses/SSL-0010-PrivateKeyDirectoryUnsafe.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1680",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Diagnoses/SSL-0010-PrivateKeyDirectoryUnsafe.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/df2d48355d494fcd302e887a2aea4b825c93cec3275f0d720ee6e2a42695bf6c",
+        "sha256": "df2d48355d494fcd302e887a2aea4b825c93cec3275f0d720ee6e2a42695bf6c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

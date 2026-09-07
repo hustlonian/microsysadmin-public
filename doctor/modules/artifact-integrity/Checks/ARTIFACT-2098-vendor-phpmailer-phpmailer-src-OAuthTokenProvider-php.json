@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2098",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/phpmailer/phpmailer/src/OAuthTokenProvider.php",
+        "summary": "Verify vendor/phpmailer/phpmailer/src/OAuthTokenProvider.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2098",
+        "path": "{APP_ROOT}/vendor/phpmailer/phpmailer/src/OAuthTokenProvider.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f2318ea1b2841b2481b636e205c281a733f9de944a71ae403e0b59fa71219572",
+        "sha256": "f2318ea1b2841b2481b636e205c281a733f9de944a71ae403e0b59fa71219572",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

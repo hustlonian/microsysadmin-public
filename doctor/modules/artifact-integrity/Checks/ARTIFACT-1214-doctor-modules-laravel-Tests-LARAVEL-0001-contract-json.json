@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1214",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Tests/LARAVEL-0001.contract.json",
+        "summary": "Verify doctor/modules/laravel/Tests/LARAVEL-0001.contract.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1214",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Tests/LARAVEL-0001.contract.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c5a56ea05b8834ec74a4fa3f477eeb0d6550b830cbaf3afba8d776abd691e69d",
+        "sha256": "c5a56ea05b8834ec74a4fa3f477eeb0d6550b830cbaf3afba8d776abd691e69d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

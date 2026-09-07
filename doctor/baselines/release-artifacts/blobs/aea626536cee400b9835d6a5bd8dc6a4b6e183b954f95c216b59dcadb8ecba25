@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "PHP-D0007",
+        "check_id": "PHP-C0007",
+        "module": "php",
+        "name": "Enable the missing fileinfo extension diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Enable the missing fileinfo extension.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed fileinfo extension missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "PHP-0007"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1605",
+        "check_id": "ARTIFACT-C1605",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/security/Docs/SECURITY-0002.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/security/Docs/SECURITY-0002.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 d3c37d90a473e7e14f09e2e6983199771262e0e50c67d70899ed18143dd046c1 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1605"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

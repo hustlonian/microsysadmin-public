@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0933",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Checks/NGINX-0001-NginxMissing.json",
+        "summary": "Verify doctor/modules/nginx/Checks/NGINX-0001-NginxMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0933",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Checks/NGINX-0001-NginxMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/05ad65d1f93a8fdf30d21b0665373e9ee20903355e98fa70c34a3ba146ec5eaa",
+        "sha256": "05ad65d1f93a8fdf30d21b0665373e9ee20903355e98fa70c34a3ba146ec5eaa",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

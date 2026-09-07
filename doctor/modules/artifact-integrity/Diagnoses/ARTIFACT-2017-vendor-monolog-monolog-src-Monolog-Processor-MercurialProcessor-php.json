@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2017",
+        "check_id": "ARTIFACT-C2017",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/monolog/monolog/src/Monolog/Processor/MercurialProcessor.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/monolog/monolog/src/Monolog/Processor/MercurialProcessor.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 75c2efffcbfe7a1e07964757d854137a8a4edae480b07b78fea90fde904fb03f with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2017"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1444",
+        "check_id": "ARTIFACT-C1444",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/queue/Diagnoses/QUEUE-0004-SupervisorConfigurationInvalid.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/queue/Diagnoses/QUEUE-0004-SupervisorConfigurationInvalid.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e549d1a73f9a93843b5ad8059d38b9cdbb41d5e875789a933d71dd89208ef167 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1444"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

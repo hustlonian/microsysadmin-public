@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2115",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/Exception/InvalidArgumentException.php",
+        "summary": "Verify vendor/symfony/process/Exception/InvalidArgumentException.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2115",
+        "path": "{APP_ROOT}/vendor/symfony/process/Exception/InvalidArgumentException.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/804a50e6fddbd347ef2e58ce1e517bb9b5c0e6e85f3e180aa737a309efa275eb",
+        "sha256": "804a50e6fddbd347ef2e58ce1e517bb9b5c0e6e85f3e180aa737a309efa275eb",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

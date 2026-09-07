@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "CRON-C0001",
+        "module": "cron",
+        "name": "Install the missing crontab command",
+        "summary": "Install the missing crontab command.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "cron",
+            "crontab-command-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "crontab"
+    },
+    "failure_status": "FAIL"
+}

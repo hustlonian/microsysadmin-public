@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2138",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/README.md",
+        "summary": "Verify vendor/symfony/process/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2138",
+        "path": "{APP_ROOT}/vendor/symfony/process/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/39b4a88fa70f43cb9b4640526b266863d503c0eb6901e1d8758171835c2b6f32",
+        "sha256": "39b4a88fa70f43cb9b4640526b266863d503c0eb6901e1d8758171835c2b6f32",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

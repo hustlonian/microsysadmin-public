@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0589",
+    "artifact": "doctor/modules/docker/Repairs/DOCKER-0006-ComposeConfigurationInvalid.json",
+    "baseline_sha256": "3a0e9a93652c4d6e72f94ee33648e87c6937daccbab5555eef5ed591d4add5e5",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

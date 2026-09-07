@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0919",
+        "check_id": "ARTIFACT-C0919",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/mysql/README.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/mysql/README.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 9116629a51614e2257e5420ef865c2321e0fd0f9e60b464212e43c4b297d995d with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0919"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1499",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Checks/REDIS-0003-RedisEndpointUnavailable.json",
+        "summary": "Verify doctor/modules/redis/Checks/REDIS-0003-RedisEndpointUnavailable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1499",
+        "path": "{APP_ROOT}/doctor/modules/redis/Checks/REDIS-0003-RedisEndpointUnavailable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0b1ac7366d71422bf10ff030734e5c56f9cc6fc6123aa4bb7e7035c3a9c6ca6b",
+        "sha256": "0b1ac7366d71422bf10ff030734e5c56f9cc6fc6123aa4bb7e7035c3a9c6ca6b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

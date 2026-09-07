@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0231",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Registry/DefinitionDiagnosis.php",
+        "summary": "Verify doctor/engine/Registry/DefinitionDiagnosis.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0231",
+        "path": "{APP_ROOT}/doctor/engine/Registry/DefinitionDiagnosis.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5fff8f92f5e20ce68c6b8271af4bad36aa67b33a39521d4ae7b724a604f9fd6c",
+        "sha256": "5fff8f92f5e20ce68c6b8271af4bad36aa67b33a39521d4ae7b724a604f9fd6c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

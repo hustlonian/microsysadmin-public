@@ -1,0 +1,13 @@
+[Unit]
+Description=MicroSysAdmin health check
+
+[Service]
+Type=oneshot
+User=@MICROSYSADMIN_USER@
+Group=@MICROSYSADMIN_GROUP@
+WorkingDirectory=@MICROSYSADMIN_APP_ROOT@
+ExecStart=@MICROSYSADMIN_APP_ROOT@/health-check.sh
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=@MICROSYSADMIN_WRITABLE_PATHS@

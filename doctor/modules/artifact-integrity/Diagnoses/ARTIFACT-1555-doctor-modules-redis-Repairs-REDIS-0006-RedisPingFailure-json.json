@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1555",
+        "check_id": "ARTIFACT-C1555",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/redis/Repairs/REDIS-0006-RedisPingFailure.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/redis/Repairs/REDIS-0006-RedisPingFailure.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 671422374012c25d8578d97c3bf647db0052928155f4cf72564f80ddbfd15842 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1555"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

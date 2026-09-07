@@ -1,0 +1,123 @@
+{
+    "metadata": {
+        "repair_id": "ARTIFACT-2515",
+        "module": "artifact-integrity",
+        "name": "Correct managed release directory mode doctor/modules/linux/Docs",
+        "summary": "Correct release directory doctor/modules/linux/Docs to its exact manifest mode.",
+        "problem_description": "The existing managed release directory doctor/modules/linux/Docs has permission-mode drift.",
+        "symptoms": [
+            "directory permission-mode drift"
+        ],
+        "probable_causes": [
+            "unintended permission change"
+        ],
+        "severity": "HIGH",
+        "risk_level": "LOW",
+        "automation_class": "AUTO_SAFE",
+        "default_execution_policy": "safe",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "all local MicroSysAdmin deployments"
+        ],
+        "supported_versions": [
+            "release baseline schema 3"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "not framework-dependent"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "write access to this application-owned directory chain"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [],
+        "files_modified": [],
+        "directories_modified": [
+            "{APP_ROOT}/doctor/modules/linux/Docs"
+        ],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "Primitive-owned exact device/inode identity and prior-mode journal.",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "<1 second",
+        "verification_method": "Re-run ARTIFACT-C2515 and require the existing non-symbolic directory to have the exact manifest mode.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "artifact-integrity",
+            "directory-topology",
+            "local-only",
+            "zero-interaction",
+            "identity-guarded-rollback",
+            "mode-drift"
+        ],
+        "documentation_reference": "modules/artifact-integrity/Docs/managed-directory-restoration.md"
+    },
+    "confidence": 1,
+    "detection": {
+        "type": "managed_directory_mode",
+        "repair_id": "ARTIFACT-2515",
+        "path": "{APP_ROOT}/doctor/modules/linux/Docs",
+        "mode": 493,
+        "condition": "mode"
+    },
+    "actions": [
+        {
+            "type": "restore_managed_directory",
+            "repair_id": "ARTIFACT-2515",
+            "path": "{APP_ROOT}/doctor/modules/linux/Docs",
+            "mode": 493,
+            "condition": "mode",
+            "description": "Correct the existing release directory doctor/modules/linux/Docs to its exact manifest mode."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "managed_directory_mode",
+        "repair_id": "ARTIFACT-2515",
+        "path": "{APP_ROOT}/doctor/modules/linux/Docs",
+        "mode": 493,
+        "condition": "mode"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "restore the exact prior mode only while device/inode identity and the repaired mode remain unchanged",
+        "primitive": "restore_managed_directory",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.artifact-2515",
+        "primitive": "restore_managed_directory",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "release-directory-mode-drift",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-tested"
+    }
+}

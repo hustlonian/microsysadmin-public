@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0002",
+        "module": "docker",
+        "name": "Start the stopped Docker service",
+        "summary": "Start the stopped Docker service.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "docker-service-stopped"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_active",
+        "service": "docker"
+    },
+    "failure_status": "FAIL"
+}

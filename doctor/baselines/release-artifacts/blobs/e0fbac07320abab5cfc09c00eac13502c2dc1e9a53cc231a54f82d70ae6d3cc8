@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0008",
+        "module": "docker",
+        "name": "Restore the missing Docker daemon socket",
+        "summary": "Restore the missing Docker daemon socket.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "docker-socket-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_exists",
+        "path": "/var/run/docker.sock"
+    },
+    "failure_status": "FAIL"
+}

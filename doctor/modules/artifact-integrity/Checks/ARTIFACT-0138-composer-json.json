@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0138",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact composer.json",
+        "summary": "Verify composer.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0138",
+        "path": "{APP_ROOT}/composer.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8ff992d626d150b7f48b33ad7e9a418597dd1963ae17aab659d356ca037e2b7f",
+        "sha256": "8ff992d626d150b7f48b33ad7e9a418597dd1963ae17aab659d356ca037e2b7f",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

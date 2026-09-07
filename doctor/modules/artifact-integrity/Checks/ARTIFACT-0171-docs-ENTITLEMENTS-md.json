@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0171",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/ENTITLEMENTS.md",
+        "summary": "Verify docs/ENTITLEMENTS.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0171",
+        "path": "{APP_ROOT}/docs/ENTITLEMENTS.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4e98acd3262a6978c09a8c7c3dabdcaf0b2aff2ad24ec44e7cbb546636e29834",
+        "sha256": "4e98acd3262a6978c09a8c7c3dabdcaf0b2aff2ad24ec44e7cbb546636e29834",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

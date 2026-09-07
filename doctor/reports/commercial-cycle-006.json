@@ -1,0 +1,165 @@
+{
+    "schema_version": 1,
+    "cycle": 6,
+    "generated_at": "2026-08-02T19:49:41Z",
+    "portfolio": {
+        "repair_definitions": 2315,
+        "executable_repairs": 2167,
+        "fully_automatic_repairs": 2145,
+        "approval_required_repairs": 22,
+        "report_only_repairs": 148,
+        "permanent_inventory_records": 2792
+    },
+    "cycle_delta": {
+        "repair_definitions": 249,
+        "executable_repairs": 249,
+        "fully_automatic_repairs": 249,
+        "report_only_repairs": 0,
+        "permanent_inventory_records": 250
+    },
+    "coverage_percent": {
+        "automation": 93.61,
+        "fully_automatic": 92.66,
+        "rollback": 100.0,
+        "verification": 100.0,
+        "diagnosis": 100.0,
+        "documentation": 100.0,
+        "contract": 100.0,
+        "audit_metadata": 100.0,
+        "changelog": 100.0,
+        "commercial_metadata": 100.0,
+        "sdk_actions": 100.0
+    },
+    "modules": {
+        "completed": [
+            "apache",
+            "artifact-integrity",
+            "backups",
+            "composer",
+            "cron",
+            "dns",
+            "docker",
+            "filesystem",
+            "git",
+            "laravel",
+            "linux",
+            "mail",
+            "mysql",
+            "nginx",
+            "performance",
+            "php",
+            "queue",
+            "redis",
+            "security",
+            "ssl",
+            "xampp"
+        ],
+        "needing_work": []
+    },
+    "new_primitives_and_architecture": [
+        "locked-composer-vendor-catalog",
+        "clean-release-staging-vendor-capture",
+        "pre-autoload-exact-vendor-verifier",
+        "unified-first-party-and-locked-vendor-artifact-generation",
+        "baseline-root-of-trust-exclusion",
+        "reproducible-vendor-provenance-contract"
+    ],
+    "executable_coverage_added": {
+        "locked_vendor_repairs": 247,
+        "new_first_party_release_artifact_repairs": 2,
+        "net_executable_growth": 249,
+        "retired_root_of_trust_ids": [
+            "ARTIFACT-1890"
+        ],
+        "network_actions_added": 0,
+        "destructive_actions_added": 0
+    },
+    "duplicate_logic_eliminated": {
+        "composer_provenance_pipeline_centralized": true,
+        "managed_artifact_lifecycle_reused": true,
+        "release_and_vendor_generation_unified": true,
+        "exact_overlap_groups": 21
+    },
+    "tests": {
+        "sdk_assertions": 2319,
+        "doctor_assertions": 22536,
+        "time_forward_assertions": 63453,
+        "time_forward_scenarios": 6345,
+        "privileged_helper_tests": 11,
+        "application_tests": 23,
+        "installer_failure_mode_tests": 12,
+        "git_security_failure_mode_tests": 8,
+        "isolated_commercial_assertions": 70,
+        "enumerated_assertions_and_cases": 88432,
+        "repository_audit": "PASS",
+        "failures": 0
+    },
+    "live_health": {
+        "execution_id": "doc_20260802_194834_b558481bab54",
+        "score_percent": 100,
+        "grade": "A+",
+        "applicable_pass": 153,
+        "warning": 0,
+        "fail": 0,
+        "error": 0,
+        "unknown": 0,
+        "skipped_in_scored_set": 0,
+        "detected_causes": 0,
+        "modules_at_100_percent": 21
+    },
+    "release": {
+        "locked_vendor_pre_autoload_verification": true,
+        "locked_vendor_exact_set_verified": true,
+        "reproducible": true,
+        "isolated_install_passed": true,
+        "installer_idempotency_passed": true,
+        "failed_update_rollback_passed": true,
+        "sha256": "1a673549037ca2049df4945a6b75154f37b85a50d440a773b41a9b1fa952cc66"
+    },
+    "artifact_integrity": {
+        "active_repairs": 2115,
+        "first_party_release_artifacts": 1868,
+        "locked_vendor_artifacts": 247,
+        "retired_permanent_ids": 24,
+        "eligible_candidate_coverage_percent": 100.0,
+        "baseline_blobs": 2394,
+        "active_referenced_blobs": 2115,
+        "historical_unreferenced_blobs": 279,
+        "revision": "ea8bc30296b55b0bf48ead567686014519223df147da95a2dbb2c31b307e3bd7",
+        "manifest_sha256": "4e92ad905cb2c2ecd722d0ec32a352305a1a679d6237f8552f4423681de7758c",
+        "selection_strategy": "all_eligible_commercial_release_files_and_locked_composer_vendor",
+        "consecutive_generation_reproducible": true
+    },
+    "locked_composer_vendor": {
+        "production_packages": 4,
+        "artifacts": 247,
+        "catalog_revision": "0750bcda1d566d7e51ec117923cc23cb9383a9598a5abae4f0c8bd4990b03fa8",
+        "manifest_sha256": "3b473ea609d8126106a98728db1bcb29cfd676b663b9278b893bddc6e10b5612",
+        "composer_lock_bound": true,
+        "network_access_at_repair_time": false,
+        "external_interaction_at_repair_time": false
+    },
+    "remaining_technical_debt": {
+        "rollback_debt": [],
+        "report_only_repairs": 148,
+        "definition_scale_gap": 2685,
+        "executable_scale_gap": 333,
+        "permanent_backlog_records_without_exact_blueprints": 477,
+        "exact_overlap_groups": 21,
+        "historical_blob_retention_policy_required": true,
+        "post_composer_vendor_provenance_required": false,
+        "report_only_classification_counts": {
+            "BUSINESS_INPUT_REQUIRED": 8,
+            "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW": 19,
+            "MANUAL_RESEARCH_REQUIRED": 12,
+            "MISSING_DATA_RECOVERY_REQUIRED": 6,
+            "OVERLAP_CONSOLIDATION_REQUIRED": 54,
+            "OWNERSHIP_PERMISSION_CONTRACT_REVIEW": 8,
+            "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY": 18,
+            "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW": 5,
+            "ROOT_CAUSE_VARIANT_RESEARCH": 18
+        }
+    },
+    "quality_score": 100.0,
+    "commercial_readiness_score": 89.95
+}

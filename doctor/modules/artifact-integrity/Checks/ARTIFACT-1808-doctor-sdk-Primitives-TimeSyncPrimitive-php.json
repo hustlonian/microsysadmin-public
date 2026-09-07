@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1808",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Primitives/TimeSyncPrimitive.php",
+        "summary": "Verify doctor/sdk/Primitives/TimeSyncPrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1808",
+        "path": "{APP_ROOT}/doctor/sdk/Primitives/TimeSyncPrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/628adf2a8a5326b997d8945ce2c13e14395171b059025f31ce8099449c28c45e",
+        "sha256": "628adf2a8a5326b997d8945ce2c13e14395171b059025f31ce8099449c28c45e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

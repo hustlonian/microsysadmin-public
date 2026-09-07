@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0330",
+        "check_id": "ARTIFACT-C0330",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/backups/Diagnoses/BACKUP-0004-DatabaseBackupToolMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/backups/Diagnoses/BACKUP-0004-DatabaseBackupToolMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c4f79f31908fcf3a6aeed5b42bf7fa90560de79645ed2c1113029013d8b78b01 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0330"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

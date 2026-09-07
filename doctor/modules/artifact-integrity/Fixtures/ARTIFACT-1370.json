@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1370",
+    "artifact": "doctor/modules/php/Diagnoses/PHP-0006-CurlExtensionMissing.json",
+    "baseline_sha256": "4c0cc5b7857282e9c574fe6901a2fe42034a88e9a08f730889294ac68242f2a9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

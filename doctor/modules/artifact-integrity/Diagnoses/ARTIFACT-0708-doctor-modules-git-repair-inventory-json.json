@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0708",
+        "check_id": "ARTIFACT-C0708",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/git/repair-inventory.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/git/repair-inventory.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 fb61a524b35e1dd0290b861614d57a8c4ef7bb2bd278fd029f99199e63418b1e with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0708"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1989",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/SendGridHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/SendGridHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1989",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/SendGridHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/04c2060ead6352648568f4a0f2e4935a6affe9dc7a12af218bba41aa1c3cbdef",
+        "sha256": "04c2060ead6352648568f4a0f2e4935a6affe9dc7a12af218bba41aa1c3cbdef",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

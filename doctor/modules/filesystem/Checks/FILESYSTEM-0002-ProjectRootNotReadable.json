@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "FILESYSTEM-C0002",
+        "module": "filesystem",
+        "name": "Correct an unreadable project root",
+        "summary": "Correct an unreadable project root.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "filesystem",
+            "project-root-not-readable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_readable",
+        "path": "{PROJECT}"
+    },
+    "failure_status": "FAIL"
+}

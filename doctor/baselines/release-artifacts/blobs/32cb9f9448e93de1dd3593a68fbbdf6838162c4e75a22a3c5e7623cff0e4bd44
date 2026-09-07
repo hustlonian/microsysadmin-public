@@ -1,0 +1,25 @@
+# CRON-0004: Add the missing Laravel scheduler cron entry
+
+## Problem
+
+Add the missing Laravel scheduler cron entry.
+
+## Detection and root cause
+
+Check `CRON-C0004` feeds diagnosis `CRON-D0004` at confidence 0.95.
+
+## Exact repair
+
+Uses Repair SDK primitive `ensure_crontab_entry` in category `cron`. Arguments are structured and bounded.
+
+## Backup and rollback
+
+primitive-owned exact rollback. Automatic rollback is required.
+
+## Independent verification
+
+Re-run the independent CRON-C0004 probe after execution.
+
+## Commercial classification
+
+Tier: `professional`. Risk: `LOW`. Automation: `AUTO_WITH_BACKUP`.

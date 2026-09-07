@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1667",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Commercial/SSL-0007.json",
+        "summary": "Verify doctor/modules/ssl/Commercial/SSL-0007.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1667",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Commercial/SSL-0007.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6c48fc7778e904ddef63b4793d3868d33d5d0fb801a9135801688e571758d823",
+        "sha256": "6c48fc7778e904ddef63b4793d3868d33d5d0fb801a9135801688e571758d823",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

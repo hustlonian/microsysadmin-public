@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "DNS-C0008",
+        "module": "dns",
+        "name": "Restore external DNS resolution",
+        "summary": "Restore external DNS resolution.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "dns",
+            "external-dns-resolution-failure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "dns_resolves",
+        "host": "example.com"
+    },
+    "failure_status": "FAIL"
+}

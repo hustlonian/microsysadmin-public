@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2053",
+        "check_id": "ARTIFACT-C2053",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/phpmailer/phpmailer/language/phpmailer.lang-et.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/phpmailer/phpmailer/language/phpmailer.lang-et.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 7a854b796bc5058913ab5f5ad489b02ed246ad49220e844a1c3fbb0ffa908fa6 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2053"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

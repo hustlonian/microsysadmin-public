@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2517",
+        "check_id": "ARTIFACT-C2517",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed release directory mode drift for doctor/modules/linux/Repairs",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release directory doctor/modules/linux/Repairs has the wrong permission mode.",
+        "expected_state": "The existing non-symbolic directory has mode 0755.",
+        "probable_cause": "An unintended permission change altered the existing release directory mode.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2517"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact existing directory, desired mode, device/inode identity, prior mode, rollback guard, and verification are predetermined."
+    }
+}

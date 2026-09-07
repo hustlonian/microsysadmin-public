@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0085",
+    "artifact": "classes/EnvironmentDetector.php",
+    "baseline_sha256": "93d3e09e2d04207fd2c75951cd99e5be8b999e8c40094d0f3fbbdf874eb94bcc",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

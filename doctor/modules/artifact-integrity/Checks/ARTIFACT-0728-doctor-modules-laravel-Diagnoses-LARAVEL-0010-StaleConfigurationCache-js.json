@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0728",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Diagnoses/LARAVEL-0010-StaleConfigurationCache.json",
+        "summary": "Verify doctor/modules/laravel/Diagnoses/LARAVEL-0010-StaleConfigurationCache.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0728",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Diagnoses/LARAVEL-0010-StaleConfigurationCache.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d63d938848d3b5f3bbdb5fd5a8a8c5a1fe268efbd0e5f8562bfda780e5ba4c1b",
+        "sha256": "d63d938848d3b5f3bbdb5fd5a8a8c5a1fe268efbd0e5f8562bfda780e5ba4c1b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

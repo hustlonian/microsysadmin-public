@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1868",
+    "artifact": "views/pages/backups.php",
+    "baseline_sha256": "e051ca61ee649647cb369cebd3788a29909a8e48e66f365e7c092ced794b1530",
+    "mode": "0664",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

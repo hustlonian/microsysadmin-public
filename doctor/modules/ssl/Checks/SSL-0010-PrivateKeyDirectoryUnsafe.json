@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0010",
+        "module": "ssl",
+        "name": "Correct unsafe TLS private-key directory permissions",
+        "summary": "Correct unsafe TLS private-key directory permissions.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "private-key-directory-unsafe"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_readable",
+        "path": "/opt/lampp/etc/ssl.key"
+    },
+    "failure_status": "FAIL"
+}

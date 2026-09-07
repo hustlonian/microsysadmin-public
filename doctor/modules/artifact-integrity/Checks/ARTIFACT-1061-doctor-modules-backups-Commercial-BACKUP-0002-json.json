@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1061",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Commercial/BACKUP-0002.json",
+        "summary": "Verify doctor/modules/backups/Commercial/BACKUP-0002.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1061",
+        "path": "{APP_ROOT}/doctor/modules/backups/Commercial/BACKUP-0002.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5f88b19cb4bbec9e272ad1f71cf4763e1d35ad101a3441fa569224dde6306a53",
+        "sha256": "5f88b19cb4bbec9e272ad1f71cf4763e1d35ad101a3441fa569224dde6306a53",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

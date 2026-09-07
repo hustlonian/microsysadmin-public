@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2103",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/psr/log/README.md",
+        "summary": "Verify vendor/psr/log/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2103",
+        "path": "{APP_ROOT}/vendor/psr/log/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4f2bc231e87cda248b1fa2aef7a930045f3e95f89ee46ff579188d2489372954",
+        "sha256": "4f2bc231e87cda248b1fa2aef7a930045f3e95f89ee46ff579188d2489372954",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

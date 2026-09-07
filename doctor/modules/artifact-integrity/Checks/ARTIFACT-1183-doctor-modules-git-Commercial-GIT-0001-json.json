@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1183",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Commercial/GIT-0001.json",
+        "summary": "Verify doctor/modules/git/Commercial/GIT-0001.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1183",
+        "path": "{APP_ROOT}/doctor/modules/git/Commercial/GIT-0001.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c2d642fe929337964d998b639229326eb6264403a0f75a34917c679aa4908160",
+        "sha256": "c2d642fe929337964d998b639229326eb6264403a0f75a34917c679aa4908160",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

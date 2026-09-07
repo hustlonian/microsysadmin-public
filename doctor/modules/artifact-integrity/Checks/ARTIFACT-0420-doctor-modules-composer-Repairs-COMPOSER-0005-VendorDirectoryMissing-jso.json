@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0420",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Repairs/COMPOSER-0005-VendorDirectoryMissing.json",
+        "summary": "Verify doctor/modules/composer/Repairs/COMPOSER-0005-VendorDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0420",
+        "path": "{APP_ROOT}/doctor/modules/composer/Repairs/COMPOSER-0005-VendorDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ccc1a271505044088e61a8aa384fb7579e6d62374a5f38d65cdbee1cbb127b15",
+        "sha256": "ccc1a271505044088e61a8aa384fb7579e6d62374a5f38d65cdbee1cbb127b15",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

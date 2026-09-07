@@ -1,0 +1,12 @@
+{
+    "repair_id": "GIT-0006",
+    "commercial_tier": "advisory",
+    "customer_impact": "provides evidence and operator guidance",
+    "support_issue_family": "git",
+    "automation_class": "REPORT_ONLY",
+    "risk_level": "MEDIUM",
+    "sdk_primitives": [],
+    "quality_status": "advisory-only",
+    "rollback_supported": false,
+    "verification_defined": true
+}

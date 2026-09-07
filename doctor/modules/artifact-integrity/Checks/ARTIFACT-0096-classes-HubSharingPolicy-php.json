@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0096",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/HubSharingPolicy.php",
+        "summary": "Verify classes/HubSharingPolicy.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0096",
+        "path": "{APP_ROOT}/classes/HubSharingPolicy.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/cdf4fee2045830143667fcf9e9a7731fc4c10d4da0b30840033c5d701c4c3aac",
+        "sha256": "cdf4fee2045830143667fcf9e9a7731fc4c10d4da0b30840033c5d701c4c3aac",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,52 @@
+[
+    {
+        "repair_id": "GIT-0001",
+        "fixture": "../Fixtures/GIT-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "GIT-0002",
+        "fixture": "../Fixtures/GIT-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "GIT-0003",
+        "fixture": "../Fixtures/GIT-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "GIT-0004",
+        "fixture": "../Fixtures/GIT-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "GIT-0005",
+        "fixture": "../Fixtures/GIT-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "GIT-0006",
+        "fixture": "../Fixtures/GIT-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "GIT-0007",
+        "fixture": "../Fixtures/GIT-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "GIT-0008",
+        "fixture": "../Fixtures/GIT-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "GIT-0009",
+        "fixture": "../Fixtures/GIT-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "GIT-0010",
+        "fixture": "../Fixtures/GIT-0010.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

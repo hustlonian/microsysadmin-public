@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0978",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Repairs/NGINX-0003-NginxServiceDisabled.json",
+        "summary": "Verify doctor/modules/nginx/Repairs/NGINX-0003-NginxServiceDisabled.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0978",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Repairs/NGINX-0003-NginxServiceDisabled.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0e2af4e02354d8a1c01c1b47843dfeb5a0f1cba71dfdcb0f0764f9cbafa6eaee",
+        "sha256": "0e2af4e02354d8a1c01c1b47843dfeb5a0f1cba71dfdcb0f0764f9cbafa6eaee",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

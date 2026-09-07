@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "APACHE-C0007",
+        "module": "apache",
+        "name": "Restore the missing Apache virtual-host file",
+        "summary": "Restore the missing Apache virtual-host file.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "apache",
+            "virtual-host-file-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "apache",
+            "xampp"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/opt/lampp/etc/extra/httpd-vhosts.conf"
+    },
+    "failure_status": "FAIL"
+}

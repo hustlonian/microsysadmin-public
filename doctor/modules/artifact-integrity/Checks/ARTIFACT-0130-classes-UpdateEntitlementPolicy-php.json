@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0130",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/UpdateEntitlementPolicy.php",
+        "summary": "Verify classes/UpdateEntitlementPolicy.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0130",
+        "path": "{APP_ROOT}/classes/UpdateEntitlementPolicy.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6f5995280545408d75e7eb784e1d2978921bb5ba462ae45ae6588fe97f6c61a9",
+        "sha256": "6f5995280545408d75e7eb784e1d2978921bb5ba462ae45ae6588fe97f6c61a9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1929",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/ScalarFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/ScalarFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1929",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/ScalarFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/18e35896a12c177156d1ee0e8201c6390dd07bb4c445e915b5ffe26e823b1039",
+        "sha256": "18e35896a12c177156d1ee0e8201c6390dd07bb4c445e915b5ffe26e823b1039",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

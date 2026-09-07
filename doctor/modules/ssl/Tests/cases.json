@@ -1,0 +1,52 @@
+[
+    {
+        "repair_id": "SSL-0001",
+        "fixture": "../Fixtures/SSL-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SSL-0002",
+        "fixture": "../Fixtures/SSL-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SSL-0003",
+        "fixture": "../Fixtures/SSL-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SSL-0004",
+        "fixture": "../Fixtures/SSL-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SSL-0005",
+        "fixture": "../Fixtures/SSL-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SSL-0006",
+        "fixture": "../Fixtures/SSL-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SSL-0007",
+        "fixture": "../Fixtures/SSL-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SSL-0008",
+        "fixture": "../Fixtures/SSL-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SSL-0009",
+        "fixture": "../Fixtures/SSL-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SSL-0010",
+        "fixture": "../Fixtures/SSL-0010.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

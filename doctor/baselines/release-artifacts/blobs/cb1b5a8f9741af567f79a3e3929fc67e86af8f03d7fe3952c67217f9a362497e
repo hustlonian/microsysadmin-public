@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0003",
+        "module": "security",
+        "name": "Restore missing private-key storage",
+        "summary": "Restore missing private-key storage.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "private-key-directory-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "xampp"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/opt/lampp/etc/ssl.key"
+    },
+    "failure_status": "FAIL"
+}

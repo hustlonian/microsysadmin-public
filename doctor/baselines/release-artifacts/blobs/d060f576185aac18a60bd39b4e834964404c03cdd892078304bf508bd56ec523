@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0009",
+        "module": "docker",
+        "name": "Recover Docker storage capacity",
+        "summary": "Recover Docker storage capacity.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "docker-disk-pressure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "disk_free_percent",
+        "path": "/var/lib/docker",
+        "minimum": 15
+    },
+    "failure_status": "FAIL"
+}

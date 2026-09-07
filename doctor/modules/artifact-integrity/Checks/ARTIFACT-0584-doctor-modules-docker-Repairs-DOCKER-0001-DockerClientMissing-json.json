@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0584",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Repairs/DOCKER-0001-DockerClientMissing.json",
+        "summary": "Verify doctor/modules/docker/Repairs/DOCKER-0001-DockerClientMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0584",
+        "path": "{APP_ROOT}/doctor/modules/docker/Repairs/DOCKER-0001-DockerClientMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4d0302067bb464ef2a2658bfa6bdf846611bf03ef27c385d0f27017bea562896",
+        "sha256": "4d0302067bb464ef2a2658bfa6bdf846611bf03ef27c385d0f27017bea562896",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

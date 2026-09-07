@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0751",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/README.md",
+        "summary": "Verify doctor/modules/laravel/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0751",
+        "path": "{APP_ROOT}/doctor/modules/laravel/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d6793e1b0406963f5afd4c838b149d92f38d38e8315b175a3a73f396a5605743",
+        "sha256": "d6793e1b0406963f5afd4c838b149d92f38d38e8315b175a3a73f396a5605743",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

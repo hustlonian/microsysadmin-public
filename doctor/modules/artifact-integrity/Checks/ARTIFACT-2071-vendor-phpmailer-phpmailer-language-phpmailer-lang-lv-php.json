@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2071",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/phpmailer/phpmailer/language/phpmailer.lang-lv.php",
+        "summary": "Verify vendor/phpmailer/phpmailer/language/phpmailer.lang-lv.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2071",
+        "path": "{APP_ROOT}/vendor/phpmailer/phpmailer/language/phpmailer.lang-lv.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a986f934cb4a2b9cf5bad1c150f0af9d8a0c7745d36b9904882d68b1bb07fb5d",
+        "sha256": "a986f934cb4a2b9cf5bad1c150f0af9d8a0c7745d36b9904882d68b1bb07fb5d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

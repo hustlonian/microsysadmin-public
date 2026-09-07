@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0962",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Docs/NGINX-0009.md",
+        "summary": "Verify doctor/modules/nginx/Docs/NGINX-0009.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0962",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Docs/NGINX-0009.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/98369b1ebacff26b24366d990ea4077b143c591756029bf46c2de4a48f6aecf3",
+        "sha256": "98369b1ebacff26b24366d990ea4077b143c591756029bf46c2de4a48f6aecf3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

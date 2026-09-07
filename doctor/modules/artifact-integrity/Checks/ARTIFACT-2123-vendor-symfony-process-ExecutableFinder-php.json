@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2123",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/ExecutableFinder.php",
+        "summary": "Verify vendor/symfony/process/ExecutableFinder.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2123",
+        "path": "{APP_ROOT}/vendor/symfony/process/ExecutableFinder.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/39df2a82aaef2c1bdc09370122f16dc9b32f234e29376cc27c18e553e4aba1e5",
+        "sha256": "39df2a82aaef2c1bdc09370122f16dc9b32f234e29376cc27c18e553e4aba1e5",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2037",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/phpmailer/phpmailer/get_oauth_token.php",
+        "summary": "Verify vendor/phpmailer/phpmailer/get_oauth_token.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2037",
+        "path": "{APP_ROOT}/vendor/phpmailer/phpmailer/get_oauth_token.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9564843fbfc9f153e464849e736d08cb41f124f1acb2fcd6c129d50be14d52b8",
+        "sha256": "9564843fbfc9f153e464849e736d08cb41f124f1acb2fcd6c129d50be14d52b8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0672",
+    "artifact": "doctor/modules/git/Diagnoses/GIT-0010-UserEmailMissing.json",
+    "baseline_sha256": "4b6f870c988d06f4e6ab7986726571161c400f377413c52b16045799beecb630",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

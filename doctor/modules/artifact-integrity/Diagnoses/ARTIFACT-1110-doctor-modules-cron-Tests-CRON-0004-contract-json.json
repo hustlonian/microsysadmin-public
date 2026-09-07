@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1110",
+        "check_id": "ARTIFACT-C1110",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/cron/Tests/CRON-0004.contract.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/cron/Tests/CRON-0004.contract.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 887d1077fac84c3c34be891174f2c9e4ea434537f2a1704510fed6166860599a with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1110"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

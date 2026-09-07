@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0172",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/ENVIRONMENT-DETECTION.md",
+        "summary": "Verify docs/ENVIRONMENT-DETECTION.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0172",
+        "path": "{APP_ROOT}/docs/ENVIRONMENT-DETECTION.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/577ebe6c57d9292912f699cfbccff00d90832c9d5d5d9eec99922a9a03c63432",
+        "sha256": "577ebe6c57d9292912f699cfbccff00d90832c9d5d5d9eec99922a9a03c63432",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

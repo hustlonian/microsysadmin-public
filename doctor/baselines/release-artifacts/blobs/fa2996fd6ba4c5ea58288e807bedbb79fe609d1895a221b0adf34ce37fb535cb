@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "DOCKER-D0007",
+        "check_id": "DOCKER-C0007",
+        "module": "docker",
+        "name": "Restore the missing project Dockerfile diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore the missing project Dockerfile.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed dockerfile missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "DOCKER-0007"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0713",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Checks/LARAVEL-0005-FrameworkCacheDirectoryMissing.json",
+        "summary": "Verify doctor/modules/laravel/Checks/LARAVEL-0005-FrameworkCacheDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0713",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Checks/LARAVEL-0005-FrameworkCacheDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d07b4df27830fca2eb6f679affbc8d9d811768f28a781214d9b1252ec50f6802",
+        "sha256": "d07b4df27830fca2eb6f679affbc8d9d811768f28a781214d9b1252ec50f6802",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

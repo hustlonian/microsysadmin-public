@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1891",
+        "check_id": "ARTIFACT-C1891",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/sdk/Generation/LockedComposerVendorCatalog.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/sdk/Generation/LockedComposerVendorCatalog.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 3269dd673f4380c81639d708c8856d6c9d942a2cf2c85ce215078092a8c8002a with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1891"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

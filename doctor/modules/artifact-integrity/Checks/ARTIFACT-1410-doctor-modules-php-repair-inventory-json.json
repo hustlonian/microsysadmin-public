@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1410",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/repair-inventory.json",
+        "summary": "Verify doctor/modules/php/repair-inventory.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1410",
+        "path": "{APP_ROOT}/doctor/modules/php/repair-inventory.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/63f18a0ae0f5f3466164af09d8b3c59d56829ea2d44dd5b8dcba7ce817dd6164",
+        "sha256": "63f18a0ae0f5f3466164af09d8b3c59d56829ea2d44dd5b8dcba7ce817dd6164",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

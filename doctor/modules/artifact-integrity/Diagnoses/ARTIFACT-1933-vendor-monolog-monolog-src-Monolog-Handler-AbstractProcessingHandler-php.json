@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1933",
+        "check_id": "ARTIFACT-C1933",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b0315f8119ae7512878303942669086d1439264f4c89d6e8c3ecc7e9ee302b14 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1933"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

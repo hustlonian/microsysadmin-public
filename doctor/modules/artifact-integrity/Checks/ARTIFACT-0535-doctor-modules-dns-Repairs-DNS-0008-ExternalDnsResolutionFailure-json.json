@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0535",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Repairs/DNS-0008-ExternalDnsResolutionFailure.json",
+        "summary": "Verify doctor/modules/dns/Repairs/DNS-0008-ExternalDnsResolutionFailure.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0535",
+        "path": "{APP_ROOT}/doctor/modules/dns/Repairs/DNS-0008-ExternalDnsResolutionFailure.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c818325e6aec382705f83ba9136cd76c6463d821a9887e410e85b493e78f4cba",
+        "sha256": "c818325e6aec382705f83ba9136cd76c6463d821a9887e410e85b493e78f4cba",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

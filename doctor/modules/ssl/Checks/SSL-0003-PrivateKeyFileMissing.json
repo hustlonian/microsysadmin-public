@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0003",
+        "module": "ssl",
+        "name": "Restore the missing configured TLS private key",
+        "summary": "Restore the missing configured TLS private key.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "private-key-file-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/opt/lampp/etc/ssl.key/server.key"
+    },
+    "failure_status": "FAIL"
+}

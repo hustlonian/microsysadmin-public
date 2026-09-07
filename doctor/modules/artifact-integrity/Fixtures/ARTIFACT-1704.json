@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1704",
+    "artifact": "doctor/modules/ssl/Repairs/SSL-0001-OpensslMissing.json",
+    "baseline_sha256": "2c4984a43b001f7512dd7aeaa3692ce07ba77815c4b7e47d13e231e32eac9439",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

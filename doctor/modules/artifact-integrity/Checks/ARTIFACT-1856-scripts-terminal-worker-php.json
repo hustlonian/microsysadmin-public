@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1856",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/terminal-worker.php",
+        "summary": "Verify scripts/terminal-worker.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1856",
+        "path": "{APP_ROOT}/scripts/terminal-worker.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b63aa4b5ef13842a1eaac34252f432cc058e1d03d2b018f710406143ffc7a71b",
+        "sha256": "b63aa4b5ef13842a1eaac34252f432cc058e1d03d2b018f710406143ffc7a71b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

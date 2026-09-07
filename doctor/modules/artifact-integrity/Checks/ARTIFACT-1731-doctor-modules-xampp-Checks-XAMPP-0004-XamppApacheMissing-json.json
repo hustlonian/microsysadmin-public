@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1731",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Checks/XAMPP-0004-XamppApacheMissing.json",
+        "summary": "Verify doctor/modules/xampp/Checks/XAMPP-0004-XamppApacheMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1731",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Checks/XAMPP-0004-XamppApacheMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/94e30b45e5b17098dbec23d82c1f37530346828be41e0e52fa73d112a1ae22d8",
+        "sha256": "94e30b45e5b17098dbec23d82c1f37530346828be41e0e52fa73d112a1ae22d8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

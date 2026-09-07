@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1997",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/SyslogHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/SyslogHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1997",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/SyslogHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/828003d23dc1f5bce273d0989d9e138728511c94631e1fbb9fc4f4dc5f3df204",
+        "sha256": "828003d23dc1f5bce273d0989d9e138728511c94631e1fbb9fc4f4dc5f3df204",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

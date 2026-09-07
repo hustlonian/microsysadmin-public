@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1910",
+        "check_id": "ARTIFACT-C1910",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/monolog/monolog/src/Monolog/Attribute/WithMonologChannel.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/monolog/monolog/src/Monolog/Attribute/WithMonologChannel.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 7d7ec88956b15a6d6b6f3a222d17397583d89541df14b1b0d0ab82d4aa1fd2b9 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1910"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

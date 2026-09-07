@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0040",
+        "check_id": "ARTIFACT-C0040",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/AgentManager.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/AgentManager.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 444419e9fec49370f8cd61c916c7b571464d9f9c34c88191f3c6c86de8e031a5 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0040"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

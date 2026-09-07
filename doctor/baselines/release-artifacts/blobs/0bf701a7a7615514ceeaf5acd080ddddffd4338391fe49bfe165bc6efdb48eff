@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "PHP-D0004",
+        "check_id": "PHP-C0004",
+        "module": "php",
+        "name": "Enable the missing mbstring extension diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Enable the missing mbstring extension.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed mbstring extension missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "PHP-0004"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

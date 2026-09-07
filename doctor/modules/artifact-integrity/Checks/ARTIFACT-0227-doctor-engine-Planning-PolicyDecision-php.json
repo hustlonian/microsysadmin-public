@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0227",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Planning/PolicyDecision.php",
+        "summary": "Verify doctor/engine/Planning/PolicyDecision.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0227",
+        "path": "{APP_ROOT}/doctor/engine/Planning/PolicyDecision.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8105cd02077c42235c6e5b06c07343bdc20574b6fdcf39f8cc11b946ba549708",
+        "sha256": "8105cd02077c42235c6e5b06c07343bdc20574b6fdcf39f8cc11b946ba549708",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0434",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Checks/CRON-0006-CronSpoolMissing.json",
+        "summary": "Verify doctor/modules/cron/Checks/CRON-0006-CronSpoolMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0434",
+        "path": "{APP_ROOT}/doctor/modules/cron/Checks/CRON-0006-CronSpoolMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d178858e1bc6a704033b40746320379aa03140eb80bdcb5207724e8e6b396abd",
+        "sha256": "d178858e1bc6a704033b40746320379aa03140eb80bdcb5207724e8e6b396abd",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

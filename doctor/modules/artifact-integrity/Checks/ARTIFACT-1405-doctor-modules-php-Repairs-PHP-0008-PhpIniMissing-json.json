@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1405",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/Repairs/PHP-0008-PhpIniMissing.json",
+        "summary": "Verify doctor/modules/php/Repairs/PHP-0008-PhpIniMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1405",
+        "path": "{APP_ROOT}/doctor/modules/php/Repairs/PHP-0008-PhpIniMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1f31807df0451ba85d941442c997208192212c02bb19d2c8c3c230103c8e39bf",
+        "sha256": "1f31807df0451ba85d941442c997208192212c02bb19d2c8c3c230103c8e39bf",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

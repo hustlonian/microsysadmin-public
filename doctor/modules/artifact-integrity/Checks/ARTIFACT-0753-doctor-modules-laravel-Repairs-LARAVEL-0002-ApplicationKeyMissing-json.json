@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0753",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Repairs/LARAVEL-0002-ApplicationKeyMissing.json",
+        "summary": "Verify doctor/modules/laravel/Repairs/LARAVEL-0002-ApplicationKeyMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0753",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Repairs/LARAVEL-0002-ApplicationKeyMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e6613688cd6bba3edc02056d73a724093c0f30c39b6a474e82dbee845cf7d402",
+        "sha256": "e6613688cd6bba3edc02056d73a724093c0f30c39b6a474e82dbee845cf7d402",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

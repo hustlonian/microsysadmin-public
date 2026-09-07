@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1039",
+    "artifact": "doctor/modules/apache/Changelog/APACHE-0010.md",
+    "baseline_sha256": "1f241fa2c987bc7d9ac397072869e410494a5d1e6a5b6dc6987ae1938542edaa",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

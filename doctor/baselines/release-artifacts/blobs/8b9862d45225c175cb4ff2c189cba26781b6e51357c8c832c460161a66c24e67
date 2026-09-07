@@ -1,0 +1,34 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0006",
+        "module": "docker",
+        "name": "Correct invalid Docker Compose configuration",
+        "summary": "Correct invalid Docker Compose configuration.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "compose-configuration-invalid"
+        ]
+    },
+    "supports": {
+        "docker_project_detected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "docker"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "docker",
+            "compose",
+            "config",
+            "--quiet"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

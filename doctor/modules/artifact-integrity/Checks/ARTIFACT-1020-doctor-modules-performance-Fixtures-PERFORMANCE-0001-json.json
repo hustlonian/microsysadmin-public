@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1020",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Fixtures/PERFORMANCE-0001.json",
+        "summary": "Verify doctor/modules/performance/Fixtures/PERFORMANCE-0001.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1020",
+        "path": "{APP_ROOT}/doctor/modules/performance/Fixtures/PERFORMANCE-0001.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7a785642994a27e731558bd4e37e3d4ac8efab5f0acac0bb01175e0ec45422b4",
+        "sha256": "7a785642994a27e731558bd4e37e3d4ac8efab5f0acac0bb01175e0ec45422b4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

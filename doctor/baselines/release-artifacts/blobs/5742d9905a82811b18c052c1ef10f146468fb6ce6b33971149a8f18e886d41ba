@@ -1,0 +1,52 @@
+[
+    {
+        "repair_id": "REDIS-0001",
+        "fixture": "../Fixtures/REDIS-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "REDIS-0002",
+        "fixture": "../Fixtures/REDIS-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "REDIS-0003",
+        "fixture": "../Fixtures/REDIS-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "REDIS-0004",
+        "fixture": "../Fixtures/REDIS-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "REDIS-0005",
+        "fixture": "../Fixtures/REDIS-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "REDIS-0006",
+        "fixture": "../Fixtures/REDIS-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "REDIS-0007",
+        "fixture": "../Fixtures/REDIS-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "REDIS-0008",
+        "fixture": "../Fixtures/REDIS-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "REDIS-0009",
+        "fixture": "../Fixtures/REDIS-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "REDIS-0010",
+        "fixture": "../Fixtures/REDIS-0010.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

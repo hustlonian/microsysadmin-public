@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "LINUX-C0007",
+        "module": "linux",
+        "name": "Restore the missing loopback hosts entry",
+        "summary": "Restore the missing loopback hosts entry.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "linux",
+            "loopback-host-entry-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "/etc/hosts",
+        "contains": "127.0.0.1"
+    },
+    "failure_status": "FAIL"
+}

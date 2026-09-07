@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "LINUX-C0009",
+        "module": "linux",
+        "name": "Restore the missing system log directory",
+        "summary": "Restore the missing system log directory.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "linux",
+            "system-log-directory-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/var/log"
+    },
+    "failure_status": "FAIL"
+}

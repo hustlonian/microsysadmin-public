@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "PHP-C0006",
+        "module": "php",
+        "name": "Enable the missing cURL extension",
+        "summary": "Enable the missing cURL extension.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "php",
+            "curl-extension-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "php_extension",
+        "extension": "curl"
+    },
+    "failure_status": "FAIL"
+}

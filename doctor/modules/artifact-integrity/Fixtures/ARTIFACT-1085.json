@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1085",
+    "artifact": "doctor/modules/composer/Commercial/COMPOSER-0006.json",
+    "baseline_sha256": "1e628212f3a42fd967d517803e2d3bb7d296f32d65f60006ee8ec91a8a1f512c",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

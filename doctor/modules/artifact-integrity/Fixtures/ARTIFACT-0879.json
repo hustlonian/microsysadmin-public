@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0879",
+    "artifact": "doctor/modules/mysql/Checks/MYSQL-0003-MysqlPortUnavailable.json",
+    "baseline_sha256": "040fef4ba0b4e17e482d21e12eb71f97670ee9ef108f70f6e52f8d36122aadbe",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

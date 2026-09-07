@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2129",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/PhpExecutableFinder.php",
+        "summary": "Verify vendor/symfony/process/PhpExecutableFinder.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2129",
+        "path": "{APP_ROOT}/vendor/symfony/process/PhpExecutableFinder.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4697ea736892b5fe645f5ab1233feca27237021939bb54e5b94a1045932da12c",
+        "sha256": "4697ea736892b5fe645f5ab1233feca27237021939bb54e5b94a1045932da12c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

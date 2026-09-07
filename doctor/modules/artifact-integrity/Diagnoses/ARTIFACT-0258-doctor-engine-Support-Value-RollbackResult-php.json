@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0258",
+        "check_id": "ARTIFACT-C0258",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/engine/Support/Value/RollbackResult.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/engine/Support/Value/RollbackResult.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 ee37568d35ac29b60bd38128fbcf73dc144866279f20b3688f3f423e5294d412 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0258"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1916",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/FlowdockFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/FlowdockFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1916",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/FlowdockFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d89cbd496e793f5b572e536dc81ab6d4dbd592e4ef0331df10098e51d04558a6",
+        "sha256": "d89cbd496e793f5b572e536dc81ab6d4dbd592e4ef0331df10098e51d04558a6",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

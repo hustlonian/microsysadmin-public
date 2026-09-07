@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1983",
+    "artifact": "vendor/monolog/monolog/src/Monolog/Handler/PushoverHandler.php",
+    "baseline_sha256": "72403bb1f4f6b412c10231b81bc0ab8a85f280ed2f3b9fd267e7a1a6ccc13a61",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

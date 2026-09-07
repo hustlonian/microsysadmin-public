@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0004",
+        "module": "backups",
+        "name": "Install the missing database backup tool",
+        "summary": "Install the missing database backup tool.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "database-backup-tool-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "mysqldump"
+    },
+    "failure_status": "FAIL"
+}

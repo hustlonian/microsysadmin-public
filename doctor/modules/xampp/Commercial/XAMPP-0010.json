@@ -1,0 +1,14 @@
+{
+    "repair_id": "XAMPP-0010",
+    "commercial_tier": "professional",
+    "customer_impact": "restores a bounded supported state",
+    "support_issue_family": "xampp-log-directory",
+    "automation_class": "AUTO_WITH_BACKUP",
+    "risk_level": "LOW",
+    "sdk_primitives": [
+        "create_known_directory"
+    ],
+    "quality_status": "contract-ready",
+    "rollback_supported": true,
+    "verification_defined": true
+}

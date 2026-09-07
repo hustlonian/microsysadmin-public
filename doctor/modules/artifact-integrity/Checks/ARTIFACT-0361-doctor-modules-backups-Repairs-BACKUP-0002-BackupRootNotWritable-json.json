@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0361",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Repairs/BACKUP-0002-BackupRootNotWritable.json",
+        "summary": "Verify doctor/modules/backups/Repairs/BACKUP-0002-BackupRootNotWritable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0361",
+        "path": "{APP_ROOT}/doctor/modules/backups/Repairs/BACKUP-0002-BackupRootNotWritable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/26b060b56af9f2a0e3ba5e599240317749d7c9459ea458f3b66493c1c2987240",
+        "sha256": "26b060b56af9f2a0e3ba5e599240317749d7c9459ea458f3b66493c1c2987240",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

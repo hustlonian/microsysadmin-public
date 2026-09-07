@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0031",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/search.php",
+        "summary": "Verify api/search.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0031",
+        "path": "{APP_ROOT}/api/search.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8323d03970588f1e1b2c6bd6469f898061b3cd15a0ff5cf97a421b52a3a2f4f4",
+        "sha256": "8323d03970588f1e1b2c6bd6469f898061b3cd15a0ff5cf97a421b52a3a2f4f4",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

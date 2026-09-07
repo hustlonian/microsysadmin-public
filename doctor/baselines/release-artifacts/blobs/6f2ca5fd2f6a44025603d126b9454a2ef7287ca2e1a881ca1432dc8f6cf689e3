@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0008",
+        "module": "redis",
+        "name": "Restore the missing Redis data directory",
+        "summary": "Restore the missing Redis data directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "redis-data-directory-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/var/lib/redis"
+    },
+    "failure_status": "FAIL"
+}

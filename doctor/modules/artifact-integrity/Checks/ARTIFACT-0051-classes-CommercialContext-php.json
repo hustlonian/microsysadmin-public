@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0051",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/CommercialContext.php",
+        "summary": "Verify classes/CommercialContext.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0051",
+        "path": "{APP_ROOT}/classes/CommercialContext.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/18e869c22dae3c10614864e8712a8c7020356cc0243cd5003622852a41161a71",
+        "sha256": "18e869c22dae3c10614864e8712a8c7020356cc0243cd5003622852a41161a71",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

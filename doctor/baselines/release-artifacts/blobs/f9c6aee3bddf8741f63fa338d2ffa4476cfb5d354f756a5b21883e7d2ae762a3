@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "MYSQL-C0002",
+        "module": "mysql",
+        "name": "Start the stopped XAMPP MySQL service",
+        "summary": "Start the stopped XAMPP MySQL service.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "mysql",
+            "mysql-service-stopped"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "xampp"
+    ],
+    "probe": {
+        "type": "service_active",
+        "service": "mysql"
+    },
+    "failure_status": "FAIL"
+}

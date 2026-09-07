@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1875",
+    "artifact": "views/pages/laravel.php",
+    "baseline_sha256": "f17d527daa29b6b60748184ecc1a38a013410ad639ea134564f8045b5b746ee1",
+    "mode": "0664",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

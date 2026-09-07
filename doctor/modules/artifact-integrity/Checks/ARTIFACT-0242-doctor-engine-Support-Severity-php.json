@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0242",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Support/Severity.php",
+        "summary": "Verify doctor/engine/Support/Severity.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0242",
+        "path": "{APP_ROOT}/doctor/engine/Support/Severity.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d277f3354c66073448c799181bcfff684bb68e8637a6160d0dbcdab5f74b472c",
+        "sha256": "d277f3354c66073448c799181bcfff684bb68e8637a6160d0dbcdab5f74b472c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

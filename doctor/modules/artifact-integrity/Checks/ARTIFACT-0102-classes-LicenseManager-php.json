@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0102",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/LicenseManager.php",
+        "summary": "Verify classes/LicenseManager.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0102",
+        "path": "{APP_ROOT}/classes/LicenseManager.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/84d442fdd7a3dc154c36f7fd5cd1570282aab4a0f721376f5022c7199ddd73c0",
+        "sha256": "84d442fdd7a3dc154c36f7fd5cd1570282aab4a0f721376f5022c7199ddd73c0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

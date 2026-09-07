@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1847",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/job-worker.php",
+        "summary": "Verify scripts/job-worker.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1847",
+        "path": "{APP_ROOT}/scripts/job-worker.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4",
+        "sha256": "583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

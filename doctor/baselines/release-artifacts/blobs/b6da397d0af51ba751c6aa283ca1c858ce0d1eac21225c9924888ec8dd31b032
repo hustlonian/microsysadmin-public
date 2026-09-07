@@ -1,0 +1,1 @@
+* * * * * @MICROSYSADMIN_USER@ @MICROSYSADMIN_PHP_BINARY@ @MICROSYSADMIN_APP_ROOT@/cron/runner.php >/dev/null 2>&1

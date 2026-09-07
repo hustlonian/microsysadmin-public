@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1714",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Tests/SSL-0005.contract.json",
+        "summary": "Verify doctor/modules/ssl/Tests/SSL-0005.contract.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1714",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Tests/SSL-0005.contract.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e19b74f20a14802e890088ee2f23fa4c324ceb658a40b199ac78fa8056738051",
+        "sha256": "e19b74f20a14802e890088ee2f23fa4c324ceb658a40b199ac78fa8056738051",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

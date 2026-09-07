@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0209",
+        "check_id": "ARTIFACT-C0209",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/config/modules.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/config/modules.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 384127b621d0a526bf1f982a62d532c31753b8c9430855d2ce65c0e24a898a65 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0209"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

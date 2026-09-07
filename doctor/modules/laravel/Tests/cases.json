@@ -1,0 +1,52 @@
+[
+    {
+        "repair_id": "LARAVEL-0001",
+        "fixture": "../Fixtures/LARAVEL-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LARAVEL-0002",
+        "fixture": "../Fixtures/LARAVEL-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LARAVEL-0003",
+        "fixture": "../Fixtures/LARAVEL-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LARAVEL-0004",
+        "fixture": "../Fixtures/LARAVEL-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LARAVEL-0005",
+        "fixture": "../Fixtures/LARAVEL-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LARAVEL-0006",
+        "fixture": "../Fixtures/LARAVEL-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LARAVEL-0007",
+        "fixture": "../Fixtures/LARAVEL-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LARAVEL-0008",
+        "fixture": "../Fixtures/LARAVEL-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LARAVEL-0009",
+        "fixture": "../Fixtures/LARAVEL-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LARAVEL-0010",
+        "fixture": "../Fixtures/LARAVEL-0010.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

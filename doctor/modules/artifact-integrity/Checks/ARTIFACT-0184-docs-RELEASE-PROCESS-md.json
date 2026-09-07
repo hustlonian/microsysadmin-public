@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0184",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/RELEASE-PROCESS.md",
+        "summary": "Verify docs/RELEASE-PROCESS.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0184",
+        "path": "{APP_ROOT}/docs/RELEASE-PROCESS.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0a69da238063ffcd26c3ccb15c9540a82af8d4eafdb6453a23aba5e42e5fe0f0",
+        "sha256": "0a69da238063ffcd26c3ccb15c9540a82af8d4eafdb6453a23aba5e42e5fe0f0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

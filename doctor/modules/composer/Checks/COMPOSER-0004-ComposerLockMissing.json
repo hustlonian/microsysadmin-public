@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "COMPOSER-C0004",
+        "module": "composer",
+        "name": "Create a missing deterministic dependency lock",
+        "summary": "Create a missing deterministic dependency lock.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "composer",
+            "composer-lock-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "{PROJECT}/composer.lock"
+    },
+    "failure_status": "FAIL"
+}

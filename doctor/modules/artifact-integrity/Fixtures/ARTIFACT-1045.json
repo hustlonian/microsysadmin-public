@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1045",
+    "artifact": "doctor/modules/apache/Commercial/APACHE-0006.json",
+    "baseline_sha256": "965dbfd96c6b173bbb62f1aa1363725960fbd05e9c30102c3819da97fc47a1b5",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

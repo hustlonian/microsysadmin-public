@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-2081",
+    "artifact": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ru.php",
+    "baseline_sha256": "981aa0630326df0b5dd48da086c19c4a329571a7426c36f6e08ff6470f24687d",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

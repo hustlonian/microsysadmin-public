@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1978",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/PHPConsoleHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/PHPConsoleHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1978",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/PHPConsoleHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c3707699164e339ed70cb9c3f76bef1b08b04d7036d6b3bde073e987e646e8f9",
+        "sha256": "c3707699164e339ed70cb9c3f76bef1b08b04d7036d6b3bde073e987e646e8f9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

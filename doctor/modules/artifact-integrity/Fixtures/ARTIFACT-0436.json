@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0436",
+    "artifact": "doctor/modules/cron/Checks/CRON-0008-ProjectPathMissingInSchedule.json",
+    "baseline_sha256": "827eb7609985b89e6f7a445bf041bc072c4f2aade440ba1494b4c32c14b8333b",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

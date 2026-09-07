@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0258",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Support/Value/RollbackResult.php",
+        "summary": "Verify doctor/engine/Support/Value/RollbackResult.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0258",
+        "path": "{APP_ROOT}/doctor/engine/Support/Value/RollbackResult.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ee37568d35ac29b60bd38128fbcf73dc144866279f20b3688f3f423e5294d412",
+        "sha256": "ee37568d35ac29b60bd38128fbcf73dc144866279f20b3688f3f423e5294d412",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

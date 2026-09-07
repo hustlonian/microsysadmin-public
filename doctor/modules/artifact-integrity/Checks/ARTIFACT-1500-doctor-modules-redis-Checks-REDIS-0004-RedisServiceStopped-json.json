@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1500",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Checks/REDIS-0004-RedisServiceStopped.json",
+        "summary": "Verify doctor/modules/redis/Checks/REDIS-0004-RedisServiceStopped.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1500",
+        "path": "{APP_ROOT}/doctor/modules/redis/Checks/REDIS-0004-RedisServiceStopped.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f7ea388db009cec81cb4d537fcad9c13139062b67e18794ee1e9929fd11cd531",
+        "sha256": "f7ea388db009cec81cb4d537fcad9c13139062b67e18794ee1e9929fd11cd531",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

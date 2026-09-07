@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1237",
+    "artifact": "doctor/modules/mail/Changelog/MAIL-0003.md",
+    "baseline_sha256": "e8f5059af45588368c05bbe9b78a9bf197f42437a8ab173d35a1d0ae7758f7f3",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

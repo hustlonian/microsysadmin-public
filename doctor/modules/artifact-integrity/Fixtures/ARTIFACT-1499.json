@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1499",
+    "artifact": "doctor/modules/redis/Checks/REDIS-0003-RedisEndpointUnavailable.json",
+    "baseline_sha256": "0b1ac7366d71422bf10ff030734e5c56f9cc6fc6123aa4bb7e7035c3a9c6ca6b",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

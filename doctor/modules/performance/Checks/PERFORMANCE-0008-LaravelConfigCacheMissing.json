@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "PERFORMANCE-C0008",
+        "module": "performance",
+        "name": "Build Laravel production configuration cache",
+        "summary": "Build Laravel production configuration cache.",
+        "severity": "LOW",
+        "version": "1.0.0",
+        "tags": [
+            "performance",
+            "laravel-config-cache-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "php"
+    ],
+    "probe": {
+        "type": "file_exists",
+        "path": "{PROJECT}/bootstrap/cache/config.php"
+    },
+    "failure_status": "WARNING"
+}

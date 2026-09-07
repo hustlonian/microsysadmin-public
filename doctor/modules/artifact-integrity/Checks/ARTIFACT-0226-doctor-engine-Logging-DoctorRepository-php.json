@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0226",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Logging/DoctorRepository.php",
+        "summary": "Verify doctor/engine/Logging/DoctorRepository.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0226",
+        "path": "{APP_ROOT}/doctor/engine/Logging/DoctorRepository.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/84d0f4efc3c24bd3a7c2c962244e2a14c659af8db217b2272bfd0da28271bf68",
+        "sha256": "84d0f4efc3c24bd3a7c2c962244e2a14c659af8db217b2272bfd0da28271bf68",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

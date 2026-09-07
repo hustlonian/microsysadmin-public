@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1591",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Commercial/SECURITY-0009.json",
+        "summary": "Verify doctor/modules/security/Commercial/SECURITY-0009.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1591",
+        "path": "{APP_ROOT}/doctor/modules/security/Commercial/SECURITY-0009.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/62646fa5dc66467aab5f907e96386e5479d904d0e2026ef8f2eb14b5238ddc53",
+        "sha256": "62646fa5dc66467aab5f907e96386e5479d904d0e2026ef8f2eb14b5238ddc53",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

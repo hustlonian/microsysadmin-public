@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1173",
+        "check_id": "ARTIFACT-C1173",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/git/Changelog/GIT-0001.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/git/Changelog/GIT-0001.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 6c382c9f920d6505d027f7736a8d61b22df5071dfe154698cf4ad69433123da5 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1173"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

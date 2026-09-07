@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "LARAVEL-C0004",
+        "module": "laravel",
+        "name": "Create the missing Laravel storage directory",
+        "summary": "Create the missing Laravel storage directory.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "laravel",
+            "storage-directory-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{PROJECT}/storage"
+    },
+    "failure_status": "FAIL"
+}

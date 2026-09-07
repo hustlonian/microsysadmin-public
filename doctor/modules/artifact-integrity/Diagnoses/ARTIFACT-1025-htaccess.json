@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1025",
+        "check_id": "ARTIFACT-C1025",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for .htaccess",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact .htaccess is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 50416afb0ad2170982c719c0048a398e2d648dd2d4001d35cadabb438841436a with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1025"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

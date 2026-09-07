@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0045",
+        "check_id": "ARTIFACT-C0045",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/AuditLogService.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/AuditLogService.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 9b572da673b6742753d5f26e4d495b1544c53bc06126a68c1e41cfb0314c82c3 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0045"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "MYSQL-C0009",
+        "module": "mysql",
+        "name": "Restore MySQL error logging",
+        "summary": "Restore MySQL error logging.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mysql",
+            "mysql-error-log-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "glob_exists",
+        "pattern": "/opt/lampp/var/mysql/*.err"
+    },
+    "failure_status": "FAIL"
+}

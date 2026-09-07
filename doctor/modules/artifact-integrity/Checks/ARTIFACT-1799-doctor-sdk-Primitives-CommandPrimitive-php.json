@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1799",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Primitives/CommandPrimitive.php",
+        "summary": "Verify doctor/sdk/Primitives/CommandPrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1799",
+        "path": "{APP_ROOT}/doctor/sdk/Primitives/CommandPrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8d921be741fdf7df64910c7c9d98552524ed260f331a2146060d7560ac9d8542",
+        "sha256": "8d921be741fdf7df64910c7c9d98552524ed260f331a2146060d7560ac9d8542",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

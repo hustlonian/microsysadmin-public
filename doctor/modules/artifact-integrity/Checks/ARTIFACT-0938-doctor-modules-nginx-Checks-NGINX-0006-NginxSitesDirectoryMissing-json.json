@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0938",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Checks/NGINX-0006-NginxSitesDirectoryMissing.json",
+        "summary": "Verify doctor/modules/nginx/Checks/NGINX-0006-NginxSitesDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0938",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Checks/NGINX-0006-NginxSitesDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c74ca1867ca47f88e31ac97c82fcafd38331443ffde2fe2f26e606ed85609c94",
+        "sha256": "c74ca1867ca47f88e31ac97c82fcafd38331443ffde2fe2f26e606ed85609c94",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

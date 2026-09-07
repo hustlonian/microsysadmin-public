@@ -1,0 +1,11 @@
+{
+    "name": "backups",
+    "display_name": "Backups",
+    "description": "Cause-specific Backups diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 3,
+    "enabled": true,
+    "repair_prefix": "BACKUP",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

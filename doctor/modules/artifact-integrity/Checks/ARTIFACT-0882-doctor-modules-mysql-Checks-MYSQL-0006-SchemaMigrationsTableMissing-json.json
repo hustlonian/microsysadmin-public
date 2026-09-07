@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0882",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Checks/MYSQL-0006-SchemaMigrationsTableMissing.json",
+        "summary": "Verify doctor/modules/mysql/Checks/MYSQL-0006-SchemaMigrationsTableMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0882",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Checks/MYSQL-0006-SchemaMigrationsTableMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e3dbd1eb3ae2ad43b67b59c4153dfeb5d089af501ee259fb844259295978e450",
+        "sha256": "e3dbd1eb3ae2ad43b67b59c4153dfeb5d089af501ee259fb844259295978e450",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0151",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact database/migrations/202607270001_commercial_foundation.php",
+        "summary": "Verify database/migrations/202607270001_commercial_foundation.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0151",
+        "path": "{APP_ROOT}/database/migrations/202607270001_commercial_foundation.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e86f9e4fe7124cdc25836cc6934e7635636ee40b370aee8a4325ab574fbfb412",
+        "sha256": "e86f9e4fe7124cdc25836cc6934e7635636ee40b370aee8a4325ab574fbfb412",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "LINUX-D0001",
+        "check_id": "LINUX-C0001",
+        "module": "linux",
+        "name": "Restore missing operating-system release metadata diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore missing operating-system release metadata.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed operating system release missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "LINUX-0001"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

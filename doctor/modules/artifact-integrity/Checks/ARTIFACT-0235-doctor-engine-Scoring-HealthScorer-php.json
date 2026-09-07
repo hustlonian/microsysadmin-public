@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0235",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Scoring/HealthScorer.php",
+        "summary": "Verify doctor/engine/Scoring/HealthScorer.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0235",
+        "path": "{APP_ROOT}/doctor/engine/Scoring/HealthScorer.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/792861249361513719da5dac72707626b9ec53d20a5f16dafd9ab6e0fa76b169",
+        "sha256": "792861249361513719da5dac72707626b9ec53d20a5f16dafd9ab6e0fa76b169",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

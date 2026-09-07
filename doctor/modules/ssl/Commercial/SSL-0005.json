@@ -1,0 +1,14 @@
+{
+    "repair_id": "SSL-0005",
+    "commercial_tier": "professional",
+    "customer_impact": "restores a bounded supported state",
+    "support_issue_family": "local-tls-certificate",
+    "automation_class": "AUTO_WITH_BACKUP",
+    "risk_level": "MEDIUM",
+    "sdk_primitives": [
+        "doctor_action"
+    ],
+    "quality_status": "contract-ready",
+    "rollback_supported": true,
+    "verification_defined": true
+}

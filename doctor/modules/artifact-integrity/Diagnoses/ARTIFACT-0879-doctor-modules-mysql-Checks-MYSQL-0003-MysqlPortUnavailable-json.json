@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0879",
+        "check_id": "ARTIFACT-C0879",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/mysql/Checks/MYSQL-0003-MysqlPortUnavailable.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/mysql/Checks/MYSQL-0003-MysqlPortUnavailable.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 040fef4ba0b4e17e482d21e12eb71f97670ee9ef108f70f6e52f8d36122aadbe with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0879"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

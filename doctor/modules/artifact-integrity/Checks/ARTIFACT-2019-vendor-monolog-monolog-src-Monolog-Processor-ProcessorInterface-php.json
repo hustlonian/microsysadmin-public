@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2019",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Processor/ProcessorInterface.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Processor/ProcessorInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2019",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Processor/ProcessorInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d0677f42c12ff384b545d6358473f7505ab4d3f59617f7d3a4aca1a615732f35",
+        "sha256": "d0677f42c12ff384b545d6358473f7505ab4d3f59617f7d3a4aca1a615732f35",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

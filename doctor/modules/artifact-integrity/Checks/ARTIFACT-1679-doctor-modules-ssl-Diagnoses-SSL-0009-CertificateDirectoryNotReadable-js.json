@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1679",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Diagnoses/SSL-0009-CertificateDirectoryNotReadable.json",
+        "summary": "Verify doctor/modules/ssl/Diagnoses/SSL-0009-CertificateDirectoryNotReadable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1679",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Diagnoses/SSL-0009-CertificateDirectoryNotReadable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c3c27c5ef88bb80933275b64e3913202dd8a0f1d0e8f20df712ec4ad20385358",
+        "sha256": "c3c27c5ef88bb80933275b64e3913202dd8a0f1d0e8f20df712ec4ad20385358",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "CRON-C0002",
+        "module": "cron",
+        "name": "Start the stopped cron scheduler service",
+        "summary": "Start the stopped cron scheduler service.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "cron",
+            "cron-service-stopped"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_active",
+        "service": "cron"
+    },
+    "failure_status": "FAIL"
+}

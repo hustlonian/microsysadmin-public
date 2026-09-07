@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1987",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1987",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/dc07c8cb8e36547ab42111aed36474acaa361f16fceab058e8a07694fb937209",
+        "sha256": "dc07c8cb8e36547ab42111aed36474acaa361f16fceab058e8a07694fb937209",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

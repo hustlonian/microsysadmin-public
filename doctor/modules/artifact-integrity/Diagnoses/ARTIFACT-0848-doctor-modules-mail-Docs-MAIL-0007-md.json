@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0848",
+        "check_id": "ARTIFACT-C0848",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/mail/Docs/MAIL-0007.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/mail/Docs/MAIL-0007.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 028d161cc482b040eeef2e9c93d15e6279925bea7988b2c2507ea35f7b011636 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0848"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

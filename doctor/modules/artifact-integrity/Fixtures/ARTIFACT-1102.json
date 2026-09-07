@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1102",
+    "artifact": "doctor/modules/cron/Commercial/CRON-0003.json",
+    "baseline_sha256": "cdc11423833266d228406aea599b23b3ec5a2e0a157b5c13b8c43f17b0b2a075",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

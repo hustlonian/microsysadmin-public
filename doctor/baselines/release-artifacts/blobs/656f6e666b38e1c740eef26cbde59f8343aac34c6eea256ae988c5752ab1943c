@@ -1,0 +1,123 @@
+{
+    "metadata": {
+        "repair_id": "LARAVEL-0006",
+        "module": "laravel",
+        "name": "Create the missing Laravel framework session directory",
+        "summary": "Create the missing Laravel framework session directory.",
+        "problem_description": "Create the missing Laravel framework session directory.",
+        "symptoms": [
+            "framework session directory missing"
+        ],
+        "probable_causes": [
+            "The observed framework session directory missing condition differs from the required state."
+        ],
+        "severity": "HIGH",
+        "risk_level": "LOW",
+        "automation_class": "AUTO_SAFE",
+        "default_execution_policy": "safe",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "scoped write or service-control permission"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{PROJECT}/storage/framework/sessions"
+        ],
+        "files_modified": [],
+        "directories_modified": [
+            "{PROJECT}/storage",
+            "{PROJECT}/storage/framework",
+            "{PROJECT}/storage/framework/sessions"
+        ],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "none-required",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "1-5 minutes",
+        "verification_method": "Re-run the independent LARAVEL-C0006 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "laravel",
+            "framework-session-directory-missing",
+            "high"
+        ],
+        "documentation_reference": "modules/laravel/Docs/LARAVEL-0006.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores one bounded supported state",
+        "support_issue_family": "laravel",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "directory_exists",
+        "path": "{PROJECT}/storage/framework/sessions"
+    },
+    "actions": [
+        {
+            "type": "create_directory",
+            "path": "{PROJECT}/storage/framework/sessions",
+            "mode": 509,
+            "description": "Create the framework session directory and capture any missing bounded parent chain."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "directory_exists",
+        "path": "{PROJECT}/storage/framework/sessions"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "none-required",
+        "primitive": "create_directory",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.laravel-0006",
+        "primitive": "create_directory",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "laravel",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0181",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/LICENSING.md",
+        "summary": "Verify docs/LICENSING.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0181",
+        "path": "{APP_ROOT}/docs/LICENSING.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9de1b891cb3a1335457d5cecd9c9fbfc28dad72b1337fb8c44530fc6ee1192dd",
+        "sha256": "9de1b891cb3a1335457d5cecd9c9fbfc28dad72b1337fb8c44530fc6ee1192dd",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

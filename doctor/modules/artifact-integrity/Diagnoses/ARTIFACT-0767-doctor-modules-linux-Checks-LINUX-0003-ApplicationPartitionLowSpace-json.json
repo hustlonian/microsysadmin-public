@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0767",
+        "check_id": "ARTIFACT-C0767",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/linux/Checks/LINUX-0003-ApplicationPartitionLowSpace.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/linux/Checks/LINUX-0003-ApplicationPartitionLowSpace.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 2134a61572e5d5a968f3ace2950f38065f490e4420fb094df8a7ef0f3bc043f2 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0767"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

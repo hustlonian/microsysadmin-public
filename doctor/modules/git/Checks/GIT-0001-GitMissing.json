@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "GIT-C0001",
+        "module": "git",
+        "name": "Install the missing Git executable",
+        "summary": "Install the missing Git executable.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "git",
+            "git-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "git"
+    },
+    "failure_status": "FAIL"
+}

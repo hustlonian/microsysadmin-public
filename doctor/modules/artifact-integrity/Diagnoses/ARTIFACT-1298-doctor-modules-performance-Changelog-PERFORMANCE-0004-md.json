@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1298",
+        "check_id": "ARTIFACT-C1298",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/performance/Changelog/PERFORMANCE-0004.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/performance/Changelog/PERFORMANCE-0004.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 1214f8c4816000e4eb693bdeb194d8fd5c617ebae62c0c377f64d13861540b30 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1298"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

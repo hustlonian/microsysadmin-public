@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1849",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/render-system-integration.php",
+        "summary": "Verify scripts/render-system-integration.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1849",
+        "path": "{APP_ROOT}/scripts/render-system-integration.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/27cb11fed56bffe300da129eb5263f46f0045c2428d526859d7f6177d5d50e7e",
+        "sha256": "27cb11fed56bffe300da129eb5263f46f0045c2428d526859d7f6177d5d50e7e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

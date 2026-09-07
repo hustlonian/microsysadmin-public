@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1762",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Docs/XAMPP-0004.md",
+        "summary": "Verify doctor/modules/xampp/Docs/XAMPP-0004.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1762",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Docs/XAMPP-0004.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3bef3127e97875c66d08cec114a5854fc139fec5be13873c45299d2a0bb6a5bd",
+        "sha256": "3bef3127e97875c66d08cec114a5854fc139fec5be13873c45299d2a0bb6a5bd",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

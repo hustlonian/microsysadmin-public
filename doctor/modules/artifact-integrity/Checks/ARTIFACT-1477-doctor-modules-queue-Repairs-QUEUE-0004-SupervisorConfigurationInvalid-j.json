@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1477",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/queue/Repairs/QUEUE-0004-SupervisorConfigurationInvalid.json",
+        "summary": "Verify doctor/modules/queue/Repairs/QUEUE-0004-SupervisorConfigurationInvalid.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1477",
+        "path": "{APP_ROOT}/doctor/modules/queue/Repairs/QUEUE-0004-SupervisorConfigurationInvalid.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c77a155639df27971b6357bc5b0e34c4c848aaa025126e47dd6252fe355fd7c7",
+        "sha256": "c77a155639df27971b6357bc5b0e34c4c848aaa025126e47dd6252fe355fd7c7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

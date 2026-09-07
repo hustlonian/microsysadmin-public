@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "LINUX-D0002",
+        "check_id": "LINUX-C0002",
+        "module": "linux",
+        "name": "Recover critically low root-partition capacity diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Recover critically low root-partition capacity.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed root partition low space condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "LINUX-0002"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

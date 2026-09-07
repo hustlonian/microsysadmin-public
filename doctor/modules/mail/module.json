@@ -1,0 +1,11 @@
+{
+    "name": "mail",
+    "display_name": "Mail",
+    "description": "Cause-specific Mail diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 3,
+    "enabled": true,
+    "repair_prefix": "MAIL",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

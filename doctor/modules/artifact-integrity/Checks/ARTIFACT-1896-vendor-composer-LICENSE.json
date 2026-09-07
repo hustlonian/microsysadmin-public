@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1896",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/composer/LICENSE",
+        "summary": "Verify vendor/composer/LICENSE against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1896",
+        "path": "{APP_ROOT}/vendor/composer/LICENSE",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7855ac293067aebe7e51afdd23b9dea54b8be24187dbecc9b9142581c37f596c",
+        "sha256": "7855ac293067aebe7e51afdd23b9dea54b8be24187dbecc9b9142581c37f596c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

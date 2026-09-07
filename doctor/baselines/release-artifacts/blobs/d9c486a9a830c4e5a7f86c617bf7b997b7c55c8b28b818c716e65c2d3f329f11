@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "CRON-D0003",
+        "check_id": "CRON-C0003",
+        "module": "cron",
+        "name": "Enable the disabled cron scheduler service diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Enable the disabled cron scheduler service.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed cron service disabled condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "CRON-0003"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The repair is scoped, deterministic, previewed, and independently verified."
+    }
+}

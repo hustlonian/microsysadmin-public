@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1825",
+        "check_id": "ARTIFACT-C1825",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for packaging/logrotate/microsysadmin",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact packaging/logrotate/microsysadmin is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c0e9304a0d1db0dee974d5b3e69708167dea969b339bf8f2916501d0f7d56a2c with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1825"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

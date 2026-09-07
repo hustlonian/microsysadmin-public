@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0542",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Checks/DOCKER-0002-DockerServiceStopped.json",
+        "summary": "Verify doctor/modules/docker/Checks/DOCKER-0002-DockerServiceStopped.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0542",
+        "path": "{APP_ROOT}/doctor/modules/docker/Checks/DOCKER-0002-DockerServiceStopped.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/85b18bb0d5bc38eb8d0e279a67a66c00fa0722a7131251de6bb71f763e0e4392",
+        "sha256": "85b18bb0d5bc38eb8d0e279a67a66c00fa0722a7131251de6bb71f763e0e4392",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

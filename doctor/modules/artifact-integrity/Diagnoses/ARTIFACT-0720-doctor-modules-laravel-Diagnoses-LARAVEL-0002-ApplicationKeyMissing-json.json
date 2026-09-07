@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0720",
+        "check_id": "ARTIFACT-C0720",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/laravel/Diagnoses/LARAVEL-0002-ApplicationKeyMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/laravel/Diagnoses/LARAVEL-0002-ApplicationKeyMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 9303951a94fa36783cf32f924c33328b597a8194aaad80c74a002ba874ad2bd4 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0720"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

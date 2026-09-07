@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1107",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Commercial/CRON-0008.json",
+        "summary": "Verify doctor/modules/cron/Commercial/CRON-0008.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1107",
+        "path": "{APP_ROOT}/doctor/modules/cron/Commercial/CRON-0008.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/67ef3de2e18c9f4c430046ca973da790c0ef6bf5790ec7f734c87f95738e7a69",
+        "sha256": "67ef3de2e18c9f4c430046ca973da790c0ef6bf5790ec7f734c87f95738e7a69",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

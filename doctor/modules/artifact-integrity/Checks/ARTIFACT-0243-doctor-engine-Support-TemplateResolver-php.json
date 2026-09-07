@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0243",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Support/TemplateResolver.php",
+        "summary": "Verify doctor/engine/Support/TemplateResolver.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0243",
+        "path": "{APP_ROOT}/doctor/engine/Support/TemplateResolver.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1678f4bbf9f86a28bc389447949825bf6fb5068ddc91fa2d67fff5925619220d",
+        "sha256": "1678f4bbf9f86a28bc389447949825bf6fb5068ddc91fa2d67fff5925619220d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

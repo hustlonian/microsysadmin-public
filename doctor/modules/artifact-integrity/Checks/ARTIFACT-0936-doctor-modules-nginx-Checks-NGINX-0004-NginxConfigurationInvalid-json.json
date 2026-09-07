@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0936",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Checks/NGINX-0004-NginxConfigurationInvalid.json",
+        "summary": "Verify doctor/modules/nginx/Checks/NGINX-0004-NginxConfigurationInvalid.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0936",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Checks/NGINX-0004-NginxConfigurationInvalid.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2df25de2df11c34220b453e4b6041e6dda39658eb1f02d0e0e3cab5a303eee14",
+        "sha256": "2df25de2df11c34220b453e4b6041e6dda39658eb1f02d0e0e3cab5a303eee14",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

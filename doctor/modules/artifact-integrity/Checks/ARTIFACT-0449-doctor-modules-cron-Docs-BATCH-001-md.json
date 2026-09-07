@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0449",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Docs/BATCH-001.md",
+        "summary": "Verify doctor/modules/cron/Docs/BATCH-001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0449",
+        "path": "{APP_ROOT}/doctor/modules/cron/Docs/BATCH-001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/eeceefb6caf0d4c618cd177d1b070acc9bf3e94c4bc625932af4720f16bc8fe3",
+        "sha256": "eeceefb6caf0d4c618cd177d1b070acc9bf3e94c4bc625932af4720f16bc8fe3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

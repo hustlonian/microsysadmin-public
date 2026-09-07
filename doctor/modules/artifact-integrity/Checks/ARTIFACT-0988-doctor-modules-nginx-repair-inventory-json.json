@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0988",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/repair-inventory.json",
+        "summary": "Verify doctor/modules/nginx/repair-inventory.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0988",
+        "path": "{APP_ROOT}/doctor/modules/nginx/repair-inventory.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7498e00b4bab45ea53b32dc9fe3032892512b9794ecf049d47e245ce8680cee4",
+        "sha256": "7498e00b4bab45ea53b32dc9fe3032892512b9794ecf049d47e245ce8680cee4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

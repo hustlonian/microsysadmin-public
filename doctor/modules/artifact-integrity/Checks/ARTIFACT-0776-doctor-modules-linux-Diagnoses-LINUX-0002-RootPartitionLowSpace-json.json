@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0776",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Diagnoses/LINUX-0002-RootPartitionLowSpace.json",
+        "summary": "Verify doctor/modules/linux/Diagnoses/LINUX-0002-RootPartitionLowSpace.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0776",
+        "path": "{APP_ROOT}/doctor/modules/linux/Diagnoses/LINUX-0002-RootPartitionLowSpace.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c7f244dde438f0d33e9ac2870988794f12d6947ce56012f233fdb4a1d4c1997d",
+        "sha256": "c7f244dde438f0d33e9ac2870988794f12d6947ce56012f233fdb4a1d4c1997d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

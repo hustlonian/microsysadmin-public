@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0666",
+    "artifact": "doctor/modules/git/Diagnoses/GIT-0004-MergeConflictInProgress.json",
+    "baseline_sha256": "2ec6cf8e053a40facfb9a5830ff0cc57d008905bd643325bc99cc1eff36d80e7",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

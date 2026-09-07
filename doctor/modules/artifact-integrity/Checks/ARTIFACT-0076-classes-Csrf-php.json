@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0076",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Csrf.php",
+        "summary": "Verify classes/Csrf.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0076",
+        "path": "{APP_ROOT}/classes/Csrf.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/503342274da805699bef6d432a71af48de02088cde25199b757c14257ff2f5b2",
+        "sha256": "503342274da805699bef6d432a71af48de02088cde25199b757c14257ff2f5b2",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

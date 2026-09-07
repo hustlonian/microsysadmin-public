@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0104",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/LocalMachineAgent.php",
+        "summary": "Verify classes/LocalMachineAgent.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0104",
+        "path": "{APP_ROOT}/classes/LocalMachineAgent.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/740f570fcc67ab5fa82b30563acfb9b6fa72586ff482122d251f19f03572ba7a",
+        "sha256": "740f570fcc67ab5fa82b30563acfb9b6fa72586ff482122d251f19f03572ba7a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

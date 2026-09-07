@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0004",
+        "module": "security",
+        "name": "Restore the missing SSH server configuration",
+        "summary": "Restore the missing SSH server configuration.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "ssh-configuration-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/etc/ssh/sshd_config"
+    },
+    "failure_status": "FAIL"
+}

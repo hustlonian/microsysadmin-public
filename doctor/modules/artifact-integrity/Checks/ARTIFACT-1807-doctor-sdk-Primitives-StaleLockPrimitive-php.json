@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1807",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Primitives/StaleLockPrimitive.php",
+        "summary": "Verify doctor/sdk/Primitives/StaleLockPrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1807",
+        "path": "{APP_ROOT}/doctor/sdk/Primitives/StaleLockPrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3cec722c362863a8e1c96960fb1c024b7460e1ddc67ea4d3f37fe6f414065b02",
+        "sha256": "3cec722c362863a8e1c96960fb1c024b7460e1ddc67ea4d3f37fe6f414065b02",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

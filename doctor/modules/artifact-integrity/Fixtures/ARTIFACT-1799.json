@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1799",
+    "artifact": "doctor/sdk/Primitives/CommandPrimitive.php",
+    "baseline_sha256": "8d921be741fdf7df64910c7c9d98552524ed260f331a2146060d7560ac9d8542",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

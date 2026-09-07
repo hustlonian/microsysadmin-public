@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "GIT-D0010",
+        "check_id": "GIT-C0010",
+        "module": "git",
+        "name": "Configure a missing repository Git author email diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Configure a missing repository Git author email.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed user email missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "GIT-0010"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

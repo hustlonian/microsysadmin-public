@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1004",
+    "artifact": "doctor/modules/performance/Diagnoses/PERFORMANCE-0006-ApacheKeepaliveDisabled.json",
+    "baseline_sha256": "22270ad5c7a7657eb26a0feb61f1fcdf7970be00eefc8a38a14d18be2e1274d1",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

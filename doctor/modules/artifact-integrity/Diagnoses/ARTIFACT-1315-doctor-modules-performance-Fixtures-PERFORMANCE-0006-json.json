@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1315",
+        "check_id": "ARTIFACT-C1315",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/performance/Fixtures/PERFORMANCE-0006.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/performance/Fixtures/PERFORMANCE-0006.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 a0bdbb8097f2ff2e5e6c9cc8bc31127a6be32e21980ebc441c0b0391a4ead43b with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1315"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

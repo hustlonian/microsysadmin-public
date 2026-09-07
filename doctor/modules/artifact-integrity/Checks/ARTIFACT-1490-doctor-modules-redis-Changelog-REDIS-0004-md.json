@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1490",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Changelog/REDIS-0004.md",
+        "summary": "Verify doctor/modules/redis/Changelog/REDIS-0004.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1490",
+        "path": "{APP_ROOT}/doctor/modules/redis/Changelog/REDIS-0004.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1583a64e86c2dceb69f8a3cad63873201208ccad94022d99e60a3f711823541b",
+        "sha256": "1583a64e86c2dceb69f8a3cad63873201208ccad94022d99e60a3f711823541b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

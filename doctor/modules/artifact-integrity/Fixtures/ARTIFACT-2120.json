@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-2120",
+    "artifact": "vendor/symfony/process/Exception/ProcessTimedOutException.php",
+    "baseline_sha256": "fbf5cd109b758720cc2b920ceda24e2bd197d64f0c9873af6cae145686d3f2e9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

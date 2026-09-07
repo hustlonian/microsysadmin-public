@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0237",
+        "check_id": "ARTIFACT-C0237",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/engine/Support/ArrayValue.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/engine/Support/ArrayValue.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e493766bc20753d4ec926eadb04a27097e15077f4e092cf07b5f29a892480c2c with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0237"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

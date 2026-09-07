@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0470",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Module.php",
+        "summary": "Verify doctor/modules/cron/Module.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0470",
+        "path": "{APP_ROOT}/doctor/modules/cron/Module.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/797dd7b6ec1de4ce3c38c886020e137a1ccaa7df3882371d4c8cf5dfe6e2e0d7",
+        "sha256": "797dd7b6ec1de4ce3c38c886020e137a1ccaa7df3882371d4c8cf5dfe6e2e0d7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

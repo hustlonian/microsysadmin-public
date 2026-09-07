@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1813",
+        "check_id": "ARTIFACT-C1813",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/sdk/Support/FileSnapshotManager.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/sdk/Support/FileSnapshotManager.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 3affe3de1f26041a17080a4cdf8b5b35b837866af08d547e8641abd83b6a2a5d with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1813"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

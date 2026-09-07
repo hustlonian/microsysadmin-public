@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1833",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact rollback.sh",
+        "summary": "Verify rollback.sh against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1833",
+        "path": "{APP_ROOT}/rollback.sh",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1541d234591051a6ef92ae1319529bff47e8288c413ec26154867661dc8bbf3f",
+        "sha256": "1541d234591051a6ef92ae1319529bff47e8288c413ec26154867661dc8bbf3f",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0647",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Repairs/FILESYSTEM-0008-ReadOnlyApplicationFilesystem.json",
+        "summary": "Verify doctor/modules/filesystem/Repairs/FILESYSTEM-0008-ReadOnlyApplicationFilesystem.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0647",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Repairs/FILESYSTEM-0008-ReadOnlyApplicationFilesystem.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/034da6dd5733c0796d57109cbaa05d667adda2e91230b4d8fabad6d441fc3c9f",
+        "sha256": "034da6dd5733c0796d57109cbaa05d667adda2e91230b4d8fabad6d441fc3c9f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

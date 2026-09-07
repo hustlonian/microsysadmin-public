@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "DNS-C0004",
+        "module": "dns",
+        "name": "Correct unreadable resolver configuration",
+        "summary": "Correct unreadable resolver configuration.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "dns",
+            "resolver-configuration-unreadable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_readable",
+        "path": "/etc/resolv.conf"
+    },
+    "failure_status": "FAIL"
+}

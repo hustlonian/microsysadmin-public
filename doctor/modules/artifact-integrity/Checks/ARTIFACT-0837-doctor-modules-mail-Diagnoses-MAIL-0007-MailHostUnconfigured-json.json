@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0837",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Diagnoses/MAIL-0007-MailHostUnconfigured.json",
+        "summary": "Verify doctor/modules/mail/Diagnoses/MAIL-0007-MailHostUnconfigured.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0837",
+        "path": "{APP_ROOT}/doctor/modules/mail/Diagnoses/MAIL-0007-MailHostUnconfigured.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7366936e1230b87a539612a6ef1416c340eb73a96b49932901e1b58f93b2ab71",
+        "sha256": "7366936e1230b87a539612a6ef1416c340eb73a96b49932901e1b58f93b2ab71",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

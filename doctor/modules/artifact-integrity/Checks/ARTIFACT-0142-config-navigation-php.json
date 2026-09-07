@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0142",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact config/navigation.php",
+        "summary": "Verify config/navigation.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0142",
+        "path": "{APP_ROOT}/config/navigation.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5368e562945fcaa664de90b35dbf5f23c03d1549175ae415f630c4b4b8adfb67",
+        "sha256": "5368e562945fcaa664de90b35dbf5f23c03d1549175ae415f630c4b4b8adfb67",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

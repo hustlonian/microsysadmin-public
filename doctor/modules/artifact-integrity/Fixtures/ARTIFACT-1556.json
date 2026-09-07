@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1556",
+    "artifact": "doctor/modules/redis/Repairs/REDIS-0007-RedisConfigurationMissing.json",
+    "baseline_sha256": "b676c4c82b3c2e19187cea9fa2dd73a63452a1f8d926f4b000bed9c4b6af5dd8",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0857",
+    "artifact": "doctor/modules/mail/Fixtures/MAIL-0006.json",
+    "baseline_sha256": "8301fec73b6e500e5d875c2971fcdd45bbc884c51cee618e3772a6b4a35c2671",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

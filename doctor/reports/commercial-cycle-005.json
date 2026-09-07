@@ -1,0 +1,165 @@
+{
+    "schema_version": 1,
+    "cycle": 5,
+    "generated_at": "2026-08-02T19:23:04Z",
+    "portfolio": {
+        "repair_definitions": 2066,
+        "executable_repairs": 1918,
+        "fully_automatic_repairs": 1896,
+        "approval_required_repairs": 22,
+        "report_only_repairs": 148,
+        "permanent_inventory_records": 2542
+    },
+    "cycle_delta": {
+        "repair_definitions": 842,
+        "executable_repairs": 843,
+        "fully_automatic_repairs": 843,
+        "report_only_repairs": -1,
+        "permanent_inventory_records": 865
+    },
+    "coverage_percent": {
+        "automation": 92.84,
+        "fully_automatic": 91.77,
+        "rollback": 100.0,
+        "verification": 100.0,
+        "diagnosis": 100.0,
+        "documentation": 100.0,
+        "contract": 100.0,
+        "audit_metadata": 100.0,
+        "changelog": 100.0,
+        "commercial_metadata": 100.0,
+        "sdk_actions": 100.0
+    },
+    "modules": {
+        "completed": [
+            "apache",
+            "artifact-integrity",
+            "backups",
+            "composer",
+            "cron",
+            "dns",
+            "docker",
+            "filesystem",
+            "git",
+            "laravel",
+            "linux",
+            "mail",
+            "mysql",
+            "nginx",
+            "performance",
+            "php",
+            "queue",
+            "redis",
+            "security",
+            "ssl",
+            "xampp"
+        ],
+        "needing_work": []
+    },
+    "new_primitives_and_architecture": [
+        "release-artifact-catalog",
+        "all-eligible-release-artifact-generation",
+        "permanent-retirement-tombstones",
+        "report-only-candidate-ranker",
+        "xampp-ssl-key-known-directory-target",
+        "scale-safe-redacted-secret-prefilter"
+    ],
+    "executable_coverage_added": {
+        "new_release_owned_artifact_ids": 865,
+        "retired_non_release_artifact_ids": 23,
+        "net_artifact_definition_growth": 842,
+        "converted_report_only_repairs": [
+            "SECURITY-0003"
+        ],
+        "zero_interaction_reclassified_repairs": [
+            "BACKUP-0009"
+        ],
+        "false_warning_contracts_corrected": [
+            "COMPOSER-C0009"
+        ]
+    },
+    "duplicate_logic_eliminated": {
+        "artifact_selection_uses_release_policy": true,
+        "privileged_directory_logic_reused": true,
+        "report_only_ranking_centralized": true,
+        "remaining_declarative_signature_groups": {
+            "actions": 6,
+            "commands": 2,
+            "verification": 7
+        },
+        "exact_overlap_groups": 21
+    },
+    "tests": {
+        "sdk_assertions": 2063,
+        "doctor_assertions": 20046,
+        "time_forward_assertions": 55983,
+        "time_forward_scenarios": 5598,
+        "privileged_helper_tests": 11,
+        "application_tests": 23,
+        "installer_failure_mode_tests": 12,
+        "git_security_failure_mode_tests": 8,
+        "isolated_commercial_assertions": 70,
+        "enumerated_assertions_and_cases": 78216,
+        "repository_audit": "PASS",
+        "failures": 0
+    },
+    "live_health": {
+        "execution_id": "doc_20260802_191943_a68ae9b882d8",
+        "score_percent": 100,
+        "grade": "A+",
+        "applicable_pass": 153,
+        "warning": 0,
+        "fail": 0,
+        "error": 0,
+        "unknown": 0,
+        "skipped_in_scored_set": 0,
+        "detected_causes": 0,
+        "repairs_eligible": 1,
+        "repairs_attempted": 1,
+        "repairs_verified": 1,
+        "repairs_failed": 0,
+        "rollback_available": true
+    },
+    "release": {
+        "doctor_runtime_packaged": true,
+        "reproducible": true,
+        "isolated_install_passed": true,
+        "installer_idempotency_passed": true,
+        "failed_update_rollback_passed": true,
+        "sha256": "363ea21c70355277374069a154e3cfe720f2a11793baff789296617d2bd29139"
+    },
+    "artifact_integrity": {
+        "active_repairs": 1866,
+        "retired_permanent_ids": 23,
+        "eligible_release_candidate_coverage_percent": 100.0,
+        "baseline_blobs": 2141,
+        "active_referenced_blobs": 1866,
+        "historical_unreferenced_blobs": 275,
+        "revision": "51f48f3c5b8526175d159227fccb96919e29101620257c52da90656c288f1c14",
+        "manifest_sha256": "007009b8b0a50e84a0821e396b78230edfe7fef1ccc8e0547409e398531e9cc6",
+        "selection_strategy": "all_eligible_commercial_release_files",
+        "consecutive_generation_reproducible": true
+    },
+    "remaining_technical_debt": {
+        "rollback_debt": [],
+        "report_only_repairs": 148,
+        "definition_scale_gap": 2934,
+        "executable_scale_gap": 582,
+        "exact_overlap_groups": 21,
+        "historical_blob_retention_policy_required": true,
+        "post_composer_vendor_provenance_required": true,
+        "report_only_classification_counts": {
+            "BUSINESS_INPUT_REQUIRED": 8,
+            "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW": 19,
+            "MANUAL_RESEARCH_REQUIRED": 12,
+            "MISSING_DATA_RECOVERY_REQUIRED": 6,
+            "OVERLAP_CONSOLIDATION_REQUIRED": 54,
+            "OWNERSHIP_PERMISSION_CONTRACT_REVIEW": 8,
+            "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY": 18,
+            "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW": 5,
+            "ROOT_CAUSE_VARIANT_RESEARCH": 18
+        }
+    },
+    "quality_score": 100.0,
+    "commercial_readiness_score": 87.71
+}

@@ -1,0 +1,35 @@
+{
+    "repair_id": "GIT-0007",
+    "lifecycle": [
+        "detect-failure",
+        "diagnose",
+        "plan",
+        "backup",
+        "execute",
+        "verify-pass",
+        "rollback",
+        "verify-failure-again"
+    ],
+    "primitive_descriptor": {
+        "type": "quarantine_stale_git_lock",
+        "category": "git",
+        "local_only": true,
+        "structured_arguments": true,
+        "reversible": true,
+        "rollback": "exact lock snapshot restored only while the repaired path remains absent",
+        "internal_backup": true,
+        "safety_class": "aged-unowned-exact-git-index-lock",
+        "required_fields": [
+            "repair_id",
+            "path",
+            "minimum_age_seconds"
+        ]
+    },
+    "prohibited": [
+        "shell-string-command",
+        "unbounded-path",
+        "missing-verification",
+        "missing-rollback",
+        "network-without-declaration"
+    ]
+}

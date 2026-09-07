@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0832",
+        "check_id": "ARTIFACT-C0832",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/mail/Diagnoses/MAIL-0002-PostfixCommandMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/mail/Diagnoses/MAIL-0002-PostfixCommandMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b729e2cba6db8eb176bbdc7c192259f4d55f0f629dccad97c242ccb8326316d3 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0832"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

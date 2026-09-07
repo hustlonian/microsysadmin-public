@@ -1,0 +1,11 @@
+{
+    "name": "queue",
+    "display_name": "Queue and Supervisor",
+    "description": "Cause-specific Queue and Supervisor diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 2,
+    "enabled": true,
+    "repair_prefix": "QUEUE",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

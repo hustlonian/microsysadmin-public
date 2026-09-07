@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0943",
+    "artifact": "doctor/modules/nginx/Diagnoses/NGINX-0001-NginxMissing.json",
+    "baseline_sha256": "a096cc48d7adf115c60d444834074b7601a01f8af81133ea2016eff0e890935b",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

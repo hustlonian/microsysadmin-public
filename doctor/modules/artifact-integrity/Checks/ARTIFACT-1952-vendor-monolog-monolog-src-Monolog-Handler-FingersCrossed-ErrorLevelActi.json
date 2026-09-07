@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1952",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/FingersCrossed/ErrorLevelActivationStrategy.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/FingersCrossed/ErrorLevelActivationStrategy.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1952",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/FingersCrossed/ErrorLevelActivationStrategy.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c4472c040e816bbe3be8c2c3bd8fd2f1076f39d8d7bf157d98a32945b3242e41",
+        "sha256": "c4472c040e816bbe3be8c2c3bd8fd2f1076f39d8d7bf157d98a32945b3242e41",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

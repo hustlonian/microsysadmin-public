@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2132",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/Pipes/AbstractPipes.php",
+        "summary": "Verify vendor/symfony/process/Pipes/AbstractPipes.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2132",
+        "path": "{APP_ROOT}/vendor/symfony/process/Pipes/AbstractPipes.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/abe1dc02de2214fa2d99829032fd254fa244403f1fcfa38e47b36984ab747e27",
+        "sha256": "abe1dc02de2214fa2d99829032fd254fa244403f1fcfa38e47b36984ab747e27",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

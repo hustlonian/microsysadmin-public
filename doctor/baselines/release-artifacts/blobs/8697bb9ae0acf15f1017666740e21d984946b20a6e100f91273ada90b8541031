@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "GIT-C0004",
+        "module": "git",
+        "name": "Resolve an interrupted Git merge safely",
+        "summary": "Resolve an interrupted Git merge safely.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "git",
+            "merge-conflict-in-progress"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_absent",
+        "path": "{PROJECT}/.git/MERGE_HEAD"
+    },
+    "failure_status": "FAIL"
+}

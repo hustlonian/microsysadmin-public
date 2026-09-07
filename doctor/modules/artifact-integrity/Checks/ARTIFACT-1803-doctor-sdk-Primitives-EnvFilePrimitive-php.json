@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1803",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Primitives/EnvFilePrimitive.php",
+        "summary": "Verify doctor/sdk/Primitives/EnvFilePrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1803",
+        "path": "{APP_ROOT}/doctor/sdk/Primitives/EnvFilePrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/43520012e3da8ce39c2473170659c23b220e3c8c3a5c94080d8ca1718f87d7db",
+        "sha256": "43520012e3da8ce39c2473170659c23b220e3c8c3a5c94080d8ca1718f87d7db",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,33 @@
+{
+    "repair_id": "LARAVEL-0001",
+    "lifecycle": [
+        "detect-failure",
+        "diagnose",
+        "plan",
+        "backup",
+        "execute",
+        "verify-pass",
+        "rollback",
+        "verify-failure-again"
+    ],
+    "primitive_descriptor": {
+        "type": "copy_file",
+        "category": "filesystem",
+        "local_only": true,
+        "structured_arguments": true,
+        "reversible": true,
+        "rollback": "automatic",
+        "safety_class": "bounded-path",
+        "required_fields": [
+            "source",
+            "path"
+        ]
+    },
+    "prohibited": [
+        "shell-string-command",
+        "unbounded-path",
+        "missing-verification",
+        "missing-rollback",
+        "network-without-declaration"
+    ]
+}

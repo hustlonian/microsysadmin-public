@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1707",
+        "check_id": "ARTIFACT-C1707",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/ssl/Repairs/SSL-0004-CertificateExpired.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/ssl/Repairs/SSL-0004-CertificateExpired.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 158d341c0b3789174b7a338e157fad68130c8c9d305b17033e7ab794a1d9a253 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1707"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

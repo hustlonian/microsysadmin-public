@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0482",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Tests/cases.json",
+        "summary": "Verify doctor/modules/cron/Tests/cases.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0482",
+        "path": "{APP_ROOT}/doctor/modules/cron/Tests/cases.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/95d57502b0b168f3a01a1e8a1bd906f143082495649b72fc6ddeb6d247f9b4c8",
+        "sha256": "95d57502b0b168f3a01a1e8a1bd906f143082495649b72fc6ddeb6d247f9b4c8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

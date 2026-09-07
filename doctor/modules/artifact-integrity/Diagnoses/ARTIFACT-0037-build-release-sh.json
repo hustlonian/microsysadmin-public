@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0037",
+        "check_id": "ARTIFACT-C0037",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for build-release.sh",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact build-release.sh is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77 with mode 0755.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0037"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1287",
+    "artifact": "doctor/modules/nginx/Commercial/NGINX-0003.json",
+    "baseline_sha256": "ae9831adfd4b64d9309738ded1404b2548768bbf0ed10f136def2d8d80f231d0",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

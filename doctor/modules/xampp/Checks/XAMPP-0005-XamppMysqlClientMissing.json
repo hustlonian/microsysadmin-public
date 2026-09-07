@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "XAMPP-C0005",
+        "module": "xampp",
+        "name": "Restore the missing XAMPP MySQL client",
+        "summary": "Restore the missing XAMPP MySQL client.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "xampp",
+            "xampp-mysql-client-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "xampp-mysql"
+    },
+    "failure_status": "FAIL"
+}

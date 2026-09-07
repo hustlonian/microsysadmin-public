@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0026",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/mysql.php",
+        "summary": "Verify api/mysql.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0026",
+        "path": "{APP_ROOT}/api/mysql.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6a8090396af1764dd170ce24437b3cf18c0e95d2f521467985cf2e519ebdd88b",
+        "sha256": "6a8090396af1764dd170ce24437b3cf18c0e95d2f521467985cf2e519ebdd88b",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

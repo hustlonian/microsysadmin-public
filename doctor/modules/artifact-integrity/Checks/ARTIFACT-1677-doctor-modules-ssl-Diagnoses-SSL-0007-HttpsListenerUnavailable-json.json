@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1677",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Diagnoses/SSL-0007-HttpsListenerUnavailable.json",
+        "summary": "Verify doctor/modules/ssl/Diagnoses/SSL-0007-HttpsListenerUnavailable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1677",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Diagnoses/SSL-0007-HttpsListenerUnavailable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4843058375c1c29500259dc905ee68be77b2ac0e1541027e4d4191b6f0b51b8c",
+        "sha256": "4843058375c1c29500259dc905ee68be77b2ac0e1541027e4d4191b6f0b51b8c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

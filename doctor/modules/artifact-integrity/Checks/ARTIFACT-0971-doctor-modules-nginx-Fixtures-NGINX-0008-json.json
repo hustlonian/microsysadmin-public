@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0971",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Fixtures/NGINX-0008.json",
+        "summary": "Verify doctor/modules/nginx/Fixtures/NGINX-0008.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0971",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Fixtures/NGINX-0008.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/81d24b46bacb772d2455fbb8fa41909c5131b35e763ba5ab5b75fb781d8bf180",
+        "sha256": "81d24b46bacb772d2455fbb8fa41909c5131b35e763ba5ab5b75fb781d8bf180",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

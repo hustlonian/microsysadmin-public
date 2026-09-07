@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1907",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/README.md",
+        "summary": "Verify vendor/monolog/monolog/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1907",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0e009e7005609b61a812de8998542013d1b9a37f5736693ccfe4c9fc326ac897",
+        "sha256": "0e009e7005609b61a812de8998542013d1b9a37f5736693ccfe4c9fc326ac897",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

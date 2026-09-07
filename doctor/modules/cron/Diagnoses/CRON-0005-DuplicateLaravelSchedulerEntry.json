@@ -1,0 +1,37 @@
+{
+    "metadata": {
+        "diagnosis_id": "CRON-D0005",
+        "check_id": "CRON-C0005",
+        "module": "cron",
+        "name": "Remove duplicate Laravel scheduler entries diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Remove duplicate Laravel scheduler entries.",
+        "expected_state": "At most one crontab entry contains the exact permanent marker # MicroSysAdmin Doctor CRON-0004.",
+        "probable_cause": "The observed duplicate laravel scheduler entry condition differs from the required state.",
+        "confidence": 0.9499999999999999555910790149937383830547332763671875,
+        "related_repair_ids": [
+            "CRON-0005"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "Only duplicate entries carrying the exact Doctor-owned marker are removed; the complete crontab is captured and hash-guarded rollback restores it."
+    },
+    "repair_generation": {
+        "repair_id": "CRON-0005",
+        "name": "Remove duplicate Laravel scheduler entries",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "risk_level": "LOW",
+        "required_commands": [
+            "crontab"
+        ],
+        "backup_strategy": "complete service-account crontab snapshot with post-repair hash guard",
+        "action": {
+            "type": "deduplicate_crontab_entry",
+            "marker": "MicroSysAdmin Doctor CRON-0004",
+            "description": "Keep the first exact Doctor-managed Laravel scheduler entry and remove only later entries with the same permanent marker."
+        },
+        "commercial_tier": "professional",
+        "support_issue_family": "laravel-scheduler"
+    }
+}

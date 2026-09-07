@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2126",
+        "check_id": "ARTIFACT-C2126",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/symfony/process/Messenger/RunProcessContext.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/symfony/process/Messenger/RunProcessContext.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 318ee4a511ccbbd8b3c8b1107602f1d4313ff75a26f411e6af13239663552395 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2126"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

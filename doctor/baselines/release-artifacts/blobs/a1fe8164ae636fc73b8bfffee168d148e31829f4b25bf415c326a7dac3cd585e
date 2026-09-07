@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "FILESYSTEM-C0001",
+        "module": "filesystem",
+        "name": "Restore the missing project root",
+        "summary": "Restore the missing project root.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "filesystem",
+            "project-root-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{PROJECT}"
+    },
+    "failure_status": "FAIL"
+}

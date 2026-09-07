@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0665",
+        "check_id": "ARTIFACT-C0665",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/git/Diagnoses/GIT-0003-RepositoryObjectCorruption.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/git/Diagnoses/GIT-0003-RepositoryObjectCorruption.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b85b96a1eaa4a3889971db5201d8260b0d5d448b3e5c3ad4870a9627d0bafb4b with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0665"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "NGINX-C0007",
+        "module": "nginx",
+        "name": "Restore the missing Nginx log directory",
+        "summary": "Restore the missing Nginx log directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "nginx",
+            "nginx-log-directory-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "nginx"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/var/log/nginx"
+    },
+    "failure_status": "FAIL"
+}

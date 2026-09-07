@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1372",
+    "artifact": "doctor/modules/php/Diagnoses/PHP-0008-PhpIniMissing.json",
+    "baseline_sha256": "a3404ce3d17d054f3abb2a6ffb8732f52590309e4dee936ae40c8af1d697ab90",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

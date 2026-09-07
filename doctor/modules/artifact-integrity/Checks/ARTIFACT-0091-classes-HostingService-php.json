@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0091",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/HostingService.php",
+        "summary": "Verify classes/HostingService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0091",
+        "path": "{APP_ROOT}/classes/HostingService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/772153cb3eb1460d80a7cf10b84f2864d1894af20bf5fac6af19df5adc673245",
+        "sha256": "772153cb3eb1460d80a7cf10b84f2864d1894af20bf5fac6af19df5adc673245",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

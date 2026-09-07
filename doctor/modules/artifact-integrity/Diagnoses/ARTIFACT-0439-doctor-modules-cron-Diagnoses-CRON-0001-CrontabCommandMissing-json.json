@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0439",
+        "check_id": "ARTIFACT-C0439",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/cron/Diagnoses/CRON-0001-CrontabCommandMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/cron/Diagnoses/CRON-0001-CrontabCommandMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 0896d15c75f282dfb7af7035165aa1a82958043a5f6a3c11538efef5e9f61c82 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0439"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

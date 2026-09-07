@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1348",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/Checks/PHP-0004-MbstringExtensionMissing.json",
+        "summary": "Verify doctor/modules/php/Checks/PHP-0004-MbstringExtensionMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1348",
+        "path": "{APP_ROOT}/doctor/modules/php/Checks/PHP-0004-MbstringExtensionMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8cab8af1acffb7e90eef2c233fb6110e55d20421596ee445caa1b2815029ff18",
+        "sha256": "8cab8af1acffb7e90eef2c233fb6110e55d20421596ee445caa1b2815029ff18",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

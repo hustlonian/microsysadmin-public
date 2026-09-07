@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0949",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Diagnoses/NGINX-0007-NginxLogDirectoryMissing.json",
+        "summary": "Verify doctor/modules/nginx/Diagnoses/NGINX-0007-NginxLogDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0949",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Diagnoses/NGINX-0007-NginxLogDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ef2b31ff0c5c15725bf67174bd8262ed5e948d29f6fbc79a64950de529842abe",
+        "sha256": "ef2b31ff0c5c15725bf67174bd8262ed5e948d29f6fbc79a64950de529842abe",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

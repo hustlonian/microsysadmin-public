@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2106",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/psr/log/src/InvalidArgumentException.php",
+        "summary": "Verify vendor/psr/log/src/InvalidArgumentException.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2106",
+        "path": "{APP_ROOT}/vendor/psr/log/src/InvalidArgumentException.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/403c6def4d4199a12cb4a54e804c7d29405968871366500f72d6f3ea401bfc64",
+        "sha256": "403c6def4d4199a12cb4a54e804c7d29405968871366500f72d6f3ea401bfc64",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

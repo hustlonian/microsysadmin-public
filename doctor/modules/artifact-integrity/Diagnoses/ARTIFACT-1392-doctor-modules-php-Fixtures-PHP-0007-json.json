@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1392",
+        "check_id": "ARTIFACT-C1392",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/php/Fixtures/PHP-0007.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/php/Fixtures/PHP-0007.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c8ae1919c3161c55695b905fb9b6a61cd648b68b186fd7858847337e696963a7 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1392"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

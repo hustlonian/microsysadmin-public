@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "check_id": "COMPOSER-C0009",
+        "module": "composer",
+        "name": "Report a Composer self-check failure without guessing its cause",
+        "summary": "Report a Composer self-check failure without guessing its cause.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "composer",
+            "composer-self-check-failure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "composer"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "composer",
+            "diagnose",
+            "--no-interaction"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30,
+        "expected_exits": [
+            0,
+            1
+        ],
+        "stdout_contains_all": [
+            "Checking composer.json: OK",
+            "Checking platform settings: OK",
+            "Checking git settings: OK",
+            "Checking http connectivity to packagist: OK",
+            "Checking https connectivity to packagist: OK",
+            "Checking disk free space: OK",
+            "Could not find Composer's installed.json, this must be a non-standard Composer installation."
+        ]
+    },
+    "failure_status": "WARNING"
+}

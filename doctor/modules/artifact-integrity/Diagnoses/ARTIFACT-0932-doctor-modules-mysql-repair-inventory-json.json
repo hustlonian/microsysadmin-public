@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0932",
+        "check_id": "ARTIFACT-C0932",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/mysql/repair-inventory.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/mysql/repair-inventory.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e1fb8b648a5bebbb23c5756a6b5a88cdbdc851ef770e02ef6c49f99f81d00eeb with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0932"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

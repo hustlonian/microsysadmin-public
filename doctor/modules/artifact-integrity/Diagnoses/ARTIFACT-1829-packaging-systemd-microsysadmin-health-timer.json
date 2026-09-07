@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1829",
+        "check_id": "ARTIFACT-C1829",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for packaging/systemd/microsysadmin-health.timer",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact packaging/systemd/microsysadmin-health.timer is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e8273003e224857945938a8d1ff70482094fc8343d5e06d3dbfdaef38dffb534 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1829"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

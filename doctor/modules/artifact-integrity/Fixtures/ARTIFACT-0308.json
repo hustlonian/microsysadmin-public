@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0308",
+    "artifact": "doctor/modules/apache/Repairs/APACHE-0005-SslModuleMissing.json",
+    "baseline_sha256": "c43966deb2eeb47af06d6c4e6692d9439b81090182e4ad87827434d37b60b602",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

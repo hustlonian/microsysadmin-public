@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0005",
+        "module": "backups",
+        "name": "Install the missing archive utility",
+        "summary": "Install the missing archive utility.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "archive-tool-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "tar"
+    },
+    "failure_status": "FAIL"
+}

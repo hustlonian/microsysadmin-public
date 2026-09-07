@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0583",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/README.md",
+        "summary": "Verify doctor/modules/docker/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0583",
+        "path": "{APP_ROOT}/doctor/modules/docker/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d4dd072fffe57fbf0cbb15359d16bd814250853c291fc1f3ba135932f4c03521",
+        "sha256": "d4dd072fffe57fbf0cbb15359d16bd814250853c291fc1f3ba135932f4c03521",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "APACHE-D0005",
+        "check_id": "APACHE-C0005",
+        "module": "apache",
+        "name": "Enable the missing Apache SSL module diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Enable the missing Apache SSL module.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed ssl module missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "APACHE-0005"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

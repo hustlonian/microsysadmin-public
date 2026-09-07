@@ -1,0 +1,45 @@
+{
+    "metadata": {
+        "diagnosis_id": "SSL-D0005",
+        "check_id": "SSL-C0005",
+        "module": "ssl",
+        "name": "Renew a TLS certificate nearing expiration diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Renew a TLS certificate nearing expiration.",
+        "expected_state": "The local XAMPP certificate remains valid beyond the 14-day policy window.",
+        "probable_cause": "The observed certificate expiring soon condition differs from the required state.",
+        "confidence": 0.9499999999999999555910790149937383830547332763671875,
+        "related_repair_ids": [
+            "SSL-0005"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact local certificate and existing private key are allowlisted; a helper-owned hash-addressed backup supports independently verified byte-exact rollback."
+    },
+    "repair_generation": {
+        "repair_id": "SSL-0005",
+        "name": "Renew a TLS certificate nearing expiration",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "risk_level": "MEDIUM",
+        "required_commands": [
+            "openssl"
+        ],
+        "backup_strategy": "privileged helper-owned exact certificate backup with audited hash reference",
+        "files_modified": [
+            "/opt/lampp/etc/ssl.crt/server.crt"
+        ],
+        "services_affected": [
+            "apache"
+        ],
+        "action": {
+            "type": "doctor_action",
+            "action": "renew-local-tls",
+            "path": "/opt/lampp/etc/ssl.crt/server.crt",
+            "timeout": 90,
+            "description": "Renew the nearing-expiration XAMPP localhost certificate with its existing private key through the scoped helper."
+        },
+        "commercial_tier": "professional",
+        "support_issue_family": "local-tls-certificate"
+    }
+}

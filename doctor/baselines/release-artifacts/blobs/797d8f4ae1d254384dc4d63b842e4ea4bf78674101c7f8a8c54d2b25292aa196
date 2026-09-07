@@ -1,0 +1,127 @@
+{
+    "metadata": {
+        "repair_id": "COMPOSER-0006",
+        "module": "composer",
+        "name": "Regenerate missing Composer autoload files",
+        "summary": "Regenerate missing Composer autoload files.",
+        "problem_description": "Regenerate missing Composer autoload files.",
+        "symptoms": [
+            "autoload file missing"
+        ],
+        "probable_causes": [
+            "The observed autoload file missing condition differs from the required state."
+        ],
+        "severity": "CRITICAL",
+        "risk_level": "LOW",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "default_execution_policy": "safe-with-backup",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [
+            "composer"
+        ],
+        "required_packages": [],
+        "required_permissions": [
+            "scoped write or service-control permission"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{PROJECT}/vendor/autoload.php",
+            "{PROJECT}/composer.json",
+            "{PROJECT}/composer.lock"
+        ],
+        "files_modified": [],
+        "directories_modified": [
+            "{PROJECT}/vendor"
+        ],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "bounded exact vendor-tree snapshot with manifest-guarded restore or created-tree removal",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "1-5 minutes",
+        "verification_method": "Re-run the independent COMPOSER-C0006 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "composer",
+            "autoload-file-missing",
+            "critical"
+        ],
+        "documentation_reference": "modules/composer/Docs/COMPOSER-0006.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores one bounded supported state",
+        "support_issue_family": "composer",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "file_exists",
+        "path": "{PROJECT}/vendor/autoload.php"
+    },
+    "actions": [
+        {
+            "type": "composer_command",
+            "command": "dump-autoload-optimized",
+            "timeout": 300,
+            "max_files": 50000,
+            "max_bytes": 536870912,
+            "description": "Regenerate optimized autoload metadata with plugins, scripts, interaction, and network disabled."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "file_exists",
+        "path": "{PROJECT}/vendor/autoload.php"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "bounded exact vendor-tree snapshot with manifest-guarded restore or created-tree removal",
+        "primitive": "composer_command",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.composer-0006",
+        "primitive": "composer_command",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "composer",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

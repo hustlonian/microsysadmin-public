@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0107",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/MediaService.php",
+        "summary": "Verify classes/MediaService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0107",
+        "path": "{APP_ROOT}/classes/MediaService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d212c61f9a90de5c93bb659c57b2e3e0469ab1f1f32e59bd463e430d1dcc0c72",
+        "sha256": "d212c61f9a90de5c93bb659c57b2e3e0469ab1f1f32e59bd463e430d1dcc0c72",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

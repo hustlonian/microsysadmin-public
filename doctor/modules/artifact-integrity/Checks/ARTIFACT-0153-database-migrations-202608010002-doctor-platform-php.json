@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0153",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact database/migrations/202608010002_doctor_platform.php",
+        "summary": "Verify database/migrations/202608010002_doctor_platform.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0153",
+        "path": "{APP_ROOT}/database/migrations/202608010002_doctor_platform.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a39771478692e26a21b92d5d0ea36383775c2e29088c3be9648d2ee143d8bdc3",
+        "sha256": "a39771478692e26a21b92d5d0ea36383775c2e29088c3be9648d2ee143d8bdc3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

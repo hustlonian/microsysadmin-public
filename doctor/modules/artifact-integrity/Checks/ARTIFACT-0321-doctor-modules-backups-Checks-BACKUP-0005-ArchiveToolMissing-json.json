@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0321",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Checks/BACKUP-0005-ArchiveToolMissing.json",
+        "summary": "Verify doctor/modules/backups/Checks/BACKUP-0005-ArchiveToolMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0321",
+        "path": "{APP_ROOT}/doctor/modules/backups/Checks/BACKUP-0005-ArchiveToolMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/82251c78a36f48df273b14a08b5d53a3b353192be6cc92ad58e725640c522611",
+        "sha256": "82251c78a36f48df273b14a08b5d53a3b353192be6cc92ad58e725640c522611",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

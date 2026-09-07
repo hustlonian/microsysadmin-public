@@ -1,0 +1,45 @@
+{
+    "metadata": {
+        "diagnosis_id": "GIT-D0007",
+        "check_id": "GIT-C0007",
+        "module": "git",
+        "name": "Remove a verified stale Git index lock diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Remove a verified stale Git index lock.",
+        "expected_state": "The exact project .git/index.lock is absent, young, active, inconclusive, or outside the execution account ownership boundary.",
+        "probable_cause": "The observed index lock stale condition differs from the required state.",
+        "confidence": 0.9499999999999999555910790149937383830547332763671875,
+        "related_repair_ids": [
+            "GIT-0007"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "Only an execution-owned regular index.lock aged at least one hour and proven unowned by lsof is quarantined; inode/hash revalidation and an exact snapshot guard both repair and rollback races."
+    },
+    "repair_generation": {
+        "repair_id": "GIT-0007",
+        "name": "Remove a verified stale Git index lock",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "risk_level": "LOW",
+        "backup_strategy": "exact lock snapshot restored only while the repaired path remains absent",
+        "required_commands": [
+            "lsof"
+        ],
+        "files_modified": [
+            "{PROJECT}/.git/index.lock"
+        ],
+        "required_permissions": [
+            "execution-account ownership and write access to the project Git index lock"
+        ],
+        "action": {
+            "type": "quarantine_stale_git_lock",
+            "repair_id": "GIT-0007",
+            "path": "{PROJECT}/.git/index.lock",
+            "minimum_age_seconds": 3600,
+            "description": "Quarantine only the exact aged, execution-owned, process-unowned project Git index lock after repeated identity validation."
+        },
+        "commercial_tier": "professional",
+        "support_issue_family": "git-stale-lock"
+    }
+}

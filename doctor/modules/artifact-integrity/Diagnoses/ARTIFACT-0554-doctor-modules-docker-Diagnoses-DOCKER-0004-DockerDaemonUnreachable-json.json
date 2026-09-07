@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0554",
+        "check_id": "ARTIFACT-C0554",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/docker/Diagnoses/DOCKER-0004-DockerDaemonUnreachable.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/docker/Diagnoses/DOCKER-0004-DockerDaemonUnreachable.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 710564b43e7c1e966d8ea80b2f30e31912701098c6977d89582f572549e30dc1 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0554"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

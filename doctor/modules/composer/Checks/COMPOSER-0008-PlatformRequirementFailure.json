@@ -1,0 +1,29 @@
+{
+    "metadata": {
+        "check_id": "COMPOSER-C0008",
+        "module": "composer",
+        "name": "Correct Composer platform requirement failures",
+        "summary": "Correct Composer platform requirement failures.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "composer",
+            "platform-requirement-failure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "composer"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "composer",
+            "check-platform-reqs",
+            "--no-interaction"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

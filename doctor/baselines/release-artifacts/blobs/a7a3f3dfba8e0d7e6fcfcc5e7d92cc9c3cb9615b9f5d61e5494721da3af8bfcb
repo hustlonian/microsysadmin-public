@@ -1,0 +1,11 @@
+{
+    "name": "laravel",
+    "display_name": "Laravel",
+    "description": "Cause-specific Laravel diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 1,
+    "enabled": true,
+    "repair_prefix": "LARAVEL",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

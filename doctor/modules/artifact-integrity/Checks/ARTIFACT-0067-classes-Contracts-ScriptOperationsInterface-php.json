@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0067",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/ScriptOperationsInterface.php",
+        "summary": "Verify classes/Contracts/ScriptOperationsInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0067",
+        "path": "{APP_ROOT}/classes/Contracts/ScriptOperationsInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a7f1f62fcf077fa84b744c4b1d05da58c46deb52c5d0b5404892f242394d9ba7",
+        "sha256": "a7f1f62fcf077fa84b744c4b1d05da58c46deb52c5d0b5404892f242394d9ba7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

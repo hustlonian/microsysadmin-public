@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1206",
+    "artifact": "doctor/modules/laravel/Commercial/LARAVEL-0003.json",
+    "baseline_sha256": "10f96ef8fefea220e197377ca724c0d596d959afc50896199520e38c1ed4ba14",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0014",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/analytics.php",
+        "summary": "Verify api/analytics.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0014",
+        "path": "{APP_ROOT}/api/analytics.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4260983a5cfc84c7c5a9f43391069032cc4ea6baa2663e9eb4506c71aa8dea3c",
+        "sha256": "4260983a5cfc84c7c5a9f43391069032cc4ea6baa2663e9eb4506c71aa8dea3c",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

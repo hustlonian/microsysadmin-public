@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0040",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/AgentManager.php",
+        "summary": "Verify classes/AgentManager.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0040",
+        "path": "{APP_ROOT}/classes/AgentManager.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/444419e9fec49370f8cd61c916c7b571464d9f9c34c88191f3c6c86de8e031a5",
+        "sha256": "444419e9fec49370f8cd61c916c7b571464d9f9c34c88191f3c6c86de8e031a5",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

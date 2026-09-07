@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0378",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Checks/COMPOSER-0006-AutoloadFileMissing.json",
+        "summary": "Verify doctor/modules/composer/Checks/COMPOSER-0006-AutoloadFileMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0378",
+        "path": "{APP_ROOT}/doctor/modules/composer/Checks/COMPOSER-0006-AutoloadFileMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c9314441eda0980362e4dc37804fd3737c843eb54364ed0c782b333a7d570b9c",
+        "sha256": "c9314441eda0980362e4dc37804fd3737c843eb54364ed0c782b333a7d570b9c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

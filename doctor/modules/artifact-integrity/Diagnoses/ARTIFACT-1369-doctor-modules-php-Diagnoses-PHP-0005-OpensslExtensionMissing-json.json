@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1369",
+        "check_id": "ARTIFACT-C1369",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/php/Diagnoses/PHP-0005-OpensslExtensionMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/php/Diagnoses/PHP-0005-OpensslExtensionMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b1fcd84e4cd43116147a80b078c55df93c4e2885f4980a6711eb24474a408b36 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1369"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

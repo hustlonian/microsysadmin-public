@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1757",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Diagnoses/XAMPP-0010-XamppLogDirectoryMissing.json",
+        "summary": "Verify doctor/modules/xampp/Diagnoses/XAMPP-0010-XamppLogDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1757",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Diagnoses/XAMPP-0010-XamppLogDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/84257b2b3650576065b3d2e4dafa3836b219073727aba6238f1dc541ce0723ca",
+        "sha256": "84257b2b3650576065b3d2e4dafa3836b219073727aba6238f1dc541ce0723ca",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

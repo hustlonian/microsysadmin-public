@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0880",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Checks/MYSQL-0004-ConfiguredDatabaseMissing.json",
+        "summary": "Verify doctor/modules/mysql/Checks/MYSQL-0004-ConfiguredDatabaseMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0880",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Checks/MYSQL-0004-ConfiguredDatabaseMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f376e98456f17efbbf2a9b9a1d1cbb7fe2ab785538eccfa98726c59025c35d25",
+        "sha256": "f376e98456f17efbbf2a9b9a1d1cbb7fe2ab785538eccfa98726c59025c35d25",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

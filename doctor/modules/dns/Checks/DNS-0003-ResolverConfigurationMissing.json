@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "DNS-C0003",
+        "module": "dns",
+        "name": "Restore the missing resolver configuration",
+        "summary": "Restore the missing resolver configuration.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "dns",
+            "resolver-configuration-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/etc/resolv.conf"
+    },
+    "failure_status": "FAIL"
+}

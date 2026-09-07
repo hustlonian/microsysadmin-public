@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0103",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/LocalLicenseService.php",
+        "summary": "Verify classes/LocalLicenseService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0103",
+        "path": "{APP_ROOT}/classes/LocalLicenseService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c04389fa0c5f58359157811e6e4a2ab5ad56055d46499920c2e727ba54fa27c9",
+        "sha256": "c04389fa0c5f58359157811e6e4a2ab5ad56055d46499920c2e727ba54fa27c9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

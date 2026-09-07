@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "PHP-C0008",
+        "module": "php",
+        "name": "Restore the missing active PHP configuration",
+        "summary": "Restore the missing active PHP configuration.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "php",
+            "php-ini-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/opt/lampp/etc/php.ini"
+    },
+    "failure_status": "FAIL"
+}

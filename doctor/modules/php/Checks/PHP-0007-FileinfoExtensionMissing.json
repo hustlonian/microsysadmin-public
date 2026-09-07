@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "PHP-C0007",
+        "module": "php",
+        "name": "Enable the missing fileinfo extension",
+        "summary": "Enable the missing fileinfo extension.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "php",
+            "fileinfo-extension-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "php_extension",
+        "extension": "fileinfo"
+    },
+    "failure_status": "FAIL"
+}

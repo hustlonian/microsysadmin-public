@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0010",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact README.md",
+        "summary": "Verify README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0010",
+        "path": "{APP_ROOT}/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5e44835ffc3eb2269698fa9bbfccea2618dc6a1e0d9c91f416575cc37760da38",
+        "sha256": "5e44835ffc3eb2269698fa9bbfccea2618dc6a1e0d9c91f416575cc37760da38",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

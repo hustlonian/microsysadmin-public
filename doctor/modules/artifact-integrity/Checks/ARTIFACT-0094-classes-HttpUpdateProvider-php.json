@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0094",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/HttpUpdateProvider.php",
+        "summary": "Verify classes/HttpUpdateProvider.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0094",
+        "path": "{APP_ROOT}/classes/HttpUpdateProvider.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e2d4b00a4e16bedff0096823e59f0c8dff9877f50a9b5745dff87dee26d3f387",
+        "sha256": "e2d4b00a4e16bedff0096823e59f0c8dff9877f50a9b5745dff87dee26d3f387",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

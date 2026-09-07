@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0034",
+        "check_id": "ARTIFACT-C0034",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for api/users.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact api/users.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 9238a4874188db0549f61208720434109fc3610bafe03ce8a47d507514e5f0bf with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0034"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

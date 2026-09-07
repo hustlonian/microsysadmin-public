@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1852",
+        "check_id": "ARTIFACT-C1852",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for scripts/rollback-cli.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact scripts/rollback-cli.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 ad12b1738d22d137725c9d1620009eed0053ec79655d218abdb06bd82d915e80 with mode 0755.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1852"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

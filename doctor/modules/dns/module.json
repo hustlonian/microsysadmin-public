@@ -1,0 +1,11 @@
+{
+    "name": "dns",
+    "display_name": "DNS",
+    "description": "Cause-specific DNS diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 4,
+    "enabled": true,
+    "repair_prefix": "DNS",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

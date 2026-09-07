@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1574",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Checks/SECURITY-0002-EnvironmentFileWorldAccessible.json",
+        "summary": "Verify doctor/modules/security/Checks/SECURITY-0002-EnvironmentFileWorldAccessible.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1574",
+        "path": "{APP_ROOT}/doctor/modules/security/Checks/SECURITY-0002-EnvironmentFileWorldAccessible.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/76a69d225fc3b295694404e3eef8509fbe11287c8747f14b98290024d56075c8",
+        "sha256": "76a69d225fc3b295694404e3eef8509fbe11287c8747f14b98290024d56075c8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

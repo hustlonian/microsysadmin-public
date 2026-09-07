@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0685",
+        "check_id": "ARTIFACT-C0685",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/git/Fixtures/GIT-0002.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/git/Fixtures/GIT-0002.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 533ab9e2c80bce1bf0cb9e1b38588759627d34ab963de03f83d6c3df0fdeecbd with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0685"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,110 @@
+{
+    "schema_version": 1,
+    "cycle": 4,
+    "generated_at": "2026-08-02T18:42:02Z",
+    "portfolio": {
+        "repair_definitions": 1224,
+        "executable_repairs": 1075,
+        "fully_automatic_repairs": 1053,
+        "approval_required_repairs": 22,
+        "report_only_repairs": 149,
+        "permanent_inventory_records": 1677
+    },
+    "coverage_percent": {
+        "automation": 87.83,
+        "fully_automatic": 86.03,
+        "rollback": 100.0,
+        "verification": 100.0,
+        "diagnosis": 100.0,
+        "documentation": 100.0,
+        "contract": 100.0,
+        "audit_metadata": 100.0,
+        "changelog": 100.0,
+        "commercial_metadata": 100.0,
+        "sdk_actions": 100.0
+    },
+    "modules": {
+        "completed": [
+            "apache",
+            "artifact-integrity",
+            "backups",
+            "composer",
+            "cron",
+            "dns",
+            "docker",
+            "filesystem",
+            "git",
+            "laravel",
+            "linux",
+            "mail",
+            "mysql",
+            "nginx",
+            "performance",
+            "php",
+            "queue",
+            "redis",
+            "security",
+            "ssl",
+            "xampp"
+        ],
+        "needing_work": []
+    },
+    "new_primitives": [
+        "create-known-directory",
+        "known-directory-helper-create",
+        "known-directory-helper-remove",
+        "generator-allowed-targets"
+    ],
+    "executable_repairs_added": [
+        "XAMPP-0010"
+    ],
+    "duplicate_logic_eliminated": {
+        "fixed_privileged_directory_logic_centralized": true,
+        "arbitrary_privileged_paths_allowed": false,
+        "remaining_declarative_signature_groups": {
+            "actions": 6,
+            "commands": 2,
+            "verification": 7
+        }
+    },
+    "tests": {
+        "sdk_assertions": 1203,
+        "doctor_assertions": 11619,
+        "time_forward_assertions": 30723,
+        "time_forward_scenarios": 3072,
+        "privileged_helper_tests": 9,
+        "application_tests": 23,
+        "installer_failure_mode_tests": 12,
+        "isolated_commercial_assertions": 70,
+        "enumerated_assertions_and_cases": 43659,
+        "failures": 0
+    },
+    "live_health": {
+        "execution_id": "doc_20260802_184046_0e14f1dde729",
+        "score_percent": 100,
+        "grade": "A+",
+        "applicable_pass": 150,
+        "warning": 0,
+        "fail": 0,
+        "skipped_in_scored_set": 0,
+        "detected_causes": 0
+    },
+    "artifact_integrity": {
+        "repairs": 1024,
+        "baseline_blobs": 1255,
+        "revision": "4726be24d263105ee3b9d46b03340a232112ff690f98af02744fa2f942f5fccc",
+        "manifest_sha256": "c6999d81ff2b0c388f8fc2936b27d8f86ce4f2bbf583a81a4f2d62c3bce48a74",
+        "covers_later_xampp_definition": false,
+        "consecutive_generation_reproducible": true
+    },
+    "remaining_technical_debt": {
+        "rollback_debt": [],
+        "report_only_repairs": 149,
+        "definition_scale_gap": 3776,
+        "executable_scale_gap": 1425,
+        "artifact_integrity_fixed_cohort_boundary": true,
+        "overlapping_probe_groups_require_consolidation": true
+    },
+    "quality_score": 100.0,
+    "commercial_readiness_score": 80.12
+}

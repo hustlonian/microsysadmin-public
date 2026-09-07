@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1522",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Diagnoses/REDIS-0006-RedisPingFailure.json",
+        "summary": "Verify doctor/modules/redis/Diagnoses/REDIS-0006-RedisPingFailure.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1522",
+        "path": "{APP_ROOT}/doctor/modules/redis/Diagnoses/REDIS-0006-RedisPingFailure.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/69ac305b03a79b7a1e6202431cef9b2338163c669702c71b8b571f23a747f2fa",
+        "sha256": "69ac305b03a79b7a1e6202431cef9b2338163c669702c71b8b571f23a747f2fa",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0432",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Checks/CRON-0004-LaravelSchedulerEntryMissing.json",
+        "summary": "Verify doctor/modules/cron/Checks/CRON-0004-LaravelSchedulerEntryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0432",
+        "path": "{APP_ROOT}/doctor/modules/cron/Checks/CRON-0004-LaravelSchedulerEntryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ec4d51366f6e51aa529b91c63c237ed79664b12acc6de5988ce6e3f784cc845d",
+        "sha256": "ec4d51366f6e51aa529b91c63c237ed79664b12acc6de5988ce6e3f784cc845d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0010",
+        "module": "redis",
+        "name": "Correct missing Laravel Redis configuration",
+        "summary": "Correct missing Laravel Redis configuration.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "laravel-redis-configuration-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "env_value",
+        "path": "{PROJECT}/.env",
+        "key": "REDIS_HOST"
+    },
+    "failure_status": "FAIL"
+}

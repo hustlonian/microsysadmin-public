@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0472",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Repairs/CRON-0001-CrontabCommandMissing.json",
+        "summary": "Verify doctor/modules/cron/Repairs/CRON-0001-CrontabCommandMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0472",
+        "path": "{APP_ROOT}/doctor/modules/cron/Repairs/CRON-0001-CrontabCommandMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ff0602cb0c931569eb6eeb9c5adcfcf6b572448126e6946d79e55905cae9d312",
+        "sha256": "ff0602cb0c931569eb6eeb9c5adcfcf6b572448126e6946d79e55905cae9d312",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

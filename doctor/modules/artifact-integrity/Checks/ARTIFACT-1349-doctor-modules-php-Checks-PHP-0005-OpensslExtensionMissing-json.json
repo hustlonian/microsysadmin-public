@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1349",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/Checks/PHP-0005-OpensslExtensionMissing.json",
+        "summary": "Verify doctor/modules/php/Checks/PHP-0005-OpensslExtensionMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1349",
+        "path": "{APP_ROOT}/doctor/modules/php/Checks/PHP-0005-OpensslExtensionMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a9158201d07557384a627dd820ed008f239c72f963bc2ab4acda2155eb65c105",
+        "sha256": "a9158201d07557384a627dd820ed008f239c72f963bc2ab4acda2155eb65c105",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

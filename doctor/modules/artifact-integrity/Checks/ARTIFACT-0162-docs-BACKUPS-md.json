@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0162",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/BACKUPS.md",
+        "summary": "Verify docs/BACKUPS.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0162",
+        "path": "{APP_ROOT}/docs/BACKUPS.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/55fb7ecb4a258fa4b5f01fd152ec1839c2c9b4114fdda47041704add85db61af",
+        "sha256": "55fb7ecb4a258fa4b5f01fd152ec1839c2c9b4114fdda47041704add85db61af",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

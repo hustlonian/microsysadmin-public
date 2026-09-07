@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "CRON-C0008",
+        "module": "cron",
+        "name": "Correct a stale project path in scheduled commands",
+        "summary": "Correct a stale project path in scheduled commands.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "cron",
+            "project-path-missing-in-schedule"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "command",
+        "command": [
+            "crontab",
+            "-l"
+        ],
+        "stdout_contains": "{PROJECT}",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

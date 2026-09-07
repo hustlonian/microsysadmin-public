@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0224",
+    "artifact": "doctor/engine/Filesystem/SafeFilesystem.php",
+    "baseline_sha256": "682e2a18ef590def43c5ff1eabedf20e72daea3ba2390e5c992cb5ca67b43bbd",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

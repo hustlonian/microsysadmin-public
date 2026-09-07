@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0310",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Repairs/APACHE-0007-VirtualHostFileMissing.json",
+        "summary": "Verify doctor/modules/apache/Repairs/APACHE-0007-VirtualHostFileMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0310",
+        "path": "{APP_ROOT}/doctor/modules/apache/Repairs/APACHE-0007-VirtualHostFileMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/41ec556b4b193df48ae04a46fa93c05e2bcd41b8af325f529e94aa909f638e76",
+        "sha256": "41ec556b4b193df48ae04a46fa93c05e2bcd41b8af325f529e94aa909f638e76",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

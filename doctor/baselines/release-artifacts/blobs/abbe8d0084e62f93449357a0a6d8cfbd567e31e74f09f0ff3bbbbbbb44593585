@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "PERFORMANCE-D0007",
+        "check_id": "PERFORMANCE-C0007",
+        "module": "performance",
+        "name": "Optimize Composer autoload metadata diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Optimize Composer autoload metadata.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed composer autoload unoptimized condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "PERFORMANCE-0007"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The repair is scoped, deterministic, previewed, and independently verified."
+    }
+}

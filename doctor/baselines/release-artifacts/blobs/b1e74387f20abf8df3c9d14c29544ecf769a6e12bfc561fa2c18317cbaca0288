@@ -1,0 +1,11 @@
+{
+    "name": "nginx",
+    "display_name": "Nginx",
+    "description": "Cause-specific Nginx diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 4,
+    "enabled": true,
+    "repair_prefix": "NGINX",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

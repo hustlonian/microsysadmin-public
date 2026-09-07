@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1083",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Commercial/COMPOSER-0004.json",
+        "summary": "Verify doctor/modules/composer/Commercial/COMPOSER-0004.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1083",
+        "path": "{APP_ROOT}/doctor/modules/composer/Commercial/COMPOSER-0004.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0dc692fd6c561a472e50919f48183bc3406f02dffb5081ffe3e82f3ece45183a",
+        "sha256": "0dc692fd6c561a472e50919f48183bc3406f02dffb5081ffe3e82f3ece45183a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

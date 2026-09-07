@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0159",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/API.md",
+        "summary": "Verify docs/API.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0159",
+        "path": "{APP_ROOT}/docs/API.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/be92f00e0d5728fed226c868a83fe9ed643cb6e80f2bdd75f07e07eced1b8e29",
+        "sha256": "be92f00e0d5728fed226c868a83fe9ed643cb6e80f2bdd75f07e07eced1b8e29",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

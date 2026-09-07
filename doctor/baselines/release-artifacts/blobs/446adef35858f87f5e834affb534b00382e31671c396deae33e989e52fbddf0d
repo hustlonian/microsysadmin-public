@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "NGINX-C0010",
+        "module": "nginx",
+        "name": "Correct an Nginx PHP-FPM socket mismatch",
+        "summary": "Correct an Nginx PHP-FPM socket mismatch.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "nginx",
+            "nginx-php-fpm-socket-mismatch"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "nginx"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "/etc/nginx/nginx.conf",
+        "contains": "fastcgi_pass"
+    },
+    "failure_status": "FAIL"
+}

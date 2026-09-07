@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0338",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Docs/BACKUP-0002.md",
+        "summary": "Verify doctor/modules/backups/Docs/BACKUP-0002.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0338",
+        "path": "{APP_ROOT}/doctor/modules/backups/Docs/BACKUP-0002.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f8d5d0d4b04475b04bb9b5f4f12fdf20e86cb453bfb34a03e4bf1eb8bf2f3f03",
+        "sha256": "f8d5d0d4b04475b04bb9b5f4f12fdf20e86cb453bfb34a03e4bf1eb8bf2f3f03",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

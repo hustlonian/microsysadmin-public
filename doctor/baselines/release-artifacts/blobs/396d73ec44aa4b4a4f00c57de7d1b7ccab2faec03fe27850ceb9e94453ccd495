@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "APACHE-C0006",
+        "module": "apache",
+        "name": "Enable the missing Apache headers module",
+        "summary": "Enable the missing Apache headers module.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "apache",
+            "headers-module-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "apache",
+            "xampp"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "/opt/lampp/etc/httpd.conf",
+        "contains": "headers_module"
+    },
+    "failure_status": "FAIL"
+}

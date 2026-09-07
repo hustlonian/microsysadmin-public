@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2221",
+        "check_id": "ARTIFACT-C2221",
+        "module": "artifact-integrity",
+        "name": "Diagnose missing managed release directory doctor/modules/docker/Checks",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release directory doctor/modules/docker/Checks is missing.",
+        "expected_state": "A non-symbolic directory is present.",
+        "probable_cause": "An incomplete update or local deletion removed part of the release topology.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2221"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned directory chain, modes, identity journal, rollback conditions, and verification are predetermined."
+    }
+}

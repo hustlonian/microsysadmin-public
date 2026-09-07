@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1992",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/SlackWebhookHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/SlackWebhookHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1992",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/SlackWebhookHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/531ef871e788c26a5315658999833069cfc10840d83166a664fc298419ec7527",
+        "sha256": "531ef871e788c26a5315658999833069cfc10840d83166a664fc298419ec7527",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

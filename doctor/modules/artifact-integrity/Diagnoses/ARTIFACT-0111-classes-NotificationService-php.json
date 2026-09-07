@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0111",
+        "check_id": "ARTIFACT-C0111",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/NotificationService.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/NotificationService.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 608b2da2f7296fd48eabe3f3cb047676e8a61636741c00824f2900cf8a3ba339 with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0111"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

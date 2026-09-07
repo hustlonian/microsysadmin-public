@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1920",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/GoogleCloudLoggingFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/GoogleCloudLoggingFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1920",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/GoogleCloudLoggingFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4e8fcccbe55a563976ff49040ba0f3b1332716cd5f279d178f774350421f0c8f",
+        "sha256": "4e8fcccbe55a563976ff49040ba0f3b1332716cd5f279d178f774350421f0c8f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

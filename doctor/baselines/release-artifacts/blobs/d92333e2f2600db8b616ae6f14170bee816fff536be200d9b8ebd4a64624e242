@@ -1,0 +1,14 @@
+{
+    "repair_id": "QUEUE-0009",
+    "commercial_tier": "professional",
+    "customer_impact": "restores one bounded supported state",
+    "support_issue_family": "queue",
+    "automation_class": "AUTO_SAFE",
+    "risk_level": "LOW",
+    "sdk_primitives": [
+        "create_directory"
+    ],
+    "quality_status": "contract-ready",
+    "rollback_supported": true,
+    "verification_defined": true
+}

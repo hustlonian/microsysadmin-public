@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1373",
+    "artifact": "doctor/modules/php/Diagnoses/PHP-0009-SessionDirectoryNotWritable.json",
+    "baseline_sha256": "7290a795a88f8e34d34e0266601bec24dec8f5129d917e1dbd2082b978fd989f",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

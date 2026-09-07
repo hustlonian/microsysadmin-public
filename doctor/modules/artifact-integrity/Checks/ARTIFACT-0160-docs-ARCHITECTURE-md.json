@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0160",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/ARCHITECTURE.md",
+        "summary": "Verify docs/ARCHITECTURE.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0160",
+        "path": "{APP_ROOT}/docs/ARCHITECTURE.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/40c97dbaa60105048ab0c92f8170363aab23a0a7b9fb32e9cbbf72d8e5342d96",
+        "sha256": "40c97dbaa60105048ab0c92f8170363aab23a0a7b9fb32e9cbbf72d8e5342d96",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

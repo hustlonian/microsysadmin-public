@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "LINUX-C0008",
+        "module": "linux",
+        "name": "Enable operating-system time synchronization",
+        "summary": "Enable operating-system time synchronization.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "linux",
+            "time-synchronization-disabled"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "timedatectl"
+    ],
+    "probe": {
+        "type": "time_sync_enabled",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

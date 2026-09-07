@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1851",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/restore-database.php",
+        "summary": "Verify scripts/restore-database.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1851",
+        "path": "{APP_ROOT}/scripts/restore-database.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e830f577b3208ca40cc31bb4f73fec9e767fdcd3b9aed878423f0b386c81a33b",
+        "sha256": "e830f577b3208ca40cc31bb4f73fec9e767fdcd3b9aed878423f0b386c81a33b",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

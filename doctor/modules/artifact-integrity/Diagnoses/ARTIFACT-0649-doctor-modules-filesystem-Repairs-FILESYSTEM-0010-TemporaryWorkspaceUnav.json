@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0649",
+        "check_id": "ARTIFACT-C0649",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/filesystem/Repairs/FILESYSTEM-0010-TemporaryWorkspaceUnavailable.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/filesystem/Repairs/FILESYSTEM-0010-TemporaryWorkspaceUnavailable.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 01d1f841bdd9875ffd783550ca8a07dc904c59aa18c773e7108007793b6ba216 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0649"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

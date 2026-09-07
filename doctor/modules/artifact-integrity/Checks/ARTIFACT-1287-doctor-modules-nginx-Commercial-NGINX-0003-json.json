@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1287",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Commercial/NGINX-0003.json",
+        "summary": "Verify doctor/modules/nginx/Commercial/NGINX-0003.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1287",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Commercial/NGINX-0003.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ae9831adfd4b64d9309738ded1404b2548768bbf0ed10f136def2d8d80f231d0",
+        "sha256": "ae9831adfd4b64d9309738ded1404b2548768bbf0ed10f136def2d8d80f231d0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

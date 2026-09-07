@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1128",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Commercial/DNS-0007.json",
+        "summary": "Verify doctor/modules/dns/Commercial/DNS-0007.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1128",
+        "path": "{APP_ROOT}/doctor/modules/dns/Commercial/DNS-0007.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4b49efd7c5a3c5f14cf89afad534cfb547628f059f5de05ccc804f5b7cb0c7ec",
+        "sha256": "4b49efd7c5a3c5f14cf89afad534cfb547628f059f5de05ccc804f5b7cb0c7ec",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

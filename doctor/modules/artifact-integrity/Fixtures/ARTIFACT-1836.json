@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1836",
+    "artifact": "scripts/check-forbidden-files.sh",
+    "baseline_sha256": "76d8956fe746bb901b1b5146853fb4d1784a76a27f84783ed510f6bf4ae6b53e",
+    "mode": "0755",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

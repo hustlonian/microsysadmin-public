@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0804",
+        "check_id": "ARTIFACT-C0804",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/linux/Fixtures/LINUX-0009.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/linux/Fixtures/LINUX-0009.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 3d69cefeeabc0eb3e3bec1aaa6174edc1d8375eff6f3ada5a40861d98357dd6f with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0804"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "LARAVEL-C0006",
+        "module": "laravel",
+        "name": "Create the missing Laravel framework session directory",
+        "summary": "Create the missing Laravel framework session directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "laravel",
+            "framework-session-directory-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{PROJECT}/storage/framework/sessions"
+    },
+    "failure_status": "FAIL"
+}

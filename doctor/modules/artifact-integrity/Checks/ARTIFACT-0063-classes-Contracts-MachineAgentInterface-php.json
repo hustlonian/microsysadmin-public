@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0063",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/MachineAgentInterface.php",
+        "summary": "Verify classes/Contracts/MachineAgentInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0063",
+        "path": "{APP_ROOT}/classes/Contracts/MachineAgentInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b233dd54e99225f804ecf18982df83708a5a01fd496122feda0bd348b5622251",
+        "sha256": "b233dd54e99225f804ecf18982df83708a5a01fd496122feda0bd348b5622251",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

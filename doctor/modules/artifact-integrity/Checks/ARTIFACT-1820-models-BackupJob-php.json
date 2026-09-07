@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1820",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact models/BackupJob.php",
+        "summary": "Verify models/BackupJob.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1820",
+        "path": "{APP_ROOT}/models/BackupJob.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/bdaa3df994212ff5d1177841b7b5c99e59238a81cbfa3ab674e501858aa76e21",
+        "sha256": "bdaa3df994212ff5d1177841b7b5c99e59238a81cbfa3ab674e501858aa76e21",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

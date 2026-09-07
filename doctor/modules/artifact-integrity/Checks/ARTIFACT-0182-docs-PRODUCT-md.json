@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0182",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/PRODUCT.md",
+        "summary": "Verify docs/PRODUCT.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0182",
+        "path": "{APP_ROOT}/docs/PRODUCT.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0d10eae6f38409c1f62c8be2d5a3b854a179b4ee6a54a67bdf7b73c577c22a65",
+        "sha256": "0d10eae6f38409c1f62c8be2d5a3b854a179b4ee6a54a67bdf7b73c577c22a65",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

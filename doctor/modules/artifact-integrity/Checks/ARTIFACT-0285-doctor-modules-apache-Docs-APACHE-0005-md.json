@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0285",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Docs/APACHE-0005.md",
+        "summary": "Verify doctor/modules/apache/Docs/APACHE-0005.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0285",
+        "path": "{APP_ROOT}/doctor/modules/apache/Docs/APACHE-0005.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/02f4eead75c2dbe92510b3b540d016469b3f32865b711d5bc5cef3c58aa9d0f5",
+        "sha256": "02f4eead75c2dbe92510b3b540d016469b3f32865b711d5bc5cef3c58aa9d0f5",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

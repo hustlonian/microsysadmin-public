@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1989",
+    "artifact": "vendor/monolog/monolog/src/Monolog/Handler/SendGridHandler.php",
+    "baseline_sha256": "04c2060ead6352648568f4a0f2e4935a6affe9dc7a12af218bba41aa1c3cbdef",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

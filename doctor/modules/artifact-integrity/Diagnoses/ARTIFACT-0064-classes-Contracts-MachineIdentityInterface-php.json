@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0064",
+        "check_id": "ARTIFACT-C0064",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/Contracts/MachineIdentityInterface.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/Contracts/MachineIdentityInterface.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 2d2646232fa09253b5ce2ccc5d56f06dca2b55ba12e48d5ace64db90d1a116c4 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0064"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

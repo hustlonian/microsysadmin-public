@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0919",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/README.md",
+        "summary": "Verify doctor/modules/mysql/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0919",
+        "path": "{APP_ROOT}/doctor/modules/mysql/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9116629a51614e2257e5420ef865c2321e0fd0f9e60b464212e43c4b297d995d",
+        "sha256": "9116629a51614e2257e5420ef865c2321e0fd0f9e60b464212e43c4b297d995d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

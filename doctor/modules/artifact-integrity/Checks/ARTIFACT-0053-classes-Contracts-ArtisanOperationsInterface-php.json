@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0053",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/ArtisanOperationsInterface.php",
+        "summary": "Verify classes/Contracts/ArtisanOperationsInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0053",
+        "path": "{APP_ROOT}/classes/Contracts/ArtisanOperationsInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/448534dfd8c802e08d15856a9b2b942008630c8be90dbf2dd181622bd38d08d1",
+        "sha256": "448534dfd8c802e08d15856a9b2b942008630c8be90dbf2dd181622bd38d08d1",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

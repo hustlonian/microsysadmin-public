@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1947",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/ErrorLogHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/ErrorLogHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1947",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/ErrorLogHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/34f30834f6b0f7a29214739bc38f9cee21919970124af5c586b18d5f376b6acc",
+        "sha256": "34f30834f6b0f7a29214739bc38f9cee21919970124af5c586b18d5f376b6acc",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

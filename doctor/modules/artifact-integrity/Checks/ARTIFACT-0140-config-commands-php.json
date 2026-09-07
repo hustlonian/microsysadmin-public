@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0140",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact config/commands.php",
+        "summary": "Verify config/commands.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0140",
+        "path": "{APP_ROOT}/config/commands.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a6f454f5e95b6e556d0b51e2c3f205868cb52bbbf6f6fe3e92668974fb301eea",
+        "sha256": "a6f454f5e95b6e556d0b51e2c3f205868cb52bbbf6f6fe3e92668974fb301eea",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

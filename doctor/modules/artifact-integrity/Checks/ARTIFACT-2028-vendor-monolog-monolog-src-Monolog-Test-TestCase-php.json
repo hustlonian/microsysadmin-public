@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2028",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Test/TestCase.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Test/TestCase.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2028",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Test/TestCase.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ed0759bd02f989b97f5ae8880f4f3c9ada613055f92e067545874618ed4f1c93",
+        "sha256": "ed0759bd02f989b97f5ae8880f4f3c9ada613055f92e067545874618ed4f1c93",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

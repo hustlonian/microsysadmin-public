@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1836",
+        "check_id": "ARTIFACT-C1836",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for scripts/check-forbidden-files.sh",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact scripts/check-forbidden-files.sh is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 76d8956fe746bb901b1b5146853fb4d1784a76a27f84783ed510f6bf4ae6b53e with mode 0755.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1836"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

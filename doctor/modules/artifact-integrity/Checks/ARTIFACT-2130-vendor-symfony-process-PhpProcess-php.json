@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2130",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/PhpProcess.php",
+        "summary": "Verify vendor/symfony/process/PhpProcess.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2130",
+        "path": "{APP_ROOT}/vendor/symfony/process/PhpProcess.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8a042bb6a08d8af67c88a1169f85267e24879dee3450ca42b8a905ee4e0db52b",
+        "sha256": "8a042bb6a08d8af67c88a1169f85267e24879dee3450ca42b8a905ee4e0db52b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

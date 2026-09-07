@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0310",
+    "artifact": "doctor/modules/apache/Repairs/APACHE-0007-VirtualHostFileMissing.json",
+    "baseline_sha256": "41ec556b4b193df48ae04a46fa93c05e2bcd41b8af325f529e94aa909f638e76",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

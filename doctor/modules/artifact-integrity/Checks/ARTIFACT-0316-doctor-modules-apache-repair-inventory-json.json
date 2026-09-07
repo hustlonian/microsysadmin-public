@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0316",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/repair-inventory.json",
+        "summary": "Verify doctor/modules/apache/repair-inventory.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0316",
+        "path": "{APP_ROOT}/doctor/modules/apache/repair-inventory.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8f3adba3997e0e2f6c57de804344f724eae4580f5f2a93aa421bc8256ef9ea44",
+        "sha256": "8f3adba3997e0e2f6c57de804344f724eae4580f5f2a93aa421bc8256ef9ea44",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

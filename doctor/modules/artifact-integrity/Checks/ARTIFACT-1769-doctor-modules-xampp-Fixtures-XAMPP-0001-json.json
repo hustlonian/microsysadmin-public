@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1769",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Fixtures/XAMPP-0001.json",
+        "summary": "Verify doctor/modules/xampp/Fixtures/XAMPP-0001.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1769",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Fixtures/XAMPP-0001.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/032739696a6da9cfc980212e1ce5a2103765ee27bb378b23fa8a2af36be508c8",
+        "sha256": "032739696a6da9cfc980212e1ce5a2103765ee27bb378b23fa8a2af36be508c8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

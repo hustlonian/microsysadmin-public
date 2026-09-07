@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-2097",
+    "artifact": "vendor/phpmailer/phpmailer/src/OAuth.php",
+    "baseline_sha256": "44b2c9a3b6e538a65b90261251f197d700e2eb90d51d4944fb80577263210fb4",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

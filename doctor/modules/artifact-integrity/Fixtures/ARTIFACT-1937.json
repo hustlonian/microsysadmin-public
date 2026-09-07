@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1937",
+    "artifact": "vendor/monolog/monolog/src/Monolog/Handler/BufferHandler.php",
+    "baseline_sha256": "2f0316fd92390cf65e413af357072f3653743b3923add8243938f5e2db5a3772",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

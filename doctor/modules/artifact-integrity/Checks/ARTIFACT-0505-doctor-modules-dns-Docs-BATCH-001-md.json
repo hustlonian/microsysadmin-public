@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0505",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Docs/BATCH-001.md",
+        "summary": "Verify doctor/modules/dns/Docs/BATCH-001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0505",
+        "path": "{APP_ROOT}/doctor/modules/dns/Docs/BATCH-001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d2f472ff5f8d0c60d77b2fa414df3dff8f2b500d6b09383171d5d90585e3d64c",
+        "sha256": "d2f472ff5f8d0c60d77b2fa414df3dff8f2b500d6b09383171d5d90585e3d64c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

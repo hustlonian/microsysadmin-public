@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0293",
+        "check_id": "ARTIFACT-C0293",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/apache/Fixtures/APACHE-0002.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/apache/Fixtures/APACHE-0002.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c429a7bad8f0063e0fbc5ed9ed3c82eb0e49488f08b621e13e1ce59450cfb2b0 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0293"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

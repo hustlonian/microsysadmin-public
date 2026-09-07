@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0088",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/FilesystemUpdateProvider.php",
+        "summary": "Verify classes/FilesystemUpdateProvider.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0088",
+        "path": "{APP_ROOT}/classes/FilesystemUpdateProvider.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/30eccc2a53c94c1f57874fcb70e6817d99ad857338db576c0f162104808ede0e",
+        "sha256": "30eccc2a53c94c1f57874fcb70e6817d99ad857338db576c0f162104808ede0e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

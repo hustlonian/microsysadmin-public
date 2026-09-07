@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1872",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/pages/doctor.php",
+        "summary": "Verify views/pages/doctor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1872",
+        "path": "{APP_ROOT}/views/pages/doctor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6bca32154181f0fdd1437e05ffd4d57fe6d30385772adeb16aaba984a17a2ac7",
+        "sha256": "6bca32154181f0fdd1437e05ffd4d57fe6d30385772adeb16aaba984a17a2ac7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

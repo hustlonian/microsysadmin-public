@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1826",
+        "check_id": "ARTIFACT-C1826",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for packaging/release-allowlist.txt",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact packaging/release-allowlist.txt is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 f6d818e70d667f77d07ea2fbcb5cc7190dd39f167177604ff1b7bd551c5b530d with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1826"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

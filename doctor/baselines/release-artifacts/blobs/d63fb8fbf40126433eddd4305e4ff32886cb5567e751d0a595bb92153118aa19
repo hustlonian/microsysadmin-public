@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "PERFORMANCE-C0007",
+        "module": "performance",
+        "name": "Optimize Composer autoload metadata",
+        "summary": "Optimize Composer autoload metadata.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "performance",
+            "composer-autoload-unoptimized"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "composer"
+    ],
+    "probe": {
+        "type": "file_exists",
+        "path": "{PROJECT}/vendor/composer/autoload_classmap.php"
+    },
+    "failure_status": "FAIL"
+}

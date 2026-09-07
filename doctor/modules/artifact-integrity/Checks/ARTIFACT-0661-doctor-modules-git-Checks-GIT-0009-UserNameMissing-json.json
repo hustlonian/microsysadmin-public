@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0661",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Checks/GIT-0009-UserNameMissing.json",
+        "summary": "Verify doctor/modules/git/Checks/GIT-0009-UserNameMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0661",
+        "path": "{APP_ROOT}/doctor/modules/git/Checks/GIT-0009-UserNameMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/26d655122e0cef911ad40915b198844ae5d8394935a53567d035a21d311fefb6",
+        "sha256": "26d655122e0cef911ad40915b198844ae5d8394935a53567d035a21d311fefb6",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

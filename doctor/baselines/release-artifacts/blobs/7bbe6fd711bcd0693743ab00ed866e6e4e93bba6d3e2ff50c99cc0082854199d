@@ -1,0 +1,19 @@
+# CRON-0004
+
+Added executable repair: Add the missing Laravel scheduler cron entry.
+
+- Primitive: `ensure_crontab_entry`
+- Automation: `AUTO_WITH_BACKUP`
+- Risk: `LOW`
+- Verification: `CRON-C0004`
+- Rollback: automatic
+
+<!-- commercial-contract:start -->
+## Current commercial classification
+
+- Automation: `AUTO_WITH_BACKUP`
+- Primitive: `ensure_crontab_entry`
+- Rollback: `supported`
+- Verification: `defined`
+- Commercial status: `contract-ready`
+<!-- commercial-contract:end -->

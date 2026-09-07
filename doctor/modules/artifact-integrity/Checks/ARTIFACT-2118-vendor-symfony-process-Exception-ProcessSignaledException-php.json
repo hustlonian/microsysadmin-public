@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2118",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/Exception/ProcessSignaledException.php",
+        "summary": "Verify vendor/symfony/process/Exception/ProcessSignaledException.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2118",
+        "path": "{APP_ROOT}/vendor/symfony/process/Exception/ProcessSignaledException.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5f9865c681c0bdf062c9c8855e15dccbe29b8abefb1484de86618def7eb4cf20",
+        "sha256": "5f9865c681c0bdf062c9c8855e15dccbe29b8abefb1484de86618def7eb4cf20",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "GIT-C0002",
+        "module": "git",
+        "name": "Restore missing Git repository metadata",
+        "summary": "Restore missing Git repository metadata.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "git",
+            "repository-metadata-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{PROJECT}/.git"
+    },
+    "failure_status": "FAIL"
+}

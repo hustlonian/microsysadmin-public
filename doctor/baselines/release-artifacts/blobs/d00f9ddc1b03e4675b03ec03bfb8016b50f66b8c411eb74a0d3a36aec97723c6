@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "SECURITY-D0009",
+        "check_id": "SECURITY-C0009",
+        "module": "security",
+        "name": "Enable Apache security response headers diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Enable Apache security response headers.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed security headers module missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "SECURITY-0009"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

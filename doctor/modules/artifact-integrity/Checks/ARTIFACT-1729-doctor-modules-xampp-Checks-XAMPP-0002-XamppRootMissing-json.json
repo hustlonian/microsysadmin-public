@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1729",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Checks/XAMPP-0002-XamppRootMissing.json",
+        "summary": "Verify doctor/modules/xampp/Checks/XAMPP-0002-XamppRootMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1729",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Checks/XAMPP-0002-XamppRootMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9bbb8d4b077ea440b07d5f01069d6ab4f73a27bd43562d92ed4a6ead2b0c6682",
+        "sha256": "9bbb8d4b077ea440b07d5f01069d6ab4f73a27bd43562d92ed4a6ead2b0c6682",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

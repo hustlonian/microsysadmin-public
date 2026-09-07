@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0698",
+    "artifact": "doctor/modules/git/Repairs/GIT-0003-RepositoryObjectCorruption.json",
+    "baseline_sha256": "14d4b1812fdd0b030c1a845b1c528a49ffe145aba3d148151f3dd945418d79ec",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

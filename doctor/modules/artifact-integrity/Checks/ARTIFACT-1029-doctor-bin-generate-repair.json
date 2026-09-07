@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1029",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/bin/generate-repair",
+        "summary": "Verify doctor/bin/generate-repair against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1029",
+        "path": "{APP_ROOT}/doctor/bin/generate-repair",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ab856a3fb8ad78dc81fb0346a142cba49b5f9609150252728e53bc352b4bac1c",
+        "sha256": "ab856a3fb8ad78dc81fb0346a142cba49b5f9609150252728e53bc352b4bac1c",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

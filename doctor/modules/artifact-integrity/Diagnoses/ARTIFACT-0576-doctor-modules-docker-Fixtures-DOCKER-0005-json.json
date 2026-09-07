@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0576",
+        "check_id": "ARTIFACT-C0576",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/docker/Fixtures/DOCKER-0005.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/docker/Fixtures/DOCKER-0005.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 37d63a6407c21a0dd6c88e9c726aeb39ca234f01683d0a4911d411917afc8f02 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0576"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

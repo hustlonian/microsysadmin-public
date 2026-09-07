@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "LARAVEL-C0008",
+        "module": "laravel",
+        "name": "Create the missing Laravel bootstrap cache directory",
+        "summary": "Create the missing Laravel bootstrap cache directory.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "laravel",
+            "bootstrap-cache-directory-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{PROJECT}/bootstrap/cache"
+    },
+    "failure_status": "FAIL"
+}

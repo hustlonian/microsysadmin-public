@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1801",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Primitives/CrontabPrimitive.php",
+        "summary": "Verify doctor/sdk/Primitives/CrontabPrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1801",
+        "path": "{APP_ROOT}/doctor/sdk/Primitives/CrontabPrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/95354352a563c91a4c0475fddada6775587dc8773f56b154e6f2064f4959f388",
+        "sha256": "95354352a563c91a4c0475fddada6775587dc8773f56b154e6f2064f4959f388",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

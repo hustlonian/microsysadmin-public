@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1710",
+    "artifact": "doctor/modules/ssl/Repairs/SSL-0007-HttpsListenerUnavailable.json",
+    "baseline_sha256": "cfd142e3e04b0ca013e0af28a2aa4bacdf5009944bc286b4f6091a8d5af6a511",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

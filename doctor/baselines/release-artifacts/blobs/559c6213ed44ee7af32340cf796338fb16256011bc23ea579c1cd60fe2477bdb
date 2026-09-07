@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "SECURITY-D0001",
+        "check_id": "SECURITY-C0001",
+        "module": "security",
+        "name": "Correct an unreadable application environment file diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Correct an unreadable application environment file.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed environment file unreadable condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "SECURITY-0001"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

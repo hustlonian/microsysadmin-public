@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1841",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/file-control.php",
+        "summary": "Verify scripts/file-control.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1841",
+        "path": "{APP_ROOT}/scripts/file-control.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9c047b3f575b731e74eacef5119aa302e92d43d3d202549db64a29b6c83b5cf7",
+        "sha256": "9c047b3f575b731e74eacef5119aa302e92d43d3d202549db64a29b6c83b5cf7",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

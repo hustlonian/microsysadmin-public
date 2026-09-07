@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0601",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Checks/FILESYSTEM-0005-DoctorReportDirectoryMissing.json",
+        "summary": "Verify doctor/modules/filesystem/Checks/FILESYSTEM-0005-DoctorReportDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0601",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Checks/FILESYSTEM-0005-DoctorReportDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/709580c2c9562152e659ff307ca056b14c93f3d981f17899e44fa1d7f6ef8b8e",
+        "sha256": "709580c2c9562152e659ff307ca056b14c93f3d981f17899e44fa1d7f6ef8b8e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

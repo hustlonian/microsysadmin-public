@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1053",
+        "check_id": "ARTIFACT-C1053",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/backups/Changelog/BACKUP-0004.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/backups/Changelog/BACKUP-0004.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e3f1b8823c52ea0c4d6d1ae1b3b4fdc60f782ad88ecb4be61fbcc5e1d02f3324 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1053"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

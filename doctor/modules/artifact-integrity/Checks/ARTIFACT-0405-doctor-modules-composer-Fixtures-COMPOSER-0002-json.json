@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0405",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Fixtures/COMPOSER-0002.json",
+        "summary": "Verify doctor/modules/composer/Fixtures/COMPOSER-0002.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0405",
+        "path": "{APP_ROOT}/doctor/modules/composer/Fixtures/COMPOSER-0002.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c1964e676849b89bd6132eb76a05cabed6239293ae7baa37640ad1bd6968bfc1",
+        "sha256": "c1964e676849b89bd6132eb76a05cabed6239293ae7baa37640ad1bd6968bfc1",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

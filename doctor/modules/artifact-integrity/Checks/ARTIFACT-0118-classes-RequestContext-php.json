@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0118",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/RequestContext.php",
+        "summary": "Verify classes/RequestContext.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0118",
+        "path": "{APP_ROOT}/classes/RequestContext.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0b447665b140c3dce706f9ba19bdb8c564143a17647297f5b175d930678d5af3",
+        "sha256": "0b447665b140c3dce706f9ba19bdb8c564143a17647297f5b175d930678d5af3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

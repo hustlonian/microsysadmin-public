@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0546",
+        "check_id": "ARTIFACT-C0546",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/docker/Checks/DOCKER-0006-ComposeConfigurationInvalid.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/docker/Checks/DOCKER-0006-ComposeConfigurationInvalid.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 8b9862d45225c175cb4ff2c189cba26781b6e51357c8c832c460161a66c24e67 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0546"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

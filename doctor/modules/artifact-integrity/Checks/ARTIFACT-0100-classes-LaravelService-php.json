@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0100",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/LaravelService.php",
+        "summary": "Verify classes/LaravelService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0100",
+        "path": "{APP_ROOT}/classes/LaravelService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1185fd76b292392d003919ad12f1e4331f6ce7c38822d7eeb08417e6dd78a5c2",
+        "sha256": "1185fd76b292392d003919ad12f1e4331f6ce7c38822d7eeb08417e6dd78a5c2",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

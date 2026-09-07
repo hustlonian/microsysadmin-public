@@ -1,0 +1,33 @@
+# Paths are relative to the MicroSysAdmin source root.
+# Directory entries include their complete subtree unless excluded below.
+CHANGELOG.md
+README.md
+VERSION
+.htaccess
+composer.json
+composer.lock
+index.php
+public
+api
+assets
+classes
+config
+controllers
+cron
+database
+docs
+doctor
+models
+packaging
+scripts
+tests
+views
+vendor
+install.sh
+uninstall.sh
+diagnose.sh
+repair.sh
+health-check.sh
+update.sh
+rollback.sh
+build-release.sh

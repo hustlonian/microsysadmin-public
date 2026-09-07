@@ -1,0 +1,47 @@
+[
+    {
+        "repair_id": "MYSQL-0002",
+        "fixture": "../Fixtures/MYSQL-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MYSQL-0003",
+        "fixture": "../Fixtures/MYSQL-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MYSQL-0004",
+        "fixture": "../Fixtures/MYSQL-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MYSQL-0005",
+        "fixture": "../Fixtures/MYSQL-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MYSQL-0006",
+        "fixture": "../Fixtures/MYSQL-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MYSQL-0007",
+        "fixture": "../Fixtures/MYSQL-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MYSQL-0008",
+        "fixture": "../Fixtures/MYSQL-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MYSQL-0009",
+        "fixture": "../Fixtures/MYSQL-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MYSQL-0010",
+        "fixture": "../Fixtures/MYSQL-0010.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

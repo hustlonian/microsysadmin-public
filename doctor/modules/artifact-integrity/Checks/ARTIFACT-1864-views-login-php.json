@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1864",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/login.php",
+        "summary": "Verify views/login.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1864",
+        "path": "{APP_ROOT}/views/login.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8fea77ec95e159eb3feac17867922e8764fbfbc31fb2051fb1213d030d0583e1",
+        "sha256": "8fea77ec95e159eb3feac17867922e8764fbfbc31fb2051fb1213d030d0583e1",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

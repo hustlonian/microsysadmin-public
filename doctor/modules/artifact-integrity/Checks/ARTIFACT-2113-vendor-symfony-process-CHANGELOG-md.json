@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2113",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/CHANGELOG.md",
+        "summary": "Verify vendor/symfony/process/CHANGELOG.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2113",
+        "path": "{APP_ROOT}/vendor/symfony/process/CHANGELOG.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c3ebeac37f004b395088f6955e20d8bdaad07b1c1de08be695197334d274f13d",
+        "sha256": "c3ebeac37f004b395088f6955e20d8bdaad07b1c1de08be695197334d274f13d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

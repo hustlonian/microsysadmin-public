@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0702",
+        "check_id": "ARTIFACT-C0702",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/git/Repairs/GIT-0007-IndexLockStale.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/git/Repairs/GIT-0007-IndexLockStale.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 236d7a80dccc32d1178ec3c84233c8d40b29d09b3d9f967f097008c6a1d0bc56 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0702"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

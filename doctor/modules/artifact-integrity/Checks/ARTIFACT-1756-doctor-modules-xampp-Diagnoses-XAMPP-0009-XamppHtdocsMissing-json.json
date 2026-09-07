@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1756",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Diagnoses/XAMPP-0009-XamppHtdocsMissing.json",
+        "summary": "Verify doctor/modules/xampp/Diagnoses/XAMPP-0009-XamppHtdocsMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1756",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Diagnoses/XAMPP-0009-XamppHtdocsMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a450df2b466a9ec30c7ff19415f276c2e84cb2ccd497b1f1d88ef1e9f96e630a",
+        "sha256": "a450df2b466a9ec30c7ff19415f276c2e84cb2ccd497b1f1d88ef1e9f96e630a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

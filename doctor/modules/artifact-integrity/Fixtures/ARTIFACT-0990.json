@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0990",
+    "artifact": "doctor/modules/performance/Checks/PERFORMANCE-0002-RootDiskCapacityPressure.json",
+    "baseline_sha256": "8f17512d95d095f05e9473fb20e11e736775b21c5224ed2d0189c767f9f0e4e8",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1998",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/SyslogUdp/UdpSocket.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/SyslogUdp/UdpSocket.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1998",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/SyslogUdp/UdpSocket.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/99fffbeba783f84430d15409022f6af85b7950fad7d034ce3c73c9a8e06300da",
+        "sha256": "99fffbeba783f84430d15409022f6af85b7950fad7d034ce3c73c9a8e06300da",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0055",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/BackupOperationsInterface.php",
+        "summary": "Verify classes/Contracts/BackupOperationsInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0055",
+        "path": "{APP_ROOT}/classes/Contracts/BackupOperationsInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/92a0c68126bd32747c5dcaa5227d9343ee559e27f2aa072908d53c3c05078e36",
+        "sha256": "92a0c68126bd32747c5dcaa5227d9343ee559e27f2aa072908d53c3c05078e36",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

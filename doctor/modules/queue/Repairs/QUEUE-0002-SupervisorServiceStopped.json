@@ -1,0 +1,122 @@
+{
+    "metadata": {
+        "repair_id": "QUEUE-0002",
+        "module": "queue",
+        "name": "Start the stopped Supervisor service",
+        "summary": "Start the stopped Supervisor service.",
+        "problem_description": "Start the stopped Supervisor service.",
+        "symptoms": [
+            "supervisor service stopped"
+        ],
+        "probable_causes": [
+            "The observed supervisor service stopped condition differs from the required state."
+        ],
+        "severity": "CRITICAL",
+        "risk_level": "MEDIUM",
+        "automation_class": "APPROVAL_REQUIRED",
+        "default_execution_policy": "manual",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [
+            "systemctl"
+        ],
+        "required_packages": [],
+        "required_permissions": [
+            "scoped write or service-control permission"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [],
+        "files_modified": [],
+        "directories_modified": [],
+        "services_affected": [
+            "supervisor"
+        ],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "capture the exact pre-repair service running state",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "1-5 minutes",
+        "verification_method": "Re-run the independent QUEUE-C0002 probe after execution.",
+        "repair_version": "1.1.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "queue",
+            "supervisor-service-stopped",
+            "critical"
+        ],
+        "documentation_reference": "modules/queue/Docs/QUEUE-0002.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores one bounded supported state",
+        "support_issue_family": "queue",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "service_active",
+        "service": "supervisor"
+    },
+    "actions": [
+        {
+            "type": "service_action",
+            "service": "supervisor",
+            "action": "start",
+            "verification_timeout": 20,
+            "description": "Start Supervisor."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "service_active",
+        "service": "supervisor"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "capture the exact pre-repair service running state",
+        "primitive": "service_action",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.queue-0002",
+        "primitive": "service_action",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "queue",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

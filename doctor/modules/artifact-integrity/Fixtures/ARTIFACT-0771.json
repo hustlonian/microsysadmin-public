@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0771",
+    "artifact": "doctor/modules/linux/Checks/LINUX-0007-LoopbackHostEntryMissing.json",
+    "baseline_sha256": "b33cc3d9893ba1de397b45bca9ffdb7531dde18cb29f5ca40584f74b98b2be03",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

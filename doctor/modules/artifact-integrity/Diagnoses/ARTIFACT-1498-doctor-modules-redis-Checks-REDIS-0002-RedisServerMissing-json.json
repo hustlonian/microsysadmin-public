@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1498",
+        "check_id": "ARTIFACT-C1498",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/redis/Checks/REDIS-0002-RedisServerMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/redis/Checks/REDIS-0002-RedisServerMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 4c4438b0e457907fe4f00b3f9e4e82c2a77c06ce8bd01ca5f2318be06001c8d5 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1498"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

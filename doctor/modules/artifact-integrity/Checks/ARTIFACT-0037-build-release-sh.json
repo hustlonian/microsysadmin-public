@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0037",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact build-release.sh",
+        "summary": "Verify build-release.sh against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0037",
+        "path": "{APP_ROOT}/build-release.sh",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
+        "sha256": "12da5a8d327caa6369a71ee264c3b6260eaf0823fffc4db19655a2ebd690ad77",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

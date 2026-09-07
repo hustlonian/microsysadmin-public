@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "COMPOSER-C0006",
+        "module": "composer",
+        "name": "Regenerate missing Composer autoload files",
+        "summary": "Regenerate missing Composer autoload files.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "composer",
+            "autoload-file-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "composer"
+    ],
+    "probe": {
+        "type": "file_exists",
+        "path": "{PROJECT}/vendor/autoload.php"
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0080",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/DisabledHubClient.php",
+        "summary": "Verify classes/DisabledHubClient.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0080",
+        "path": "{APP_ROOT}/classes/DisabledHubClient.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/879834b3927e93ac8cc52edb89c7c9b6cab2b298c55b8d420d9ea659c0b2acd9",
+        "sha256": "879834b3927e93ac8cc52edb89c7c9b6cab2b298c55b8d420d9ea659c0b2acd9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

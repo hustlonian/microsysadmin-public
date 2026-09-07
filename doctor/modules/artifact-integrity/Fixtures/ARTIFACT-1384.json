@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1384",
+    "artifact": "doctor/modules/php/Docs/PHP-0009.md",
+    "baseline_sha256": "1a379ab27de93855f52cb29cf55522a2d28bc1e70afab7d3ee057233965e3fd6",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

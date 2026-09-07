@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0555",
+    "artifact": "doctor/modules/docker/Diagnoses/DOCKER-0005-ComposeFileMissing.json",
+    "baseline_sha256": "bafa63019398d7baaa833a4deaf452861bc5830fea44e25b04038f3fdc2b8779",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

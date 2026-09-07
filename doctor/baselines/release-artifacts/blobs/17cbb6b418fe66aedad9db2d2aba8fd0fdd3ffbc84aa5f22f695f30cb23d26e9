@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "GIT-D0009",
+        "check_id": "GIT-C0009",
+        "module": "git",
+        "name": "Configure a missing repository Git author name diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Configure a missing repository Git author name.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed user name missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "GIT-0009"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

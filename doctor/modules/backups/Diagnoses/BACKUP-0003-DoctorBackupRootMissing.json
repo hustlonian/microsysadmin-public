@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "BACKUP-D0003",
+        "check_id": "BACKUP-C0003",
+        "module": "backups",
+        "name": "Create the missing Doctor recovery root diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Create the missing Doctor recovery root.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed doctor backup root missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "BACKUP-0003"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The repair is scoped, deterministic, previewed, and independently verified."
+    }
+}

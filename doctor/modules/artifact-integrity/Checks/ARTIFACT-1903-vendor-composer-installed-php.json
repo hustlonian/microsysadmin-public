@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1903",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/composer/installed.php",
+        "summary": "Verify vendor/composer/installed.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1903",
+        "path": "{APP_ROOT}/vendor/composer/installed.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/bfb871f81d2a800817e9f3265dfd73788b6cab25fd06f738b43731e5b3afc767",
+        "sha256": "bfb871f81d2a800817e9f3265dfd73788b6cab25fd06f738b43731e5b3afc767",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

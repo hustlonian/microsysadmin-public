@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0083",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Drivers/XamppServiceControlDriver.php",
+        "summary": "Verify classes/Drivers/XamppServiceControlDriver.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0083",
+        "path": "{APP_ROOT}/classes/Drivers/XamppServiceControlDriver.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2a8080e839b0929904230cb109e192e8f382302753e7f1bf32242126348a3872",
+        "sha256": "2a8080e839b0929904230cb109e192e8f382302753e7f1bf32242126348a3872",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

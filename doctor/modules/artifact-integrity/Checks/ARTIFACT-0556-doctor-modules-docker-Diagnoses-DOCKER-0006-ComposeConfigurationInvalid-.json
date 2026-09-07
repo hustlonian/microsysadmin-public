@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0556",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Diagnoses/DOCKER-0006-ComposeConfigurationInvalid.json",
+        "summary": "Verify doctor/modules/docker/Diagnoses/DOCKER-0006-ComposeConfigurationInvalid.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0556",
+        "path": "{APP_ROOT}/doctor/modules/docker/Diagnoses/DOCKER-0006-ComposeConfigurationInvalid.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/322e57e18c8a00fdeba369beaf02a7e1048c15bd5bcb3c0e560ea53489e7f52d",
+        "sha256": "322e57e18c8a00fdeba369beaf02a7e1048c15bd5bcb3c0e560ea53489e7f52d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

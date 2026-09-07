@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0653",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Checks/GIT-0001-GitMissing.json",
+        "summary": "Verify doctor/modules/git/Checks/GIT-0001-GitMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0653",
+        "path": "{APP_ROOT}/doctor/modules/git/Checks/GIT-0001-GitMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f7b40c90499f8afe0120df1e2f5fda2c7620a53bac39b3a67789243d4bb031ad",
+        "sha256": "f7b40c90499f8afe0120df1e2f5fda2c7620a53bac39b3a67789243d4bb031ad",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0104",
+        "check_id": "ARTIFACT-C0104",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/LocalMachineAgent.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/LocalMachineAgent.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 740f570fcc67ab5fa82b30563acfb9b6fa72586ff482122d251f19f03572ba7a with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0104"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

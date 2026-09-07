@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2110",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/psr/log/src/LoggerInterface.php",
+        "summary": "Verify vendor/psr/log/src/LoggerInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2110",
+        "path": "{APP_ROOT}/vendor/psr/log/src/LoggerInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/05aecbaded98967719d76a058ea27465ffae03b7800dc36049e1ed23c825e6b3",
+        "sha256": "05aecbaded98967719d76a058ea27465ffae03b7800dc36049e1ed23c825e6b3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0154",
+        "check_id": "ARTIFACT-C0154",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for database/schema.sql",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact database/schema.sql is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 28290803bd2e3026cc6bebb8b5e8aa76bb1653affb4571605ea233cc3bbb713d with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0154"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "BACKUP-D0004",
+        "check_id": "BACKUP-C0004",
+        "module": "backups",
+        "name": "Install the missing database backup tool diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Install the missing database backup tool.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed database backup tool missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "BACKUP-0004"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

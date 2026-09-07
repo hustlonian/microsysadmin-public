@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0204",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/INTEGRATION.md",
+        "summary": "Verify doctor/INTEGRATION.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0204",
+        "path": "{APP_ROOT}/doctor/INTEGRATION.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/766d5056e7b964b8e65446397352f3447aa1816a69f0f0e13f8c2526b96489b0",
+        "sha256": "766d5056e7b964b8e65446397352f3447aa1816a69f0f0e13f8c2526b96489b0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

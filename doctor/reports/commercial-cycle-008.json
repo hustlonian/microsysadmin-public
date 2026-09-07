@@ -1,0 +1,176 @@
+{
+    "schema_version": 1,
+    "cycle": 8,
+    "generated_at": "2026-08-02T20:28:46Z",
+    "portfolio": {
+        "repair_definitions": 2825,
+        "executable_repairs": 2677,
+        "fully_automatic_repairs": 2655,
+        "approval_required_repairs": 22,
+        "report_only_repairs": 148,
+        "permanent_inventory_records": 3303
+    },
+    "cycle_delta": {
+        "repair_definitions": 255,
+        "executable_repairs": 255,
+        "fully_automatic_repairs": 255,
+        "report_only_repairs": 0,
+        "permanent_inventory_records": 255
+    },
+    "coverage_percent": {
+        "automation": 94.76,
+        "fully_automatic": 93.98,
+        "rollback": 100.0,
+        "verification": 100.0,
+        "diagnosis": 100.0,
+        "documentation": 100.0,
+        "contract": 100.0,
+        "audit_metadata": 100.0,
+        "changelog": 100.0,
+        "commercial_metadata": 100.0,
+        "sdk_actions": 100.0
+    },
+    "milestones": {
+        "executable_target": 2500,
+        "executable_actual": 2677,
+        "exceeded_by": 177,
+        "achieved": true
+    },
+    "modules": {
+        "completed": [
+            "apache",
+            "artifact-integrity",
+            "backups",
+            "composer",
+            "cron",
+            "dns",
+            "docker",
+            "filesystem",
+            "git",
+            "laravel",
+            "linux",
+            "mail",
+            "mysql",
+            "nginx",
+            "performance",
+            "php",
+            "queue",
+            "redis",
+            "security",
+            "ssl",
+            "xampp"
+        ],
+        "needing_work": []
+    },
+    "new_primitives_and_architecture": [
+        "cause-specific-topology-schema-3",
+        "condition-bound-directory-authorization",
+        "managed-directory-missing-probe",
+        "managed-directory-mode-probe",
+        "directory-stale-plan-guards",
+        "cause-specific-directory-generator-variants",
+        "paired-directory-cause-contract-audit"
+    ],
+    "executable_coverage_added": {
+        "directory_mode_repairs": 255,
+        "missing_directory_repairs_narrowed": 255,
+        "net_executable_growth": 255,
+        "network_actions_added": 0,
+        "destructive_actions_added": 0
+    },
+    "duplicate_logic_eliminated": {
+        "directory_conditions_share_one_primitive": true,
+        "directory_conditions_share_one_rollback_journal": true,
+        "directory_conditions_are_mutually_exclusive": true,
+        "combined_directory_diagnosis_removed": true,
+        "exact_advisory_overlap_groups": 21
+    },
+    "tests": {
+        "sdk_assertions": 2836,
+        "doctor_assertions": 27636,
+        "file_time_forward_assertions": 63456,
+        "file_time_forward_scenarios": 6345,
+        "directory_time_forward_assertions": 18365,
+        "directory_time_forward_scenarios": 1530,
+        "future_lifecycle_scenarios": 7875,
+        "privileged_helper_tests": 11,
+        "application_tests": 23,
+        "installer_failure_mode_tests": 12,
+        "git_security_failure_mode_tests": 8,
+        "isolated_commercial_assertions": 70,
+        "enumerated_assertions_and_cases": 112417,
+        "repository_audit": "PASS",
+        "failures": 0
+    },
+    "live_health": {
+        "execution_id": "doc_20260802_202818_d9d19d144676",
+        "score_percent": 100,
+        "grade": "A+",
+        "applicable_pass": 153,
+        "warning": 0,
+        "fail": 0,
+        "error": 0,
+        "unknown": 0,
+        "skipped_in_scored_set": 0,
+        "detected_causes": 0,
+        "modules_at_100_percent": 21
+    },
+    "release": {
+        "locked_vendor_pre_autoload_verification": true,
+        "locked_vendor_exact_file_and_directory_set_verified": true,
+        "reproducible": true,
+        "isolated_install_passed": true,
+        "installer_idempotency_passed": true,
+        "failed_update_rollback_passed": true,
+        "sha256": "8e811c535b71ba24b8bffd1c6c4d4ca275f2dbc64e1ddf56fe945a95d2d9c687"
+    },
+    "artifact_integrity": {
+        "active_repairs": 2625,
+        "file_repairs": 2115,
+        "missing_directory_repairs": 255,
+        "directory_mode_repairs": 255,
+        "retired_permanent_ids": 25,
+        "eligible_condition_coverage_percent": 100.0,
+        "baseline_blobs": 2407,
+        "active_referenced_blobs": 2115,
+        "historical_unreferenced_blobs": 292,
+        "revision": "eab6b59e474e136519a5523b8ea085e2db02466f2a8513934135dc6748155561",
+        "manifest_sha256": "1f7c6d2ae625c7b6b74055cc0a8af750f67138d643a449f723f57d2f5e52f9ca",
+        "selection_strategy": "all_eligible_release_files_locked_vendor_and_cause_specific_directory_topology",
+        "consecutive_generation_reproducible": true
+    },
+    "locked_composer_vendor": {
+        "production_packages": 4,
+        "artifacts": 247,
+        "directories": 27,
+        "catalog_revision": "4c2cfa14b67e556f0fc4ccb2887ceb5306694009ecba406d8fd22236cdbfbc7d",
+        "manifest_sha256": "9deb9cd405de222a11ae8fc3e6f501757fa298bf5785aa3f98c1de0fa92f4fe7",
+        "composer_lock_bound": true,
+        "network_access_at_repair_time": false,
+        "external_interaction_at_repair_time": false
+    },
+    "remaining_technical_debt": {
+        "rollback_debt": [],
+        "report_only_repairs": 148,
+        "definition_scale_gap": 2175,
+        "executable_target_exceeded_by": 177,
+        "permanent_backlog_records_without_exact_blueprints": 477,
+        "exact_advisory_overlap_groups": 21,
+        "historical_blob_retention_policy_required": true,
+        "independent_bootstrap_repair_required": true,
+        "functional_module_distribution_needs_growth": true,
+        "report_only_classification_counts": {
+            "BUSINESS_INPUT_REQUIRED": 8,
+            "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW": 19,
+            "MANUAL_RESEARCH_REQUIRED": 12,
+            "MISSING_DATA_RECOVERY_REQUIRED": 6,
+            "OVERLAP_CONSOLIDATION_REQUIRED": 54,
+            "OWNERSHIP_PERMISSION_CONTRACT_REVIEW": 8,
+            "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY": 18,
+            "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW": 5,
+            "ROOT_CAUSE_VARIANT_RESEARCH": 18
+        }
+    },
+    "quality_score": 100.0,
+    "commercial_readiness_score": 94.54
+}

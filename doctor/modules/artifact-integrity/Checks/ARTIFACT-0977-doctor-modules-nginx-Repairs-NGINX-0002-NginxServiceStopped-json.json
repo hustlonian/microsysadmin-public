@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0977",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Repairs/NGINX-0002-NginxServiceStopped.json",
+        "summary": "Verify doctor/modules/nginx/Repairs/NGINX-0002-NginxServiceStopped.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0977",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Repairs/NGINX-0002-NginxServiceStopped.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3fd579a7845021537fe3976a21dabd10854052a68a2f80bf0e579ec9c683634a",
+        "sha256": "3fd579a7845021537fe3976a21dabd10854052a68a2f80bf0e579ec9c683634a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

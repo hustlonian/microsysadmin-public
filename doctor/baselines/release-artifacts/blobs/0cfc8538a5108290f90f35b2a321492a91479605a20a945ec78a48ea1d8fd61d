@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0007",
+        "module": "docker",
+        "name": "Restore the missing project Dockerfile",
+        "summary": "Restore the missing project Dockerfile.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "dockerfile-missing"
+        ]
+    },
+    "supports": {
+        "docker_project_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "{PROJECT}/Dockerfile"
+    },
+    "failure_status": "FAIL"
+}

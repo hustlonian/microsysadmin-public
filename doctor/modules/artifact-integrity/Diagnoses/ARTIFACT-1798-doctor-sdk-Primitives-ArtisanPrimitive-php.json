@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1798",
+        "check_id": "ARTIFACT-C1798",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/sdk/Primitives/ArtisanPrimitive.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/sdk/Primitives/ArtisanPrimitive.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 13fb7342226fe90a17dd459b70500dadd22410987e2e4e89adbe391f3bf9e3f9 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1798"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

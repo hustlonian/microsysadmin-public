@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1602",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Diagnoses/SECURITY-0010-DependencyAdvisoriesPresent.json",
+        "summary": "Verify doctor/modules/security/Diagnoses/SECURITY-0010-DependencyAdvisoriesPresent.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1602",
+        "path": "{APP_ROOT}/doctor/modules/security/Diagnoses/SECURITY-0010-DependencyAdvisoriesPresent.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a9eaf6ca2b2d74e8903175b03ed3c5a4c36a6ac9040c113b31318c2ecbdc5629",
+        "sha256": "a9eaf6ca2b2d74e8903175b03ed3c5a4c36a6ac9040c113b31318c2ecbdc5629",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

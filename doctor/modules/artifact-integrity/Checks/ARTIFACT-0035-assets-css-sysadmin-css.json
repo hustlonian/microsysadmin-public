@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0035",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact assets/css/sysadmin.css",
+        "summary": "Verify assets/css/sysadmin.css against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0035",
+        "path": "{APP_ROOT}/assets/css/sysadmin.css",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b0aeacca865eab0440703e2d7ea040a2829f201d2013a955b55a3d8fa20704b6",
+        "sha256": "b0aeacca865eab0440703e2d7ea040a2829f201d2013a955b55a3d8fa20704b6",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0246",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Support/Value/CheckMetadata.php",
+        "summary": "Verify doctor/engine/Support/Value/CheckMetadata.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0246",
+        "path": "{APP_ROOT}/doctor/engine/Support/Value/CheckMetadata.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/828d1040bf2b692b06114e11fabccd29f8dd4851d1df8eaa2f08c69f55915801",
+        "sha256": "828d1040bf2b692b06114e11fabccd29f8dd4851d1df8eaa2f08c69f55915801",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

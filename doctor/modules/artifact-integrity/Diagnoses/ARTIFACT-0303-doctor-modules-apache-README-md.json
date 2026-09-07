@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0303",
+        "check_id": "ARTIFACT-C0303",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/apache/README.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/apache/README.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 06488bbfafa1ef36d9d44bf988be503cf285ad49e0c361463e5590d9591088b1 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0303"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0174",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/GITHUB-REMOTE-RECOVERY-REPORT.md",
+        "summary": "Verify docs/GITHUB-REMOTE-RECOVERY-REPORT.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0174",
+        "path": "{APP_ROOT}/docs/GITHUB-REMOTE-RECOVERY-REPORT.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/18850d5468722eef8b3b7d1b7fc83554006a37e2a120f45054a5e3b3997de53e",
+        "sha256": "18850d5468722eef8b3b7d1b7fc83554006a37e2a120f45054a5e3b3997de53e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

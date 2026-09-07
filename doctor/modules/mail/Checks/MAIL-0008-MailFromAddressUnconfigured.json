@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "MAIL-C0008",
+        "module": "mail",
+        "name": "Configure the application sender address",
+        "summary": "Configure the application sender address.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "mail",
+            "mail-from-address-unconfigured"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "env_value",
+        "path": "{PROJECT}/.env",
+        "key": "MAIL_FROM_ADDRESS"
+    },
+    "failure_status": "FAIL"
+}

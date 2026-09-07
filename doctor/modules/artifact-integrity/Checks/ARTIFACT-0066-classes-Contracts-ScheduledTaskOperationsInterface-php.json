@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0066",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/ScheduledTaskOperationsInterface.php",
+        "summary": "Verify classes/Contracts/ScheduledTaskOperationsInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0066",
+        "path": "{APP_ROOT}/classes/Contracts/ScheduledTaskOperationsInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/28352b648b3461b83c3e8f93edf022aaf8dbbec1df1437dccd9841450e8b820c",
+        "sha256": "28352b648b3461b83c3e8f93edf022aaf8dbbec1df1437dccd9841450e8b820c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

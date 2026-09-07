@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1850",
+    "artifact": "scripts/repair-cli.php",
+    "baseline_sha256": "9ae9efef8007238823eb0a2ba8ec0879c23f5f79a3298a7e8f57d928263cfafd",
+    "mode": "0755",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0548",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Checks/DOCKER-0008-DockerSocketMissing.json",
+        "summary": "Verify doctor/modules/docker/Checks/DOCKER-0008-DockerSocketMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0548",
+        "path": "{APP_ROOT}/doctor/modules/docker/Checks/DOCKER-0008-DockerSocketMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e0fbac07320abab5cfc09c00eac13502c2dc1e9a53cc231a54f82d70ae6d3cc8",
+        "sha256": "e0fbac07320abab5cfc09c00eac13502c2dc1e9a53cc231a54f82d70ae6d3cc8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

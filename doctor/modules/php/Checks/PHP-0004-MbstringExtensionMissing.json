@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "PHP-C0004",
+        "module": "php",
+        "name": "Enable the missing mbstring extension",
+        "summary": "Enable the missing mbstring extension.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "php",
+            "mbstring-extension-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "php_extension",
+        "extension": "mbstring"
+    },
+    "failure_status": "FAIL"
+}

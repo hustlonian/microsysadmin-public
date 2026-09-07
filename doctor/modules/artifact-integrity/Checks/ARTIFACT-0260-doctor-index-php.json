@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0260",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/index.php",
+        "summary": "Verify doctor/index.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0260",
+        "path": "{APP_ROOT}/doctor/index.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/535cdbbae9be63943c911be8f60bb3a4e13d9d87509eab346e7477626e1ad885",
+        "sha256": "535cdbbae9be63943c911be8f60bb3a4e13d9d87509eab346e7477626e1ad885",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

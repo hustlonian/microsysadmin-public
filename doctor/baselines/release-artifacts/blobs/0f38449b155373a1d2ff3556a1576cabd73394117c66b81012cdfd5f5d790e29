@@ -1,0 +1,152 @@
+{
+    "metadata": {
+        "repair_id": "COMPOSER-0009",
+        "module": "composer",
+        "name": "Report a Composer self-check failure without guessing its cause",
+        "summary": "Report a Composer self-check failure without guessing its cause.",
+        "problem_description": "Report a Composer self-check failure without guessing its cause.",
+        "symptoms": [
+            "composer self check failure"
+        ],
+        "probable_causes": [
+            "The observed composer self check failure condition differs from the required state."
+        ],
+        "severity": "MEDIUM",
+        "risk_level": "MEDIUM",
+        "automation_class": "REPORT_ONLY",
+        "default_execution_policy": "manual",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [
+            "composer"
+        ],
+        "required_packages": [],
+        "required_permissions": [
+            "read"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [],
+        "files_modified": [],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "none-required",
+        "rollback_supported": false,
+        "destructive": false,
+        "estimated_duration": "<1 minute review",
+        "verification_method": "Re-run the independent COMPOSER-C0009 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "composer",
+            "composer-self-check-failure",
+            "medium"
+        ],
+        "documentation_reference": "modules/composer/Docs/COMPOSER-0009.md",
+        "commercial_tier": "advisory",
+        "customer_impact": "provides evidence and operator guidance",
+        "support_issue_family": "composer",
+        "safety_review": "advisory-only"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "command",
+        "command": [
+            "composer",
+            "diagnose",
+            "--no-interaction"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30,
+        "expected_exits": [
+            0,
+            1
+        ],
+        "stdout_contains_all": [
+            "Checking composer.json: OK",
+            "Checking platform settings: OK",
+            "Checking git settings: OK",
+            "Checking http connectivity to packagist: OK",
+            "Checking https connectivity to packagist: OK",
+            "Checking disk free space: OK",
+            "Could not find Composer's installed.json, this must be a non-standard Composer installation."
+        ],
+        "stderr_empty": true
+    },
+    "actions": [],
+    "backup_paths": [],
+    "verification": {
+        "type": "command",
+        "command": [
+            "composer",
+            "diagnose",
+            "--no-interaction"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30,
+        "expected_exits": [
+            0,
+            1
+        ],
+        "stdout_contains_all": [
+            "Checking composer.json: OK",
+            "Checking platform settings: OK",
+            "Checking git settings: OK",
+            "Checking http connectivity to packagist: OK",
+            "Checking https connectivity to packagist: OK",
+            "Checking disk free space: OK",
+            "Could not find Composer's installed.json, this must be a non-standard Composer installation."
+        ],
+        "stderr_empty": true
+    },
+    "rollback": {
+        "supported": false,
+        "strategy": "not-yet-implemented",
+        "primitive": null,
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.composer-0009",
+        "primitive": null,
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "advisory",
+        "support_issue_family": "composer",
+        "deterministic": null,
+        "bounded": null,
+        "reversible": null,
+        "independently_verifiable": null,
+        "quality_status": "advisory-only"
+    }
+}

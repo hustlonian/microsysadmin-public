@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0263",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Checks/APACHE-0003-InvalidConfigurationSyntax.json",
+        "summary": "Verify doctor/modules/apache/Checks/APACHE-0003-InvalidConfigurationSyntax.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0263",
+        "path": "{APP_ROOT}/doctor/modules/apache/Checks/APACHE-0003-InvalidConfigurationSyntax.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e46474e97015558481b923d48a7600ea800ee150d252890042ff29ea98d03c05",
+        "sha256": "e46474e97015558481b923d48a7600ea800ee150d252890042ff29ea98d03c05",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

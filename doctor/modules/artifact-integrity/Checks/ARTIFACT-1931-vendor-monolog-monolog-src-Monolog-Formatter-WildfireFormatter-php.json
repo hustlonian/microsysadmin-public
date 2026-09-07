@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1931",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/WildfireFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/WildfireFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1931",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/WildfireFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1c83c6bf597c1cae34b14557725c2bcfdd5002d5da7e13dfe146edf0e0107940",
+        "sha256": "1c83c6bf597c1cae34b14557725c2bcfdd5002d5da7e13dfe146edf0e0107940",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

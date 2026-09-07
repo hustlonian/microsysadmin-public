@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "NGINX-C0005",
+        "module": "nginx",
+        "name": "Restore the missing Nginx configuration",
+        "summary": "Restore the missing Nginx configuration.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "nginx",
+            "nginx-configuration-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "nginx"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/etc/nginx/nginx.conf"
+    },
+    "failure_status": "FAIL"
+}

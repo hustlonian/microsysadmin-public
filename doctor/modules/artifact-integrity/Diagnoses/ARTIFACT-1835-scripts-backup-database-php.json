@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1835",
+        "check_id": "ARTIFACT-C1835",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for scripts/backup_database.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact scripts/backup_database.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 0cf5db755c7455fe22da36687f4acca6fe59bdb00cf1740dce7b768a676e5119 with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1835"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

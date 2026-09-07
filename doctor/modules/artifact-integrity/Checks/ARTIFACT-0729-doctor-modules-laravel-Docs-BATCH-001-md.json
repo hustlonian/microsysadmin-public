@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0729",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Docs/BATCH-001.md",
+        "summary": "Verify doctor/modules/laravel/Docs/BATCH-001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0729",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Docs/BATCH-001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3fa55a89d2a632e4230b57ffa0040e4ea8dadbae891e2b26341387391a1907c0",
+        "sha256": "3fa55a89d2a632e4230b57ffa0040e4ea8dadbae891e2b26341387391a1907c0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

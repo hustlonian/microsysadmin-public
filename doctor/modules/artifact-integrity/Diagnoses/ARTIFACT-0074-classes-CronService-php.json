@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0074",
+        "check_id": "ARTIFACT-C0074",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/CronService.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/CronService.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 1d97e28a5b2bc00395d7a75de5f4db5c85b0b60dbb30834e5ab998a84bc9cd39 with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0074"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

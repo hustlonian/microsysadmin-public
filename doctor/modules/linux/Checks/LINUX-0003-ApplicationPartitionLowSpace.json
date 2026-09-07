@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "LINUX-C0003",
+        "module": "linux",
+        "name": "Recover critically low application-partition capacity",
+        "summary": "Recover critically low application-partition capacity.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "linux",
+            "application-partition-low-space"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "disk_free_percent",
+        "path": "{PROJECT}",
+        "minimum": 10
+    },
+    "failure_status": "FAIL"
+}

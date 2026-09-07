@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0079",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/DemoMode.php",
+        "summary": "Verify classes/DemoMode.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0079",
+        "path": "{APP_ROOT}/classes/DemoMode.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f53ad9fba3879f4e16a57ca810caf20ef091fe6680d7b4495cde5d3272f20248",
+        "sha256": "f53ad9fba3879f4e16a57ca810caf20ef091fe6680d7b4495cde5d3272f20248",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1583",
+    "artifact": "doctor/modules/security/Commercial/SECURITY-0001.json",
+    "baseline_sha256": "ff0d0a0a5adfbc8622b12ce95e2f11486ebbcb6862c687452c4c9032bf05e353",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

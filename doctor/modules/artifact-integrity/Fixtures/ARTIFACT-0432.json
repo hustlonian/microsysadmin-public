@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0432",
+    "artifact": "doctor/modules/cron/Checks/CRON-0004-LaravelSchedulerEntryMissing.json",
+    "baseline_sha256": "ec4d51366f6e51aa529b91c63c237ed79664b12acc6de5988ce6e3f784cc845d",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

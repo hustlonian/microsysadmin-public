@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0026",
+        "check_id": "ARTIFACT-C0026",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for api/mysql.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact api/mysql.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 6a8090396af1764dd170ce24437b3cf18c0e95d2f521467985cf2e519ebdd88b with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0026"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

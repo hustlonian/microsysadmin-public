@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0824",
+    "artifact": "doctor/modules/mail/Checks/MAIL-0004-PostfixServiceStopped.json",
+    "baseline_sha256": "041dc953a892cb933e2120befc345c8bd404b4efa0b241ccb6d9808c41c27675",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

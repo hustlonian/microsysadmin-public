@@ -1,0 +1,65 @@
+openapi: 3.1.0
+info:
+  title: MicroSysAdmin Product API
+  version: 1.0.0
+  description: Safe, scoped API for MicroSysAdmin integrations. Terminal, raw commands, arbitrary SQL, and unrestricted file mutation are intentionally excluded.
+servers:
+  - url: /sysadmin/api/v1
+security:
+  - bearerToken: []
+paths:
+  /machine/health:
+    get:
+      summary: Read machine health
+      responses:
+        "200": {description: Health checks}
+  /services:
+    get:
+      summary: Read service status
+      responses:
+        "200": {description: Approved service states}
+  /projects:
+    get:
+      summary: Read project inventory
+      responses:
+        "200": {description: Project inventory}
+  /backups:
+    get:
+      summary: Read backup status
+      responses:
+        "200": {description: Backup status}
+    post:
+      summary: Queue an approved backup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type: {type: string, enum: [database, folder]}
+                database: {type: string}
+                path: {type: string}
+      responses:
+        "200": {description: Queued job}
+  /health-checks:
+    post:
+      summary: Trigger approved health checks
+      responses:
+        "200": {description: Health check results}
+  /version:
+    get:
+      summary: Read MicroSysAdmin version
+      responses:
+        "200": {description: Version and machine ID}
+  /audit/summary:
+    get:
+      summary: Read a seven-day audit summary
+      responses:
+        "200": {description: Aggregated audit actions}
+components:
+  securitySchemes:
+    bearerToken:
+      type: http
+      scheme: bearer
+      bearerFormat: MicroSysAdmin API token

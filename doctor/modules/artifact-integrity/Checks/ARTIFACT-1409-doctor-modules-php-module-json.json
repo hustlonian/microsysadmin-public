@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1409",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/module.json",
+        "summary": "Verify doctor/modules/php/module.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1409",
+        "path": "{APP_ROOT}/doctor/modules/php/module.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/bdde833160e0f0bd4de0da442ffaac91fb4a79a802828e8d1f00652f747328c9",
+        "sha256": "bdde833160e0f0bd4de0da442ffaac91fb4a79a802828e8d1f00652f747328c9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

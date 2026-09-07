@@ -1,0 +1,37 @@
+[
+    {
+        "repair_id": "LINUX-0001",
+        "fixture": "../Fixtures/LINUX-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LINUX-0002",
+        "fixture": "../Fixtures/LINUX-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LINUX-0003",
+        "fixture": "../Fixtures/LINUX-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LINUX-0004",
+        "fixture": "../Fixtures/LINUX-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LINUX-0007",
+        "fixture": "../Fixtures/LINUX-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LINUX-0008",
+        "fixture": "../Fixtures/LINUX-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "LINUX-0009",
+        "fixture": "../Fixtures/LINUX-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0803",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Fixtures/LINUX-0008.json",
+        "summary": "Verify doctor/modules/linux/Fixtures/LINUX-0008.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0803",
+        "path": "{APP_ROOT}/doctor/modules/linux/Fixtures/LINUX-0008.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/62820651601e48511b7b1f3b3c3e6616b64e1c1764efc06a6f1fe29699766560",
+        "sha256": "62820651601e48511b7b1f3b3c3e6616b64e1c1764efc06a6f1fe29699766560",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

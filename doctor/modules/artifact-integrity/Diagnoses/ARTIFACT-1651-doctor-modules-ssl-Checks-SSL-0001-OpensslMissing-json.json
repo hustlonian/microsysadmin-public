@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1651",
+        "check_id": "ARTIFACT-C1651",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/ssl/Checks/SSL-0001-OpensslMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/ssl/Checks/SSL-0001-OpensslMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b071ca675e59f4af09b2c9ea37a279a23e786c6d6de0172162a1b99db46e9e7f with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1651"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

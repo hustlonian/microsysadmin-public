@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2651",
+        "check_id": "ARTIFACT-C2651",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for scripts/materialize-locked-composer-vendor.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact scripts/materialize-locked-composer-vendor.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 7772e0e9190a589e0420a018721184fff332a090fa733a4ed83ce0c56f30fb1c with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2651"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

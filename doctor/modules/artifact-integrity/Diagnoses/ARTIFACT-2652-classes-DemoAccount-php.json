@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2652",
+        "check_id": "ARTIFACT-C2652",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/DemoAccount.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/DemoAccount.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 995b24b70fe719db649206d7560d0b765f8fec3f5125b0d95d81dd20c1c07edf with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2652"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

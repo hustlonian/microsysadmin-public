@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0269",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Checks/APACHE-0009-HttpsPortUnavailable.json",
+        "summary": "Verify doctor/modules/apache/Checks/APACHE-0009-HttpsPortUnavailable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0269",
+        "path": "{APP_ROOT}/doctor/modules/apache/Checks/APACHE-0009-HttpsPortUnavailable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/970e84d8480b3210f6c999146336fb2f065bd9158577d796183fb147615e01db",
+        "sha256": "970e84d8480b3210f6c999146336fb2f065bd9158577d796183fb147615e01db",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

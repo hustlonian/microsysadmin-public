@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0002",
+        "module": "ssl",
+        "name": "Restore the missing configured TLS certificate",
+        "summary": "Restore the missing configured TLS certificate.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "certificate-file-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/opt/lampp/etc/ssl.crt/server.crt"
+    },
+    "failure_status": "FAIL"
+}

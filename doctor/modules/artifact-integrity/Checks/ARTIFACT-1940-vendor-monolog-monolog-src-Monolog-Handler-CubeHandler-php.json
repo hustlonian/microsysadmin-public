@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1940",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/CubeHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/CubeHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1940",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/CubeHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4328b8ae23c51dda69e5b963c4a5b16df3a5b6fe353e52cbc5cdb0f8a8f34696",
+        "sha256": "4328b8ae23c51dda69e5b963c4a5b16df3a5b6fe353e52cbc5cdb0f8a8f34696",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

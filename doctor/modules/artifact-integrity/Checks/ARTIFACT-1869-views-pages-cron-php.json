@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1869",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/pages/cron.php",
+        "summary": "Verify views/pages/cron.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1869",
+        "path": "{APP_ROOT}/views/pages/cron.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/bbde651419922cefd1baf3c77213c963f60b2d5dee0a8d537b666bbd624c7ac3",
+        "sha256": "bbde651419922cefd1baf3c77213c963f60b2d5dee0a8d537b666bbd624c7ac3",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

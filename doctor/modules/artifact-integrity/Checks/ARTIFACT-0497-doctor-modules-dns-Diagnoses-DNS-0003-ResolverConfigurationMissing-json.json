@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0497",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Diagnoses/DNS-0003-ResolverConfigurationMissing.json",
+        "summary": "Verify doctor/modules/dns/Diagnoses/DNS-0003-ResolverConfigurationMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0497",
+        "path": "{APP_ROOT}/doctor/modules/dns/Diagnoses/DNS-0003-ResolverConfigurationMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/09184a52264a5138497ee6d5fca1c3bc28e17f366546f67a340bc7138cec4548",
+        "sha256": "09184a52264a5138497ee6d5fca1c3bc28e17f366546f67a340bc7138cec4548",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

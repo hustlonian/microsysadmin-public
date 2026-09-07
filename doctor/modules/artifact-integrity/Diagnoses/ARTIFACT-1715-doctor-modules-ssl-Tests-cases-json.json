@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1715",
+        "check_id": "ARTIFACT-C1715",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/ssl/Tests/cases.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/ssl/Tests/cases.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b2a024e613bf391401a6d65ff740a62cb7986f80baa22688b7f7f9290d36d501 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1715"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

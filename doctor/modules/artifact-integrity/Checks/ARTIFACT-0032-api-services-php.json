@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0032",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/services.php",
+        "summary": "Verify api/services.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0032",
+        "path": "{APP_ROOT}/api/services.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/343a8fbd0c73f3b6e0bacaac2a1f57567800563322e7a9d04b8f61ab5c581d2b",
+        "sha256": "343a8fbd0c73f3b6e0bacaac2a1f57567800563322e7a9d04b8f61ab5c581d2b",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

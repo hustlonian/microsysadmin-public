@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1897",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/composer/autoload_classmap.php",
+        "summary": "Verify vendor/composer/autoload_classmap.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1897",
+        "path": "{APP_ROOT}/vendor/composer/autoload_classmap.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8ac0935535f9017935ed2b036bab3d84cfa203307e1901c997265f3eb50e73d3",
+        "sha256": "8ac0935535f9017935ed2b036bab3d84cfa203307e1901c997265f3eb50e73d3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

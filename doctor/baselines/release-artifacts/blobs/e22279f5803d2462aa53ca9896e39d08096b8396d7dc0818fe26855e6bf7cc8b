@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "CRON-C0009",
+        "module": "cron",
+        "name": "Correct a missing PHP executable in scheduled commands",
+        "summary": "Correct a missing PHP executable in scheduled commands.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "cron",
+            "php-path-missing-in-schedule"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "php"
+    },
+    "failure_status": "FAIL"
+}

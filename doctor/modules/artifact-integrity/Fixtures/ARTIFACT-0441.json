@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0441",
+    "artifact": "doctor/modules/cron/Diagnoses/CRON-0003-CronServiceDisabled.json",
+    "baseline_sha256": "d9c486a9a830c4e5a7f86c617bf7b997b7c55c8b28b818c716e65c2d3f329f11",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

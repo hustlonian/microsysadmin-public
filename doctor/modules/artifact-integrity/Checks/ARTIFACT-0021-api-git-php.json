@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0021",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/git.php",
+        "summary": "Verify api/git.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0021",
+        "path": "{APP_ROOT}/api/git.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c612ba0e0b7b1c6a74e78b2a1d5d945633ae1c3ab3726244f1cea4332f46d7dd",
+        "sha256": "c612ba0e0b7b1c6a74e78b2a1d5d945633ae1c3ab3726244f1cea4332f46d7dd",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

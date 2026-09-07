@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1517",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Diagnoses/REDIS-0001-RedisClientMissing.json",
+        "summary": "Verify doctor/modules/redis/Diagnoses/REDIS-0001-RedisClientMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1517",
+        "path": "{APP_ROOT}/doctor/modules/redis/Diagnoses/REDIS-0001-RedisClientMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/37f4ff39eee4b35a762dfd93283395d279e67deb3bee47ccaca692c1d8e0ff12",
+        "sha256": "37f4ff39eee4b35a762dfd93283395d279e67deb3bee47ccaca692c1d8e0ff12",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

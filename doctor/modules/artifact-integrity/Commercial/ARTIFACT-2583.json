@@ -1,0 +1,9 @@
+{
+    "repair_id": "ARTIFACT-2583",
+    "commercial_tier": "professional",
+    "customer_impact": "corrects one existing release directory permission mode",
+    "support_issue_family": "release-directory-mode-drift",
+    "automation_class": "AUTO_SAFE",
+    "risk_level": "LOW",
+    "quality_status": "contract-tested"
+}

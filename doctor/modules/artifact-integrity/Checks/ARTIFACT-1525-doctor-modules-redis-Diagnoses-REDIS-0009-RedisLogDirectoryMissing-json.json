@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1525",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Diagnoses/REDIS-0009-RedisLogDirectoryMissing.json",
+        "summary": "Verify doctor/modules/redis/Diagnoses/REDIS-0009-RedisLogDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1525",
+        "path": "{APP_ROOT}/doctor/modules/redis/Diagnoses/REDIS-0009-RedisLogDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/20fcb952027ab3e668f7e2d5a12cb9133069ca7f7b5f0ddc1f22ff787f15b16b",
+        "sha256": "20fcb952027ab3e668f7e2d5a12cb9133069ca7f7b5f0ddc1f22ff787f15b16b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "DNS-C0007",
+        "module": "dns",
+        "name": "Restore the missing IPv6 loopback host entry",
+        "summary": "Restore the missing IPv6 loopback host entry.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "dns",
+            "ipv6-loopback-entry-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "/etc/hosts",
+        "contains": "::1"
+    },
+    "failure_status": "FAIL"
+}

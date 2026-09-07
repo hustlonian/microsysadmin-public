@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0405",
+        "check_id": "ARTIFACT-C0405",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/composer/Fixtures/COMPOSER-0002.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/composer/Fixtures/COMPOSER-0002.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c1964e676849b89bd6132eb76a05cabed6239293ae7baa37640ad1bd6968bfc1 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0405"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

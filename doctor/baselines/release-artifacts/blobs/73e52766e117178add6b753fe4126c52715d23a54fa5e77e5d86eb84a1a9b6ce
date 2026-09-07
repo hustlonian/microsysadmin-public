@@ -1,0 +1,19 @@
+# CRON-0005
+
+Added executable repair: Remove duplicate Laravel scheduler entries.
+
+- Primitive: `deduplicate_crontab_entry`
+- Automation: `AUTO_WITH_BACKUP`
+- Risk: `LOW`
+- Verification: `CRON-C0005`
+- Rollback: automatic
+
+<!-- commercial-contract:start -->
+## Current commercial classification
+
+- Automation: `AUTO_WITH_BACKUP`
+- Primitive: `deduplicate_crontab_entry`
+- Rollback: `supported`
+- Verification: `defined`
+- Commercial status: `contract-ready`
+<!-- commercial-contract:end -->

@@ -1,0 +1,11 @@
+{
+    "name": "apache",
+    "display_name": "Apache",
+    "description": "Cause-specific Apache diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 1,
+    "enabled": true,
+    "repair_prefix": "APACHE",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0210",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/config/policies.php",
+        "summary": "Verify doctor/config/policies.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0210",
+        "path": "{APP_ROOT}/doctor/config/policies.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c7c89850f87a4ac7c59bee408fc5e099495efb3c45530f6d6851333512207b99",
+        "sha256": "c7c89850f87a4ac7c59bee408fc5e099495efb3c45530f6d6851333512207b99",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

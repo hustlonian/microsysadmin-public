@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1844",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/install-production.php",
+        "summary": "Verify scripts/install-production.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1844",
+        "path": "{APP_ROOT}/scripts/install-production.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ae0c483630178a010da2523de43519bc4c934b92f9bf0ac74d9ca95d35281192",
+        "sha256": "ae0c483630178a010da2523de43519bc4c934b92f9bf0ac74d9ca95d35281192",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

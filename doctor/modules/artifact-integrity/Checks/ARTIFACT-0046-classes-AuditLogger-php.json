@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0046",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/AuditLogger.php",
+        "summary": "Verify classes/AuditLogger.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0046",
+        "path": "{APP_ROOT}/classes/AuditLogger.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8181f7e82500c6d9d8e5ca82dd1e765f73377b5e2bba55cceff44eed3bea76ba",
+        "sha256": "8181f7e82500c6d9d8e5ca82dd1e765f73377b5e2bba55cceff44eed3bea76ba",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

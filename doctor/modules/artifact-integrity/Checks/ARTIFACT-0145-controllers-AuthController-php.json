@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0145",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact controllers/AuthController.php",
+        "summary": "Verify controllers/AuthController.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0145",
+        "path": "{APP_ROOT}/controllers/AuthController.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/de70c8bfce2da89bfb25643cbce15cb5dd943306fd7f349a334e8735fb41d141",
+        "sha256": "de70c8bfce2da89bfb25643cbce15cb5dd943306fd7f349a334e8735fb41d141",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

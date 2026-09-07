@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "MAIL-C0004",
+        "module": "mail",
+        "name": "Start the stopped Postfix service",
+        "summary": "Start the stopped Postfix service.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mail",
+            "postfix-service-stopped"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_active",
+        "service": "postfix"
+    },
+    "failure_status": "FAIL"
+}

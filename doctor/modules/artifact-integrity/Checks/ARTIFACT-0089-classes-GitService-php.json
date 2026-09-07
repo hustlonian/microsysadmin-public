@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0089",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/GitService.php",
+        "summary": "Verify classes/GitService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0089",
+        "path": "{APP_ROOT}/classes/GitService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/dd124ed3ae0c0a007c976829e4266a063bd051b721201a9e7bda768f43b130b1",
+        "sha256": "dd124ed3ae0c0a007c976829e4266a063bd051b721201a9e7bda768f43b130b1",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

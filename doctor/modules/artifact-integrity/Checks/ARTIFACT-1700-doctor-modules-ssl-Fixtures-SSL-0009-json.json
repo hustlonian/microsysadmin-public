@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1700",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Fixtures/SSL-0009.json",
+        "summary": "Verify doctor/modules/ssl/Fixtures/SSL-0009.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1700",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Fixtures/SSL-0009.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/788da831ddca1ea2f062865d790c2e4e4bceca413be4e7efc2049274ff1bb337",
+        "sha256": "788da831ddca1ea2f062865d790c2e4e4bceca413be4e7efc2049274ff1bb337",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

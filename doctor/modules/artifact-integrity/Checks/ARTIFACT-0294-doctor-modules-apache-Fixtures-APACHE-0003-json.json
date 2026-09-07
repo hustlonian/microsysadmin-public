@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0294",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Fixtures/APACHE-0003.json",
+        "summary": "Verify doctor/modules/apache/Fixtures/APACHE-0003.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0294",
+        "path": "{APP_ROOT}/doctor/modules/apache/Fixtures/APACHE-0003.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5b43561a4e5cf80ad1330170c8be886c2aee162c713224f163daf182bd69c806",
+        "sha256": "5b43561a4e5cf80ad1330170c8be886c2aee162c713224f163daf182bd69c806",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

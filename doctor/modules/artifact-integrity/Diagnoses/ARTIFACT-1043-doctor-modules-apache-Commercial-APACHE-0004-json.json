@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1043",
+        "check_id": "ARTIFACT-C1043",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/apache/Commercial/APACHE-0004.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/apache/Commercial/APACHE-0004.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 cc35f473be18992699f8de3932119faf2d679213a2f31c354fcb50f1c12e3c19 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1043"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

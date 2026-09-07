@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "FILESYSTEM-D0002",
+        "check_id": "FILESYSTEM-C0002",
+        "module": "filesystem",
+        "name": "Correct an unreadable project root diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Correct an unreadable project root.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed project root not readable condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "FILESYSTEM-0002"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

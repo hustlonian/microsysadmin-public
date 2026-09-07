@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1804",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Primitives/FilesystemPrimitive.php",
+        "summary": "Verify doctor/sdk/Primitives/FilesystemPrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1804",
+        "path": "{APP_ROOT}/doctor/sdk/Primitives/FilesystemPrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/fdccc4222cec455f81f8da04d84d9f22352ee4720b3b2ead0ab943262b6d8097",
+        "sha256": "fdccc4222cec455f81f8da04d84d9f22352ee4720b3b2ead0ab943262b6d8097",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

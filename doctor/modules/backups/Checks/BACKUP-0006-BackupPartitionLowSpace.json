@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0006",
+        "module": "backups",
+        "name": "Recover low backup-storage capacity",
+        "summary": "Recover low backup-storage capacity.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "backup-partition-low-space"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "disk_free_percent",
+        "path": "{STORAGE_PATH}/backups",
+        "minimum": 15
+    },
+    "failure_status": "FAIL"
+}

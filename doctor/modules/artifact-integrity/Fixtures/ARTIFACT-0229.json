@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0229",
+    "artifact": "doctor/engine/Process/ProcessRunner.php",
+    "baseline_sha256": "bbeede68519e494d3544416acf7c288290a6e7fe5b8d5dffd8425e2c0773e376",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

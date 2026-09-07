@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0473",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Repairs/CRON-0002-CronServiceStopped.json",
+        "summary": "Verify doctor/modules/cron/Repairs/CRON-0002-CronServiceStopped.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0473",
+        "path": "{APP_ROOT}/doctor/modules/cron/Repairs/CRON-0002-CronServiceStopped.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4ed9162135059191a05a2f43a9ff8eed1e2ebb68b8dce67aa2df1c01162df0a8",
+        "sha256": "4ed9162135059191a05a2f43a9ff8eed1e2ebb68b8dce67aa2df1c01162df0a8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

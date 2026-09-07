@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1993",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/SocketHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/SocketHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1993",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/SocketHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1f2581422eb64d523b2cf0476d3ebb064c82da6f30c3ee6b2440b3a1409ed011",
+        "sha256": "1f2581422eb64d523b2cf0476d3ebb064c82da6f30c3ee6b2440b3a1409ed011",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0113",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/OutboundUrlPolicy.php",
+        "summary": "Verify classes/OutboundUrlPolicy.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0113",
+        "path": "{APP_ROOT}/classes/OutboundUrlPolicy.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7c2882f24e3b4509f6b39e89b117efd4fc9cc6a79c3f14bf6a97aedbfbaf7e53",
+        "sha256": "7c2882f24e3b4509f6b39e89b117efd4fc9cc6a79c3f14bf6a97aedbfbaf7e53",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

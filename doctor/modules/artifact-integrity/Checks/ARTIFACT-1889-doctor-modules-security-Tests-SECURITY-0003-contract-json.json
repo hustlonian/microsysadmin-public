@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1889",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Tests/SECURITY-0003.contract.json",
+        "summary": "Verify doctor/modules/security/Tests/SECURITY-0003.contract.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1889",
+        "path": "{APP_ROOT}/doctor/modules/security/Tests/SECURITY-0003.contract.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/99fcefdc54df605bc1a3d2888abb649f4b1126ad47cedad3c96bea45edb3614f",
+        "sha256": "99fcefdc54df605bc1a3d2888abb649f4b1126ad47cedad3c96bea45edb3614f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

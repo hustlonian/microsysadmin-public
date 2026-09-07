@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "FILESYSTEM-D0007",
+        "check_id": "FILESYSTEM-C0007",
+        "module": "filesystem",
+        "name": "Recover exhausted application filesystem inodes diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Recover exhausted application filesystem inodes.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed application inodes low condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "FILESYSTEM-0007"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

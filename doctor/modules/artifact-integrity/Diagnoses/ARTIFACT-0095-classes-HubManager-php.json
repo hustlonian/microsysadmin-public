@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0095",
+        "check_id": "ARTIFACT-C0095",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/HubManager.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/HubManager.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 70b79fe5eef1d4d03667cdb16da827342786616fa997642e5014eb1dc54b1a5b with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0095"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

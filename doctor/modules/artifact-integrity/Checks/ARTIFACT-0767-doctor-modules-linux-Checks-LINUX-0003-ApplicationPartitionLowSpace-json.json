@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0767",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Checks/LINUX-0003-ApplicationPartitionLowSpace.json",
+        "summary": "Verify doctor/modules/linux/Checks/LINUX-0003-ApplicationPartitionLowSpace.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0767",
+        "path": "{APP_ROOT}/doctor/modules/linux/Checks/LINUX-0003-ApplicationPartitionLowSpace.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2134a61572e5d5a968f3ace2950f38065f490e4420fb094df8a7ef0f3bc043f2",
+        "sha256": "2134a61572e5d5a968f3ace2950f38065f490e4420fb094df8a7ef0f3bc043f2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

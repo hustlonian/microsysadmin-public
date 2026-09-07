@@ -1,0 +1,14 @@
+{
+    "repair_id": "BACKUP-0009",
+    "commercial_tier": "professional",
+    "customer_impact": "restores one bounded supported state",
+    "support_issue_family": "backups",
+    "automation_class": "AUTO_WITH_BACKUP",
+    "risk_level": "MEDIUM",
+    "sdk_primitives": [
+        "ensure_crontab_line"
+    ],
+    "quality_status": "contract-ready",
+    "rollback_supported": true,
+    "verification_defined": true
+}

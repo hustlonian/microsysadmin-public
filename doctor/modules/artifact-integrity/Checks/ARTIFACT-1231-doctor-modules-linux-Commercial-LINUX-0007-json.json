@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1231",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Commercial/LINUX-0007.json",
+        "summary": "Verify doctor/modules/linux/Commercial/LINUX-0007.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1231",
+        "path": "{APP_ROOT}/doctor/modules/linux/Commercial/LINUX-0007.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f9749ff0bbd60eaa2f947e78024149e162fc94d000b640a4a473d6bac73b72ae",
+        "sha256": "f9749ff0bbd60eaa2f947e78024149e162fc94d000b640a4a473d6bac73b72ae",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

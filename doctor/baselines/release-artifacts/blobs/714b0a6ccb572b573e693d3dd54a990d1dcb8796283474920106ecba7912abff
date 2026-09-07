@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0010",
+        "module": "security",
+        "name": "Resolve known dependency security advisories",
+        "summary": "Resolve known dependency security advisories.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "dependency-advisories-present"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "composer"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "composer",
+            "audit",
+            "--locked",
+            "--no-interaction"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

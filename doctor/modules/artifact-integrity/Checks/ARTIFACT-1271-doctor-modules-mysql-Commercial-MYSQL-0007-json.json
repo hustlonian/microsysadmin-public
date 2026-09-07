@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1271",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Commercial/MYSQL-0007.json",
+        "summary": "Verify doctor/modules/mysql/Commercial/MYSQL-0007.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1271",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Commercial/MYSQL-0007.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/85495f9c7b514e48c6728868a1d624ff63b4004398343fdaa39af8af544e1154",
+        "sha256": "85495f9c7b514e48c6728868a1d624ff63b4004398343fdaa39af8af544e1154",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

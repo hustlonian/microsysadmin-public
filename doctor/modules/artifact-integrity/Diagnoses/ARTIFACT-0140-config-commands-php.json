@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0140",
+        "check_id": "ARTIFACT-C0140",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for config/commands.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact config/commands.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 a6f454f5e95b6e556d0b51e2c3f205868cb52bbbf6f6fe3e92668974fb301eea with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0140"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0061",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/LicensingServiceInterface.php",
+        "summary": "Verify classes/Contracts/LicensingServiceInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0061",
+        "path": "{APP_ROOT}/classes/Contracts/LicensingServiceInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/340968092136743708d3755c7dece3ea21cb719862dcc6814a99fc1ff173b84e",
+        "sha256": "340968092136743708d3755c7dece3ea21cb719862dcc6814a99fc1ff173b84e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

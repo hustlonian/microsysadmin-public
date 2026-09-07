@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0953",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Docs/BATCH-001.md",
+        "summary": "Verify doctor/modules/nginx/Docs/BATCH-001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0953",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Docs/BATCH-001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0b8d9b9a75ef3a9d86368f389ed51954426e46e4eb1782f96c84866a358d72b2",
+        "sha256": "0b8d9b9a75ef3a9d86368f389ed51954426e46e4eb1782f96c84866a358d72b2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

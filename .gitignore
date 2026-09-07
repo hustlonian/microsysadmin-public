@@ -1,0 +1,58 @@
+# MicroSysAdmin installation and customer state
+/config/config.php
+/config/config.php.*
+/.env
+/.env.*
+!/.env.example
+/.microsysadmin-git.conf
+/.microsysadmin-site-create.lock
+
+# Runtime state is never source
+/storage/*
+!/storage/.htaccess
+!/storage/**/.gitkeep
+/dist/
+/vendor/
+
+# Local orchestration and editor state
+/.agents/
+/.codex/
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+
+# Credentials and machine identity
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+id_rsa
+id_ed25519
+machine-identity.json
+agent-credentials.json
+
+# Logs, dumps, backups, and temporary output
+*.log
+*.log.*
+*.sql
+!/database/schema.sql
+*.sql.gz
+*.dump
+*.bak
+*.backup
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.tmp
+*.temp
+*.lock
+!composer.lock
+
+# Test and coverage output
+/.phpunit.cache/
+/coverage/
+/build/

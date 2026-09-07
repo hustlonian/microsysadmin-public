@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-2123",
+    "artifact": "vendor/symfony/process/ExecutableFinder.php",
+    "baseline_sha256": "39df2a82aaef2c1bdc09370122f16dc9b32f234e29376cc27c18e553e4aba1e5",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

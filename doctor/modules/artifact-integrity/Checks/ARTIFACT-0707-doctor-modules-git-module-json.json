@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0707",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/module.json",
+        "summary": "Verify doctor/modules/git/module.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0707",
+        "path": "{APP_ROOT}/doctor/modules/git/module.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/79ede3b3b71cae6c836727485c9db467ba8828660da3069b645524c63f1d689c",
+        "sha256": "79ede3b3b71cae6c836727485c9db467ba8828660da3069b645524c63f1d689c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

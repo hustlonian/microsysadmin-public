@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1178",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Changelog/GIT-0006.md",
+        "summary": "Verify doctor/modules/git/Changelog/GIT-0006.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1178",
+        "path": "{APP_ROOT}/doctor/modules/git/Changelog/GIT-0006.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b7c83b98acd4cba3202e82df7280478fc3f29f13a20ce51b50a3ef3b42d1661a",
+        "sha256": "b7c83b98acd4cba3202e82df7280478fc3f29f13a20ce51b50a3ef3b42d1661a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

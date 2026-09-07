@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0835",
+    "artifact": "doctor/modules/mail/Diagnoses/MAIL-0005-PostfixServiceDisabled.json",
+    "baseline_sha256": "b7a0eece4123fe7056aed7b7f01cba2b02999c1d6ced5dbb5a5faabe8052b462",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

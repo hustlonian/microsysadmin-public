@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0754",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Repairs/LARAVEL-0003-VendorAutoloadMissing.json",
+        "summary": "Verify doctor/modules/laravel/Repairs/LARAVEL-0003-VendorAutoloadMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0754",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Repairs/LARAVEL-0003-VendorAutoloadMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2f2dbd969a604bff24baf4f537d5171588376adbce1e011fc0070b3d567ca8c8",
+        "sha256": "2f2dbd969a604bff24baf4f537d5171588376adbce1e011fc0070b3d567ca8c8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

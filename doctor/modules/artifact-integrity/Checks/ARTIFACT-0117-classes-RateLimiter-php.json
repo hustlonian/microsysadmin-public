@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0117",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/RateLimiter.php",
+        "summary": "Verify classes/RateLimiter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0117",
+        "path": "{APP_ROOT}/classes/RateLimiter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/52e827c068a3cdcae632c0b7bbbd08daf9fc70c9637bca4e43a1ad7e9e3c11a9",
+        "sha256": "52e827c068a3cdcae632c0b7bbbd08daf9fc70c9637bca4e43a1ad7e9e3c11a9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

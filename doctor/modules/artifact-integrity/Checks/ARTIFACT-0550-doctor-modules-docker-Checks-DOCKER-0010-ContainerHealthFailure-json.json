@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0550",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Checks/DOCKER-0010-ContainerHealthFailure.json",
+        "summary": "Verify doctor/modules/docker/Checks/DOCKER-0010-ContainerHealthFailure.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0550",
+        "path": "{APP_ROOT}/doctor/modules/docker/Checks/DOCKER-0010-ContainerHealthFailure.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/fddb7d8d2b25ca71e55110884929936e89e296d861f15948986816fda57ea23b",
+        "sha256": "fddb7d8d2b25ca71e55110884929936e89e296d861f15948986816fda57ea23b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

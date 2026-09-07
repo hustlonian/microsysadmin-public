@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1858",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/verify-release.php",
+        "summary": "Verify scripts/verify-release.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1858",
+        "path": "{APP_ROOT}/scripts/verify-release.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/da490520540e77470f9e2064951b74cf78d421880e05c73f631f2e7df3c87b07",
+        "sha256": "da490520540e77470f9e2064951b74cf78d421880e05c73f631f2e7df3c87b07",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

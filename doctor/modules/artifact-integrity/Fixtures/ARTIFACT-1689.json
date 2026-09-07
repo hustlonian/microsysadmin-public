@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1689",
+    "artifact": "doctor/modules/ssl/Docs/SSL-0008.md",
+    "baseline_sha256": "8ab174fa53d97e87fb3ba547945a7eaf070a878216f6c2320327d68e8a69b287",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

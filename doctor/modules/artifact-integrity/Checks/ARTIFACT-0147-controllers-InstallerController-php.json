@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0147",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact controllers/InstallerController.php",
+        "summary": "Verify controllers/InstallerController.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0147",
+        "path": "{APP_ROOT}/controllers/InstallerController.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/459cfd68855e2cbdbc39fbf583a24fce528e2a12487f951476b80dbc9ea4f8c7",
+        "sha256": "459cfd68855e2cbdbc39fbf583a24fce528e2a12487f951476b80dbc9ea4f8c7",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

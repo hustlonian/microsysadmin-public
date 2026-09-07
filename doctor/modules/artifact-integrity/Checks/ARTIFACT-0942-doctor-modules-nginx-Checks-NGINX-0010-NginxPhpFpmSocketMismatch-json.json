@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0942",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Checks/NGINX-0010-NginxPhpFpmSocketMismatch.json",
+        "summary": "Verify doctor/modules/nginx/Checks/NGINX-0010-NginxPhpFpmSocketMismatch.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0942",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Checks/NGINX-0010-NginxPhpFpmSocketMismatch.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/446adef35858f87f5e834affb534b00382e31671c396deae33e989e52fbddf0d",
+        "sha256": "446adef35858f87f5e834affb534b00382e31671c396deae33e989e52fbddf0d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

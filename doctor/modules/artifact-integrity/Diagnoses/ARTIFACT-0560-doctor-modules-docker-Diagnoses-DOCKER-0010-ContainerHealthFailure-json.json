@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0560",
+        "check_id": "ARTIFACT-C0560",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/docker/Diagnoses/DOCKER-0010-ContainerHealthFailure.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/docker/Diagnoses/DOCKER-0010-ContainerHealthFailure.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c1aec20e16ce8e901fffbdcd292998ea5bac885bc3b184d0cf07d614186137e1 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0560"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

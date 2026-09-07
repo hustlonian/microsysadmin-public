@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2133",
+        "check_id": "ARTIFACT-C2133",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/symfony/process/Pipes/PipesInterface.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/symfony/process/Pipes/PipesInterface.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 7045ea2133fe37c5ba243c44f7f23827918228b1a02ac83a0125d9c7fb6e72bc with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2133"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

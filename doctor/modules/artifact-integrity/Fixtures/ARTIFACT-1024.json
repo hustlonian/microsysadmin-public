@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1024",
+    "artifact": "doctor/modules/performance/Fixtures/PERFORMANCE-0005.json",
+    "baseline_sha256": "b49c679d81fc6da4925c2ce5c0a8b5fdcf47c26b66e17260dd2d40aa98b611c9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

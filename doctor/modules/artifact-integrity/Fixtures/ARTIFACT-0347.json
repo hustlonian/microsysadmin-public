@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0347",
+    "artifact": "doctor/modules/backups/Docs/BATCH-001.md",
+    "baseline_sha256": "f938bb5ace501014e9f2a597fa0d00646e46e0d0021eda569c6218e7411a4d6d",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

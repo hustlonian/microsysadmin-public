@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1919",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/GelfMessageFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/GelfMessageFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1919",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/GelfMessageFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0fb0d21186f23742c12770a8c77d5025e00f2401803a3ae349cf41a6d550732a",
+        "sha256": "0fb0d21186f23742c12770a8c77d5025e00f2401803a3ae349cf41a6d550732a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

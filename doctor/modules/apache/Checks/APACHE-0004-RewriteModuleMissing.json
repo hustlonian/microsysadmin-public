@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "APACHE-C0004",
+        "module": "apache",
+        "name": "Enable the missing Apache rewrite module",
+        "summary": "Enable the missing Apache rewrite module.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "apache",
+            "rewrite-module-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "apache",
+            "xampp"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "/opt/lampp/etc/httpd.conf",
+        "contains": "rewrite_module"
+    },
+    "failure_status": "FAIL"
+}

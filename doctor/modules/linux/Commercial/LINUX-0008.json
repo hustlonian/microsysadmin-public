@@ -1,0 +1,14 @@
+{
+    "repair_id": "LINUX-0008",
+    "commercial_tier": "professional",
+    "customer_impact": "restores one bounded supported state",
+    "support_issue_family": "linux",
+    "automation_class": "AUTO_WITH_BACKUP",
+    "risk_level": "MEDIUM",
+    "sdk_primitives": [
+        "time_sync"
+    ],
+    "quality_status": "contract-ready",
+    "rollback_supported": true,
+    "verification_defined": true
+}

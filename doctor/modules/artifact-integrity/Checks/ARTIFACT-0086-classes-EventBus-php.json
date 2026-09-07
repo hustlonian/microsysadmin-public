@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0086",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/EventBus.php",
+        "summary": "Verify classes/EventBus.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0086",
+        "path": "{APP_ROOT}/classes/EventBus.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1af2e6da2ce38b2ec5a189ed26c94418525c698fba200e6a2efb68857d165754",
+        "sha256": "1af2e6da2ce38b2ec5a189ed26c94418525c698fba200e6a2efb68857d165754",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

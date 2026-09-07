@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0005",
+        "module": "security",
+        "name": "Install a supported firewall management tool",
+        "summary": "Install a supported firewall management tool.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "firewall-tool-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "any_executable_exists",
+        "commands": [
+            "ufw",
+            "nft",
+            "iptables",
+            "firewall-cmd"
+        ]
+    },
+    "failure_status": "FAIL"
+}

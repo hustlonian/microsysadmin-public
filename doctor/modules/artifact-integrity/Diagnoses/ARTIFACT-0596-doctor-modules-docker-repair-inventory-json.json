@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0596",
+        "check_id": "ARTIFACT-C0596",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/docker/repair-inventory.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/docker/repair-inventory.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 ba45cf19bce833ab0fcaa051e01ce637d21bde49f729f7cc5d4de00779b9c93f with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0596"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

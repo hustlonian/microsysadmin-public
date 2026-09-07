@@ -1,0 +1,34 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0002",
+        "module": "security",
+        "name": "Restrict overly broad environment-file permissions",
+        "summary": "Restrict overly broad environment-file permissions.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "environment-file-world-accessible"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "stat"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "stat",
+            "-c",
+            "%a",
+            "{PROJECT}/.env"
+        ],
+        "stdout_contains": "640",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

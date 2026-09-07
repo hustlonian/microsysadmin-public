@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0665",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Diagnoses/GIT-0003-RepositoryObjectCorruption.json",
+        "summary": "Verify doctor/modules/git/Diagnoses/GIT-0003-RepositoryObjectCorruption.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0665",
+        "path": "{APP_ROOT}/doctor/modules/git/Diagnoses/GIT-0003-RepositoryObjectCorruption.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b85b96a1eaa4a3889971db5201d8260b0d5d448b3e5c3ad4870a9627d0bafb4b",
+        "sha256": "b85b96a1eaa4a3889971db5201d8260b0d5d448b3e5c3ad4870a9627d0bafb4b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

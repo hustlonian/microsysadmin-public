@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1953",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/FingersCrossedHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/FingersCrossedHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1953",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/FingersCrossedHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4ae206acb6cc4630b8a1464fcfcde7dcd4c56ce15d6e17b45912248fdcb77bce",
+        "sha256": "4ae206acb6cc4630b8a1464fcfcde7dcd4c56ce15d6e17b45912248fdcb77bce",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2108",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/psr/log/src/LoggerAwareInterface.php",
+        "summary": "Verify vendor/psr/log/src/LoggerAwareInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2108",
+        "path": "{APP_ROOT}/vendor/psr/log/src/LoggerAwareInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/076efac38ab493f4fc3e701cce9a2641135048f2bf0407b322c45712ef73813c",
+        "sha256": "076efac38ab493f4fc3e701cce9a2641135048f2bf0407b322c45712ef73813c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

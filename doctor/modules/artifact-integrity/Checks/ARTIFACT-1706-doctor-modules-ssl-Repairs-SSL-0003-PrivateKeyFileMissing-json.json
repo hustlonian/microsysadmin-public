@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1706",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Repairs/SSL-0003-PrivateKeyFileMissing.json",
+        "summary": "Verify doctor/modules/ssl/Repairs/SSL-0003-PrivateKeyFileMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1706",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Repairs/SSL-0003-PrivateKeyFileMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/dd670d5bb3ae9d3c40d951ad747adf56399b8cc741ee0b759ab60cd86f3caea4",
+        "sha256": "dd670d5bb3ae9d3c40d951ad747adf56399b8cc741ee0b759ab60cd86f3caea4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

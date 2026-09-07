@@ -1,0 +1,28 @@
+{
+    "metadata": {
+        "check_id": "APACHE-C0002",
+        "module": "apache",
+        "name": "Start the stopped XAMPP Apache service",
+        "summary": "Start the stopped XAMPP Apache service.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "apache",
+            "apache-service-stopped"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "apache",
+            "xampp"
+        ]
+    },
+    "requires_commands": [
+        "xampp"
+    ],
+    "probe": {
+        "type": "service_active",
+        "service": "apache"
+    },
+    "failure_status": "FAIL"
+}

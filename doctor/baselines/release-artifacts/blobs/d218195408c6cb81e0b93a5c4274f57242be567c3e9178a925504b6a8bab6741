@@ -1,0 +1,191 @@
+#!/opt/lampp/bin/php
+<?php
+
+declare(strict_types=1);
+
+define('APP_ROOT', dirname(__DIR__, 2));
+require APP_ROOT . '/classes/bootstrap.php';
+
+use SysAdmin\Doctor\DoctorApplication;
+
+$arguments = $_SERVER['argv'] ?? [];
+array_shift($arguments);
+$command = array_shift($arguments) ?: 'help';
+$options = [];
+$positionals = [];
+foreach ($arguments as $argument) {
+    if (!str_starts_with($argument, '--')) {
+        $positionals[] = $argument;
+        continue;
+    }
+    $value = substr($argument, 2);
+    if ($value === 'no-interaction') {
+        $options['no_interaction'] = true;
+        continue;
+    }
+    if (str_starts_with($value, 'no-')) {
+        $options[str_replace('-', '_', substr($value, 3))] = false;
+        continue;
+    }
+    if (str_contains($value, '=')) {
+        [$key, $optionValue] = explode('=', $value, 2);
+        $key = str_replace('-', '_', $key);
+        if (isset($options[$key])) {
+            $options[$key] = [...(array) $options[$key], $optionValue];
+        } else {
+            $options[$key] = $optionValue;
+        }
+    } else {
+        $options[str_replace('-', '_', $value)] = true;
+    }
+}
+
+$json = !empty($options['json']);
+
+$emit = static function (mixed $data) use ($json): void {
+    if ($json || !is_array($data)) {
+        echo is_string($data) ? $data . PHP_EOL : json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR) . PHP_EOL;
+        return;
+    }
+    if (isset($data['execution_id'])) {
+        $score = (array) ($data['after_health_score'] ?? $data['before_health_score'] ?? []);
+        echo 'Execution: ' . $data['execution_id'] . PHP_EOL;
+        echo 'Status: ' . ($data['status'] ?? 'UNKNOWN') . PHP_EOL;
+        echo 'Health: ' . ($score['percentage'] ?? 'n/a') . '% (' . ($score['grade'] ?? 'n/a') . ')' . PHP_EOL;
+        echo 'Checks: ' . count((array) ($data['checks'] ?? [])) . '; diagnoses: ' . count((array) ($data['diagnoses'] ?? [])) . '; plans: ' . count((array) ($data['plans'] ?? [])) . '; repairs: ' . count((array) ($data['repairs'] ?? [])) . PHP_EOL;
+        foreach ((array) ($data['reports'] ?? []) as $report) {
+            echo strtoupper((string) ($report['format'] ?? 'report')) . ': ' . ($report['path'] ?? '') . PHP_EOL;
+        }
+        return;
+    }
+    foreach ($data as $row) {
+        if (!is_array($row)) {
+            echo (string) $row . PHP_EOL;
+            continue;
+        }
+        $id = $row['repair_id'] ?? $row['check_id'] ?? $row['diagnosis_id'] ?? $row['name'] ?? '';
+        $name = $row['display_name'] ?? $row['name'] ?? $row['title'] ?? $row['summary'] ?? '';
+        echo trim((string) $id . ($name !== '' && $name !== $id ? "\t" . (string) $name : '')) . PHP_EOL;
+    }
+};
+
+$runOptions = [
+    'project_path' => $options['project_path'] ?? null,
+    'modules' => $options['module'] ?? [],
+    'repair_ids' => $options['id'] ?? [],
+    'check_ids' => $options['include'] ?? [],
+    'approval_policy' => $options['approval_policy'] ?? (!empty($options['safe']) ? 'safe' : 'manual'),
+    'dry_run' => !empty($options['dry_run']),
+    'web_user' => $options['web_user'] ?? '',
+    'environment' => $options['environment'] ?? 'auto',
+    'report_formats' => $options['report_format'] ?? ['json', 'text', 'html', 'pdf-html'],
+    'no_reports' => isset($options['reports']) && $options['reports'] === false,
+    'approval_execution_id' => $options['approval_execution'] ?? '',
+    'exclude' => $options['exclude'] ?? [],
+    'severity' => $options['severity'] ?? [],
+    'risk' => $options['risk'] ?? [],
+    'report_path' => $options['report_path'] ?? '',
+];
+
+try {
+    $app = new DoctorApplication();
+    switch ($command) {
+        case 'discover':
+            $emit($app->discover(isset($options['project_path']) ? (string) $options['project_path'] : null));
+            break;
+        case 'inventory':
+            $emit($app->inventory(isset($options['module']) && is_string($options['module']) ? $options['module'] : null));
+            break;
+        case 'list:modules':
+            $emit($app->listModules());
+            break;
+        case 'list:checks':
+            $emit($app->listChecks(isset($options['module']) && is_string($options['module']) ? $options['module'] : null));
+            break;
+        case 'list:diagnoses':
+            $emit($app->listDiagnoses(isset($options['module']) && is_string($options['module']) ? $options['module'] : null));
+            break;
+        case 'list:repairs':
+            $emit($app->listRepairs(isset($options['module']) && is_string($options['module']) ? $options['module'] : null));
+            break;
+        case 'describe:repair':
+            $id = strtoupper((string) ($positionals[0] ?? $options['id'] ?? ''));
+            $description = $app->describeRepair($id);
+            if ($description === null) {
+                throw new RuntimeException("Repair {$id} was not found.");
+            }
+            $emit($description);
+            break;
+        case 'approve':
+            $execution = (string) ($options['execution'] ?? '');
+            $repairId = strtoupper((string) ($options['id'] ?? $positionals[0] ?? ''));
+            $planHash = strtolower((string) ($options['plan_hash'] ?? ''));
+            $app->approve($execution, $repairId, $planHash, (int) (\SysAdmin\Auth::id() ?: 0));
+            $emit(['approved' => true, 'execution_id' => $execution, 'repair_id' => $repairId, 'plan_hash' => $planHash]);
+            break;
+        case 'scan':
+        case 'diagnose':
+        case 'plan':
+        case 'verify':
+        case 'health':
+            $runOptions['mode'] = $command;
+            $emit($app->run($runOptions));
+            break;
+        case 'repair':
+            $runOptions['mode'] = 'repair';
+            if (!empty($options['no_interaction']) && ($runOptions['approval_policy'] ?? '') === 'manual' && empty($runOptions['dry_run'])) {
+                $runOptions['dry_run'] = true;
+            }
+            $emit($app->run($runOptions));
+            break;
+        case 'rollback':
+            $source = (string) ($options['execution'] ?? $positionals[0] ?? '');
+            $emit($app->rollbackExecution($source, (array) ($options['id'] ?? []), $runOptions));
+            break;
+        case 'report':
+            if (!empty($options['execution'])) {
+                $execution = $app->execution((string) $options['execution']);
+                if ($execution === null) {
+                    throw new RuntimeException('Doctor execution was not found.');
+                }
+                $emit($execution);
+            } else {
+                $runOptions['mode'] = 'report';
+                $emit($app->run($runOptions));
+            }
+            break;
+        case 'help':
+        default:
+            echo <<<'HELP'
+MicroSysAdmin Doctor
+
+Commands:
+  discover                         Discover the operating environment
+  inventory [--module=name]        Show the permanent repair inventory
+  scan [--module=name]             Run checks
+  diagnose                         Run checks and cause diagnoses
+  plan [--id=REPAIR-ID]            Generate previewable repair plans
+  repair --safe                    Execute policy-approved safe repairs
+  approve --execution=ID --id=ID --plan-hash=HASH
+                                   Approve an exact previewed plan
+  repair --id=ID --approval-execution=ID
+                                   Consume an exact prior approval and execute
+  verify                           Re-run independent checks and verification planning
+  rollback --execution=ID          Roll back supported repairs from an execution
+  report [--execution=ID]          Generate or inspect reports
+  health                           Calculate module and overall health
+  list:modules|checks|diagnoses|repairs
+  describe:repair REPAIR-ID
+
+Options:
+  --dry-run --json --no-interaction --approval-policy=NAME
+  --project-path=PATH --web-user=USER --environment=NAME
+  --report-format=json --module=NAME --include=CHECK-ID
+  --exclude=ID --severity=LEVEL --risk=LEVEL --execution=ID
+HELP;
+            echo PHP_EOL;
+    }
+} catch (Throwable $exception) {
+    fwrite(STDERR, 'Doctor failed: ' . $exception->getMessage() . PHP_EOL);
+    exit(1);
+}

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0076",
+    "artifact": "classes/Csrf.php",
+    "baseline_sha256": "503342274da805699bef6d432a71af48de02088cde25199b757c14257ff2f5b2",
+    "mode": "0664",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

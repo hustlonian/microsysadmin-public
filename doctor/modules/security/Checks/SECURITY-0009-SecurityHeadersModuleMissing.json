@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0009",
+        "module": "security",
+        "name": "Enable Apache security response headers",
+        "summary": "Enable Apache security response headers.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "security-headers-module-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "/opt/lampp/etc/httpd.conf",
+        "contains": "headers_module"
+    },
+    "failure_status": "FAIL"
+}

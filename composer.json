@@ -1,0 +1,24 @@
+{
+  "name": "local/sysadmin",
+  "description": "Self-hosted Laravel and PHP development-server workspace for Linux.",
+  "license": "proprietary",
+  "type": "project",
+  "require": {
+    "php": ">=8.2",
+    "monolog/monolog": "^3.0",
+    "symfony/process": "^7.0",
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "SysAdmin\\Doctor\\": "doctor/",
+      "SysAdmin\\": "classes/",
+      "SysAdmin\\Controllers\\": "controllers/",
+      "SysAdmin\\Models\\": "models/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}

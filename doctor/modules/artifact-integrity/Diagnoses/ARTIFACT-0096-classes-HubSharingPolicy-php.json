@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0096",
+        "check_id": "ARTIFACT-C0096",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/HubSharingPolicy.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/HubSharingPolicy.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 cdf4fee2045830143667fcf9e9a7731fc4c10d4da0b30840033c5d701c4c3aac with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0096"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

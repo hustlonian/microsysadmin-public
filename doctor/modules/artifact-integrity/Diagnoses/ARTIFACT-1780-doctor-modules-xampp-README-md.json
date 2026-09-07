@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1780",
+        "check_id": "ARTIFACT-C1780",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/xampp/README.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/xampp/README.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b75d7cb4c7d691a1f531a6206ed04707b0ffa22731c0de20a10630cce387725d with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1780"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

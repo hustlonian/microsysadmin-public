@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0536",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Repairs/DNS-0009-DigCommandMissing.json",
+        "summary": "Verify doctor/modules/dns/Repairs/DNS-0009-DigCommandMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0536",
+        "path": "{APP_ROOT}/doctor/modules/dns/Repairs/DNS-0009-DigCommandMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b18a983a9fe353bfbe0f22a520997e4b6879d574a17a19e0b648c5b1819d63d6",
+        "sha256": "b18a983a9fe353bfbe0f22a520997e4b6879d574a17a19e0b648c5b1819d63d6",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

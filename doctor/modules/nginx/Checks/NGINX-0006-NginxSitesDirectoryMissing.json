@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "NGINX-C0006",
+        "module": "nginx",
+        "name": "Restore the missing Nginx sites directory",
+        "summary": "Restore the missing Nginx sites directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "nginx",
+            "nginx-sites-directory-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "nginx"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/etc/nginx/sites-available"
+    },
+    "failure_status": "FAIL"
+}

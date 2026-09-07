@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1501",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Checks/REDIS-0005-RedisServiceDisabled.json",
+        "summary": "Verify doctor/modules/redis/Checks/REDIS-0005-RedisServiceDisabled.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1501",
+        "path": "{APP_ROOT}/doctor/modules/redis/Checks/REDIS-0005-RedisServiceDisabled.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ee882886a127854ef8713ad25c7ae896e780728989c3b754d2cf450060cfe2ed",
+        "sha256": "ee882886a127854ef8713ad25c7ae896e780728989c3b754d2cf450060cfe2ed",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

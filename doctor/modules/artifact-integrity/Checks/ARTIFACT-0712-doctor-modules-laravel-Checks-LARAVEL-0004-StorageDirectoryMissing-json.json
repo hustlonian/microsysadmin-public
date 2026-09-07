@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0712",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Checks/LARAVEL-0004-StorageDirectoryMissing.json",
+        "summary": "Verify doctor/modules/laravel/Checks/LARAVEL-0004-StorageDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0712",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Checks/LARAVEL-0004-StorageDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d6ac7711ee04174efecb47b9441c84a865bc269b6b682c53923efa41b083c452",
+        "sha256": "d6ac7711ee04174efecb47b9441c84a865bc269b6b682c53923efa41b083c452",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

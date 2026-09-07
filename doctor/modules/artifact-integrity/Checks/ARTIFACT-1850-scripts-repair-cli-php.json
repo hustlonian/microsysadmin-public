@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1850",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/repair-cli.php",
+        "summary": "Verify scripts/repair-cli.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1850",
+        "path": "{APP_ROOT}/scripts/repair-cli.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9ae9efef8007238823eb0a2ba8ec0879c23f5f79a3298a7e8f57d928263cfafd",
+        "sha256": "9ae9efef8007238823eb0a2ba8ec0879c23f5f79a3298a7e8f57d928263cfafd",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

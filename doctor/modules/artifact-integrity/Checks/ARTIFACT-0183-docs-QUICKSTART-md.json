@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0183",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/QUICKSTART.md",
+        "summary": "Verify docs/QUICKSTART.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0183",
+        "path": "{APP_ROOT}/docs/QUICKSTART.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1f360e0f2d96a3a959ee6380880b8a2c7630f66b44012ddb3e5557db4a879fda",
+        "sha256": "1f360e0f2d96a3a959ee6380880b8a2c7630f66b44012ddb3e5557db4a879fda",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

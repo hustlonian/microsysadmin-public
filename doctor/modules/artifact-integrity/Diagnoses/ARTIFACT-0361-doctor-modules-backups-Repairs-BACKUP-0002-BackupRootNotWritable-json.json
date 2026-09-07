@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0361",
+        "check_id": "ARTIFACT-C0361",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/backups/Repairs/BACKUP-0002-BackupRootNotWritable.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/backups/Repairs/BACKUP-0002-BackupRootNotWritable.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 26b060b56af9f2a0e3ba5e599240317749d7c9459ea458f3b66493c1c2987240 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0361"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

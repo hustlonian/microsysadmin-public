@@ -1,0 +1,42 @@
+{
+    "metadata": {
+        "diagnosis_id": "XAMPP-D0010",
+        "check_id": "XAMPP-C0010",
+        "module": "xampp",
+        "name": "Restore the missing XAMPP log directory diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore the missing XAMPP log directory.",
+        "expected_state": "The fixed XAMPP installation root contains a real logs directory.",
+        "probable_cause": "The observed xampp log directory missing condition differs from the required state.",
+        "confidence": 0.9499999999999999555910790149937383830547332763671875,
+        "related_repair_ids": [
+            "XAMPP-0010"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "Only the fixed missing /opt/lampp/logs directory is created through an allowlisted helper token; rollback validates device, inode, mode, UID, and GID and removes it only while empty."
+    },
+    "repair_generation": {
+        "repair_id": "XAMPP-0010",
+        "name": "Restore the missing XAMPP log directory",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "risk_level": "LOW",
+        "backup_strategy": "exact helper-created directory identity with empty-directory rollback guard",
+        "directories_modified": [
+            "/opt/lampp/logs"
+        ],
+        "required_permissions": [
+            "scoped privileged helper access to the fixed XAMPP logs path"
+        ],
+        "action": {
+            "type": "create_known_directory",
+            "target": "xampp-logs",
+            "path": "/opt/lampp/logs",
+            "timeout": 60,
+            "description": "Create only the fixed XAMPP logs directory through the allowlisted helper token."
+        },
+        "commercial_tier": "professional",
+        "support_issue_family": "xampp-log-directory"
+    }
+}

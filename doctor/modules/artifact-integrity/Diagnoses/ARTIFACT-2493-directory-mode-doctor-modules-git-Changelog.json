@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2493",
+        "check_id": "ARTIFACT-C2493",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed release directory mode drift for doctor/modules/git/Changelog",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release directory doctor/modules/git/Changelog has the wrong permission mode.",
+        "expected_state": "The existing non-symbolic directory has mode 0755.",
+        "probable_cause": "An unintended permission change altered the existing release directory mode.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2493"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact existing directory, desired mode, device/inode identity, prior mode, rollback guard, and verification are predetermined."
+    }
+}

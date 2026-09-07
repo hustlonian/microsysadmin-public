@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0144",
+        "check_id": "ARTIFACT-C0144",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for controllers/ApiController.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact controllers/ApiController.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 553ceb9e78757155e1325838a15cd29b94d5a77ef4509421da699beed32df250 with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0144"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

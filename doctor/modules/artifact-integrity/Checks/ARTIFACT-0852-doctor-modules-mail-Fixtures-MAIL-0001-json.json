@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0852",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Fixtures/MAIL-0001.json",
+        "summary": "Verify doctor/modules/mail/Fixtures/MAIL-0001.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0852",
+        "path": "{APP_ROOT}/doctor/modules/mail/Fixtures/MAIL-0001.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5a82e8c1e16fd1d54c58338729e8c16f76433b1d591d3eb62ef15f0254958a3e",
+        "sha256": "5a82e8c1e16fd1d54c58338729e8c16f76433b1d591d3eb62ef15f0254958a3e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

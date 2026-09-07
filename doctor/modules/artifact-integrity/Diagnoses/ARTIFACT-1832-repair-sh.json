@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1832",
+        "check_id": "ARTIFACT-C1832",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for repair.sh",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact repair.sh is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 2179f1b935a82e9de412c605c2a623eaf0c2635808235003c69f5b408a0ddefd with mode 0755.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1832"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

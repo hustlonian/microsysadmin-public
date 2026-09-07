@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1893",
+    "artifact": "vendor/autoload.php",
+    "baseline_sha256": "80c3d2afa4a78084e401a1b8ff38e6ccda9c5ceccdd9ad1f55cebd41cc58783d",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,1296 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+script_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+project_root="${MICROSYSADMIN_GIT_PROJECT_ROOT:-$script_root}"
+project_root="$(cd "$project_root" && pwd)"
+
+if [[ ! -s "$project_root/VERSION" || ! -s "$project_root/composer.json" ]]; then
+    echo "BLOCKED: $project_root is not a MicroSysAdmin source root." >&2
+    exit 2
+fi
+
+default_state_root="/var/lib/microsysadmin/git-manager"
+state_root="${MICROSYSADMIN_GIT_STATE_ROOT:-$default_state_root}"
+if ! mkdir -p "$state_root" 2>/dev/null \
+    || ! { : > "$state_root/.write-test" && rm -f -- "$state_root/.write-test"; } 2>/dev/null; then
+    state_root="${XDG_STATE_HOME:-${HOME:-/tmp}/.local/state}/microsysadmin/git-manager"
+    if ! mkdir -p "$state_root" 2>/dev/null \
+        || ! { : > "$state_root/.write-test" && rm -f -- "$state_root/.write-test"; } 2>/dev/null; then
+        state_root="${TMPDIR:-/tmp}/microsysadmin-git-manager-$(id -u)"
+        mkdir -p "$state_root"
+    fi
+fi
+chmod 0700 "$state_root" 2>/dev/null || true
+log_file="$state_root/events.jsonl"
+preflight_file="$state_root/preflight"
+audit_file="$state_root/audit"
+lock_file="$state_root/manager.lock"
+
+exec 9>"$lock_file"
+if ! flock -n 9; then
+    echo "BLOCKED: another MicroSysAdmin Git operation is running." >&2
+    exit 2
+fi
+
+color=0
+if [[ -t 1 && "${NO_COLOR:-}" == "" ]]; then color=1; fi
+if [[ "$color" -eq 1 ]]; then
+    c_green=$'\033[32m'
+    c_yellow=$'\033[33m'
+    c_red=$'\033[31m'
+    c_blue=$'\033[36m'
+    c_reset=$'\033[0m'
+else
+    c_green=""; c_yellow=""; c_red=""; c_blue=""; c_reset=""
+fi
+
+REMOTE_NAME="origin"
+REPOSITORY_OWNER=""
+REPOSITORY_NAME=""
+PREFERRED_BRANCH="main"
+REMOTE_TRANSPORT="https"
+REMOTE_CONFIDENCE="unconfirmed"
+EXPECTED_VISIBILITY="private"
+RELEASE_PREFIX="v"
+BUILD_DIRECTORY="dist"
+REQUIRE_PUSH_CONFIRMATION="1"
+REQUIRE_SIGNED_STABLE_TAGS="1"
+
+load_config() {
+    local config="$project_root/.microsysadmin-git.conf"
+    [[ -f "$config" ]] || return 0
+    local key value
+    while IFS='=' read -r key value; do
+        key="${key//[[:space:]]/}"
+        [[ -n "$key" && "$key" != \#* ]] || continue
+        case "$key" in
+            REMOTE_NAME|REPOSITORY_OWNER|REPOSITORY_NAME|PREFERRED_BRANCH|\
+            REMOTE_TRANSPORT|REMOTE_CONFIDENCE|EXPECTED_VISIBILITY|RELEASE_PREFIX|\
+            BUILD_DIRECTORY|REQUIRE_PUSH_CONFIRMATION|REQUIRE_SIGNED_STABLE_TAGS)
+                value="${value%$'\r'}"
+                value="${value#\"}"; value="${value%\"}"
+                value="${value#\'}"; value="${value%\'}"
+                printf -v "$key" '%s' "$value"
+                ;;
+        esac
+    done < "$config"
+}
+load_config
+
+redact() {
+    sed -E \
+        -e 's#https://[^/@[:space:]]+@github\.com#https://[REDACTED]@github.com#g' \
+        -e 's#(gh[pousr]_[A-Za-z0-9_]+|github_pat_[A-Za-z0-9_]+|GHSAT[A-Za-z0-9_]+)#[REDACTED]#g' \
+        -e 's#([Aa]uthorization:)[[:space:]]*[^[:space:]]+[[:space:]]+[^[:space:]]+#\1 [REDACTED]#g'
+}
+
+json_escape() {
+    local value="$1"
+    value="${value//\\/\\\\}"
+    value="${value//\"/\\\"}"
+    value="${value//$'\n'/\\n}"
+    printf '%s' "$value"
+}
+
+current_branch() {
+    git -C "$project_root" symbolic-ref --quiet --short HEAD 2>/dev/null || echo "detached"
+}
+
+current_commit() {
+    git -C "$project_root" rev-parse --verify HEAD 2>/dev/null || echo "unborn"
+}
+
+safe_remote_url() {
+    local url
+    url="$(git -C "$project_root" config --get "remote.$REMOTE_NAME.url" 2>/dev/null || true)"
+    printf '%s' "$url" | redact
+}
+
+log_event() {
+    local action="$1" result="$2" detail="${3:-}"
+    local branch commit repository
+    branch="$(current_branch)"
+    commit="$(current_commit)"
+    repository="${REPOSITORY_OWNER:-unknown}/${REPOSITORY_NAME:-unknown}"
+    detail="$(printf '%s' "$detail" | redact)"
+    printf '{"timestamp":"%s","action":"%s","result":"%s","repository":"%s","branch":"%s","commit":"%s","verification":"%s","detail":"%s"}\n' \
+        "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+        "$(json_escape "$action")" \
+        "$(json_escape "$result")" \
+        "$(json_escape "$repository")" \
+        "$(json_escape "$branch")" \
+        "$(json_escape "$commit")" \
+        "$(json_escape "$result")" \
+        "$(json_escape "$detail")" >> "$log_file"
+    chmod 0600 "$log_file" 2>/dev/null || true
+}
+
+heading() { printf '\n%s%s%s\n' "$c_blue" "$1" "$c_reset"; }
+pass() { printf '%sPASS%s  %s\n' "$c_green" "$c_reset" "$1"; }
+warn() { printf '%sWARN%s  %s\n' "$c_yellow" "$c_reset" "$1"; }
+fail() { printf '%sFAIL%s  %s\n' "$c_red" "$c_reset" "$1" >&2; }
+blocked() { printf '%sBLOCKED%s  %s\n' "$c_red" "$c_reset" "$1" >&2; }
+
+is_repo() {
+    git -C "$project_root" rev-parse --git-dir >/dev/null 2>&1
+}
+
+require_repo() {
+    if ! is_repo; then
+        blocked "MicroSysAdmin has no initialized Git repository. Run ./microsysadmin-git init after reviewing recovery."
+        log_event "${1:-repository}" "blocked" "repository missing"
+        exit 2
+    fi
+}
+
+require_head() {
+    require_repo "${1:-repository}"
+    if ! git -C "$project_root" rev-parse --verify HEAD >/dev/null 2>&1; then
+        blocked "The repository has no commit yet."
+        exit 2
+    fi
+}
+
+confirm_exact() {
+    local prompt="$1" expected="$2" answer
+    if [[ ! -t 0 ]]; then
+        blocked "Interactive confirmation required. Re-run in a terminal."
+        return 1
+    fi
+    printf '%s\nType exactly: %s\n> ' "$prompt" "$expected"
+    IFS= read -r answer
+    [[ "$answer" == "$expected" ]]
+}
+
+github_slug_from_url() {
+    local url="$1"
+    if [[ "$url" =~ github\.com[:/]([A-Za-z0-9_.-]+)/([A-Za-z0-9_.-]+)(\.git)?$ ]]; then
+        local repo="${BASH_REMATCH[2]}"
+        repo="${repo%.git}"
+        printf '%s/%s' "${BASH_REMATCH[1]}" "$repo"
+    fi
+}
+
+expected_slug() {
+    [[ -n "$REPOSITORY_OWNER" && -n "$REPOSITORY_NAME" ]] || return 1
+    printf '%s/%s' "$REPOSITORY_OWNER" "$REPOSITORY_NAME"
+}
+
+remote_is_confirmed() {
+    is_repo || return 1
+    [[ "$REMOTE_CONFIDENCE" == "confirmed" ]] || return 1
+    local url actual expected
+    url="$(git -C "$project_root" config --get "remote.$REMOTE_NAME.url" 2>/dev/null || true)"
+    actual="$(github_slug_from_url "$url")"
+    expected="$(expected_slug 2>/dev/null || true)"
+    [[ -n "$actual" && "$actual" == "$expected" ]]
+}
+
+gh_account() {
+    gh api user --jq .login 2>/dev/null || true
+}
+
+gh_auth_ok() {
+    gh auth status --hostname github.com >/dev/null 2>&1 && [[ -n "$(gh_account)" ]]
+}
+
+status_fingerprint() {
+    git -C "$project_root" status --porcelain=v1 -z --untracked-files=all \
+        | sha256sum | awk '{print $1}'
+}
+
+index_tree() {
+    git -C "$project_root" write-tree 2>/dev/null || echo "unavailable"
+}
+
+write_marker() {
+    local file="$1" kind="$2"
+    {
+        printf 'kind=%s\n' "$kind"
+        printf 'timestamp=%s\n' "$(date +%s)"
+        printf 'head=%s\n' "$(current_commit)"
+        printf 'index=%s\n' "$(index_tree)"
+        printf 'status=%s\n' "$(status_fingerprint)"
+    } > "$file"
+    chmod 0600 "$file"
+}
+
+marker_value() {
+    local file="$1" key="$2"
+    awk -F= -v key="$key" '$1==key {sub(/^[^=]*=/,""); print; exit}' "$file" 2>/dev/null
+}
+
+preflight_is_fresh() {
+    [[ -s "$preflight_file" ]] || return 1
+    local timestamp
+    timestamp="$(marker_value "$preflight_file" timestamp)"
+    [[ "$timestamp" =~ ^[0-9]+$ ]] || return 1
+    (( $(date +%s) - timestamp <= 3600 )) || return 1
+    [[ "$(marker_value "$preflight_file" head)" == "$(current_commit)" ]] || return 1
+    [[ "$(marker_value "$preflight_file" index)" == "$(index_tree)" ]] || return 1
+    [[ "$(marker_value "$preflight_file" status)" == "$(status_fingerprint)" ]] || return 1
+}
+
+run_audit() {
+    heading "Repository audit"
+    if "$project_root/scripts/check-repository.sh" --root "$project_root"; then
+        write_marker "$audit_file" "audit"
+        log_event "audit" "pass" "full repository audit"
+        return 0
+    fi
+    rm -f -- "$audit_file" "$preflight_file"
+    log_event "audit" "fail" "repository audit failed"
+    return 1
+}
+
+cmd_help() {
+    cat <<'HELP'
+MicroSysAdmin terminal Git manager
+
+Usage:
+  ./microsysadmin-git [command] [options]
+
+Commands:
+  status
+  recover
+  init
+  auth [status|login]
+  audit
+  clean [--apply]
+  prepare [--stage] [--yes]
+  diff [--full]
+  commit [--message TEXT] [--yes]
+  fetch
+  pull
+  push
+  branch [list|create NAME|switch NAME]
+  tag [list|create VERSION]
+  release VERSION
+  verify
+  doctor
+  create-private OWNER REPOSITORY
+  logs
+  menu
+  --help
+
+No command force-pushes, rewrites remote history, publishes a release, or
+stores a token. Repository creation and every push require explicit terminal
+confirmation.
+HELP
+}
+
+cmd_status() {
+    heading "MicroSysAdmin repository status"
+    printf 'Project: %s\n' "$project_root"
+    if ! is_repo; then
+        blocked "Git repository is not initialized."
+        printf 'Recovery report: %s\n' "$project_root/docs/GITHUB-REMOTE-RECOVERY-REPORT.md"
+        log_event "status" "blocked" "repository not initialized"
+        return 2
+    fi
+    printf 'Branch: %s\n' "$(current_branch)"
+    printf 'Commit: %s\n' "$(current_commit)"
+    printf 'Remote: %s\n' "$(safe_remote_url)"
+    printf 'Remote confidence: %s\n' "$REMOTE_CONFIDENCE"
+    git -C "$project_root" status --short --branch
+    log_event "status" "pass" "status displayed"
+}
+
+cmd_recover() {
+    heading "Repository recovery"
+    printf 'Report: %s\n' "$project_root/docs/GITHUB-REMOTE-RECOVERY-REPORT.md"
+    if is_repo; then
+        cmd_status
+        return
+    fi
+    blocked "No Git metadata found. Clone the intended source repository or restore a verified backup."
+    return 2
+}
+
+cmd_init() {
+    if is_repo; then
+        pass "Repository already initialized."
+        return 0
+    fi
+    if [[ ! -s "$project_root/docs/GITHUB-REMOTE-RECOVERY-REPORT.md" ]]; then
+        blocked "Recovery report is missing."
+        return 2
+    fi
+    heading "Initialize clean MicroSysAdmin history"
+    warn "No recoverable MicroSysAdmin history exists. This creates an unborn local main branch with no remote."
+    valid_branch_name "$PREFERRED_BRANCH" || {
+        fail "Configured preferred branch is invalid: $PREFERRED_BRANCH"
+        return 1
+    }
+    git -C "$project_root" init -b "$PREFERRED_BRANCH"
+    git -C "$project_root" config --local push.default simple
+    git -C "$project_root" config --local fetch.prune true
+    git -C "$project_root" config --local pull.ff only
+    git -C "$project_root" config --local tag.gpgSign false
+    pass "Initialized local repository on main. No remote was added."
+    log_event "init" "pass" "new local history initialized without remote"
+}
+
+cmd_auth() {
+    local action="${1:-status}"
+    case "$action" in
+        status)
+            heading "GitHub terminal authentication"
+            if gh_auth_ok; then
+                pass "GitHub CLI authenticated as $(gh_account)."
+                log_event "auth" "pass" "GitHub CLI authenticated"
+                return 0
+            fi
+            fail "GitHub CLI is not authenticated."
+            warn "Existing SSH authentication was tested during recovery and was rejected."
+            printf 'Run: ./microsysadmin-git auth login\n'
+            log_event "auth" "blocked" "terminal authentication missing"
+            return 2
+            ;;
+        login)
+            command -v gh >/dev/null 2>&1 || { fail "GitHub CLI is not installed."; return 1; }
+            heading "Secure GitHub CLI login"
+            gh auth login --hostname github.com --git-protocol https --web
+            gh auth setup-git
+            if gh_auth_ok; then
+                pass "Authenticated as $(gh_account)."
+                log_event "auth.login" "pass" "GitHub CLI login completed"
+                return 0
+            fi
+            fail "GitHub CLI login did not complete."
+            log_event "auth.login" "fail" "login incomplete"
+            return 1
+            ;;
+        *) echo "Usage: ./microsysadmin-git auth [status|login]" >&2; return 64 ;;
+    esac
+}
+
+cmd_audit() {
+    require_repo audit
+    run_audit
+}
+
+safe_clean_paths() {
+    for path in "$project_root/dist" "$project_root/coverage" "$project_root/build" "$project_root/.phpunit.cache"; do
+        [[ -e "$path" ]] && printf '%s\n' "$path"
+    done
+}
+
+cmd_clean() {
+    require_repo clean
+    local apply=0
+    [[ "${1:-}" == "--apply" ]] && apply=1
+    heading "Safe generated-file cleanup"
+    local paths
+    paths="$(safe_clean_paths)"
+    if [[ -z "$paths" ]]; then
+        pass "No approved generated directories are present."
+        return 0
+    fi
+    printf '%s\n' "$paths"
+    if [[ "$apply" -eq 0 ]]; then
+        warn "Preview only. Re-run with --apply to request deletion."
+        return 0
+    fi
+    confirm_exact "Only the paths listed above will be deleted." "DELETE GENERATED FILES" || {
+        blocked "Cleanup cancelled."
+        return 2
+    }
+    while IFS= read -r path; do
+        case "$path" in
+            "$project_root/dist"|"$project_root/coverage"|"$project_root/build"|"$project_root/.phpunit.cache")
+                rm -rf -- "$path"
+                ;;
+            *) fail "Unsafe cleanup target rejected: $path"; return 1 ;;
+        esac
+    done <<< "$paths"
+    pass "Approved generated directories removed."
+    log_event "clean" "pass" "generated directories removed"
+}
+
+categorize_path() {
+    case "$1" in
+        .github/*|.gitattributes|.gitignore|.editorconfig|.microsysadmin-git.conf.example) echo "Repository and CI" ;;
+        docs/*|README.md|SECURITY.md|CHANGELOG.md|CONTRIBUTING.md|LICENSE) echo "Documentation" ;;
+        tests/*) echo "Tests" ;;
+        scripts/*|*.sh|microsysadmin-git) echo "CLI and automation" ;;
+        database/*) echo "Database" ;;
+        config/*) echo "Configuration templates" ;;
+        assets/*|views/*|public/*|index.php) echo "Web interface" ;;
+        classes/*|controllers/*|models/*|api/*|cron/*) echo "Application source" ;;
+        packaging/*|VERSION|composer.json|composer.lock) echo "Packaging and dependencies" ;;
+        *) echo "Other approved source" ;;
+    esac
+}
+
+proposal_file_list() {
+    local output="$1"
+    {
+        git -C "$project_root" diff --cached --name-only --diff-filter=ACMRD -z
+        git -C "$project_root" ls-files -z --modified --deleted
+        git -C "$project_root" ls-files -z --others --exclude-standard
+    } | sort -zu > "$output"
+}
+
+generate_staged_manifest() {
+    local list="$1"
+    local manifest="$project_root/docs/STAGED-FILE-MANIFEST.md"
+    local count
+    count="$(tr -cd '\0' < "$list" | wc -c)"
+    {
+        echo "# Staged File Manifest"
+        echo
+        echo "Generated by \`./microsysadmin-git prepare\`."
+        echo
+        echo "- Proposed paths: $count"
+        echo "- Staging method: explicit NUL-delimited pathspec"
+        echo "- Runtime/customer state: excluded"
+        echo
+        echo "| Category | Path |"
+        echo "|---|---|"
+        while IFS= read -r -d '' path; do
+            printf "| %s | \`%s\` |\n" "$(categorize_path "$path")" "$path"
+        done < "$list"
+        echo
+        echo "This manifest is a proposal until \`prepare --stage\` succeeds. The manager never runs \`git add .\`."
+    } > "$manifest"
+}
+
+cmd_prepare() {
+    require_repo prepare
+    local stage=0 yes=0
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --stage) stage=1; shift ;;
+            --yes) yes=1; shift ;;
+            *) echo "Usage: ./microsysadmin-git prepare [--stage] [--yes]" >&2; return 64 ;;
+        esac
+    done
+
+    run_audit || return 1
+
+    local proposal
+    proposal="$(mktemp "${TMPDIR:-/tmp}/microsysadmin-stage-proposal.XXXXXXXX")"
+    trap 'rm -f -- "${proposal:-}"' RETURN
+    proposal_file_list "$proposal"
+    generate_staged_manifest "$proposal"
+    proposal_file_list "$proposal"
+
+    "$project_root/scripts/check-forbidden-files.sh" --root "$project_root"
+    "$project_root/scripts/check-secrets.sh" --root "$project_root"
+
+    heading "Controlled staging proposal"
+    local count
+    count="$(tr -cd '\0' < "$proposal" | wc -c)"
+    printf 'Paths proposed: %s\n' "$count"
+    while IFS= read -r -d '' path; do
+        printf '  %-30s %s\n' "$(categorize_path "$path")" "$path"
+    done < "$proposal"
+    printf 'Manifest: %s\n' "$project_root/docs/STAGED-FILE-MANIFEST.md"
+
+    if [[ "$stage" -eq 0 ]]; then
+        warn "Nothing was staged. Re-run with --stage after reviewing the manifest."
+        rm -f -- "$preflight_file"
+        log_event "prepare" "pass" "proposal generated without staging"
+        return 0
+    fi
+    if [[ "$yes" -ne 1 ]]; then
+        confirm_exact "Stage exactly the $count proposed paths?" "STAGE $count FILES" || {
+            blocked "Staging cancelled."
+            return 2
+        }
+    fi
+    if [[ "$count" -eq 0 ]]; then
+        blocked "No changes are available to stage."
+        return 2
+    fi
+    git -C "$project_root" add --pathspec-from-file="$proposal" --pathspec-file-nul
+    "$project_root/scripts/check-forbidden-files.sh" --root "$project_root" --staged
+    "$project_root/scripts/check-secrets.sh" --root "$project_root" --staged
+    write_marker "$preflight_file" "staged-preflight"
+    pass "Controlled staging completed and preflight marker recorded."
+    git -C "$project_root" diff --cached --stat
+    log_event "prepare.stage" "pass" "$count paths staged"
+}
+
+cmd_diff() {
+    require_repo diff
+    local full=0
+    [[ "${1:-}" == "--full" ]] && full=1
+    "$project_root/scripts/check-secrets.sh" --root "$project_root"
+    if ! git -C "$project_root" diff --cached --quiet; then
+        "$project_root/scripts/check-secrets.sh" --root "$project_root" --staged
+    fi
+    heading "Unstaged changes"
+    git -C "$project_root" diff --stat
+    heading "Staged changes"
+    git -C "$project_root" diff --cached --stat
+    if [[ "$full" -eq 1 ]]; then
+        heading "Unstaged diff"
+        git -C "$project_root" diff --no-ext-diff
+        heading "Staged diff"
+        git -C "$project_root" diff --cached --no-ext-diff
+    else
+        warn "Use --full to display reviewed, secret-scanned diff content."
+    fi
+}
+
+local_author_ok() {
+    local name email
+    name="$(git -C "$project_root" config --local user.name 2>/dev/null || true)"
+    email="$(git -C "$project_root" config --local user.email 2>/dev/null || true)"
+    [[ -n "$name" && -n "$email" && "$email" == *@* ]]
+}
+
+check_staged_large_files() {
+    local failed=0 path size
+    while IFS= read -r -d '' path; do
+        [[ -f "$project_root/$path" ]] || continue
+        size="$(stat -c %s "$project_root/$path" 2>/dev/null || echo 0)"
+        if [[ "$size" -gt 5242880 ]]; then
+            printf 'Suspicious staged file: %s (%s bytes)\n' "$path" "$size" >&2
+            failed=1
+        fi
+    done < <(git -C "$project_root" diff --cached --name-only --diff-filter=ACMR -z)
+    return "$failed"
+}
+
+cmd_commit() {
+    require_repo commit
+    local message="" yes=0
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --message) message="$2"; shift 2 ;;
+            --yes) yes=1; shift ;;
+            *) echo "Usage: ./microsysadmin-git commit [--message TEXT] [--yes]" >&2; return 64 ;;
+        esac
+    done
+    if git -C "$project_root" diff --cached --quiet; then
+        blocked "Nothing is staged."
+        return 2
+    fi
+    if ! preflight_is_fresh; then
+        blocked "Staged preflight is missing, stale, or no longer matches. Run prepare --stage."
+        return 2
+    fi
+    if git -C "$project_root" diff --name-only --diff-filter=U | grep -q .; then
+        fail "Unresolved merge conflicts are present."
+        return 1
+    fi
+    "$project_root/scripts/check-forbidden-files.sh" --root "$project_root" --staged
+    "$project_root/scripts/check-secrets.sh" --root "$project_root" --staged
+    check_staged_large_files || { fail "Large-file review failed."; return 1; }
+    if ! local_author_ok; then
+        blocked "A repository-local author identity is required. Set git config --local user.name and user.email."
+        return 2
+    fi
+    if [[ -z "$message" ]]; then
+        if git -C "$project_root" rev-parse --verify HEAD >/dev/null 2>&1; then
+            message="chore: update MicroSysAdmin commercial repository foundation"
+        else
+            message="chore: establish MicroSysAdmin commercial repository foundation"
+        fi
+    fi
+    heading "Commit summary"
+    git -C "$project_root" diff --cached --stat
+    printf 'Suggested message: %s\n' "$message"
+    if [[ "$yes" -ne 1 ]]; then
+        confirm_exact "Create this local commit? No push will occur." "COMMIT" || {
+            blocked "Commit cancelled."
+            return 2
+        }
+    fi
+    git -C "$project_root" commit -m "$message"
+    local commit
+    commit="$(git -C "$project_root" rev-parse HEAD)"
+    rm -f -- "$preflight_file" "$audit_file"
+    pass "Created local commit $commit. Nothing was pushed."
+    log_event "commit" "pass" "local commit $commit"
+}
+
+require_confirmed_remote() {
+    require_head remote
+    if ! remote_is_confirmed; then
+        blocked "Remote is absent or not confirmed by .microsysadmin-git.conf."
+        printf 'Recovery report: %s\n' "$project_root/docs/GITHUB-REMOTE-RECOVERY-REPORT.md"
+        return 2
+    fi
+    if ! gh_auth_ok; then
+        blocked "GitHub CLI terminal authentication is required."
+        printf 'Run: ./microsysadmin-git auth login\n'
+        return 2
+    fi
+}
+
+repo_metadata() {
+    local slug
+    slug="$(expected_slug)"
+    gh repo view "$slug" \
+        --json nameWithOwner,visibility,defaultBranchRef,isArchived,url,viewerPermission \
+        --jq '{nameWithOwner,visibility,defaultBranch:(.defaultBranchRef.name // null),isArchived,url,viewerPermission}'
+}
+
+verify_remote_readonly() {
+    require_confirmed_remote
+    local metadata archived permission
+    metadata="$(repo_metadata)" || { fail "GitHub repository metadata is unavailable."; return 1; }
+    archived="$(printf '%s' "$metadata" | jq -r '.isArchived')"
+    permission="$(printf '%s' "$metadata" | jq -r '.viewerPermission')"
+    [[ "$archived" == "false" ]] || { fail "Repository is archived."; return 1; }
+    case "$permission" in ADMIN|MAINTAIN|WRITE) ;; *) fail "GitHub permission is not writable: $permission"; return 1 ;; esac
+    printf '%s\n' "$metadata"
+}
+
+cmd_fetch() {
+    require_confirmed_remote
+    verify_remote_readonly >/dev/null
+    heading "Fetch $REMOTE_NAME"
+    GIT_TERMINAL_PROMPT=0 git -C "$project_root" fetch --prune "$REMOTE_NAME"
+    pass "Remote refs fetched and stale tracking refs pruned."
+    log_event "fetch" "pass" "confirmed remote fetched"
+}
+
+cmd_pull() {
+    require_confirmed_remote
+    if [[ -n "$(git -C "$project_root" status --porcelain)" ]]; then
+        blocked "Pull requires a clean worktree. Commit or explicitly stash changes first."
+        return 2
+    fi
+    cmd_fetch
+    local branch remote_ref
+    branch="$(current_branch)"
+    [[ "$branch" != "detached" ]] || { blocked "Cannot pull a detached HEAD."; return 2; }
+    remote_ref="$REMOTE_NAME/$branch"
+    if ! git -C "$project_root" show-ref --verify --quiet "refs/remotes/$remote_ref"; then
+        blocked "Remote branch $remote_ref does not exist."
+        return 2
+    fi
+    local counts
+    counts="$(git -C "$project_root" rev-list --left-right --count "HEAD...$remote_ref")"
+    printf 'Divergence (local-only remote-only): %s\n' "$counts"
+    if ! git -C "$project_root" merge-base --is-ancestor HEAD "$remote_ref"; then
+        blocked "Histories diverge or local contains commits. Manual reconciliation is required."
+        return 2
+    fi
+    GIT_TERMINAL_PROMPT=0 git -C "$project_root" pull --ff-only "$REMOTE_NAME" "$branch"
+    pass "Fast-forward-only pull completed."
+    log_event "pull" "pass" "fast-forward-only pull"
+}
+
+remote_push_analysis() {
+    local branch="$1"
+    local remote_ref="$REMOTE_NAME/$branch"
+    if git -C "$project_root" show-ref --verify --quiet "refs/remotes/$remote_ref"; then
+        if ! git -C "$project_root" merge-base --is-ancestor "$remote_ref" HEAD; then
+            blocked "Local and remote histories diverge, or the push is not fast-forward."
+            return 2
+        fi
+        printf '%s' "$(git -C "$project_root" rev-list --count "$remote_ref..HEAD")"
+    else
+        printf '%s' "$(git -C "$project_root" rev-list --count HEAD)"
+    fi
+}
+
+branch_protection_allows_direct_push() {
+    local branch="$1" slug protected status empty
+    slug="$(expected_slug)"
+    set +e
+    protected="$(gh api "repos/$slug/branches/$branch" --jq '.protected' 2>/dev/null)"
+    status=$?
+    set -e
+    if [[ "$status" -eq 0 ]]; then
+        case "$protected" in
+            true)
+                blocked "Branch $branch is protected. Create a feature branch and use a pull request."
+                return 2
+                ;;
+            false)
+                pass "GitHub reports no direct-push protection for existing branch $branch."
+                return 0
+                ;;
+            *)
+                blocked "Branch-protection status returned an unexpected value; direct push fails closed."
+                return 2
+                ;;
+        esac
+    fi
+
+    # GitHub has no branch endpoint before the first push to an empty repository.
+    # This exception is limited to a confirmed empty destination. The eventual
+    # command remains a plain, non-force push and cannot bypass a protection rule.
+    set +e
+    empty="$(gh repo view "$slug" --json isEmpty --jq '.isEmpty' 2>/dev/null)"
+    status=$?
+    set -e
+    if [[ "$status" -eq 0 && "$empty" == "true" ]] \
+        && ! git -C "$project_root" show-ref --verify --quiet "refs/remotes/$REMOTE_NAME/$branch"; then
+        pass "Remote is empty and $branch does not exist; the plain first push cannot bypass an existing branch rule."
+        return 0
+    fi
+    blocked "Branch-protection status could not be verified; direct push fails closed."
+    return 2
+}
+
+cmd_push() {
+    require_confirmed_remote
+    if [[ -n "$(git -C "$project_root" status --porcelain)" ]]; then
+        blocked "Push requires a clean committed worktree."
+        return 2
+    fi
+    run_audit || return 1
+    verify_remote_readonly >/dev/null
+    cmd_fetch
+    local branch commit count slug visibility account comparison empty_tree
+    branch="$(current_branch)"
+    [[ "$branch" != "detached" ]] || { blocked "Detached HEAD cannot be pushed."; return 2; }
+    count="$(remote_push_analysis "$branch")" || return $?
+    [[ "$count" -gt 0 ]] || { blocked "No commits need pushing."; return 2; }
+    branch_protection_allows_direct_push "$branch" || return $?
+    slug="$(expected_slug)"
+    visibility="$(gh repo view "$slug" --json visibility --jq .visibility)"
+    account="$(gh_account)"
+    [[ "$visibility" == "${EXPECTED_VISIBILITY^^}" && "$visibility" == "PRIVATE" ]] || {
+        blocked "Initial MicroSysAdmin pushes are restricted to a private repository."
+        return 2
+    }
+    commit="$(current_commit)"
+
+    heading "Push gate summary"
+    printf 'GitHub account: %s\n' "$account"
+    printf 'Repository: %s (%s)\n' "$slug" "$visibility"
+    printf 'Branch: %s\n' "$branch"
+    printf 'Local commit: %s\n' "$commit"
+    printf 'Commits to push: %s\n' "$count"
+    if git -C "$project_root" show-ref --verify --quiet "refs/remotes/$REMOTE_NAME/$branch"; then
+        comparison="$REMOTE_NAME/$branch"
+    else
+        empty_tree="$(git -C "$project_root" hash-object -t tree /dev/null)"
+        comparison="$empty_tree"
+    fi
+    printf 'Aggregate changed-file summary:'
+    git -C "$project_root" diff --shortstat "$comparison" HEAD
+    printf 'Changed top-level areas:\n'
+    git -C "$project_root" diff --name-only "$comparison" HEAD \
+        | awk -F/ '{print (NF > 1 ? $1 "/" : "(root files)")}' \
+        | sort | uniq -c | sort -nr
+    printf 'Exact command: git push -u %s %s\n' "$REMOTE_NAME" "$branch"
+    [[ "$REQUIRE_PUSH_CONFIRMATION" == "1" ]] \
+        || warn "Push confirmation cannot be disabled for the initial commercial workflow."
+    confirm_exact "This is the final network write gate. No force option will be used." "PUSH $slug $branch" || {
+        blocked "Push cancelled."
+        log_event "push" "blocked" "confirmation not supplied"
+        return 2
+    }
+    GIT_TERMINAL_PROMPT=0 git -C "$project_root" push -u "$REMOTE_NAME" "$branch"
+    pass "Push completed."
+    log_event "push" "pass" "$count commits pushed"
+}
+
+valid_branch_name() {
+    git check-ref-format --branch "$1" >/dev/null 2>&1
+}
+
+cmd_branch() {
+    require_repo branch
+    local action="${1:-list}" name="${2:-}"
+    case "$action" in
+        list) git -C "$project_root" branch -vv ;;
+        create)
+            [[ -n "$name" ]] || { echo "Branch name required." >&2; return 64; }
+            valid_branch_name "$name" || { fail "Invalid branch name."; return 1; }
+            git -C "$project_root" switch -c "$name"
+            log_event "branch.create" "pass" "$name"
+            ;;
+        switch)
+            [[ -n "$name" ]] || { echo "Branch name required." >&2; return 64; }
+            git -C "$project_root" switch "$name"
+            log_event "branch.switch" "pass" "$name"
+            ;;
+        *) echo "Usage: ./microsysadmin-git branch [list|create NAME|switch NAME]" >&2; return 64 ;;
+    esac
+}
+
+valid_version() {
+    [[ "$1" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]
+}
+
+prepare_changelog_section() {
+    local version="$1" changelog="$project_root/CHANGELOG.md" temporary
+    temporary="$(mktemp "${TMPDIR:-/tmp}/microsysadmin-changelog.XXXXXXXX")"
+    awk -v version="$version" -v released="$(date +%Y-%m-%d)" '
+        /^## \[Unreleased\]$/ {
+            print
+            print ""
+            print "## [" version "] - " released
+            next
+        }
+        { print }
+    ' "$changelog" > "$temporary"
+    mv "$temporary" "$changelog"
+}
+
+release_sources_are_tracked() {
+    local entry
+    while IFS= read -r entry; do
+        [[ -n "$entry" && "$entry" != \#* ]] || continue
+        if [[ "$entry" == "vendor" ]]; then
+            git -C "$project_root" ls-files --error-unmatch composer.lock >/dev/null 2>&1 || {
+                fail "composer.lock must be tracked before generating release dependencies."
+                return 1
+            }
+            continue
+        fi
+        if [[ -d "$project_root/$entry" ]]; then
+            git -C "$project_root" ls-files "$entry/**" | grep -q . || {
+                fail "Release directory is not represented by tracked source: $entry"
+                return 1
+            }
+        else
+            git -C "$project_root" ls-files --error-unmatch "$entry" >/dev/null 2>&1 || {
+                fail "Release input is not tracked: $entry"
+                return 1
+            }
+        fi
+    done < "$project_root/packaging/release-allowlist.txt"
+}
+
+cmd_tag() {
+    require_head tag
+    local action="${1:-list}" version="${2:-}"
+    case "$action" in
+        list) git -C "$project_root" tag --sort=-version:refname ;;
+        create)
+            valid_version "$version" || { fail "A valid semantic version is required."; return 1; }
+            [[ -z "$(git -C "$project_root" status --porcelain)" ]] || { blocked "Tagging requires a clean worktree."; return 2; }
+            run_audit || return 1
+            local tag="$RELEASE_PREFIX$version"
+            if [[ "$version" != *-* && "$REQUIRE_SIGNED_STABLE_TAGS" == "1" ]]; then
+                if ! git -C "$project_root" config user.signingkey >/dev/null 2>&1; then
+                    blocked "Stable tags require a configured signing key."
+                    return 2
+                fi
+                git -C "$project_root" tag -s "$tag" -m "MicroSysAdmin $version"
+            else
+                git -C "$project_root" tag -a "$tag" -m "MicroSysAdmin $version"
+            fi
+            pass "Created local annotated tag $tag. It was not pushed."
+            log_event "tag.create" "pass" "$tag"
+            ;;
+        *) echo "Usage: ./microsysadmin-git tag [list|create VERSION]" >&2; return 64 ;;
+    esac
+}
+
+cmd_release() {
+    require_head release
+    local version="${1:-}"
+    valid_version "$version" || { fail "Usage: ./microsysadmin-git release VERSION"; return 64; }
+    [[ "$(tr -d '[:space:]' < "$project_root/VERSION")" == "$version" ]] || {
+        blocked "VERSION does not equal requested release $version."
+        return 2
+    }
+    [[ -z "$(git -C "$project_root" status --porcelain)" ]] || {
+        blocked "Release requires a clean worktree."
+        return 2
+    }
+    if ! rg -q "^## \\[$version\\]" "$project_root/CHANGELOG.md"; then
+        prepare_changelog_section "$version"
+        warn "CHANGELOG.md was prepared for $version."
+        blocked "Review and commit the changelog, then run the release command again."
+        return 2
+    fi
+    run_audit || return 1
+    release_sources_are_tracked || return 1
+
+    local channel signing_key output_a output_b
+    if [[ "$version" == *-dev* ]]; then channel="development"
+    elif [[ "$version" == *-* ]]; then channel="beta"
+    else channel="stable"
+    fi
+    signing_key="${MICROSYSADMIN_RELEASE_SIGNING_KEY_FILE:-}"
+    if [[ "$channel" != "development" && -z "$signing_key" ]]; then
+        blocked "$channel releases require MICROSYSADMIN_RELEASE_SIGNING_KEY_FILE outside the repository."
+        return 2
+    fi
+    output_a="$(mktemp -d "${TMPDIR:-/tmp}/microsysadmin-release-a.XXXXXXXX")"
+    output_b="$(mktemp -d "${TMPDIR:-/tmp}/microsysadmin-release-b.XXXXXXXX")"
+    trap 'rm -rf -- "${output_a:-}" "${output_b:-}"' RETURN
+    local args=(--channel "$channel" --released-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)")
+    if [[ -n "$signing_key" ]]; then args+=(--signing-key-file "$signing_key")
+    else args+=(--unsigned-development)
+    fi
+    SOURCE_DATE_EPOCH="$(git -C "$project_root" show -s --format=%ct HEAD)" \
+        "$project_root/build-release.sh" --output "$output_a" "${args[@]}"
+    SOURCE_DATE_EPOCH="$(git -C "$project_root" show -s --format=%ct HEAD)" \
+        "$project_root/build-release.sh" --output "$output_b" "${args[@]}"
+    local archive_name hash_a hash_b
+    archive_name="microsysadmin-$version.tar.gz"
+    local manifest_name signature_name public_key_name
+    manifest_name="microsysadmin-$version.manifest.json"
+    signature_name="microsysadmin-$version.manifest.sig"
+    public_key_name="microsysadmin-$version.release-public-key.pem"
+    hash_a="$(sha256sum "$output_a/$archive_name" | awk '{print $1}')"
+    hash_b="$(sha256sum "$output_b/$archive_name" | awk '{print $1}')"
+    [[ "$hash_a" == "$hash_b" ]] || { fail "Release is not reproducible."; return 1; }
+    if [[ "$channel" != "development" ]]; then
+        local verifier_php
+        if [[ -x /opt/lampp/bin/php ]]; then
+            verifier_php=/opt/lampp/bin/php
+        else
+            verifier_php="$(command -v php)"
+        fi
+        "$verifier_php" "$project_root/scripts/verify-release.php" \
+            "--manifest=$output_a/$manifest_name" \
+            "--package=$output_a/$archive_name" \
+            "--public-key=$project_root/config/release-public-key.pub" \
+            "--detached-signature=$output_a/$signature_name" >/dev/null
+        cmp -s "$output_a/$signature_name" "$output_b/$signature_name" || {
+            fail "Detached release signature is not reproducible."
+            return 1
+        }
+        cmp -s "$output_a/$manifest_name" "$output_b/$manifest_name" || {
+            fail "Signed release manifest is not reproducible."
+            return 1
+        }
+    fi
+    mkdir -p "$project_root/$BUILD_DIRECTORY"
+    cp "$output_a/$archive_name" "$output_a/$archive_name.sha256" \
+        "$output_a/$manifest_name" "$project_root/$BUILD_DIRECTORY/"
+    if [[ "$channel" != "development" ]]; then
+        cp "$output_a/$signature_name" "$output_a/$public_key_name" \
+            "$project_root/$BUILD_DIRECTORY/"
+    fi
+    {
+        echo "# MicroSysAdmin $version"
+        echo
+        sed -n "/^## \\[$version\\]/,/^## \\[/p" "$project_root/CHANGELOG.md" | sed '$d'
+        echo
+        echo "SHA-256: \`$hash_a\`"
+        echo
+        echo "Prepared locally; not published."
+    } > "$state_root/release-notes-$version.md"
+    local tag="$RELEASE_PREFIX$version"
+    if git -C "$project_root" rev-parse --verify "refs/tags/$tag" >/dev/null 2>&1; then
+        [[ "$(git -C "$project_root" rev-list -n1 "$tag")" == "$(current_commit)" ]] || {
+            fail "Existing tag $tag points to a different commit."
+            return 1
+        }
+        pass "Existing local tag $tag points to the release commit."
+    elif [[ "$channel" == "stable" && "$REQUIRE_SIGNED_STABLE_TAGS" == "1" ]]; then
+        git -C "$project_root" config user.signingkey >/dev/null 2>&1 || {
+            blocked "Stable release tags require a configured Git signing key."
+            return 2
+        }
+        git -C "$project_root" tag -s "$tag" -m "MicroSysAdmin $version"
+        pass "Created signed local tag $tag."
+    else
+        git -C "$project_root" tag -a "$tag" -m "MicroSysAdmin $version"
+        pass "Created annotated local tag $tag."
+    fi
+    pass "Reproducible $channel package prepared. Nothing was published or pushed."
+    printf 'Release notes: %s\n' "$state_root/release-notes-$version.md"
+    log_event "release" "pass" "$version package prepared, not published"
+}
+
+verify_history() {
+    local branch remote_ref
+    branch="$(current_branch)"
+    [[ "$branch" != "detached" ]] || { fail "Detached HEAD."; return 1; }
+    remote_ref="$REMOTE_NAME/$branch"
+    if git -C "$project_root" show-ref --verify --quiet "refs/remotes/$remote_ref"; then
+        git -C "$project_root" merge-base --is-ancestor "$remote_ref" HEAD || {
+            fail "Remote branch is not an ancestor of local HEAD."
+            return 1
+        }
+        pass "Push would be fast-forward."
+    else
+        pass "Remote branch is absent; push would create a new branch."
+    fi
+}
+
+cmd_verify() {
+    require_head verify
+    heading "Local verification"
+    local failures=0 blocked_count=0 status=0
+    if [[ -z "$(git -C "$project_root" status --porcelain)" ]]; then
+        pass "Working tree is clean."
+    else
+        warn "Working tree has uncommitted changes."
+        blocked_count=$((blocked_count + 1))
+    fi
+    run_audit || failures=$((failures + 1))
+    if remote_is_confirmed; then
+        pass "Remote configuration is confirmed."
+        if gh_auth_ok; then
+            pass "GitHub CLI authenticated as $(gh_account)."
+            verify_remote_readonly >/dev/null || failures=$((failures + 1))
+            cmd_fetch || failures=$((failures + 1))
+            verify_history || failures=$((failures + 1))
+            if branch_protection_allows_direct_push "$(current_branch)"; then
+                :
+            else
+                status=$?
+                if [[ "$status" -eq 2 ]]; then
+                    blocked_count=$((blocked_count + 1))
+                else
+                    failures=$((failures + 1))
+                fi
+            fi
+        else
+            blocked "GitHub terminal authentication missing."
+            blocked_count=$((blocked_count + 1))
+        fi
+    else
+        blocked "No confirmed MicroSysAdmin remote."
+        blocked_count=$((blocked_count + 1))
+    fi
+    if [[ "$failures" -gt 0 ]]; then
+        printf 'FAIL\n'
+        log_event "verify" "fail" "$failures failed checks"
+        return 1
+    fi
+    if [[ "$blocked_count" -gt 0 ]]; then
+        printf 'BLOCKED\n'
+        log_event "verify" "blocked" "$blocked_count missing prerequisites"
+        return 2
+    fi
+    printf 'PASS\n'
+    log_event "verify" "pass" "push readiness verified"
+}
+
+cmd_create_private() {
+    require_head create-private
+    local owner="${1:-}" repo="${2:-}"
+    [[ "$owner" =~ ^[A-Za-z0-9_.-]+$ && "$repo" =~ ^[A-Za-z0-9_.-]+$ ]] || {
+        echo "Usage: ./microsysadmin-git create-private OWNER REPOSITORY" >&2
+        return 64
+    }
+    if git -C "$project_root" remote get-url "$REMOTE_NAME" >/dev/null 2>&1; then
+        blocked "Remote $REMOTE_NAME already exists. Repository creation refused."
+        return 2
+    fi
+    gh_auth_ok || { blocked "Authenticate first with ./microsysadmin-git auth login."; return 2; }
+    local account="$owner/$repo" description
+    description="MicroSysAdmin — self-hosted Laravel and PHP development-server workspace for Linux"
+    heading "Private repository creation"
+    printf 'Owner/repository: %s\nVisibility: private\nDescription: %s\nNo push will occur.\n' "$account" "$description"
+    if gh repo view "$account" >/dev/null 2>&1; then
+        blocked "Repository already exists; automatic attachment is refused pending identity verification."
+        return 2
+    fi
+    if [[ "$REMOTE_TRANSPORT" != "https" ]]; then
+        blocked "Repository creation currently requires HTTPS transport; use SSH only after a successful SSH identity check."
+        return 2
+    fi
+    confirm_exact "Create this private GitHub repository?" "CREATE PRIVATE $account" || {
+        blocked "Repository creation cancelled."
+        return 2
+    }
+    gh repo create "$account" --private --description "$description" --disable-wiki
+    local url="https://github.com/$account.git"
+    git -C "$project_root" remote add "$REMOTE_NAME" "$url"
+    {
+        printf 'REMOTE_NAME=%s\n' "$REMOTE_NAME"
+        printf 'REPOSITORY_OWNER=%s\n' "$owner"
+        printf 'REPOSITORY_NAME=%s\n' "$repo"
+        printf 'PREFERRED_BRANCH=main\n'
+        printf 'REMOTE_TRANSPORT=https\n'
+        printf 'REMOTE_CONFIDENCE=confirmed\n'
+        printf 'EXPECTED_VISIBILITY=private\n'
+        printf 'RELEASE_PREFIX=v\n'
+        printf 'BUILD_DIRECTORY=dist\n'
+        printf 'REQUIRE_PUSH_CONFIRMATION=1\n'
+        printf 'REQUIRE_SIGNED_STABLE_TAGS=1\n'
+    } > "$project_root/.microsysadmin-git.conf"
+    chmod 0600 "$project_root/.microsysadmin-git.conf"
+    pass "Private repository created and remote added. Nothing was pushed."
+    log_event "create-private" "pass" "$account created without push"
+}
+
+tool_status() {
+    local command="$1"
+    if command -v "$command" >/dev/null 2>&1; then
+        pass "$command: $(command -v "$command")"
+    else
+        fail "$command is missing."
+        return 1
+    fi
+}
+
+cmd_doctor() {
+    heading "MicroSysAdmin Git doctor"
+    local failures=0 blockers=0 status=0
+    tool_status git || failures=$((failures + 1))
+    tool_status gh || failures=$((failures + 1))
+    tool_status flock || failures=$((failures + 1))
+    tool_status composer || failures=$((failures + 1))
+    if command -v /opt/lampp/bin/php >/dev/null 2>&1; then
+        pass "PHP: $(/opt/lampp/bin/php -r 'echo PHP_VERSION;')"
+    elif command -v php >/dev/null 2>&1; then
+        pass "PHP: $(php -r 'echo PHP_VERSION;')"
+    else
+        fail "PHP is missing."; failures=$((failures + 1))
+    fi
+    if command -v gitleaks >/dev/null 2>&1 || command -v trufflehog >/dev/null 2>&1; then
+        pass "Optional secret scanner is installed."
+    else
+        warn "Optional Gitleaks/TruffleHog absent; built-in redacted scanner is available."
+    fi
+    if [[ -x "$project_root/build-release.sh" ]] \
+        && valid_version "$(tr -d '[:space:]' < "$project_root/VERSION")"; then
+        pass "Release tool and Semantic Version are valid."
+    else
+        fail "Release tool or VERSION is invalid."
+        failures=$((failures + 1))
+    fi
+    printf 'Disk: %s\n' "$(df -h "$project_root" | awk 'NR==2 {print $4 " free (" $5 " used)"}')"
+
+    if is_repo; then
+        pass "Git repository initialized."
+        printf 'Branch: %s\nCommit: %s\n' "$(current_branch)" "$(current_commit)"
+        if [[ -n "$(git -C "$project_root" status --porcelain)" ]]; then
+            warn "Working tree has uncommitted changes."
+        else
+            pass "Working tree clean."
+        fi
+        "$project_root/scripts/check-forbidden-files.sh" --root "$project_root" \
+            || failures=$((failures + 1))
+        "$project_root/scripts/check-secrets.sh" --root "$project_root" \
+            || failures=$((failures + 1))
+    else
+        blocked "Repository not initialized."
+        blockers=$((blockers + 1))
+    fi
+
+    if gh_auth_ok; then
+        pass "GitHub CLI authenticated as $(gh_account)."
+    else
+        blocked "GitHub CLI not authenticated; SSH key also failed recovery test."
+        blockers=$((blockers + 1))
+    fi
+    if remote_is_confirmed; then
+        pass "Confirmed remote: $(expected_slug)"
+        if gh_auth_ok \
+            && git -C "$project_root" rev-parse --verify HEAD >/dev/null 2>&1 \
+            && [[ -z "$(git -C "$project_root" status --porcelain)" ]]; then
+            verify_remote_readonly >/dev/null || failures=$((failures + 1))
+            cmd_fetch || failures=$((failures + 1))
+            verify_history || failures=$((failures + 1))
+            if branch_protection_allows_direct_push "$(current_branch)"; then
+                :
+            else
+                status=$?
+                if [[ "$status" -eq 2 ]]; then
+                    blockers=$((blockers + 1))
+                else
+                    failures=$((failures + 1))
+                fi
+            fi
+        fi
+    else
+        blocked "Recovered autosave repository is not a safe MicroSysAdmin origin; no confirmed remote."
+        blockers=$((blockers + 1))
+    fi
+    if [[ -s "$audit_file" ]]; then
+        printf 'Last full audit: %s\n' "$(date -d "@$(marker_value "$audit_file" timestamp)" '+%Y-%m-%d %H:%M:%S %Z' 2>/dev/null || echo unknown)"
+    else
+        warn "No current successful full audit marker."
+    fi
+
+    heading "Overall readiness"
+    if [[ "$failures" -gt 0 || "$blockers" -gt 0 ]]; then
+        echo "BLOCKED"
+        log_event "doctor" "blocked" "$failures failures, $blockers blockers"
+        return 2
+    fi
+    if ! git -C "$project_root" diff --cached --quiet && preflight_is_fresh; then
+        echo "READY TO COMMIT"
+    elif [[ -n "$(git -C "$project_root" status --porcelain)" ]]; then
+        echo "READY TO PREPARE"
+    elif remote_is_confirmed && gh_auth_ok; then
+        local branch remote_ref
+        branch="$(current_branch)"
+        remote_ref="refs/remotes/$REMOTE_NAME/$branch"
+        if git -C "$project_root" show-ref --verify --quiet "$remote_ref" \
+            && [[ "$(git -C "$project_root" rev-parse HEAD)" == "$(git -C "$project_root" rev-parse "$REMOTE_NAME/$branch")" ]]; then
+            echo "READY TO RELEASE BETA"
+        else
+            echo "READY TO PUSH TO PRIVATE GITHUB"
+        fi
+    else
+        echo "READY TO RELEASE BETA"
+    fi
+    log_event "doctor" "pass" "readiness reported"
+}
+
+cmd_logs() {
+    if [[ ! -s "$log_file" ]]; then
+        echo "No MicroSysAdmin Git-manager logs."
+        return 0
+    fi
+    tail -n 100 "$log_file" | redact
+}
+
+cmd_menu() {
+    [[ -t 0 ]] || { blocked "Menu requires an interactive terminal."; return 2; }
+    while true; do
+        cat <<'MENU'
+
+MicroSysAdmin Git
+  1) Doctor
+  2) Status
+  3) Recover
+  4) Audit
+  5) Prepare proposal
+  6) Diff summary
+  7) Fetch
+  8) Verify
+  9) Logs
+  0) Exit
+MENU
+        printf '> '
+        local choice
+        IFS= read -r choice
+        case "$choice" in
+            1) cmd_doctor || true ;;
+            2) cmd_status || true ;;
+            3) cmd_recover || true ;;
+            4) cmd_audit || true ;;
+            5) cmd_prepare || true ;;
+            6) cmd_diff || true ;;
+            7) cmd_fetch || true ;;
+            8) cmd_verify || true ;;
+            9) cmd_logs ;;
+            0) return 0 ;;
+            *) warn "Unknown choice." ;;
+        esac
+    done
+}
+
+command_name="${1:-menu}"
+if [[ $# -gt 0 ]]; then shift; fi
+case "$command_name" in
+    -h|--help|help) cmd_help ;;
+    status) cmd_status "$@" ;;
+    recover) cmd_recover "$@" ;;
+    init) cmd_init "$@" ;;
+    auth) cmd_auth "$@" ;;
+    audit) cmd_audit "$@" ;;
+    clean) cmd_clean "$@" ;;
+    prepare) cmd_prepare "$@" ;;
+    diff) cmd_diff "$@" ;;
+    commit) cmd_commit "$@" ;;
+    fetch) cmd_fetch "$@" ;;
+    pull) cmd_pull "$@" ;;
+    push) cmd_push "$@" ;;
+    branch) cmd_branch "$@" ;;
+    tag) cmd_tag "$@" ;;
+    release) cmd_release "$@" ;;
+    verify) cmd_verify "$@" ;;
+    doctor) cmd_doctor "$@" ;;
+    create-private) cmd_create_private "$@" ;;
+    logs) cmd_logs "$@" ;;
+    menu) cmd_menu "$@" ;;
+    *) fail "Unknown command: $command_name"; cmd_help >&2; exit 64 ;;
+esac

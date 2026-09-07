@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0811",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Repairs/LINUX-0004-CaCertificatesMissing.json",
+        "summary": "Verify doctor/modules/linux/Repairs/LINUX-0004-CaCertificatesMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0811",
+        "path": "{APP_ROOT}/doctor/modules/linux/Repairs/LINUX-0004-CaCertificatesMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1c28c2adbd0c51ab50b3d146ecf54eed4bba986cee2fb8f3bb7c188afb63995d",
+        "sha256": "1c28c2adbd0c51ab50b3d146ecf54eed4bba986cee2fb8f3bb7c188afb63995d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

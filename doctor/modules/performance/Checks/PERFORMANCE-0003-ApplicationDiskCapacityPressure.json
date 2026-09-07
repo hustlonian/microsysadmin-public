@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "PERFORMANCE-C0003",
+        "module": "performance",
+        "name": "Reduce application filesystem capacity pressure",
+        "summary": "Reduce application filesystem capacity pressure.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "performance",
+            "application-disk-capacity-pressure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "disk_free_percent",
+        "path": "{PROJECT}",
+        "minimum": 15
+    },
+    "failure_status": "FAIL"
+}

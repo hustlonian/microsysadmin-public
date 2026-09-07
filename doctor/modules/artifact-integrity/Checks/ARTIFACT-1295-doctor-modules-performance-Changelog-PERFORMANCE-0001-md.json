@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1295",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Changelog/PERFORMANCE-0001.md",
+        "summary": "Verify doctor/modules/performance/Changelog/PERFORMANCE-0001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1295",
+        "path": "{APP_ROOT}/doctor/modules/performance/Changelog/PERFORMANCE-0001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c14d54ece98bc77c08e37d95be240972b6d25963d69e0cc3088ef257dfc65e9b",
+        "sha256": "c14d54ece98bc77c08e37d95be240972b6d25963d69e0cc3088ef257dfc65e9b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

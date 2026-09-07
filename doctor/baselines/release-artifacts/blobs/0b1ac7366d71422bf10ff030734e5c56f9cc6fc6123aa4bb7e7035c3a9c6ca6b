@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0003",
+        "module": "redis",
+        "name": "Restore the unavailable Redis endpoint",
+        "summary": "Restore the unavailable Redis endpoint.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "redis-endpoint-unavailable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "tcp_connect",
+        "host": "127.0.0.1",
+        "port": 6379,
+        "timeout": 1
+    },
+    "failure_status": "FAIL"
+}

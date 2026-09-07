@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "QUEUE-C0001",
+        "module": "queue",
+        "name": "Install the missing Supervisor control client",
+        "summary": "Install the missing Supervisor control client.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "queue",
+            "supervisorctl-missing"
+        ]
+    },
+    "supports": {
+        "queue_expected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "supervisorctl"
+    },
+    "failure_status": "FAIL"
+}

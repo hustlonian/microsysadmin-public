@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1967",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/LogglyHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/LogglyHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1967",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/LogglyHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/18291245f82f1b37c00017d592e0ef79e8a60de11cca7ecd32182832b376ff13",
+        "sha256": "18291245f82f1b37c00017d592e0ef79e8a60de11cca7ecd32182832b376ff13",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

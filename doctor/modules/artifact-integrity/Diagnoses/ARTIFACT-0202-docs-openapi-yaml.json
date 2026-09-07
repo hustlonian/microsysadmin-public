@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0202",
+        "check_id": "ARTIFACT-C0202",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for docs/openapi.yaml",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact docs/openapi.yaml is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 f6fda8f5b39b5f3c09fb9b6f9fa74d5d2b0c3589935891df32e9adf4d6d2491d with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0202"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

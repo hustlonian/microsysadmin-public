@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1141",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Changelog/DOCKER-0010.md",
+        "summary": "Verify doctor/modules/docker/Changelog/DOCKER-0010.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1141",
+        "path": "{APP_ROOT}/doctor/modules/docker/Changelog/DOCKER-0010.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d6e9f33359a3f0e266e32362197fc903b48e381c9d80c1cba4497be6bf15d5b7",
+        "sha256": "d6e9f33359a3f0e266e32362197fc903b48e381c9d80c1cba4497be6bf15d5b7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

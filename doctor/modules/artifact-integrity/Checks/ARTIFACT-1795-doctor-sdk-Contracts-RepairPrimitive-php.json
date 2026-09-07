@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1795",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Contracts/RepairPrimitive.php",
+        "summary": "Verify doctor/sdk/Contracts/RepairPrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1795",
+        "path": "{APP_ROOT}/doctor/sdk/Contracts/RepairPrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5186dbc6a4e5daa12a9dc176211949cd41b53540ef4cbb1e2ac621bf7c844e7a",
+        "sha256": "5186dbc6a4e5daa12a9dc176211949cd41b53540ef4cbb1e2ac621bf7c844e7a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

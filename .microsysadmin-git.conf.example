@@ -1,0 +1,14 @@
+# Copy to .microsysadmin-git.conf. The local file is ignored by Git.
+# This file must never contain tokens, passwords, private keys, or signing keys.
+
+REMOTE_NAME=origin
+REPOSITORY_OWNER=your-github-user
+REPOSITORY_NAME=microsysadmin
+PREFERRED_BRANCH=main
+REMOTE_TRANSPORT=https
+REMOTE_CONFIDENCE=unconfirmed
+EXPECTED_VISIBILITY=private
+RELEASE_PREFIX=v
+BUILD_DIRECTORY=dist
+REQUIRE_PUSH_CONFIRMATION=1
+REQUIRE_SIGNED_STABLE_TAGS=1

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0087",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/FileVault.php",
+        "summary": "Verify classes/FileVault.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0087",
+        "path": "{APP_ROOT}/classes/FileVault.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7abdcf07ba48c8c0897bb27f6f9d82821b8e2e87e2911352cc453cff44f7703d",
+        "sha256": "7abdcf07ba48c8c0897bb27f6f9d82821b8e2e87e2911352cc453cff44f7703d",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

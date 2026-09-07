@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0536",
+    "artifact": "doctor/modules/dns/Repairs/DNS-0009-DigCommandMissing.json",
+    "baseline_sha256": "b18a983a9fe353bfbe0f22a520997e4b6879d574a17a19e0b648c5b1819d63d6",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

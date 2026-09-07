@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0975",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/README.md",
+        "summary": "Verify doctor/modules/nginx/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0975",
+        "path": "{APP_ROOT}/doctor/modules/nginx/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6db3c59a1fdc2444245f746a53223ab7eb49cd4c06e968c5e639510f589313f9",
+        "sha256": "6db3c59a1fdc2444245f746a53223ab7eb49cd4c06e968c5e639510f589313f9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

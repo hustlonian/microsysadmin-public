@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0009",
+        "module": "backups",
+        "name": "Add the missing database backup schedule",
+        "summary": "Add the missing database backup schedule.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "database-backup-schedule-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "command",
+        "command": [
+            "crontab",
+            "-l"
+        ],
+        "stdout_contains": "# MicroSysAdmin Doctor BACKUP-0009",
+        "timeout": 30
+    },
+    "failure_status": "WARNING"
+}

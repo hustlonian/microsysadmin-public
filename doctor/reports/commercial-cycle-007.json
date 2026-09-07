@@ -1,0 +1,171 @@
+{
+    "schema_version": 1,
+    "cycle": 7,
+    "generated_at": "2026-08-02T20:13:39Z",
+    "portfolio": {
+        "repair_definitions": 2570,
+        "executable_repairs": 2422,
+        "fully_automatic_repairs": 2400,
+        "approval_required_repairs": 22,
+        "report_only_repairs": 148,
+        "permanent_inventory_records": 3048
+    },
+    "cycle_delta": {
+        "repair_definitions": 255,
+        "executable_repairs": 255,
+        "fully_automatic_repairs": 255,
+        "report_only_repairs": 0,
+        "permanent_inventory_records": 256
+    },
+    "coverage_percent": {
+        "automation": 94.24,
+        "fully_automatic": 93.39,
+        "rollback": 100.0,
+        "verification": 100.0,
+        "diagnosis": 100.0,
+        "documentation": 100.0,
+        "contract": 100.0,
+        "audit_metadata": 100.0,
+        "changelog": 100.0,
+        "commercial_metadata": 100.0,
+        "sdk_actions": 100.0
+    },
+    "modules": {
+        "completed": [
+            "apache",
+            "artifact-integrity",
+            "backups",
+            "composer",
+            "cron",
+            "dns",
+            "docker",
+            "filesystem",
+            "git",
+            "laravel",
+            "linux",
+            "mail",
+            "mysql",
+            "nginx",
+            "performance",
+            "php",
+            "queue",
+            "redis",
+            "security",
+            "ssl",
+            "xampp"
+        ],
+        "needing_work": []
+    },
+    "new_primitives_and_architecture": [
+        "restore-managed-directory",
+        "schema-2-release-directory-topology",
+        "managed-file-parent-chain-ownership",
+        "managed-artifact-partial-failure-compensation",
+        "locked-composer-directory-provenance",
+        "doctor-bootstrap-root-tombstone",
+        "doctor-commercial-contracts-in-repository-and-ci-gates"
+    ],
+    "executable_coverage_added": {
+        "managed_directory_repairs": 255,
+        "net_executable_growth": 255,
+        "retired_bootstrap_root_ids": [
+            "ARTIFACT-2153"
+        ],
+        "network_actions_added": 0,
+        "destructive_actions_added": 0
+    },
+    "duplicate_logic_eliminated": {
+        "file_and_directory_manifest_authorization_shared": true,
+        "parent_chain_mutation_centralized": true,
+        "directory_probe_centralized": true,
+        "release_and_vendor_topology_generation_unified": true,
+        "exact_overlap_groups": 21
+    },
+    "tests": {
+        "sdk_assertions": 2579,
+        "doctor_assertions": 25086,
+        "file_time_forward_assertions": 63456,
+        "file_time_forward_scenarios": 6345,
+        "directory_time_forward_assertions": 8675,
+        "directory_time_forward_scenarios": 765,
+        "directory_obstruction_contracts": 255,
+        "privileged_helper_tests": 11,
+        "application_tests": 23,
+        "installer_failure_mode_tests": 12,
+        "git_security_failure_mode_tests": 8,
+        "isolated_commercial_assertions": 70,
+        "enumerated_assertions_and_cases": 99920,
+        "repository_audit": "PASS",
+        "failures": 0
+    },
+    "live_health": {
+        "execution_id": "doc_20260802_201314_769880d467f6",
+        "score_percent": 100,
+        "grade": "A+",
+        "applicable_pass": 153,
+        "warning": 0,
+        "fail": 0,
+        "error": 0,
+        "unknown": 0,
+        "skipped_in_scored_set": 0,
+        "detected_causes": 0,
+        "modules_at_100_percent": 21
+    },
+    "release": {
+        "locked_vendor_pre_autoload_verification": true,
+        "locked_vendor_exact_file_and_directory_set_verified": true,
+        "reproducible": true,
+        "isolated_install_passed": true,
+        "installer_idempotency_passed": true,
+        "failed_update_rollback_passed": true,
+        "sha256": "0c004090ec06b8a1adb7282976a99420fd6adb12d85335f2430f3f392f08246c"
+    },
+    "artifact_integrity": {
+        "active_repairs": 2370,
+        "file_repairs": 2115,
+        "directory_repairs": 255,
+        "retired_file_ids": 24,
+        "retired_directory_ids": 1,
+        "eligible_candidate_coverage_percent": 100.0,
+        "baseline_blobs": 2404,
+        "active_referenced_blobs": 2115,
+        "historical_unreferenced_blobs": 289,
+        "revision": "dcc3559325b3aae90eff3017e894df04f1cd8080a1bc2396f72d1f6facd1d14e",
+        "manifest_sha256": "99ea465a9a912ce0c0c1a76018e98f8bfbbf41a04caf0a8978a072ce0020cae9",
+        "selection_strategy": "all_eligible_commercial_release_files_locked_composer_vendor_and_directory_topology",
+        "consecutive_generation_reproducible": true
+    },
+    "locked_composer_vendor": {
+        "production_packages": 4,
+        "artifacts": 247,
+        "directories": 27,
+        "catalog_revision": "4c2cfa14b67e556f0fc4ccb2887ceb5306694009ecba406d8fd22236cdbfbc7d",
+        "manifest_sha256": "9deb9cd405de222a11ae8fc3e6f501757fa298bf5785aa3f98c1de0fa92f4fe7",
+        "composer_lock_bound": true,
+        "network_access_at_repair_time": false,
+        "external_interaction_at_repair_time": false
+    },
+    "remaining_technical_debt": {
+        "rollback_debt": [],
+        "report_only_repairs": 148,
+        "definition_scale_gap": 2430,
+        "executable_scale_gap": 78,
+        "permanent_backlog_records_without_exact_blueprints": 477,
+        "exact_overlap_groups": 21,
+        "historical_blob_retention_policy_required": true,
+        "independent_bootstrap_repair_required": true,
+        "report_only_classification_counts": {
+            "BUSINESS_INPUT_REQUIRED": 8,
+            "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW": 19,
+            "MANUAL_RESEARCH_REQUIRED": 12,
+            "MISSING_DATA_RECOVERY_REQUIRED": 6,
+            "OVERLAP_CONSOLIDATION_REQUIRED": 54,
+            "OWNERSHIP_PERMISSION_CONTRACT_REVIEW": 8,
+            "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY": 18,
+            "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW": 5,
+            "ROOT_CAUSE_VARIANT_RESEARCH": 18
+        }
+    },
+    "quality_score": 100.0,
+    "commercial_readiness_score": 92.24
+}

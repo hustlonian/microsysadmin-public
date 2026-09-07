@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1594",
+        "check_id": "ARTIFACT-C1594",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/security/Diagnoses/SECURITY-0002-EnvironmentFileWorldAccessible.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/security/Diagnoses/SECURITY-0002-EnvironmentFileWorldAccessible.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 ae89bfc2888b6d58abce3e809ea516b4ade1427add180f91d29eb08cf2876235 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1594"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

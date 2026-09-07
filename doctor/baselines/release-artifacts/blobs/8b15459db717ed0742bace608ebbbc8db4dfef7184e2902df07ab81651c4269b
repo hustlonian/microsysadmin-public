@@ -1,0 +1,37 @@
+{
+    "metadata": {
+        "check_id": "QUEUE-C0006",
+        "module": "queue",
+        "name": "Restore unavailable Laravel Horizon workers",
+        "summary": "Restore unavailable Laravel Horizon workers.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "queue",
+            "horizon-unavailable"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ],
+        "queue_expected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "php"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "php",
+            "artisan",
+            "horizon:status"
+        ],
+        "stdout_contains": "running",
+        "cwd": "{PROJECT}",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

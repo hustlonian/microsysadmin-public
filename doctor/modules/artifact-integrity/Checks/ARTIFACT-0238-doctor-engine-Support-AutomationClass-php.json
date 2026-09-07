@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0238",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Support/AutomationClass.php",
+        "summary": "Verify doctor/engine/Support/AutomationClass.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0238",
+        "path": "{APP_ROOT}/doctor/engine/Support/AutomationClass.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0135fde4ba9346f4e02d49dc9d973a1986eba7fcee757bebb7fa004b0cf31ce7",
+        "sha256": "0135fde4ba9346f4e02d49dc9d973a1986eba7fcee757bebb7fa004b0cf31ce7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

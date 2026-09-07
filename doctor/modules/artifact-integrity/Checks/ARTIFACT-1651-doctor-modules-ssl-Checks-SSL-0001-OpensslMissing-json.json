@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1651",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Checks/SSL-0001-OpensslMissing.json",
+        "summary": "Verify doctor/modules/ssl/Checks/SSL-0001-OpensslMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1651",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Checks/SSL-0001-OpensslMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b071ca675e59f4af09b2c9ea37a279a23e786c6d6de0172162a1b99db46e9e7f",
+        "sha256": "b071ca675e59f4af09b2c9ea37a279a23e786c6d6de0172162a1b99db46e9e7f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

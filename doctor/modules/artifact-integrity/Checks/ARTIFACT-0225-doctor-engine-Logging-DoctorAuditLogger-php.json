@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0225",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Logging/DoctorAuditLogger.php",
+        "summary": "Verify doctor/engine/Logging/DoctorAuditLogger.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0225",
+        "path": "{APP_ROOT}/doctor/engine/Logging/DoctorAuditLogger.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6329e7a6fcfc0a7fe4e9da677f95b2ab7ee5ad2f883770c9792d6dce97a41db5",
+        "sha256": "6329e7a6fcfc0a7fe4e9da677f95b2ab7ee5ad2f883770c9792d6dce97a41db5",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

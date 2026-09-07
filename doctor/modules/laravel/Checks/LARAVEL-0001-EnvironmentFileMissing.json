@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "LARAVEL-C0001",
+        "module": "laravel",
+        "name": "Create a missing Laravel environment file safely",
+        "summary": "Create a missing Laravel environment file safely.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "laravel",
+            "environment-file-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "{PROJECT}/.env"
+    },
+    "failure_status": "FAIL"
+}

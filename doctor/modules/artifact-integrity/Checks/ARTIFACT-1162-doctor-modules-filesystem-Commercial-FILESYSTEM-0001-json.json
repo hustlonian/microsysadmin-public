@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1162",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Commercial/FILESYSTEM-0001.json",
+        "summary": "Verify doctor/modules/filesystem/Commercial/FILESYSTEM-0001.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1162",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Commercial/FILESYSTEM-0001.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e9fe8003f056a87e0bb85cd3a2633df23d2d49e6afce790d623b4bd796a9089d",
+        "sha256": "e9fe8003f056a87e0bb85cd3a2633df23d2d49e6afce790d623b4bd796a9089d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

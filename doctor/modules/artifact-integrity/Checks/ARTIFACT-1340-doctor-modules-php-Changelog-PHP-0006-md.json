@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1340",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/Changelog/PHP-0006.md",
+        "summary": "Verify doctor/modules/php/Changelog/PHP-0006.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1340",
+        "path": "{APP_ROOT}/doctor/modules/php/Changelog/PHP-0006.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4aa2ee4464a51702674091458298a381dbb10b7c8cfb2fa9544aa754b4a4344d",
+        "sha256": "4aa2ee4464a51702674091458298a381dbb10b7c8cfb2fa9544aa754b4a4344d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

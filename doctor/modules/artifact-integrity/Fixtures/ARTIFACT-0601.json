@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0601",
+    "artifact": "doctor/modules/filesystem/Checks/FILESYSTEM-0005-DoctorReportDirectoryMissing.json",
+    "baseline_sha256": "709580c2c9562152e659ff307ca056b14c93f3d981f17899e44fa1d7f6ef8b8e",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

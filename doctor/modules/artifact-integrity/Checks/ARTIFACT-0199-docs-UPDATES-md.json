@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0199",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/UPDATES.md",
+        "summary": "Verify docs/UPDATES.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0199",
+        "path": "{APP_ROOT}/docs/UPDATES.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d4d0bed3a2d0e31d6c1b5a4480ea28b7db75a8f3c4a6d1eb9276667f9c2eacbf",
+        "sha256": "d4d0bed3a2d0e31d6c1b5a4480ea28b7db75a8f3c4a6d1eb9276667f9c2eacbf",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

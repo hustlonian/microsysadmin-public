@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0118",
+        "check_id": "ARTIFACT-C0118",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/RequestContext.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/RequestContext.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 0b447665b140c3dce706f9ba19bdb8c564143a17647297f5b175d930678d5af3 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0118"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

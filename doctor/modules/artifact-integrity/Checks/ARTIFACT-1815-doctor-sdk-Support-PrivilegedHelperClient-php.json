@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1815",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Support/PrivilegedHelperClient.php",
+        "summary": "Verify doctor/sdk/Support/PrivilegedHelperClient.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1815",
+        "path": "{APP_ROOT}/doctor/sdk/Support/PrivilegedHelperClient.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6d3e754fa29b6c63b977fa025b5b147facc0e34fb36fbeb21edd6846b8371c44",
+        "sha256": "6d3e754fa29b6c63b977fa025b5b147facc0e34fb36fbeb21edd6846b8371c44",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

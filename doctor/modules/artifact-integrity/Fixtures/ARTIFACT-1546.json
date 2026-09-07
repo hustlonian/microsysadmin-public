@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1546",
+    "artifact": "doctor/modules/redis/Fixtures/REDIS-0009.json",
+    "baseline_sha256": "2c76c7cd569e034aeddbbe7db9de3a80b7c105ee9d377a0f8071321395b27754",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

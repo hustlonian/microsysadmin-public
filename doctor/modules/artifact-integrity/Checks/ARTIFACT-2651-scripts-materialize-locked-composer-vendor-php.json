@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2651",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/materialize-locked-composer-vendor.php",
+        "summary": "Verify scripts/materialize-locked-composer-vendor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2651",
+        "path": "{APP_ROOT}/scripts/materialize-locked-composer-vendor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7772e0e9190a589e0420a018721184fff332a090fa733a4ed83ce0c56f30fb1c",
+        "sha256": "7772e0e9190a589e0420a018721184fff332a090fa733a4ed83ce0c56f30fb1c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1516",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Commercial/REDIS-0010.json",
+        "summary": "Verify doctor/modules/redis/Commercial/REDIS-0010.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1516",
+        "path": "{APP_ROOT}/doctor/modules/redis/Commercial/REDIS-0010.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b5d62230495142c1c82213ec4df3b4febcd603ffae918f6d7f7016b72fd267f5",
+        "sha256": "b5d62230495142c1c82213ec4df3b4febcd603ffae918f6d7f7016b72fd267f5",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

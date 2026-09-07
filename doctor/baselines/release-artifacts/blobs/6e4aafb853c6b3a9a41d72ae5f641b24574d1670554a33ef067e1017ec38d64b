@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "QUEUE-C0002",
+        "module": "queue",
+        "name": "Start the stopped Supervisor service",
+        "summary": "Start the stopped Supervisor service.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "queue",
+            "supervisor-service-stopped"
+        ]
+    },
+    "supports": {
+        "queue_expected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_active",
+        "service": "supervisor"
+    },
+    "failure_status": "FAIL"
+}

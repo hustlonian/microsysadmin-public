@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0214",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Contracts/CheckInterface.php",
+        "summary": "Verify doctor/engine/Contracts/CheckInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0214",
+        "path": "{APP_ROOT}/doctor/engine/Contracts/CheckInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/701f27de536f219b83a0d968ee2889206c5bc5a20f8849a56717cefbb3d0321f",
+        "sha256": "701f27de536f219b83a0d968ee2889206c5bc5a20f8849a56717cefbb3d0321f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

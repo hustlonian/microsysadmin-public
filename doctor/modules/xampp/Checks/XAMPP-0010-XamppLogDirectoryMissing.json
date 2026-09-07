@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "XAMPP-C0010",
+        "module": "xampp",
+        "name": "Restore the missing XAMPP log directory",
+        "summary": "Restore the missing XAMPP log directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "xampp",
+            "xampp-log-directory-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "xampp"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/opt/lampp/logs"
+    },
+    "failure_status": "FAIL"
+}

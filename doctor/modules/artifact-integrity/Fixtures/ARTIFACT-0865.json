@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0865",
+    "artifact": "doctor/modules/mail/Repairs/MAIL-0002-PostfixCommandMissing.json",
+    "baseline_sha256": "c9b3368bc4a1bdb0ab70f1d82f8a3884182f51ab3d15764a8541a54f98a083fe",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

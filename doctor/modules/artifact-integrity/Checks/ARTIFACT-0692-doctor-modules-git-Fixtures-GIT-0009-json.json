@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0692",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Fixtures/GIT-0009.json",
+        "summary": "Verify doctor/modules/git/Fixtures/GIT-0009.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0692",
+        "path": "{APP_ROOT}/doctor/modules/git/Fixtures/GIT-0009.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0e9278a59f504f895b633fa36af8c82cdea4d9806f108b39074ea2f2cd4818d4",
+        "sha256": "0e9278a59f504f895b633fa36af8c82cdea4d9806f108b39074ea2f2cd4818d4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

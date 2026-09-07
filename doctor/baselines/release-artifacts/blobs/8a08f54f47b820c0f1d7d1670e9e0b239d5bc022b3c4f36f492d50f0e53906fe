@@ -1,0 +1,165 @@
+# Installation and recovery
+
+## Customer installation
+
+On a clean supported machine:
+
+```bash
+git clone <PRIVATE_MICROSYSADMIN_REPOSITORY_URL> microsysadmin
+cd microsysadmin
+sudo ./install.sh
+```
+
+The installer performs a real production installation. It checks the host, installs or validates the stack, creates a dedicated database and database user, installs production Composer dependencies, creates a production configuration, runs migrations, securely generates the first Administrator when one was not supplied for automation, applies the selected security profile, installs Apache routing and background services, creates a verified initial backup, runs diagnostics and the release-critical gate, checks the login page over HTTP, and prints the login URL. Do not run Composer or edit configuration manually afterward.
+
+The default Safe profile disables the browser terminal, code runner, privileged helper, development licensing, and unsigned updates. Keep MicroSysAdmin behind a private network, VPN, or equivalent access control.
+
+MySQL/MariaDB is mandatory. Local installs create the `microsysadmin` database and a dedicated restricted `microsysadmin` account using the database-administrator credentials; the application password is generated and written only to protected production configuration. External mode requires an already-created database/account. Migrations, diagnostics, backup creation, authentication validation, and the release gate all use that configured database, so an unbound or unreachable database cannot produce installer success.
+
+## Supported host
+
+- Ubuntu 24.04 LTS on x86_64 or arm64;
+- 2 CPU cores and 2 GiB RAM minimum;
+- 5 GiB free disk minimum, plus capacity for projects and backups;
+- outbound HTTPS access to Ubuntu and Composer package sources during installation;
+- TCP port 80 available to Apache;
+- port 443 only when an existing TLS listener is used;
+- MariaDB/MySQL must not be exposed publicly.
+
+The installer rejects unsupported systems, an incomplete XAMPP tree, Nginx, an unrelated port-80 listener, unmanaged local MySQL that would conflict with managed MariaDB, unsafe paths, insufficient space, and incompatible PHP. It prints detected Apache, Nginx, PHP, MySQL, MariaDB, XAMPP, and relevant listeners during preflight.
+
+## Installation modes
+
+`--stack=auto` is the default.
+
+- Existing XAMPP/LAMPP: when `/opt/lampp` is complete, compatible, and Apache plus MySQL/MariaDB are healthy, MicroSysAdmin uses its Apache, PHP, database clients, socket, and `daemon` account. The default application path is `/opt/lampp/htdocs/microsysadmin` and the login is `http://localhost/microsysadmin/login`. More generally, a deliberately selected XAMPP target at `/opt/lampp/htdocs/<directory_name>` defaults to `http://localhost/<directory_name>`; an explicit `MICROSYSADMIN_BASE_URL` or `--base-url` still takes precedence. It never installs a competing managed web/database stack.
+- Managed stack: when `/opt/lampp` is absent, MicroSysAdmin installs Ubuntu Apache 2.4, PHP 8.3 and required extensions, MariaDB, Composer, Git, cron, systemd worker/health units, and logrotate. The application is installed at `/opt/microsysadmin/app`, is served at `http://localhost/microsysadmin`, and project roots start at `/var/www/microsysadmin-sites`. The managed application path intentionally does not pretend to be XAMPP by creating `/opt/lampp`.
+- External database: set `MICROSYSADMIN_DB_HOST` to a nonlocal host. The managed installer installs only the MariaDB client, not a local database server. The named database and restricted user must already exist and be reachable.
+
+Use `--stack=xampp` or `--stack=managed` only to make the intended mode explicit. Managed mode refuses to run while `/opt/lampp` exists.
+
+## Interactive and automated installation
+
+With `sudo ./install.sh`, a terminal asks only for database credentials when database authentication needs them. For a local database it asks for the database administrator username and a hidden password, which may be left blank when root socket authentication is configured. For an external database it asks for the application database username and hidden password. The installer creates and migrates the `microsysadmin` database by default; the web application is tied to its own restricted `microsysadmin` database account rather than database-administrator privileges.
+
+When Administrator inputs are omitted, the installer generates a strong `owner` login, stores it at `/var/lib/microsysadmin/private/initial-administrator.txt` with mode `0600` and owner `root:root`, and requires a password change at first login. The secret is not printed or logged. Read it locally with `sudo cat /var/lib/microsysadmin/private/initial-administrator.txt`, sign in at `http://localhost/microsysadmin/login`, change the password, and then delete the now-stale file with `sudo rm -f /var/lib/microsysadmin/private/initial-administrator.txt`.
+
+For automation, provide secrets through protected environment variables or a root-readable secret service, never password command arguments:
+
+```bash
+read -rsp "Database administrator password: " MICROSYSADMIN_DB_ADMIN_PASSWORD
+export MICROSYSADMIN_DB_ADMIN_PASSWORD
+sudo --preserve-env=MICROSYSADMIN_DB_ADMIN_PASSWORD env \
+  MICROSYSADMIN_DB_ADMIN_USER=root \
+  ./install.sh --non-interactive
+unset MICROSYSADMIN_DB_ADMIN_PASSWORD
+```
+
+Supported automation variables are:
+
+```text
+MICROSYSADMIN_ADMIN_USERNAME
+MICROSYSADMIN_ADMIN_EMAIL
+MICROSYSADMIN_ADMIN_PASSWORD
+MICROSYSADMIN_DB_HOST
+MICROSYSADMIN_DB_PORT
+MICROSYSADMIN_DB_NAME
+MICROSYSADMIN_DB_USER
+MICROSYSADMIN_DB_PASSWORD
+MICROSYSADMIN_DB_ADMIN_USER
+MICROSYSADMIN_DB_ADMIN_PASSWORD
+MICROSYSADMIN_DB_SOCKET
+MICROSYSADMIN_BASE_URL
+MICROSYSADMIN_SECURITY_PROFILE
+```
+
+For an external database, securely add `MICROSYSADMIN_DB_HOST`, `MICROSYSADMIN_DB_PORT`, `MICROSYSADMIN_DB_NAME`, `MICROSYSADMIN_DB_USER`, and `MICROSYSADMIN_DB_PASSWORD`. For a local database whose administrative socket does not permit root peer authentication, use `MICROSYSADMIN_DB_ADMIN_USER` and `MICROSYSADMIN_DB_ADMIN_PASSWORD`. Environment variables are inherited by `sudo` only when explicitly preserved or supplied after `sudo env`; inspect your sudo policy before automating secrets.
+
+Administrator passwords require at least 12 characters with uppercase, lowercase, a number, and a symbol. Automation may set `MICROSYSADMIN_ADMIN_USERNAME`, `MICROSYSADMIN_ADMIN_EMAIL`, and a securely sourced `MICROSYSADMIN_ADMIN_PASSWORD` to use a predetermined login instead of the generated one. `--admin-password` and `--db-password` are deliberately rejected because process arguments are visible to other local users. The Advanced profile additionally requires `MICROSYSADMIN_ADVANCED_RISK_ACKNOWLEDGED=1`.
+
+## Existing installations and idempotency
+
+An ordinary second invocation is non-destructive:
+
+```bash
+sudo ./install.sh
+```
+
+Interactive runs offer `validate`, `repair`, `upgrade`, or `abort`; noninteractive runs select validation. Validation does not rewrite configuration, regenerate secrets, modify users, or migrate data. Explicit changes are:
+
+```bash
+sudo ./install.sh --repair
+sudo ./install.sh --upgrade
+```
+
+Repair reapplies migrations, reference data, permissions, MicroSysAdmin-only Apache routing, worker/timer, cron, and logrotate integration. Upgrade first copies the Git-tracked files from the current checkout and then performs repair. Both calculate required rollback capacity, create verified application and database backups under `/var/lib/microsysadmin/installer-backups`, record SHA-256 checksums, and preserve configuration. A failed application change automatically restores the prior file tree and Apache configuration; the database archive is retained for an operator-approved restore.
+
+## Operations
+
+The wrapper finds the active installation record, so these commands may be run from the clone:
+
+```bash
+sudo ./install.sh --check
+sudo ./install.sh --repair
+sudo ./install.sh --upgrade
+sudo ./install.sh --uninstall
+sudo ./install.sh --help
+```
+
+Direct installed commands for managed mode are:
+
+```bash
+sudo /opt/microsysadmin/app/diagnose.sh
+sudo /opt/microsysadmin/app/health-check.sh --release-gate
+sudo /opt/microsysadmin/app/update.sh check
+sudo /usr/bin/php /opt/microsysadmin/app/scripts/backup_database.php
+```
+
+Use `/opt/lampp/bin/php` before PHP scripts in XAMPP mode and `/usr/bin/php` in managed mode. See [Backups](BACKUPS.md), [Updates](UPDATES.md), and [Rollback](ROLLBACK.md) for verified restore and rollback commands.
+
+## Locations
+
+| Purpose | Managed stack | Existing XAMPP |
+|---|---|---|
+| Application | `/opt/microsysadmin/app` | `/opt/lampp/htdocs/microsysadmin` |
+| Login | `http://localhost/microsysadmin/login` | `http://localhost/microsysadmin/login` |
+| Production configuration | application `config/config.php` | application `config/config.php` |
+| Install record | `/etc/microsysadmin/install.conf` | `/etc/microsysadmin/install.conf` |
+| Persistent data | `/var/lib/microsysadmin` | `/var/lib/microsysadmin` |
+| Backups | `/var/lib/microsysadmin/backups` | `/var/lib/microsysadmin/backups` |
+| Update/rollback archives | `/var/lib/microsysadmin/releases` | `/var/lib/microsysadmin/releases` |
+| Installer rollback backups | `/var/lib/microsysadmin/installer-backups` | `/var/lib/microsysadmin/installer-backups` |
+| Installer/diagnostic logs | `/var/log/microsysadmin` | `/var/log/microsysadmin` |
+| Apache logs | `/var/log/apache2` | `/opt/lampp/logs` |
+| Project root | `/var/www/microsysadmin-sites` | `/opt/lampp/htdocs` |
+
+MicroSysAdmin application logs rotate daily, retain 14 compressed rotations, and use `copytruncate`. Database and application backups need independent off-machine retention; a backup on the same disk is not disaster recovery.
+
+## Safe uninstall
+
+```bash
+sudo ./install.sh --uninstall
+```
+
+The command displays the exact proposal and requires confirmation. It removes only MicroSysAdmin Apache routing and MicroSysAdmin service, cron, logrotate, and installation-record files. It first writes a verified recovery bundle, and it preserves the database, backups, configuration, application, projects, machine identity, customer files, and all shared XAMPP/Apache/PHP/MariaDB/MySQL/Docker packages.
+
+Noninteractive uninstall also requires `--yes`. Destructive application/private/storage removal requires all three explicit arguments below and still preserves the database and backup root:
+
+```bash
+sudo ./install.sh --uninstall --yes \
+  --purge-data --remove-application \
+  --confirm-purge=DELETE-MICROSYSADMIN-DATA
+```
+
+## Failure recovery
+
+The installer reports the exact failed stage and protected log path. Do not rerun destructively. First inspect:
+
+```bash
+sudo ./install.sh --check
+sudo tail -n 200 /var/log/microsysadmin/install-*.log
+sudo /opt/microsysadmin/app/diagnose.sh
+sudo /opt/microsysadmin/app/health-check.sh --release-gate
+```
+
+For XAMPP substitute `/opt/lampp/htdocs/microsysadmin`. Confirm the verified `SHA256SUMS` beneath the reported installer-backup directory before restoring anything. Use `--repair` for missing integration or permissions, `--upgrade` only from the intended source checkout, and the preserved database restore procedure when a migration requires operator-approved recovery. Never paste `config/config.php`, dumps, keys, generated Administrator credentials, or unredacted logs into an issue.

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2135",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/Pipes/WindowsPipes.php",
+        "summary": "Verify vendor/symfony/process/Pipes/WindowsPipes.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2135",
+        "path": "{APP_ROOT}/vendor/symfony/process/Pipes/WindowsPipes.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/dd9cdc429918d3880f435b18fe8a823dde7fb782af6e3fa06b705e2e77cae8b0",
+        "sha256": "dd9cdc429918d3880f435b18fe8a823dde7fb782af6e3fa06b705e2e77cae8b0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0276",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Diagnoses/APACHE-0006-HeadersModuleMissing.json",
+        "summary": "Verify doctor/modules/apache/Diagnoses/APACHE-0006-HeadersModuleMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0276",
+        "path": "{APP_ROOT}/doctor/modules/apache/Diagnoses/APACHE-0006-HeadersModuleMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/fb8cab0b389f9beb648d5eae323159a54db08eac39d84cc55493062c11bc4435",
+        "sha256": "fb8cab0b389f9beb648d5eae323159a54db08eac39d84cc55493062c11bc4435",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

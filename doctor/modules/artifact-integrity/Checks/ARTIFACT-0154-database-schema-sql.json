@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0154",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact database/schema.sql",
+        "summary": "Verify database/schema.sql against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0154",
+        "path": "{APP_ROOT}/database/schema.sql",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/28290803bd2e3026cc6bebb8b5e8aa76bb1653affb4571605ea233cc3bbb713d",
+        "sha256": "28290803bd2e3026cc6bebb8b5e8aa76bb1653affb4571605ea233cc3bbb713d",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

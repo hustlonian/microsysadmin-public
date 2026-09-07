@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "PHP-C0009",
+        "module": "php",
+        "name": "Correct an unwritable PHP session directory",
+        "summary": "Correct an unwritable PHP session directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "php",
+            "session-directory-not-writable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_writable",
+        "path": "/opt/lampp/temp/"
+    },
+    "failure_status": "FAIL"
+}

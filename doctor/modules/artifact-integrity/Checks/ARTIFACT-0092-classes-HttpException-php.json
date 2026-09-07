@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0092",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/HttpException.php",
+        "summary": "Verify classes/HttpException.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0092",
+        "path": "{APP_ROOT}/classes/HttpException.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c914877681cee27a601069c03fbaedba0cb63b200e7e5cd9247065acb3c7aad7",
+        "sha256": "c914877681cee27a601069c03fbaedba0cb63b200e7e5cd9247065acb3c7aad7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

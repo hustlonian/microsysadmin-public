@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "LARAVEL-C0005",
+        "module": "laravel",
+        "name": "Create the missing Laravel framework cache directory",
+        "summary": "Create the missing Laravel framework cache directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "laravel",
+            "framework-cache-directory-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{PROJECT}/storage/framework/cache/data"
+    },
+    "failure_status": "FAIL"
+}

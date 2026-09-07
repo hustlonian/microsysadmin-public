@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1727",
+        "check_id": "ARTIFACT-C1727",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/xampp/Changelog/XAMPP-0010.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/xampp/Changelog/XAMPP-0010.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 df4dee237308a495b0b07b5bf8585244f5633e07a19129297209863a10e20171 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1727"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

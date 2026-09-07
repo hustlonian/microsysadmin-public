@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1811",
+        "check_id": "ARTIFACT-C1811",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/sdk/RepairPrimitiveRegistry.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/sdk/RepairPrimitiveRegistry.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b76baa357e5502a44d441cb869abb992f79d60a3fdccbcd25d47797164c2fe22 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1811"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

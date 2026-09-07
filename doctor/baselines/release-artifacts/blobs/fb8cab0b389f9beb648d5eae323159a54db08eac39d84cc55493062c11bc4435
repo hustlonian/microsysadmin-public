@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "APACHE-D0006",
+        "check_id": "APACHE-C0006",
+        "module": "apache",
+        "name": "Enable the missing Apache headers module diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Enable the missing Apache headers module.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed headers module missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "APACHE-0006"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

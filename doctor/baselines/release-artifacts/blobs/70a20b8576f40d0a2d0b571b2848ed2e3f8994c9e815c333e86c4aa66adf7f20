@@ -1,0 +1,11 @@
+{
+    "name": "filesystem",
+    "display_name": "Filesystem",
+    "description": "Cause-specific Filesystem diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 2,
+    "enabled": true,
+    "repair_prefix": "FILESYSTEM",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

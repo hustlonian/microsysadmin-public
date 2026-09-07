@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0419",
+        "check_id": "ARTIFACT-C0419",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/composer/Repairs/COMPOSER-0004-ComposerLockMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/composer/Repairs/COMPOSER-0004-ComposerLockMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 2f5eaf3ec6e016c67f538615cedfd4aa0a90c11e595306ca1263915e406f7d21 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0419"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

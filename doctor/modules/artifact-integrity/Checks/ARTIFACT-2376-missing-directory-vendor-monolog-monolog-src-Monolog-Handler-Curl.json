@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2376",
+        "module": "artifact-integrity",
+        "name": "Restore missing managed release directory vendor/monolog/monolog/src/Monolog/Handler/Curl",
+        "summary": "Verify that required release directory vendor/monolog/monolog/src/Monolog/Handler/Curl is present.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "directory-topology",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_directory_missing",
+        "repair_id": "ARTIFACT-2376",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/Curl",
+        "mode": 493,
+        "condition": "missing"
+    },
+    "failure_status": "FAIL"
+}

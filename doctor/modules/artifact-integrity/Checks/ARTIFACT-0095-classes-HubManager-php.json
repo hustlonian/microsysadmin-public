@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0095",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/HubManager.php",
+        "summary": "Verify classes/HubManager.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0095",
+        "path": "{APP_ROOT}/classes/HubManager.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/70b79fe5eef1d4d03667cdb16da827342786616fa997642e5014eb1dc54b1a5b",
+        "sha256": "70b79fe5eef1d4d03667cdb16da827342786616fa997642e5014eb1dc54b1a5b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

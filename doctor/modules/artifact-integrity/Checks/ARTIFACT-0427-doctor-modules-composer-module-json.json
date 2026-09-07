@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0427",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/module.json",
+        "summary": "Verify doctor/modules/composer/module.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0427",
+        "path": "{APP_ROOT}/doctor/modules/composer/module.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3825ff36da104ff72e463aef4443ce7ed92823cb59edf7f0c9be6081a4cbe8e1",
+        "sha256": "3825ff36da104ff72e463aef4443ce7ed92823cb59edf7f0c9be6081a4cbe8e1",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

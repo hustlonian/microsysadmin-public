@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0414",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Module.php",
+        "summary": "Verify doctor/modules/composer/Module.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0414",
+        "path": "{APP_ROOT}/doctor/modules/composer/Module.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/858f4a310dda46fa1d87298388c3668a9cbea0b9f264fc4a31a777fb8a3d2617",
+        "sha256": "858f4a310dda46fa1d87298388c3668a9cbea0b9f264fc4a31a777fb8a3d2617",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "COMPOSER-C0002",
+        "module": "composer",
+        "name": "Restore a missing Composer project manifest",
+        "summary": "Restore a missing Composer project manifest.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "composer",
+            "composer-json-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "{PROJECT}/composer.json"
+    },
+    "failure_status": "FAIL"
+}

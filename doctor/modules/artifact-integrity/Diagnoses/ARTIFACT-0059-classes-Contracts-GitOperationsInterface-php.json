@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0059",
+        "check_id": "ARTIFACT-C0059",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/Contracts/GitOperationsInterface.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/Contracts/GitOperationsInterface.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 353a5646d38f22f8a5d94e14b2ae4bb76cea48b92a27699109541925df776dbb with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0059"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "CRON-C0004",
+        "module": "cron",
+        "name": "Add the missing Laravel scheduler cron entry",
+        "summary": "Add the missing Laravel scheduler cron entry.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "cron",
+            "laravel-scheduler-entry-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "command",
+        "command": [
+            "crontab",
+            "-l"
+        ],
+        "stdout_contains": "# MicroSysAdmin Doctor CRON-0004",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

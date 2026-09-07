@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0577",
+    "artifact": "doctor/modules/docker/Fixtures/DOCKER-0006.json",
+    "baseline_sha256": "b0dce00b517f8135fc239980cd181c5043681d910d4850a9972f6cb290903960",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

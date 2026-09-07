@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1887",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/pages/system.php",
+        "summary": "Verify views/pages/system.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1887",
+        "path": "{APP_ROOT}/views/pages/system.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ed6c76a3b033b38c1b89c071e05a0e8aa6f76ec9ff26f0c7a185eafb421504b3",
+        "sha256": "ed6c76a3b033b38c1b89c071e05a0e8aa6f76ec9ff26f0c7a185eafb421504b3",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,26 @@
+#!/opt/lampp/bin/php
+<?php
+
+declare(strict_types=1);
+
+define('APP_ROOT', dirname(__DIR__, 2));
+define('STORAGE_PATH', APP_ROOT . '/storage');
+require APP_ROOT . '/vendor/autoload.php';
+
+use SysAdmin\Doctor\sdk\Generation\RepairGenerator;
+
+$options = getopt('', ['diagnosis:', 'output-root::', 'overwrite']);
+$diagnosis = (string) ($options['diagnosis'] ?? '');
+$output = (string) ($options['output-root'] ?? APP_ROOT . '/doctor/modules');
+if ($diagnosis === '') {
+    fwrite(STDERR, "Usage: doctor/bin/generate-repair --diagnosis=PATH [--output-root=PATH] [--overwrite]\n");
+    exit(2);
+}
+
+try {
+    $result = (new RepairGenerator())->generate($diagnosis, $output, isset($options['overwrite']));
+    echo json_encode($result, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR), PHP_EOL;
+} catch (Throwable $exception) {
+    fwrite(STDERR, 'Repair Generator failed: ' . $exception->getMessage() . PHP_EOL);
+    exit(1);
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0193",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/SECURITY-PROFILES.md",
+        "summary": "Verify docs/SECURITY-PROFILES.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0193",
+        "path": "{APP_ROOT}/docs/SECURITY-PROFILES.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3df95261d494c8138ca4ee34c389349a5caba457656433b413679ce9aa35c368",
+        "sha256": "3df95261d494c8138ca4ee34c389349a5caba457656433b413679ce9aa35c368",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

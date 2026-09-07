@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0195",
+        "check_id": "ARTIFACT-C0195",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for docs/STAGED-FILE-MANIFEST.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact docs/STAGED-FILE-MANIFEST.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 61b1f9c6757c69e08366e9e9e9a8f88c88801c86f7a7999f994455fc669bfa2f with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0195"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

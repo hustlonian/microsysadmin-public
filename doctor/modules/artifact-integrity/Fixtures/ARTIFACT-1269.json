@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1269",
+    "artifact": "doctor/modules/mysql/Commercial/MYSQL-0005.json",
+    "baseline_sha256": "9f7ccb810c516a21bc7cd418a7daf74b6ac6a4d5672a8a8f0a9eb15e91f4be4a",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0286",
+        "check_id": "ARTIFACT-C0286",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/apache/Docs/APACHE-0006.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/apache/Docs/APACHE-0006.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 f5128cd68cc125634246484ae12df7f0814082d4c55b7a45d8fe10f93cfb2908 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0286"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

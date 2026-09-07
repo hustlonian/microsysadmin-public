@@ -1,0 +1,39 @@
+{
+    "metadata": {
+        "diagnosis_id": "SECURITY-D0006",
+        "check_id": "SECURITY-C0006",
+        "module": "security",
+        "name": "Restore the missing audit-log directory diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore the missing audit-log directory.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed audit log directory missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "SECURITY-0006"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "Doctor can create only the application-owned audit-log directory, verify it independently, and remove it on rollback only while it remains empty."
+    },
+    "repair_generation": {
+        "repair_id": "SECURITY-0006",
+        "name": "Restore the missing audit-log directory",
+        "automation_class": "AUTO_SAFE",
+        "risk_level": "LOW",
+        "action": {
+            "type": "create_directory",
+            "path": "{STORAGE_PATH}/logs",
+            "mode": 504
+        },
+        "directories_modified": [
+            "{STORAGE_PATH}/logs"
+        ],
+        "required_permissions": [
+            "create one application-owned storage directory"
+        ],
+        "commercial_tier": "essential",
+        "support_issue_family": "audit-log-storage"
+    }
+}

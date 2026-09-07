@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "PERFORMANCE-C0005",
+        "module": "performance",
+        "name": "Enable Apache response compression",
+        "summary": "Enable Apache response compression.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "performance",
+            "apache-compression-module-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "/opt/lampp/etc/httpd.conf",
+        "contains": "deflate_module"
+    },
+    "failure_status": "FAIL"
+}

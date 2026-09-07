@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2023",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Processor/WebProcessor.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Processor/WebProcessor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2023",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Processor/WebProcessor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/04134cd76ce4204c92817eba73e194caa9b7f032cda1040b65464587a9ee1a44",
+        "sha256": "04134cd76ce4204c92817eba73e194caa9b7f032cda1040b65464587a9ee1a44",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1878",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/pages/mysql.php",
+        "summary": "Verify views/pages/mysql.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1878",
+        "path": "{APP_ROOT}/views/pages/mysql.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/022857f197c3fa2ec48fb357eb90fded1fcc1db5195db53b4bf522504f12635f",
+        "sha256": "022857f197c3fa2ec48fb357eb90fded1fcc1db5195db53b4bf522504f12635f",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

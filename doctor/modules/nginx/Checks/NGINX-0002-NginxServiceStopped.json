@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "NGINX-C0002",
+        "module": "nginx",
+        "name": "Start the stopped Nginx service",
+        "summary": "Start the stopped Nginx service.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "nginx",
+            "nginx-service-stopped"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "nginx"
+        ]
+    },
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_active",
+        "service": "nginx"
+    },
+    "failure_status": "FAIL"
+}

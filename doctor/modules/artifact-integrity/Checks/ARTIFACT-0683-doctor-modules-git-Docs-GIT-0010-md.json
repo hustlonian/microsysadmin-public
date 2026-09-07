@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0683",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Docs/GIT-0010.md",
+        "summary": "Verify doctor/modules/git/Docs/GIT-0010.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0683",
+        "path": "{APP_ROOT}/doctor/modules/git/Docs/GIT-0010.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/69f5a5414fa86b6e228a2714c99bebbe95fc109bac69a7be4008b2a0da3b04bf",
+        "sha256": "69f5a5414fa86b6e228a2714c99bebbe95fc109bac69a7be4008b2a0da3b04bf",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1877",
+        "check_id": "ARTIFACT-C1877",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for views/pages/media.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact views/pages/media.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 1f51caba8887a31c94379e06b3bdfb211be79af5ffc103a147aaf02e69af040c with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1877"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "metadata": {
+        "check_id": "GIT-C0007",
+        "module": "git",
+        "name": "Remove a verified stale Git index lock",
+        "summary": "Remove a verified stale Git index lock.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "git",
+            "index-lock-stale"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "lsof"
+    ],
+    "probe": {
+        "type": "stale_git_index_lock",
+        "path": "{PROJECT}/.git/index.lock",
+        "minimum_age_seconds": 3600
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0008",
+        "module": "backups",
+        "name": "Define an explicit backup retention policy",
+        "summary": "Define an explicit backup retention policy.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "backup-retention-policy-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "{PROJECT}/doctor/config/doctor.php",
+        "contains": "report_retention_days"
+    },
+    "failure_status": "FAIL"
+}

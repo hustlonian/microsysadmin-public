@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0781",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Diagnoses/LINUX-0007-LoopbackHostEntryMissing.json",
+        "summary": "Verify doctor/modules/linux/Diagnoses/LINUX-0007-LoopbackHostEntryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0781",
+        "path": "{APP_ROOT}/doctor/modules/linux/Diagnoses/LINUX-0007-LoopbackHostEntryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3070016a058ebdd34e0850f707a3c386d54999933f5298ea542f3c92672e8c1f",
+        "sha256": "3070016a058ebdd34e0850f707a3c386d54999933f5298ea542f3c92672e8c1f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

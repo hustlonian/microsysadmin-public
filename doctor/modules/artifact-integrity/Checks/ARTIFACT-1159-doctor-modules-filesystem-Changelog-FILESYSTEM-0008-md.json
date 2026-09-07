@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1159",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Changelog/FILESYSTEM-0008.md",
+        "summary": "Verify doctor/modules/filesystem/Changelog/FILESYSTEM-0008.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1159",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Changelog/FILESYSTEM-0008.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/fe660cd801a81d7e6b44ab003614755852b9efbf179758aa211bed29d8c65347",
+        "sha256": "fe660cd801a81d7e6b44ab003614755852b9efbf179758aa211bed29d8c65347",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

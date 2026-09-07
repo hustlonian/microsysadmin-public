@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0523",
+        "check_id": "ARTIFACT-C0523",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/dns/Fixtures/DNS-0008.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/dns/Fixtures/DNS-0008.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 06e94f20bc01c76506d8fc90b5318a1cf59c3b4eecac32446fb2b7b7d893f693 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0523"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

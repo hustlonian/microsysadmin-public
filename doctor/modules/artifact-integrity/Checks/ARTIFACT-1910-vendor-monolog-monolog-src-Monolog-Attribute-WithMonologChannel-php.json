@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1910",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Attribute/WithMonologChannel.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Attribute/WithMonologChannel.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1910",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Attribute/WithMonologChannel.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7d7ec88956b15a6d6b6f3a222d17397583d89541df14b1b0d0ab82d4aa1fd2b9",
+        "sha256": "7d7ec88956b15a6d6b6f3a222d17397583d89541df14b1b0d0ab82d4aa1fd2b9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0320",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Checks/BACKUP-0004-DatabaseBackupToolMissing.json",
+        "summary": "Verify doctor/modules/backups/Checks/BACKUP-0004-DatabaseBackupToolMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0320",
+        "path": "{APP_ROOT}/doctor/modules/backups/Checks/BACKUP-0004-DatabaseBackupToolMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/56daed6d65932759af273e0bbe19030754e4c24a05098957761b1e9b2c14d7e2",
+        "sha256": "56daed6d65932759af273e0bbe19030754e4c24a05098957761b1e9b2c14d7e2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

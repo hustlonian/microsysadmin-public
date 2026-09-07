@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1025",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact .htaccess",
+        "summary": "Verify .htaccess against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1025",
+        "path": "{APP_ROOT}/.htaccess",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/50416afb0ad2170982c719c0048a398e2d648dd2d4001d35cadabb438841436a",
+        "sha256": "50416afb0ad2170982c719c0048a398e2d648dd2d4001d35cadabb438841436a",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

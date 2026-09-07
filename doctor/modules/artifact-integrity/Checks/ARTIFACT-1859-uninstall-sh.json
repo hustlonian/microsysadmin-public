@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1859",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact uninstall.sh",
+        "summary": "Verify uninstall.sh against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1859",
+        "path": "{APP_ROOT}/uninstall.sh",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/644427238087172c91a025640f9362e43dfe9246ce50778be66b750f12efb2b9",
+        "sha256": "644427238087172c91a025640f9362e43dfe9246ce50778be66b750f12efb2b9",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

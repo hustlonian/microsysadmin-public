@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0229",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Process/ProcessRunner.php",
+        "summary": "Verify doctor/engine/Process/ProcessRunner.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0229",
+        "path": "{APP_ROOT}/doctor/engine/Process/ProcessRunner.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/bbeede68519e494d3544416acf7c288290a6e7fe5b8d5dffd8425e2c0773e376",
+        "sha256": "bbeede68519e494d3544416acf7c288290a6e7fe5b8d5dffd8425e2c0773e376",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

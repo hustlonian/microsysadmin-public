@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0046",
+    "artifact": "classes/AuditLogger.php",
+    "baseline_sha256": "8181f7e82500c6d9d8e5ca82dd1e765f73377b5e2bba55cceff44eed3bea76ba",
+    "mode": "0664",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

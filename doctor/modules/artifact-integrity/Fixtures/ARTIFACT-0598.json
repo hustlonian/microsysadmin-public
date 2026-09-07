@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0598",
+    "artifact": "doctor/modules/filesystem/Checks/FILESYSTEM-0002-ProjectRootNotReadable.json",
+    "baseline_sha256": "c15cbf46d9b42bdeac31ac1b4e8b8fa5325c34cc26085b60e09bc6f984e00e9f",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

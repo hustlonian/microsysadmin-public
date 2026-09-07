@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0605",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Checks/FILESYSTEM-0009-BrokenPublicStorageLink.json",
+        "summary": "Verify doctor/modules/filesystem/Checks/FILESYSTEM-0009-BrokenPublicStorageLink.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0605",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Checks/FILESYSTEM-0009-BrokenPublicStorageLink.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/64e80277cdadcaeafc2396a954f78d7c0ce351e65d8cfe5b5b9f23da900c1833",
+        "sha256": "64e80277cdadcaeafc2396a954f78d7c0ce351e65d8cfe5b5b9f23da900c1833",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

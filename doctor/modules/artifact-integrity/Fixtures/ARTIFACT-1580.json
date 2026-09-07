@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1580",
+    "artifact": "doctor/modules/security/Checks/SECURITY-0008-DefaultAdminCredentialRisk.json",
+    "baseline_sha256": "1fb7764105dc2ce6ea7972512a31b5c883e261d85ad7f3f9539118d7a642116e",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

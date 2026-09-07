@@ -1,0 +1,14 @@
+{
+    "repair_id": "DOCKER-0003",
+    "commercial_tier": "professional",
+    "customer_impact": "restores one bounded supported state",
+    "support_issue_family": "docker",
+    "automation_class": "APPROVAL_REQUIRED",
+    "risk_level": "MEDIUM",
+    "sdk_primitives": [
+        "service_action"
+    ],
+    "quality_status": "contract-ready",
+    "rollback_supported": true,
+    "verification_defined": true
+}

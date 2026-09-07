@@ -1,0 +1,20 @@
+{
+    "repair_id": "APACHE-0005",
+    "healthy_fixture": {
+        "probe_expected": true
+    },
+    "failure_fixture": {
+        "probe_expected": false
+    },
+    "isolation": "temporary directory, mocked command runner, or disposable service container",
+    "assertions": [
+        "healthy-not-flagged",
+        "failure-detected",
+        "evidence-recorded",
+        "plan-previewed",
+        "verification-independent",
+        "idempotent",
+        "secrets-redacted",
+        "timeouts-enforced"
+    ]
+}

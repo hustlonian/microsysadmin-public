@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1891",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Generation/LockedComposerVendorCatalog.php",
+        "summary": "Verify doctor/sdk/Generation/LockedComposerVendorCatalog.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1891",
+        "path": "{APP_ROOT}/doctor/sdk/Generation/LockedComposerVendorCatalog.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3269dd673f4380c81639d708c8856d6c9d942a2cf2c85ce215078092a8c8002a",
+        "sha256": "3269dd673f4380c81639d708c8856d6c9d942a2cf2c85ce215078092a8c8002a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

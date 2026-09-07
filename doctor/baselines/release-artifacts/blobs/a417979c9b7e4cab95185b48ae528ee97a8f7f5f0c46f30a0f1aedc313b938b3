@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "DOCKER-D0009",
+        "check_id": "DOCKER-C0009",
+        "module": "docker",
+        "name": "Recover Docker storage capacity diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Recover Docker storage capacity.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed docker disk pressure condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "DOCKER-0009"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

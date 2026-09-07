@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1735",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Checks/XAMPP-0008-XamppApacheConfigInvalid.json",
+        "summary": "Verify doctor/modules/xampp/Checks/XAMPP-0008-XamppApacheConfigInvalid.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1735",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Checks/XAMPP-0008-XamppApacheConfigInvalid.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ab75bb1d1dcb3cf9124ab242bf9599075f22a0368307ce365dab9fa4cd3538ed",
+        "sha256": "ab75bb1d1dcb3cf9124ab242bf9599075f22a0368307ce365dab9fa4cd3538ed",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

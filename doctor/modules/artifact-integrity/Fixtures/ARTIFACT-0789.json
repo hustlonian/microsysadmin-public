@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0789",
+    "artifact": "doctor/modules/linux/Docs/LINUX-0004.md",
+    "baseline_sha256": "7eac273d442b8c2bc194175b93068ed7d82c75951f7f79996e57c03150dec052",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

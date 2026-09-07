@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0138",
+        "check_id": "ARTIFACT-C0138",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for composer.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact composer.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 8ff992d626d150b7f48b33ad7e9a418597dd1963ae17aab659d356ca037e2b7f with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0138"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

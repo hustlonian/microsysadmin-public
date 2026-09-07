@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0105",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/LogService.php",
+        "summary": "Verify classes/LogService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0105",
+        "path": "{APP_ROOT}/classes/LogService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7248aa6b407d76657d3899e1a9509ece321059d90856dd38890da22e23f7138b",
+        "sha256": "7248aa6b407d76657d3899e1a9509ece321059d90856dd38890da22e23f7138b",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

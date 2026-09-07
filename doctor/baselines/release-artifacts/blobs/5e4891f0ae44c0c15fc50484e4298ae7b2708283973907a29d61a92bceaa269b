@@ -1,0 +1,34 @@
+{
+    "repair_id": "FILESYSTEM-0009",
+    "lifecycle": [
+        "detect-failure",
+        "diagnose",
+        "plan",
+        "backup",
+        "execute",
+        "verify-pass",
+        "rollback",
+        "verify-failure-again"
+    ],
+    "primitive_descriptor": {
+        "type": "repair_symlink",
+        "category": "filesystem",
+        "local_only": true,
+        "structured_arguments": true,
+        "reversible": true,
+        "rollback": "automatic",
+        "internal_backup": true,
+        "safety_class": "bounded-path",
+        "required_fields": [
+            "path",
+            "target"
+        ]
+    },
+    "prohibited": [
+        "shell-string-command",
+        "unbounded-path",
+        "missing-verification",
+        "missing-rollback",
+        "network-without-declaration"
+    ]
+}

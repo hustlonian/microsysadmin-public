@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0198",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/TROUBLESHOOTING.md",
+        "summary": "Verify docs/TROUBLESHOOTING.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0198",
+        "path": "{APP_ROOT}/docs/TROUBLESHOOTING.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8f2b0c3d71438d5312fd83f282faae396af78cad62b97b07dc4d735d6cf66a50",
+        "sha256": "8f2b0c3d71438d5312fd83f282faae396af78cad62b97b07dc4d735d6cf66a50",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

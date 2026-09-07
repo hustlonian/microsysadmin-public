@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0112",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/OrganizationAuthorizer.php",
+        "summary": "Verify classes/OrganizationAuthorizer.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0112",
+        "path": "{APP_ROOT}/classes/OrganizationAuthorizer.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2a914bb47bbd92d053349c81918c6cc197e4af9189bd6e44c8647bcb9d0c20b2",
+        "sha256": "2a914bb47bbd92d053349c81918c6cc197e4af9189bd6e44c8647bcb9d0c20b2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

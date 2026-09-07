@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1548",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Module.php",
+        "summary": "Verify doctor/modules/redis/Module.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1548",
+        "path": "{APP_ROOT}/doctor/modules/redis/Module.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/620494e133c148264566cc5342d791105ca3a177a08fdace33707d115fe75d01",
+        "sha256": "620494e133c148264566cc5342d791105ca3a177a08fdace33707d115fe75d01",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

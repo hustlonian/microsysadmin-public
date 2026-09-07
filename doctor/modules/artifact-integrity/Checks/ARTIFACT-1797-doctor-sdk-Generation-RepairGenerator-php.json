@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1797",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Generation/RepairGenerator.php",
+        "summary": "Verify doctor/sdk/Generation/RepairGenerator.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1797",
+        "path": "{APP_ROOT}/doctor/sdk/Generation/RepairGenerator.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4a2e8bd1ed9a2f6ba4365336a00be8d40fa1eb7341c62526ddce1b99b8e8c15b",
+        "sha256": "4a2e8bd1ed9a2f6ba4365336a00be8d40fa1eb7341c62526ddce1b99b8e8c15b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

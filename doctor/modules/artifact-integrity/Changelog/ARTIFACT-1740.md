@@ -1,0 +1,9 @@
+# ARTIFACT-1740
+
+Added exact local-baseline restoration for `doctor/modules/xampp/Commercial/XAMPP-0003.json`.
+
+- Primitive: `restore_managed_artifact`
+- Automation: `AUTO_WITH_BACKUP`
+- Risk: `LOW`
+- Verification: `ARTIFACT-C1740`
+- Rollback: automatic

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1113",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Changelog/DNS-0002.md",
+        "summary": "Verify doctor/modules/dns/Changelog/DNS-0002.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1113",
+        "path": "{APP_ROOT}/doctor/modules/dns/Changelog/DNS-0002.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/901b3a927cc516a70c0eda0f6900a19d77e10fe2a01b619497e3475d31834ace",
+        "sha256": "901b3a927cc516a70c0eda0f6900a19d77e10fe2a01b619497e3475d31834ace",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

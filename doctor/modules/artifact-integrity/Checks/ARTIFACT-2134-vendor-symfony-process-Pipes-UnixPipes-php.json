@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2134",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/Pipes/UnixPipes.php",
+        "summary": "Verify vendor/symfony/process/Pipes/UnixPipes.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2134",
+        "path": "{APP_ROOT}/vendor/symfony/process/Pipes/UnixPipes.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/55a1b13c6845ca9e7265ae07c954ca96d64f98b03bbf60a59c9d97f0760d750a",
+        "sha256": "55a1b13c6845ca9e7265ae07c954ca96d64f98b03bbf60a59c9d97f0760d750a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

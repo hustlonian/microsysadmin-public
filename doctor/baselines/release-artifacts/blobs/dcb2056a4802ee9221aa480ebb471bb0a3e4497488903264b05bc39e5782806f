@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "COMPOSER-D0003",
+        "check_id": "COMPOSER-C0003",
+        "module": "composer",
+        "name": "Correct invalid Composer manifest JSON diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Correct invalid Composer manifest JSON.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed composer json invalid condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "COMPOSER-0003"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

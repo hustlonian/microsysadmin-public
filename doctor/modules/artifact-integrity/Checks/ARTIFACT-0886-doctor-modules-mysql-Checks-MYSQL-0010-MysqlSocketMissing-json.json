@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0886",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Checks/MYSQL-0010-MysqlSocketMissing.json",
+        "summary": "Verify doctor/modules/mysql/Checks/MYSQL-0010-MysqlSocketMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0886",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Checks/MYSQL-0010-MysqlSocketMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/812146e9c46ae8c21a4bab56682f963f3ea7adc90d55d9c169fe0eb934c3ee1f",
+        "sha256": "812146e9c46ae8c21a4bab56682f963f3ea7adc90d55d9c169fe0eb934c3ee1f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

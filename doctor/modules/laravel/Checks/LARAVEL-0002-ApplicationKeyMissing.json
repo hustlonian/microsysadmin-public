@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "LARAVEL-C0002",
+        "module": "laravel",
+        "name": "Report a missing Laravel application key",
+        "summary": "Report a missing Laravel application key.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "laravel",
+            "application-key-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "env_value",
+        "path": "{PROJECT}/.env",
+        "key": "APP_KEY"
+    },
+    "failure_status": "FAIL"
+}

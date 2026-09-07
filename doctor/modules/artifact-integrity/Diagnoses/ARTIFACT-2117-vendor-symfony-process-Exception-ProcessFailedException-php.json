@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2117",
+        "check_id": "ARTIFACT-C2117",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/symfony/process/Exception/ProcessFailedException.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/symfony/process/Exception/ProcessFailedException.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 3065238d8730da4e7f3bac06eb3808f081a0539079e4d8e1be0a5cb761e52ffd with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2117"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

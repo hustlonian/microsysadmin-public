@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0757",
+    "artifact": "doctor/modules/laravel/Repairs/LARAVEL-0006-FrameworkSessionDirectoryMissing.json",
+    "baseline_sha256": "656f6e666b38e1c740eef26cbde59f8343aac34c6eea256ae988c5752ab1943c",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

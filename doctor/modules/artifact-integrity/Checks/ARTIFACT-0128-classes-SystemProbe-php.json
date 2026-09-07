@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0128",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/SystemProbe.php",
+        "summary": "Verify classes/SystemProbe.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0128",
+        "path": "{APP_ROOT}/classes/SystemProbe.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/224329311a332a6923a69641cd8af4ef6a3b36e53c6cf7587da73c3878d70438",
+        "sha256": "224329311a332a6923a69641cd8af4ef6a3b36e53c6cf7587da73c3878d70438",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

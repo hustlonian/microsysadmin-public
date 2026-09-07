@@ -1,0 +1,42 @@
+#!/opt/lampp/bin/php
+<?php
+
+declare(strict_types=1);
+
+define('APP_ROOT', dirname(__DIR__, 2));
+define('STORAGE_PATH', APP_ROOT . '/storage');
+require APP_ROOT . '/vendor/autoload.php';
+
+use SysAdmin\Doctor\sdk\Quality\CommercialLibraryAuditor;
+
+$options = getopt('', ['json', 'output-root::']);
+$outputRoot = (string) ($options['output-root'] ?? APP_ROOT . '/doctor/reports');
+if (!is_dir($outputRoot) && !mkdir($outputRoot, 0775, true) && !is_dir($outputRoot)) {
+    fwrite(STDERR, "Unable to create Doctor commercial report directory.\n");
+    exit(1);
+}
+
+try {
+    $auditor = new CommercialLibraryAuditor(APP_ROOT . '/doctor/modules');
+    $report = $auditor->audit();
+    $jsonPath = rtrim($outputRoot, '/') . '/commercial-library-audit.json';
+    $markdownPath = rtrim($outputRoot, '/') . '/commercial-library-audit.md';
+    file_put_contents($jsonPath, json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR) . "\n", LOCK_EX);
+    file_put_contents($markdownPath, $auditor->markdown($report), LOCK_EX);
+    if (isset($options['json'])) {
+        echo json_encode($report, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR), PHP_EOL;
+    } else {
+        echo sprintf(
+            "Commercial audit: %d definitions, %d executable, %.2f%% rollback, %.2f/100 readiness.\nJSON: %s\nMarkdown: %s\n",
+            $report['counts']['definitions'],
+            $report['counts']['executable'],
+            $report['coverage']['rollback_percent'],
+            $report['commercial_readiness_score'],
+            $jsonPath,
+            $markdownPath,
+        );
+    }
+} catch (Throwable $exception) {
+    fwrite(STDERR, 'Commercial library audit failed: ' . $exception->getMessage() . PHP_EOL);
+    exit(1);
+}

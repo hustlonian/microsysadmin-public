@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0753",
+    "artifact": "doctor/modules/laravel/Repairs/LARAVEL-0002-ApplicationKeyMissing.json",
+    "baseline_sha256": "e6613688cd6bba3edc02056d73a724093c0f30c39b6a474e82dbee845cf7d402",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,125 @@
+{
+    "metadata": {
+        "repair_id": "FILESYSTEM-0009",
+        "module": "filesystem",
+        "name": "Repair a broken project public storage link",
+        "summary": "Repair a broken project public storage link.",
+        "problem_description": "Repair a broken project public storage link.",
+        "symptoms": [
+            "Repair a broken project public storage link."
+        ],
+        "probable_causes": [
+            "The observed broken public storage link condition differs from the required state."
+        ],
+        "severity": "HIGH",
+        "risk_level": "LOW",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "default_execution_policy": "safe-with-backup",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "not framework-dependent"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "bounded local repair scope"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{PROJECT}/public/storage",
+            "{PROJECT}/storage/app/public"
+        ],
+        "files_modified": [
+            "{PROJECT}/public/storage"
+        ],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "exact pre-repair symlink-target capture with current-target rollback guard",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "<1 minute",
+        "verification_method": "Re-run the independent FILESYSTEM-C0009 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "filesystem",
+            "broken-public-storage-link",
+            "sdk-generated",
+            "repair_symlink"
+        ],
+        "documentation_reference": "modules/filesystem/Docs/FILESYSTEM-0009.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores a bounded supported state",
+        "support_issue_family": "laravel-storage-link",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "symlink_wrong_target",
+        "path": "{PROJECT}/public/storage",
+        "target": "{PROJECT}/storage/app/public"
+    },
+    "actions": [
+        {
+            "type": "repair_symlink",
+            "path": "{PROJECT}/public/storage",
+            "target": "{PROJECT}/storage/app/public",
+            "description": "Replace only an existing non-escaping project symlink that points away from the exact Laravel public-storage target."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "symlink_wrong_target",
+        "path": "{PROJECT}/public/storage",
+        "target": "{PROJECT}/storage/app/public"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "exact pre-repair symlink-target capture with current-target rollback guard",
+        "primitive": "repair_symlink",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.filesystem-0009",
+        "primitive": "repair_symlink",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "laravel-storage-link",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

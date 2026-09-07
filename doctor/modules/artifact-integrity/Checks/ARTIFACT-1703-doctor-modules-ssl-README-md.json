@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1703",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/README.md",
+        "summary": "Verify doctor/modules/ssl/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1703",
+        "path": "{APP_ROOT}/doctor/modules/ssl/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5dfc893ff1fcce54beb5a5015382da637fef2eca7e0b714dd5504dbab83a150a",
+        "sha256": "5dfc893ff1fcce54beb5a5015382da637fef2eca7e0b714dd5504dbab83a150a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

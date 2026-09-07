@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1786",
+    "artifact": "doctor/modules/xampp/Repairs/XAMPP-0006-XamppApacheStopped.json",
+    "baseline_sha256": "97b1c98d1652b2694fc8afc2b54295b9acd673e89dec17e412489c0c6efb2b48",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1000",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Diagnoses/PERFORMANCE-0002-RootDiskCapacityPressure.json",
+        "summary": "Verify doctor/modules/performance/Diagnoses/PERFORMANCE-0002-RootDiskCapacityPressure.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1000",
+        "path": "{APP_ROOT}/doctor/modules/performance/Diagnoses/PERFORMANCE-0002-RootDiskCapacityPressure.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ca59bdc5a49e2f4918ce8a6e5a65874e9b4375fbf04c1e425e51425cb411efb6",
+        "sha256": "ca59bdc5a49e2f4918ce8a6e5a65874e9b4375fbf04c1e425e51425cb411efb6",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

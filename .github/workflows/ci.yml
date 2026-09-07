@@ -1,0 +1,149 @@
+name: MicroSysAdmin CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "release/**"
+
+permissions:
+  contents: read
+
+jobs:
+  repository:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: curl, json, mbstring, openssl, pdo_mysql, zip
+          tools: composer:v2
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Validate Composer metadata
+        run: composer validate --no-check-publish --no-interaction
+
+      - name: Repository policy
+        run: |
+          ./scripts/check-forbidden-files.sh
+          ./scripts/check-secrets.sh --history
+          MICROSYSADMIN_GIT_SKIP_TESTS=1 ./scripts/check-repository.sh
+
+      - name: PHP syntax
+        run: find . -path ./vendor -prune -o -path ./storage -prune -o -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: Doctor commercial contracts
+        run: |
+          php doctor/tests/sdk.php
+          php doctor/tests/run.php
+          php doctor/tests/time-forward.php
+          php doctor/tests/directory-time-forward.php
+          ./doctor/tests/privileged-helper.sh
+
+      - name: Shell syntax
+        run: find . -path ./vendor -prune -o -name '*.sh' -print0 | xargs -0 -n1 bash -n
+
+      - name: ShellCheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes shellcheck
+          find . -path ./vendor -prune -o -path ./storage -prune -o -type f \( -name '*.sh' -o -name 'microsysadmin-git' \) -print0 | xargs -0 shellcheck -x
+
+      - name: Installer failure modes
+        run: |
+          ./tests/installer-failure-modes.sh
+          ./tests/github-test-vm-sync.sh
+
+  commercial-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: microsysadmin-ci-root
+        ports:
+          - 13306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -pmicrosysadmin-ci-root"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          extensions: curl, json, mbstring, openssl, pdo_mysql, zip
+          tools: composer:v2
+
+      - name: Ensure MySQL client
+        run: |
+          if ! command -v mysql >/dev/null || ! command -v mysqldump >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install --yes mysql-client
+          fi
+
+      - name: Install dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+
+      - name: Install disposable MicroSysAdmin configuration
+        env:
+          MICROSYSADMIN_ADMIN_PASSWORD: MicroSysAdmin-CI-Owner-74!
+          MICROSYSADMIN_DB_PASSWORD: microsysadmin-ci-root
+        run: |
+          ./install.sh \
+            --admin-username=ci-owner \
+            --admin-email=ci@example.test \
+            --security-profile=safe \
+            --db-host=127.0.0.1 \
+            --db-port=13306 \
+            --db-socket= \
+            --db-name=microsysadmin_ci \
+            --db-user=root \
+            --php-binary="$(command -v php)" \
+            --composer-binary="$(command -v composer)" \
+            --git-binary="$(command -v git)" \
+            --bash-binary="$(command -v bash)" \
+            --mysql-binary="$(command -v mysql)" \
+            --mysqldump-binary="$(command -v mysqldump)" \
+            --document-root=/tmp/microsysadmin-projects \
+            --allowed-root=/tmp/microsysadmin-projects \
+            --storage-root=/tmp/microsysadmin-storage \
+            --private-root=/tmp/microsysadmin-private \
+            --backup-root=/tmp/microsysadmin-storage/backups \
+            --trash-root=/tmp/microsysadmin-storage/trash \
+            --scripts-root=/tmp/microsysadmin-storage/scripts \
+            --workspace-root=/tmp/microsysadmin-storage/workspace \
+            --service-driver=inspection \
+            --terminal-available=0 \
+            --system-integration=skip
+
+      - name: Run MicroSysAdmin tests
+        run: |
+          php tests/run.php
+          php tests/demo-login.php
+          ./tests/git-manager-failure-modes.sh
+
+  clean-install:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Exact customer install and canary
+        shell: bash
+        run: ./tools/github-test-vm/vm install-clean

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0540",
+    "artifact": "doctor/modules/dns/repair-inventory.json",
+    "baseline_sha256": "c9f79c222f20167aeffd7c19f7c147bb4f4711a67a948ff9e333fddab329bf20",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

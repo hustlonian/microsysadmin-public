@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0177",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/HUB-CONNECTION.md",
+        "summary": "Verify docs/HUB-CONNECTION.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0177",
+        "path": "{APP_ROOT}/docs/HUB-CONNECTION.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/dc9e207bbaa20f274596f09759dc9245aa08a74efe3c8d7d867cdfc1054467ad",
+        "sha256": "dc9e207bbaa20f274596f09759dc9245aa08a74efe3c8d7d867cdfc1054467ad",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

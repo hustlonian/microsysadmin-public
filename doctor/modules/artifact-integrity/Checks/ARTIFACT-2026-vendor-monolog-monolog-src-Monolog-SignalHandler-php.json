@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2026",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/SignalHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/SignalHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2026",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/SignalHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ed097894188b05bbb61cc7c991e451e20a1997a7129c9167ee383adbc59460c8",
+        "sha256": "ed097894188b05bbb61cc7c991e451e20a1997a7129c9167ee383adbc59460c8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

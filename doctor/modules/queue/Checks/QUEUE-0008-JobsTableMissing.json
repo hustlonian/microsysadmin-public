@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "QUEUE-C0008",
+        "module": "queue",
+        "name": "Restore the missing Laravel jobs table",
+        "summary": "Restore the missing Laravel jobs table.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "queue",
+            "jobs-table-missing"
+        ]
+    },
+    "supports": {
+        "queue_expected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "database_table_exists",
+        "table": "jobs"
+    },
+    "failure_status": "FAIL"
+}

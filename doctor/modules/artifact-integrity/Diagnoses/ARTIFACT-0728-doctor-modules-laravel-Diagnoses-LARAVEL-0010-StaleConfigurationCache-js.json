@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0728",
+        "check_id": "ARTIFACT-C0728",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/laravel/Diagnoses/LARAVEL-0010-StaleConfigurationCache.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/laravel/Diagnoses/LARAVEL-0010-StaleConfigurationCache.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 d63d938848d3b5f3bbdb5fd5a8a8c5a1fe268efbd0e5f8562bfda780e5ba4c1b with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0728"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

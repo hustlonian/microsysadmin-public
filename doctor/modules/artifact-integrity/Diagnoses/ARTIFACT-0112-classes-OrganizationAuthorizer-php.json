@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0112",
+        "check_id": "ARTIFACT-C0112",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/OrganizationAuthorizer.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/OrganizationAuthorizer.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 2a914bb47bbd92d053349c81918c6cc197e4af9189bd6e44c8647bcb9d0c20b2 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0112"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

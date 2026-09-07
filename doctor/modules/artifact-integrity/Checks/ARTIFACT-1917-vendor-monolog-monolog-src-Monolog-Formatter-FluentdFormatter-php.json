@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1917",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/FluentdFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/FluentdFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1917",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/FluentdFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e5fe3b2257732c2bdd08a31cb1dbc21211600152c6ce802d14657e2df053f38b",
+        "sha256": "e5fe3b2257732c2bdd08a31cb1dbc21211600152c6ce802d14657e2df053f38b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

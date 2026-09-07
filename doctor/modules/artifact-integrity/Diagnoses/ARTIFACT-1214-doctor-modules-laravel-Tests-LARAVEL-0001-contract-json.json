@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1214",
+        "check_id": "ARTIFACT-C1214",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/laravel/Tests/LARAVEL-0001.contract.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/laravel/Tests/LARAVEL-0001.contract.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c5a56ea05b8834ec74a4fa3f477eeb0d6550b830cbaf3afba8d776abd691e69d with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1214"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0934",
+    "artifact": "doctor/modules/nginx/Checks/NGINX-0002-NginxServiceStopped.json",
+    "baseline_sha256": "413d38e6e1bcde922ef6178ec3910f9794b48bd1a709e4bb2a5f3f524c56d7a6",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

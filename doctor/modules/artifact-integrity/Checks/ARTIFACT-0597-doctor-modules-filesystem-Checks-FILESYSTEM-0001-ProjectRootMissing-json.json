@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0597",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Checks/FILESYSTEM-0001-ProjectRootMissing.json",
+        "summary": "Verify doctor/modules/filesystem/Checks/FILESYSTEM-0001-ProjectRootMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0597",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Checks/FILESYSTEM-0001-ProjectRootMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a1fe8164ae636fc73b8bfffee168d148e31829f4b25bf415c326a7dac3cd585e",
+        "sha256": "a1fe8164ae636fc73b8bfffee168d148e31829f4b25bf415c326a7dac3cd585e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

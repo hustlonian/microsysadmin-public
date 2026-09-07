@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0110",
+        "check_id": "ARTIFACT-C0110",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/MysqlService.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/MysqlService.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b645b893ac90de63bfd18ac4f241a2cb56ce4b1c5725b79ccc5d10d2e296dd1d with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0110"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

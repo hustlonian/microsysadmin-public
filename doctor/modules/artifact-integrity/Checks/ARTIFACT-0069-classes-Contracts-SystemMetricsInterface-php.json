@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0069",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/SystemMetricsInterface.php",
+        "summary": "Verify classes/Contracts/SystemMetricsInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0069",
+        "path": "{APP_ROOT}/classes/Contracts/SystemMetricsInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/69e14aeadce1368e089dca1478da64b2887002fce379a016e2da84d3d12df04c",
+        "sha256": "69e14aeadce1368e089dca1478da64b2887002fce379a016e2da84d3d12df04c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

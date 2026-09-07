@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1705",
+        "check_id": "ARTIFACT-C1705",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/ssl/Repairs/SSL-0002-CertificateFileMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/ssl/Repairs/SSL-0002-CertificateFileMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 46ba0a3dc481536099135d110ca7059b0bc18b4da9da865d7e0ef3e62554cf04 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1705"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0010",
+        "module": "backups",
+        "name": "Verify backup restoration in an isolated environment",
+        "summary": "Verify backup restoration in an isolated environment.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "backup-restoration-unverified"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_readable",
+        "path": "{STORAGE_PATH}/backups"
+    },
+    "failure_status": "FAIL"
+}

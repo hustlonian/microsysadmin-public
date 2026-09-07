@@ -1,0 +1,45 @@
+{
+    "metadata": {
+        "diagnosis_id": "SECURITY-D0003",
+        "check_id": "SECURITY-C0003",
+        "module": "security",
+        "name": "Restore missing private-key storage diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore missing private-key storage.",
+        "expected_state": "The fixed XAMPP installation contains a real private-key storage directory.",
+        "probable_cause": "The observed private key directory missing condition differs from the required state.",
+        "confidence": 0.9499999999999999555910790149937383830547332763671875,
+        "related_repair_ids": [
+            "SECURITY-0003"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "Only the fixed missing /opt/lampp/etc/ssl.key directory is created through an allowlisted helper token; rollback validates device, inode, mode, UID, and GID and removes it only while empty."
+    },
+    "repair_generation": {
+        "repair_id": "SECURITY-0003",
+        "name": "Restore missing XAMPP private-key storage",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "risk_level": "LOW",
+        "backup_strategy": "exact helper-created directory identity with empty-directory rollback guard",
+        "directories_modified": [
+            "/opt/lampp/etc/ssl.key"
+        ],
+        "required_permissions": [
+            "scoped privileged helper access to the fixed XAMPP private-key directory"
+        ],
+        "supported_web_servers": [
+            "XAMPP/LAMPP"
+        ],
+        "action": {
+            "type": "create_known_directory",
+            "target": "xampp-ssl-key",
+            "path": "/opt/lampp/etc/ssl.key",
+            "timeout": 60,
+            "description": "Create only the fixed XAMPP private-key storage directory through the allowlisted helper token."
+        },
+        "commercial_tier": "professional",
+        "support_issue_family": "xampp-private-key-directory"
+    }
+}

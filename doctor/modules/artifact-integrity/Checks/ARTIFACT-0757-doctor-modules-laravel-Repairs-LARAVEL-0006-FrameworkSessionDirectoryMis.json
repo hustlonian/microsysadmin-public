@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0757",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Repairs/LARAVEL-0006-FrameworkSessionDirectoryMissing.json",
+        "summary": "Verify doctor/modules/laravel/Repairs/LARAVEL-0006-FrameworkSessionDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0757",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Repairs/LARAVEL-0006-FrameworkSessionDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/656f6e666b38e1c740eef26cbde59f8343aac34c6eea256ae988c5752ab1943c",
+        "sha256": "656f6e666b38e1c740eef26cbde59f8343aac34c6eea256ae988c5752ab1943c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

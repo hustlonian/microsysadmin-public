@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "XAMPP-C0004",
+        "module": "xampp",
+        "name": "Restore the missing XAMPP Apache executable",
+        "summary": "Restore the missing XAMPP Apache executable.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "xampp",
+            "xampp-apache-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "xampp-httpd"
+    },
+    "failure_status": "FAIL"
+}

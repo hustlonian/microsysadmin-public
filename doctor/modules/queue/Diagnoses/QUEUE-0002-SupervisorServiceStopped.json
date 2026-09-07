@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "QUEUE-D0002",
+        "check_id": "QUEUE-C0002",
+        "module": "queue",
+        "name": "Start the stopped Supervisor service diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Start the stopped Supervisor service.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed supervisor service stopped condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "QUEUE-0002"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The repair is scoped, deterministic, previewed, and independently verified."
+    }
+}

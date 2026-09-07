@@ -1,0 +1,128 @@
+{
+    "metadata": {
+        "repair_id": "PERFORMANCE-0008",
+        "module": "performance",
+        "name": "Build Laravel production configuration cache",
+        "summary": "Build Laravel production configuration cache.",
+        "problem_description": "Build Laravel production configuration cache.",
+        "symptoms": [
+            "laravel config cache missing"
+        ],
+        "probable_causes": [
+            "The observed laravel config cache missing condition differs from the required state."
+        ],
+        "severity": "LOW",
+        "risk_level": "MEDIUM",
+        "automation_class": "APPROVAL_REQUIRED",
+        "default_execution_policy": "manual",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [
+            "php"
+        ],
+        "required_packages": [],
+        "required_permissions": [
+            "scoped write or service-control permission"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{PROJECT}/bootstrap/cache/config.php"
+        ],
+        "files_modified": [
+            "{PROJECT}/bootstrap/cache/config.php"
+        ],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "capture the exact pre-repair Laravel config-cache file and remove a hash-matching created file on rollback",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "1-5 minutes",
+        "verification_method": "Re-run the independent PERFORMANCE-C0008 probe after execution.",
+        "repair_version": "1.1.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "performance",
+            "laravel-config-cache-missing",
+            "low"
+        ],
+        "documentation_reference": "modules/performance/Docs/PERFORMANCE-0008.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores one bounded supported state",
+        "support_issue_family": "performance",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "file_exists",
+        "path": "{PROJECT}/bootstrap/cache/config.php"
+    },
+    "actions": [
+        {
+            "type": "artisan_command",
+            "command": "config:cache",
+            "effects": [
+                "{PROJECT}/bootstrap/cache/config.php"
+            ],
+            "timeout": 120,
+            "description": "Build Laravel configuration cache."
+        }
+    ],
+    "backup_paths": [
+        "{PROJECT}/bootstrap/cache/config.php"
+    ],
+    "verification": {
+        "type": "file_exists",
+        "path": "{PROJECT}/bootstrap/cache/config.php"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "capture the exact pre-repair Laravel config-cache file and remove a hash-matching created file on rollback",
+        "primitive": "artisan_command",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.performance-0008",
+        "primitive": "artisan_command",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "performance",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1924",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/LogglyFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/LogglyFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1924",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/LogglyFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/eb41c1b207a8096f02cfb3a8b44bf9502c5ab54ac3f6cad814256f88629cb1d7",
+        "sha256": "eb41c1b207a8096f02cfb3a8b44bf9502c5ab54ac3f6cad814256f88629cb1d7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

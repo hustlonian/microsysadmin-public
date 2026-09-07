@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0450",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Docs/CRON-0001.md",
+        "summary": "Verify doctor/modules/cron/Docs/CRON-0001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0450",
+        "path": "{APP_ROOT}/doctor/modules/cron/Docs/CRON-0001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0b1d288050a1118d23130eb15e638209a7a51dbe0587a76d1e925556136fd11d",
+        "sha256": "0b1d288050a1118d23130eb15e638209a7a51dbe0587a76d1e925556136fd11d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

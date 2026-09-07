@@ -1,0 +1,112 @@
+{
+    "metadata": {
+        "repair_id": "FILESYSTEM-0001",
+        "module": "filesystem",
+        "name": "Restore the missing project root",
+        "summary": "Restore the missing project root.",
+        "problem_description": "Restore the missing project root.",
+        "symptoms": [
+            "project root missing"
+        ],
+        "probable_causes": [
+            "The observed project root missing condition differs from the required state."
+        ],
+        "severity": "CRITICAL",
+        "risk_level": "MEDIUM",
+        "automation_class": "REPORT_ONLY",
+        "default_execution_policy": "manual",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "read"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{PROJECT}"
+        ],
+        "files_modified": [],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "none-required",
+        "rollback_supported": false,
+        "destructive": false,
+        "estimated_duration": "<1 minute review",
+        "verification_method": "Re-run the independent FILESYSTEM-C0001 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "filesystem",
+            "project-root-missing",
+            "critical"
+        ],
+        "documentation_reference": "modules/filesystem/Docs/FILESYSTEM-0001.md",
+        "commercial_tier": "advisory",
+        "customer_impact": "provides evidence and operator guidance",
+        "support_issue_family": "filesystem",
+        "safety_review": "advisory-only"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "directory_exists",
+        "path": "{PROJECT}"
+    },
+    "actions": [],
+    "backup_paths": [],
+    "verification": {
+        "type": "directory_exists",
+        "path": "{PROJECT}"
+    },
+    "rollback": {
+        "supported": false,
+        "strategy": "not-yet-implemented",
+        "primitive": null,
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.filesystem-0001",
+        "primitive": null,
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "advisory",
+        "support_issue_family": "filesystem",
+        "deterministic": null,
+        "bounded": null,
+        "reversible": null,
+        "independently_verifiable": null,
+        "quality_status": "advisory-only"
+    }
+}

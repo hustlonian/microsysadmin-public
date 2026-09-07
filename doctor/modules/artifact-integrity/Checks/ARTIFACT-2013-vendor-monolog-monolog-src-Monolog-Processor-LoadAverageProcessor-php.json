@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2013",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Processor/LoadAverageProcessor.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Processor/LoadAverageProcessor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2013",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Processor/LoadAverageProcessor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/436a0c0836430b05fef0d692da2843804e27cb60bc2ccba2cd79a8a03a0238c7",
+        "sha256": "436a0c0836430b05fef0d692da2843804e27cb60bc2ccba2cd79a8a03a0238c7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

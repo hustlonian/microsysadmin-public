@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0362",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Repairs/BACKUP-0003-DoctorBackupRootMissing.json",
+        "summary": "Verify doctor/modules/backups/Repairs/BACKUP-0003-DoctorBackupRootMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0362",
+        "path": "{APP_ROOT}/doctor/modules/backups/Repairs/BACKUP-0003-DoctorBackupRootMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f9a9900c160e5a9d403fc076cb9ec6c79300b62e259989f06b5a9e293f438e6b",
+        "sha256": "f9a9900c160e5a9d403fc076cb9ec6c79300b62e259989f06b5a9e293f438e6b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

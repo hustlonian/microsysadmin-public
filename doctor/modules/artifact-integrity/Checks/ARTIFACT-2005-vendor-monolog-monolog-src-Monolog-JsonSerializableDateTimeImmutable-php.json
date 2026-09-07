@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2005",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/JsonSerializableDateTimeImmutable.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/JsonSerializableDateTimeImmutable.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2005",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/JsonSerializableDateTimeImmutable.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/10ef69c94ac474e47e7910aaa668c783b7a51c46651a0c0daaa1c3dd0f264eb1",
+        "sha256": "10ef69c94ac474e47e7910aaa668c783b7a51c46651a0c0daaa1c3dd0f264eb1",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

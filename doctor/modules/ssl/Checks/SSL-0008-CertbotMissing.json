@@ -1,0 +1,24 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0008",
+        "module": "ssl",
+        "name": "Provide a TLS certificate management client",
+        "summary": "Provide Certbot for public certificates or OpenSSL for local certificates.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "certbot-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "any_executable_exists",
+        "commands": [
+            "certbot",
+            "openssl"
+        ]
+    },
+    "failure_status": "WARNING"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1400",
+        "check_id": "ARTIFACT-C1400",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/php/Repairs/PHP-0003-PdoMysqlExtensionMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/php/Repairs/PHP-0003-PdoMysqlExtensionMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 500e94f4f8b61ffffd6687d32fbed5fcc6fbdda3f754694fd55f40734f23bd38 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1400"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

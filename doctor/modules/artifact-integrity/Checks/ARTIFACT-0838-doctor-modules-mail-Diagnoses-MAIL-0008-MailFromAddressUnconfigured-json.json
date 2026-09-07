@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0838",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Diagnoses/MAIL-0008-MailFromAddressUnconfigured.json",
+        "summary": "Verify doctor/modules/mail/Diagnoses/MAIL-0008-MailFromAddressUnconfigured.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0838",
+        "path": "{APP_ROOT}/doctor/modules/mail/Diagnoses/MAIL-0008-MailFromAddressUnconfigured.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/23bc82aca9e5e27b1cdf5e8160c76b1cce92eb775f04cfc971e7375cd19a5930",
+        "sha256": "23bc82aca9e5e27b1cdf5e8160c76b1cce92eb775f04cfc971e7375cd19a5930",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

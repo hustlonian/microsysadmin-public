@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1160",
+    "artifact": "doctor/modules/filesystem/Changelog/FILESYSTEM-0009.md",
+    "baseline_sha256": "ab2cba83b9531def2c54b81cefe5e73dfea4971a1c03461f82db6b1d8eea977a",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

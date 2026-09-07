@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "LINUX-D0009",
+        "check_id": "LINUX-C0009",
+        "module": "linux",
+        "name": "Restore the missing system log directory diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore the missing system log directory.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed system log directory missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "LINUX-0009"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

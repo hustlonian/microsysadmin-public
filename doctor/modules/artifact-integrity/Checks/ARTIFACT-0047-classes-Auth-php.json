@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0047",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Auth.php",
+        "summary": "Verify classes/Auth.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0047",
+        "path": "{APP_ROOT}/classes/Auth.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f4b7ea8eb9d43613bc3f639811c2a586f97306d892fe9bc039575e4305f55a44",
+        "sha256": "f4b7ea8eb9d43613bc3f639811c2a586f97306d892fe9bc039575e4305f55a44",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

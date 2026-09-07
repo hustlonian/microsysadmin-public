@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1883",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/pages/search.php",
+        "summary": "Verify views/pages/search.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1883",
+        "path": "{APP_ROOT}/views/pages/search.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d505b4e2195c18ba15884fb863dc38e9da61cbb38c1a7c6fc3eab9223d5d529a",
+        "sha256": "d505b4e2195c18ba15884fb863dc38e9da61cbb38c1a7c6fc3eab9223d5d529a",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

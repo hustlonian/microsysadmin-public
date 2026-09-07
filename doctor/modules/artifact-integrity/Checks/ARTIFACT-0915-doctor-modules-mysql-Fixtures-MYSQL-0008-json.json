@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0915",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Fixtures/MYSQL-0008.json",
+        "summary": "Verify doctor/modules/mysql/Fixtures/MYSQL-0008.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0915",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Fixtures/MYSQL-0008.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/35bf31e0fb10483fcb27b9c3972d2df098dc560ae764438b91c8e058d987b3a8",
+        "sha256": "35bf31e0fb10483fcb27b9c3972d2df098dc560ae764438b91c8e058d987b3a8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

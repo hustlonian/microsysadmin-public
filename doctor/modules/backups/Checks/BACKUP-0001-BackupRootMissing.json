@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0001",
+        "module": "backups",
+        "name": "Create the missing backup root",
+        "summary": "Create the missing backup root.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "backup-root-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{STORAGE_PATH}/backups"
+    },
+    "failure_status": "FAIL"
+}

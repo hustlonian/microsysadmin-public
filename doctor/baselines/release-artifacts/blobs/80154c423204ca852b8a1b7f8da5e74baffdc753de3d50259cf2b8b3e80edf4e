@@ -1,0 +1,14 @@
+{
+    "repair_id": "SECURITY-0006",
+    "commercial_tier": "essential",
+    "customer_impact": "restores a bounded supported state",
+    "support_issue_family": "audit-log-storage",
+    "automation_class": "AUTO_SAFE",
+    "risk_level": "LOW",
+    "sdk_primitives": [
+        "create_directory"
+    ],
+    "quality_status": "contract-ready",
+    "rollback_supported": true,
+    "verification_defined": true
+}

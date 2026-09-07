@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0527",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/README.md",
+        "summary": "Verify doctor/modules/dns/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0527",
+        "path": "{APP_ROOT}/doctor/modules/dns/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8b1848f19c76582510b31aeaf062cde4c607f68dc517f9d29fccb2459d20731a",
+        "sha256": "8b1848f19c76582510b31aeaf062cde4c607f68dc517f9d29fccb2459d20731a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

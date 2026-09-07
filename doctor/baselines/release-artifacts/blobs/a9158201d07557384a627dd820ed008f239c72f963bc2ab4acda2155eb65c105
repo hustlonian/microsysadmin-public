@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "PHP-C0005",
+        "module": "php",
+        "name": "Enable the missing OpenSSL extension",
+        "summary": "Enable the missing OpenSSL extension.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "php",
+            "openssl-extension-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "php_extension",
+        "extension": "openssl"
+    },
+    "failure_status": "FAIL"
+}

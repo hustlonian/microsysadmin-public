@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1575",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Checks/SECURITY-0003-PrivateKeyDirectoryMissing.json",
+        "summary": "Verify doctor/modules/security/Checks/SECURITY-0003-PrivateKeyDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1575",
+        "path": "{APP_ROOT}/doctor/modules/security/Checks/SECURITY-0003-PrivateKeyDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/cb1b5a8f9741af567f79a3e3929fc67e86af8f03d7fe3952c67217f9a362497e",
+        "sha256": "cb1b5a8f9741af567f79a3e3929fc67e86af8f03d7fe3952c67217f9a362497e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

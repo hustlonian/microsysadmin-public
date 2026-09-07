@@ -1,0 +1,11 @@
+{
+    "name": "performance",
+    "display_name": "Performance",
+    "description": "Cause-specific Performance diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 3,
+    "enabled": true,
+    "repair_prefix": "PERFORMANCE",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

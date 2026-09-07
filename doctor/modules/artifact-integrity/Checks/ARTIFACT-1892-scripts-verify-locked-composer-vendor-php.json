@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1892",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/verify-locked-composer-vendor.php",
+        "summary": "Verify scripts/verify-locked-composer-vendor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1892",
+        "path": "{APP_ROOT}/scripts/verify-locked-composer-vendor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a5789a522170dcd72d2140a3d4bf878a438bd3130ddc3cc5016fefdcd0745fce",
+        "sha256": "a5789a522170dcd72d2140a3d4bf878a438bd3130ddc3cc5016fefdcd0745fce",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

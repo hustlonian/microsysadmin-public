@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-2579",
+    "directory": "doctor/modules/redis/Fixtures",
+    "mode": "0755",
+    "condition": "mode",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "existing non-symbolic directory with exact mode passes",
+        "missing": "missing state is owned by the distinct missing-directory repair and is not mutated by this repair",
+        "mode_drift": "wrong mode is restored and the prior mode is restored on rollback",
+        "obstruction": "symbolic or non-directory obstruction is excluded from automatic mutation"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

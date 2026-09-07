@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "DNS-C0009",
+        "module": "dns",
+        "name": "Install the missing DNS diagnostic utility",
+        "summary": "Install the missing DNS diagnostic utility.",
+        "severity": "LOW",
+        "version": "1.0.0",
+        "tags": [
+            "dns",
+            "dig-command-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "dig"
+    },
+    "failure_status": "WARNING"
+}

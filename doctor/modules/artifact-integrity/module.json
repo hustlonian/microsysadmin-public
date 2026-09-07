@@ -1,0 +1,11 @@
+{
+    "name": "artifact-integrity",
+    "display_name": "Artifact Integrity",
+    "description": "Local-only, zero-interaction restoration of immutable application release artifacts.",
+    "version": "1.0.0",
+    "stage": 6,
+    "enabled": true,
+    "repair_prefix": "ARTIFACT",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

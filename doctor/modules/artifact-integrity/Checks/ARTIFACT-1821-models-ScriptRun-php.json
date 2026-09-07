@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1821",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact models/ScriptRun.php",
+        "summary": "Verify models/ScriptRun.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1821",
+        "path": "{APP_ROOT}/models/ScriptRun.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3ac66f396df3373e66e179862f80a2d3d056938dcf807394f1ffdc8a42c16d54",
+        "sha256": "3ac66f396df3373e66e179862f80a2d3d056938dcf807394f1ffdc8a42c16d54",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

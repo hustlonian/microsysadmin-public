@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1573",
+    "artifact": "doctor/modules/security/Checks/SECURITY-0001-EnvironmentFileUnreadable.json",
+    "baseline_sha256": "e1ce7f341372836a9219b0c96fe6a77a88334cc805742ff1f9a6122eef240bf2",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

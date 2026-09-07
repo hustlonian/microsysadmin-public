@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0322",
+        "check_id": "ARTIFACT-C0322",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/backups/Checks/BACKUP-0006-BackupPartitionLowSpace.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/backups/Checks/BACKUP-0006-BackupPartitionLowSpace.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 a09f2c058d83fae7307b32d397b5a1a623ce29ca4561292116d68e63eb61e99b with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0322"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

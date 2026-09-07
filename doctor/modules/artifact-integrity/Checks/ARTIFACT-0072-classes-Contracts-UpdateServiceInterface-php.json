@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0072",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/UpdateServiceInterface.php",
+        "summary": "Verify classes/Contracts/UpdateServiceInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0072",
+        "path": "{APP_ROOT}/classes/Contracts/UpdateServiceInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d2fc0c56d885405ef3254b9c386a15b75ab1eb6ac0b57e651af15bafb0341fa0",
+        "sha256": "d2fc0c56d885405ef3254b9c386a15b75ab1eb6ac0b57e651af15bafb0341fa0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

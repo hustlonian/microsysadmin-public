@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1812",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Support/DotenvDocument.php",
+        "summary": "Verify doctor/sdk/Support/DotenvDocument.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1812",
+        "path": "{APP_ROOT}/doctor/sdk/Support/DotenvDocument.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/de490dcf531747dc2ea5a3e34f8c410067860350e2dbdd66461972733ecb11f0",
+        "sha256": "de490dcf531747dc2ea5a3e34f8c410067860350e2dbdd66461972733ecb11f0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

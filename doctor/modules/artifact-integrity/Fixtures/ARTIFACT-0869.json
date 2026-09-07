@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0869",
+    "artifact": "doctor/modules/mail/Repairs/MAIL-0006-MailTransportUnconfigured.json",
+    "baseline_sha256": "3b14b028d5f96fddf577e72b152c7d6c671c5af308311517d36f63dbc00a7601",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

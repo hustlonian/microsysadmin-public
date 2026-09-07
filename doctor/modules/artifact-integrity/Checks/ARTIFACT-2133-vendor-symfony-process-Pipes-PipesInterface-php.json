@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2133",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/Pipes/PipesInterface.php",
+        "summary": "Verify vendor/symfony/process/Pipes/PipesInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2133",
+        "path": "{APP_ROOT}/vendor/symfony/process/Pipes/PipesInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7045ea2133fe37c5ba243c44f7f23827918228b1a02ac83a0125d9c7fb6e72bc",
+        "sha256": "7045ea2133fe37c5ba243c44f7f23827918228b1a02ac83a0125d9c7fb6e72bc",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

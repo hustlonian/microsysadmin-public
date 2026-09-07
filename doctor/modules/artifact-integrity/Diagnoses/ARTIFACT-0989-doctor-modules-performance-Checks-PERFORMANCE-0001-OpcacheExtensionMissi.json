@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0989",
+        "check_id": "ARTIFACT-C0989",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/performance/Checks/PERFORMANCE-0001-OpcacheExtensionMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/performance/Checks/PERFORMANCE-0001-OpcacheExtensionMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 14486b8ae0ab7619da8723ea0640cb973a40fe742e4b5638368a99b635c876a9 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0989"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

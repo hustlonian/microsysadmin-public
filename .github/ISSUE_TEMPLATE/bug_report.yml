@@ -1,0 +1,43 @@
+name: Bug report
+description: Report a reproducible MicroSysAdmin defect without including secrets.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Do not include passwords, tokens, private keys, environment files, customer data, or unredacted machine paths.
+  - type: input
+    id: version
+    attributes:
+      label: MicroSysAdmin version
+    validations:
+      required: true
+  - type: dropdown
+    id: profile
+    attributes:
+      label: Security profile
+      options:
+        - Safe
+        - Developer
+        - Advanced
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0629",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Fixtures/FILESYSTEM-0002.json",
+        "summary": "Verify doctor/modules/filesystem/Fixtures/FILESYSTEM-0002.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0629",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Fixtures/FILESYSTEM-0002.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/44faf710b6e89fcc566f194cbd94f5798a6032051e00d7c7479737107a727151",
+        "sha256": "44faf710b6e89fcc566f194cbd94f5798a6032051e00d7c7479737107a727151",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

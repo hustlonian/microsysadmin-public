@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "LARAVEL-C0003",
+        "module": "laravel",
+        "name": "Restore missing Laravel vendor autoload files",
+        "summary": "Restore missing Laravel vendor autoload files.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "laravel",
+            "vendor-autoload-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "composer"
+    ],
+    "probe": {
+        "type": "file_exists",
+        "path": "{PROJECT}/vendor/autoload.php"
+    },
+    "failure_status": "FAIL"
+}

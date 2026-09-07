@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "FILESYSTEM-C0008",
+        "module": "filesystem",
+        "name": "Recover a read-only application filesystem",
+        "summary": "Recover a read-only application filesystem.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "filesystem",
+            "read-only-application-filesystem"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "findmnt"
+    ],
+    "probe": {
+        "type": "filesystem_mount_writable",
+        "path": "{PROJECT}"
+    },
+    "failure_status": "FAIL"
+}

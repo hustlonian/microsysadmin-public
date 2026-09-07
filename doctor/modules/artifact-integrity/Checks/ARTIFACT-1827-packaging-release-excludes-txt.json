@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1827",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact packaging/release-excludes.txt",
+        "summary": "Verify packaging/release-excludes.txt against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1827",
+        "path": "{APP_ROOT}/packaging/release-excludes.txt",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/35dfe559c06d140f8835165e25ca33a17acfde09db33ce1ae30c817a83934e05",
+        "sha256": "35dfe559c06d140f8835165e25ca33a17acfde09db33ce1ae30c817a83934e05",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

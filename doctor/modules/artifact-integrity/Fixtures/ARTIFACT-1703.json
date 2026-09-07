@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1703",
+    "artifact": "doctor/modules/ssl/README.md",
+    "baseline_sha256": "5dfc893ff1fcce54beb5a5015382da637fef2eca7e0b714dd5504dbab83a150a",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

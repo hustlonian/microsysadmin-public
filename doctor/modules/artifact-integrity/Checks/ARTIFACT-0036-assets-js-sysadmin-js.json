@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0036",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact assets/js/sysadmin.js",
+        "summary": "Verify assets/js/sysadmin.js against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0036",
+        "path": "{APP_ROOT}/assets/js/sysadmin.js",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ba2844c073a04754459bcd5c4fa5d75e1366a5acff31093561e87402d6e063cd",
+        "sha256": "ba2844c073a04754459bcd5c4fa5d75e1366a5acff31093561e87402d6e063cd",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

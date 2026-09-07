@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1147",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Commercial/DOCKER-0006.json",
+        "summary": "Verify doctor/modules/docker/Commercial/DOCKER-0006.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1147",
+        "path": "{APP_ROOT}/doctor/modules/docker/Commercial/DOCKER-0006.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c806ea55ace614cabd4b5bb10ee2f215fe69a7aa207d3b0c746a13242f5f2a44",
+        "sha256": "c806ea55ace614cabd4b5bb10ee2f215fe69a7aa207d3b0c746a13242f5f2a44",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

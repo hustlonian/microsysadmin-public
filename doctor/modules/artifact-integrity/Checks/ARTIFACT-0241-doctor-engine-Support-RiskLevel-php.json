@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0241",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Support/RiskLevel.php",
+        "summary": "Verify doctor/engine/Support/RiskLevel.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0241",
+        "path": "{APP_ROOT}/doctor/engine/Support/RiskLevel.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e2858fd4e9c9b6436503304b0c4f6fa9790e2fac3db0f7ef84f1cec769ee5684",
+        "sha256": "e2858fd4e9c9b6436503304b0c4f6fa9790e2fac3db0f7ef84f1cec769ee5684",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

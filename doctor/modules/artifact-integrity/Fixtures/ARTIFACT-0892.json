@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0892",
+    "artifact": "doctor/modules/mysql/Diagnoses/MYSQL-0006-SchemaMigrationsTableMissing.json",
+    "baseline_sha256": "6649982ea4dcf0a2e01bafd014ebb685f1f1f40d42157b36239a166f35609a30",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

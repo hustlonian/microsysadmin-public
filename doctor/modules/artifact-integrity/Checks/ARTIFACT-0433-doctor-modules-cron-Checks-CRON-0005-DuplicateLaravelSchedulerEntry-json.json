@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0433",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Checks/CRON-0005-DuplicateLaravelSchedulerEntry.json",
+        "summary": "Verify doctor/modules/cron/Checks/CRON-0005-DuplicateLaravelSchedulerEntry.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0433",
+        "path": "{APP_ROOT}/doctor/modules/cron/Checks/CRON-0005-DuplicateLaravelSchedulerEntry.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e5c23bbfddf030e6beab48f82bc66167eec462ff0b3c360223cb96858006a583",
+        "sha256": "e5c23bbfddf030e6beab48f82bc66167eec462ff0b3c360223cb96858006a583",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

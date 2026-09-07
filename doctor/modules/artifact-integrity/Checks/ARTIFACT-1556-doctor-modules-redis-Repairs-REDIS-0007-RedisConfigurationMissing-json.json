@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1556",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Repairs/REDIS-0007-RedisConfigurationMissing.json",
+        "summary": "Verify doctor/modules/redis/Repairs/REDIS-0007-RedisConfigurationMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1556",
+        "path": "{APP_ROOT}/doctor/modules/redis/Repairs/REDIS-0007-RedisConfigurationMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b676c4c82b3c2e19187cea9fa2dd73a63452a1f8d926f4b000bed9c4b6af5dd8",
+        "sha256": "b676c4c82b3c2e19187cea9fa2dd73a63452a1f8d926f4b000bed9c4b6af5dd8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

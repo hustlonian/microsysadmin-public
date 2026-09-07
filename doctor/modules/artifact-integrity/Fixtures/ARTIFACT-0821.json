@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0821",
+    "artifact": "doctor/modules/mail/Checks/MAIL-0001-SendmailCommandMissing.json",
+    "baseline_sha256": "de945b17427a633b59cb152aad4e205f883048a1b53f8d63c8a6750b24d247e9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

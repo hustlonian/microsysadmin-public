@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "MYSQL-C0003",
+        "module": "mysql",
+        "name": "Restore the unavailable MySQL TCP endpoint",
+        "summary": "Restore the unavailable MySQL TCP endpoint.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "mysql",
+            "mysql-port-unavailable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "tcp_connect",
+        "host": "127.0.0.1",
+        "port": 3306,
+        "timeout": 1
+    },
+    "failure_status": "FAIL"
+}

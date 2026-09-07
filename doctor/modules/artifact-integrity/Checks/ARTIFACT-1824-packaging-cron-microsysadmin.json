@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1824",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact packaging/cron/microsysadmin",
+        "summary": "Verify packaging/cron/microsysadmin against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1824",
+        "path": "{APP_ROOT}/packaging/cron/microsysadmin",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b6da397d0af51ba751c6aa283ca1c858ce0d1eac21225c9924888ec8dd31b032",
+        "sha256": "b6da397d0af51ba751c6aa283ca1c858ce0d1eac21225c9924888ec8dd31b032",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1717",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/repair-inventory.json",
+        "summary": "Verify doctor/modules/ssl/repair-inventory.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1717",
+        "path": "{APP_ROOT}/doctor/modules/ssl/repair-inventory.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3f3d48c2112a697243d99ba52ae181c4f5f5c70747611e88ea4f19ea3b9841d5",
+        "sha256": "3f3d48c2112a697243d99ba52ae181c4f5f5c70747611e88ea4f19ea3b9841d5",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

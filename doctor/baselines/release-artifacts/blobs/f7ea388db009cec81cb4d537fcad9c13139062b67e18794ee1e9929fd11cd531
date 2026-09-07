@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0004",
+        "module": "redis",
+        "name": "Start the stopped Redis service",
+        "summary": "Start the stopped Redis service.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "redis-service-stopped"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_active",
+        "service": "redis-server"
+    },
+    "failure_status": "FAIL"
+}

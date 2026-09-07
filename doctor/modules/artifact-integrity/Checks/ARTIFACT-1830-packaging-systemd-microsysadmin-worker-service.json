@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1830",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact packaging/systemd/microsysadmin-worker.service",
+        "summary": "Verify packaging/systemd/microsysadmin-worker.service against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1830",
+        "path": "{APP_ROOT}/packaging/systemd/microsysadmin-worker.service",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b12d39d1003b6a25941cb024e3da8b50de8630c2cdf80369b915248edd1d5398",
+        "sha256": "b12d39d1003b6a25941cb024e3da8b50de8630c2cdf80369b915248edd1d5398",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1215",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Changelog/LINUX-0001.md",
+        "summary": "Verify doctor/modules/linux/Changelog/LINUX-0001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1215",
+        "path": "{APP_ROOT}/doctor/modules/linux/Changelog/LINUX-0001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3e1e2583df5c1e91f6affea9b233febc60c252eb7156b3295c5446f5241c4a23",
+        "sha256": "3e1e2583df5c1e91f6affea9b233febc60c252eb7156b3295c5446f5241c4a23",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

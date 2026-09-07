@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "LINUX-C0001",
+        "module": "linux",
+        "name": "Restore missing operating-system release metadata",
+        "summary": "Restore missing operating-system release metadata.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "linux",
+            "operating-system-release-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/etc/os-release"
+    },
+    "failure_status": "FAIL"
+}

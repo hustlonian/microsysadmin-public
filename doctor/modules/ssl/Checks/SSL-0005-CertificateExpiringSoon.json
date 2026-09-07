@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0005",
+        "module": "ssl",
+        "name": "Renew a TLS certificate nearing expiration",
+        "summary": "Renew a TLS certificate nearing expiration.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "certificate-expiring-soon"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "openssl"
+    ],
+    "probe": {
+        "type": "certificate_expiry",
+        "certificate": "/opt/lampp/etc/ssl.crt/server.crt",
+        "mode": "expiring",
+        "minimum_valid_seconds": 1209600
+    },
+    "failure_status": "FAIL"
+}

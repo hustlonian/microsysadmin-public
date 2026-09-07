@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1247",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Commercial/MAIL-0003.json",
+        "summary": "Verify doctor/modules/mail/Commercial/MAIL-0003.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1247",
+        "path": "{APP_ROOT}/doctor/modules/mail/Commercial/MAIL-0003.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6cc12f72dffdbe013ed27a3488bda3bbc992f0e4a256aaf53d270490e09f269d",
+        "sha256": "6cc12f72dffdbe013ed27a3488bda3bbc992f0e4a256aaf53d270490e09f269d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

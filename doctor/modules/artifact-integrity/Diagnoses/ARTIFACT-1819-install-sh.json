@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1819",
+        "check_id": "ARTIFACT-C1819",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for install.sh",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact install.sh is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 1c2b7490e7eda5efc875be06146e21639bae10abc7449339ae679d0aada0f9ea with mode 0755.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1819"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

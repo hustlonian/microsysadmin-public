@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1983",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/PushoverHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/PushoverHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1983",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/PushoverHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/72403bb1f4f6b412c10231b81bc0ab8a85f280ed2f3b9fd267e7a1a6ccc13a61",
+        "sha256": "72403bb1f4f6b412c10231b81bc0ab8a85f280ed2f3b9fd267e7a1a6ccc13a61",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

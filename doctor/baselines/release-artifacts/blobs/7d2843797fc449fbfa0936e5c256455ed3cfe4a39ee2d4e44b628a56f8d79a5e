@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "FILESYSTEM-C0004",
+        "module": "filesystem",
+        "name": "Create the missing Doctor storage root",
+        "summary": "Create the missing Doctor storage root.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "filesystem",
+            "storage-root-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{STORAGE_PATH}"
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1823",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact models/User.php",
+        "summary": "Verify models/User.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1823",
+        "path": "{APP_ROOT}/models/User.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9073ce0c45442487a276eaccf8be302a3ee6fbed16b8ca885f92c662db819c77",
+        "sha256": "9073ce0c45442487a276eaccf8be302a3ee6fbed16b8ca885f92c662db819c77",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

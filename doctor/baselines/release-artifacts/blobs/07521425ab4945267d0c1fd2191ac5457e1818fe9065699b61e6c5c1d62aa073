@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "LINUX-C0004",
+        "module": "linux",
+        "name": "Install a missing system CA certificate bundle",
+        "summary": "Install a missing system CA certificate bundle.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "linux",
+            "ca-certificates-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/etc/ssl/certs/ca-certificates.crt"
+    },
+    "failure_status": "FAIL"
+}

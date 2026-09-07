@@ -1,0 +1,28 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0006",
+        "module": "redis",
+        "name": "Correct Redis command connectivity failure",
+        "summary": "Correct Redis command connectivity failure.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "redis-ping-failure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "redis-cli"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "redis-cli",
+            "ping"
+        ],
+        "stdout_contains": "PONG",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

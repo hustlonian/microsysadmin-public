@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "XAMPP-C0002",
+        "module": "xampp",
+        "name": "Restore the missing XAMPP installation root",
+        "summary": "Restore the missing XAMPP installation root.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "xampp",
+            "xampp-root-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/opt/lampp"
+    },
+    "failure_status": "FAIL"
+}

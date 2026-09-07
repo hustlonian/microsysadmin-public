@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0220",
+        "check_id": "ARTIFACT-C0220",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/engine/Discovery/EnvironmentDiscovery.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/engine/Discovery/EnvironmentDiscovery.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 e1c29f22dd56db573ea9b3ab56cc333712510283839a8a67d254f443c01095c6 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0220"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

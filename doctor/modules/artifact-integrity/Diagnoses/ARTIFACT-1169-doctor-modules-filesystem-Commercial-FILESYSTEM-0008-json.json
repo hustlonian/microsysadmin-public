@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1169",
+        "check_id": "ARTIFACT-C1169",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/filesystem/Commercial/FILESYSTEM-0008.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/filesystem/Commercial/FILESYSTEM-0008.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 47a9d5558cafe837bb685f34816326b3e4d64305a68d6dec5e049c1fcd34a3b9 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1169"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

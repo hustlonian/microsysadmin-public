@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2117",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/Exception/ProcessFailedException.php",
+        "summary": "Verify vendor/symfony/process/Exception/ProcessFailedException.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2117",
+        "path": "{APP_ROOT}/vendor/symfony/process/Exception/ProcessFailedException.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3065238d8730da4e7f3bac06eb3808f081a0539079e4d8e1be0a5cb761e52ffd",
+        "sha256": "3065238d8730da4e7f3bac06eb3808f081a0539079e4d8e1be0a5cb761e52ffd",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

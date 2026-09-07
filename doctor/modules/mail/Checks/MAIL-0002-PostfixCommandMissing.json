@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "MAIL-C0002",
+        "module": "mail",
+        "name": "Install the missing Postfix service",
+        "summary": "Install the missing Postfix service.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mail",
+            "postfix-command-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "postfix"
+    },
+    "failure_status": "FAIL"
+}

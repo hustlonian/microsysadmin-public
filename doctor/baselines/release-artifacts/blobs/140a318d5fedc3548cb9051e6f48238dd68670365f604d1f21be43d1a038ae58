@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0009",
+        "module": "ssl",
+        "name": "Correct unreadable TLS certificate storage",
+        "summary": "Correct unreadable TLS certificate storage.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "certificate-directory-not-readable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_readable",
+        "path": "/opt/lampp/etc/ssl.crt"
+    },
+    "failure_status": "FAIL"
+}

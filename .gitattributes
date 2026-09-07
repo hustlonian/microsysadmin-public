@@ -1,0 +1,30 @@
+* text=auto eol=lf
+
+*.sh text eol=lf
+*.php text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+# Content-addressed restoration blobs must retain their exact bytes.
+/doctor/baselines/release-artifacts/blobs/* binary
+
+/storage export-ignore
+/tests export-ignore
+/.github export-ignore
+/.microsysadmin-git.conf.example export-ignore
+/docs/GITHUB-REMOTE-RECOVERY-REPORT.md export-ignore
+/docs/GITHUB-TERMINAL-READINESS-REPORT.md export-ignore
+/docs/SECRET-SCAN-REPORT.md export-ignore
+/docs/STAGED-FILE-MANIFEST.md export-ignore

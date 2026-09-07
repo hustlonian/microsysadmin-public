@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0206",
+        "check_id": "ARTIFACT-C0206",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/bin/doctor",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/bin/doctor is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 d218195408c6cb81e0b93a5c4274f57242be567c3e9178a925504b6a8bab6741 with mode 0755.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0206"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

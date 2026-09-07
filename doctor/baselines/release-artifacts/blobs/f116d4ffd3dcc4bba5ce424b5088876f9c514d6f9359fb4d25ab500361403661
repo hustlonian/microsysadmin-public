@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "XAMPP-D0001",
+        "check_id": "XAMPP-C0001",
+        "module": "xampp",
+        "name": "Restore the missing XAMPP control executable diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore the missing XAMPP control executable.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed xampp control missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "XAMPP-0001"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

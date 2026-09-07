@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0540",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/repair-inventory.json",
+        "summary": "Verify doctor/modules/dns/repair-inventory.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0540",
+        "path": "{APP_ROOT}/doctor/modules/dns/repair-inventory.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c9f79c222f20167aeffd7c19f7c147bb4f4711a67a948ff9e333fddab329bf20",
+        "sha256": "c9f79c222f20167aeffd7c19f7c147bb4f4711a67a948ff9e333fddab329bf20",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

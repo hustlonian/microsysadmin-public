@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2253",
+        "module": "artifact-integrity",
+        "name": "Restore missing managed release directory doctor/modules/laravel/Repairs",
+        "summary": "Verify that required release directory doctor/modules/laravel/Repairs is present.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "directory-topology",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_directory_missing",
+        "repair_id": "ARTIFACT-2253",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Repairs",
+        "mode": 493,
+        "condition": "missing"
+    },
+    "failure_status": "FAIL"
+}

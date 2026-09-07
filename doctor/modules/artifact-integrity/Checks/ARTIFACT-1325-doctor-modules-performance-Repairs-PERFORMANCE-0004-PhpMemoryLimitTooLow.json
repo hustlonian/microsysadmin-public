@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1325",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Repairs/PERFORMANCE-0004-PhpMemoryLimitTooLow.json",
+        "summary": "Verify doctor/modules/performance/Repairs/PERFORMANCE-0004-PhpMemoryLimitTooLow.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1325",
+        "path": "{APP_ROOT}/doctor/modules/performance/Repairs/PERFORMANCE-0004-PhpMemoryLimitTooLow.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7922cf931e675888d937bee8df022566131681776c19f11268bb54216a348edd",
+        "sha256": "7922cf931e675888d937bee8df022566131681776c19f11268bb54216a348edd",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

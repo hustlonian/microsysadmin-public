@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0814",
+        "check_id": "ARTIFACT-C0814",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/linux/Repairs/LINUX-0007-LoopbackHostEntryMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/linux/Repairs/LINUX-0007-LoopbackHostEntryMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 69fc4cf40d8354f707eb590e7603c1e6295f8196f92bf6d82cae9a072e1b928a with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0814"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

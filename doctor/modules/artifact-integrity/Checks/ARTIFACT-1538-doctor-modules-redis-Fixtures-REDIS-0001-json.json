@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1538",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/Fixtures/REDIS-0001.json",
+        "summary": "Verify doctor/modules/redis/Fixtures/REDIS-0001.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1538",
+        "path": "{APP_ROOT}/doctor/modules/redis/Fixtures/REDIS-0001.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a63bf37c678fdc28bb035302254d39e30dab624a03a6c4e1b61e490f7d88befa",
+        "sha256": "a63bf37c678fdc28bb035302254d39e30dab624a03a6c4e1b61e490f7d88befa",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

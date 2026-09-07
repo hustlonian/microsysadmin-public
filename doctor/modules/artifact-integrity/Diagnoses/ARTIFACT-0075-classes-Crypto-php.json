@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0075",
+        "check_id": "ARTIFACT-C0075",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/Crypto.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/Crypto.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b644c1e28cb5ff0e47e0fd5732955c4b15824e6df34657e1289a698878efbeee with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0075"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

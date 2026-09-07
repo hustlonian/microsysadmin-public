@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0049",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/CommandRunner.php",
+        "summary": "Verify classes/CommandRunner.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0049",
+        "path": "{APP_ROOT}/classes/CommandRunner.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/94cbb58f66cad02e53d48e3f6f7f6f613bd3e047203fcf5602f1de383e42b8f9",
+        "sha256": "94cbb58f66cad02e53d48e3f6f7f6f613bd3e047203fcf5602f1de383e42b8f9",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

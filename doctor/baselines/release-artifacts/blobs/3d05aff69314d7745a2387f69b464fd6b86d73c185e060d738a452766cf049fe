@@ -1,0 +1,19 @@
+# SSL-0005
+
+Added executable repair: Renew a TLS certificate nearing expiration.
+
+- Primitive: `doctor_action`
+- Automation: `AUTO_WITH_BACKUP`
+- Risk: `MEDIUM`
+- Verification: `SSL-C0005`
+- Rollback: automatic
+
+<!-- commercial-contract:start -->
+## Current commercial classification
+
+- Automation: `AUTO_WITH_BACKUP`
+- Primitive: `doctor_action`
+- Rollback: `supported`
+- Verification: `defined`
+- Commercial status: `contract-ready`
+<!-- commercial-contract:end -->

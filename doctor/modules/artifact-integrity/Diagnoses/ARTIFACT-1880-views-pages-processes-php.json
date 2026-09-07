@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1880",
+        "check_id": "ARTIFACT-C1880",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for views/pages/processes.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact views/pages/processes.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 83fec1b42bf7fe3ad5f101f8375e6c7518c22f371766b6d8259ec87eeb171ba0 with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1880"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

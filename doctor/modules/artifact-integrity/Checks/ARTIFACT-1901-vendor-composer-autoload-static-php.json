@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1901",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/composer/autoload_static.php",
+        "summary": "Verify vendor/composer/autoload_static.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1901",
+        "path": "{APP_ROOT}/vendor/composer/autoload_static.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/12cc31df36a23f8784ef30666a6e9bfffdb83d312d15a4d39bba120b16df6b27",
+        "sha256": "12cc31df36a23f8784ef30666a6e9bfffdb83d312d15a4d39bba120b16df6b27",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

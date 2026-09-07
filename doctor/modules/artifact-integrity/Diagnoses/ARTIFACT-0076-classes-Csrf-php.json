@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0076",
+        "check_id": "ARTIFACT-C0076",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/Csrf.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/Csrf.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 503342274da805699bef6d432a71af48de02088cde25199b757c14257ff2f5b2 with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0076"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0252",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Support/Value/Evidence.php",
+        "summary": "Verify doctor/engine/Support/Value/Evidence.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0252",
+        "path": "{APP_ROOT}/doctor/engine/Support/Value/Evidence.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e3fb3de54a9f39c792ed65754c527e00b9bb013436287bd7239173787b5714cf",
+        "sha256": "e3fb3de54a9f39c792ed65754c527e00b9bb013436287bd7239173787b5714cf",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

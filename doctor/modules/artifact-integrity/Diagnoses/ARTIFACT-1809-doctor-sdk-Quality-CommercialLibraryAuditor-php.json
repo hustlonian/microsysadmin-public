@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1809",
+        "check_id": "ARTIFACT-C1809",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/sdk/Quality/CommercialLibraryAuditor.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/sdk/Quality/CommercialLibraryAuditor.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 3ddd12ec1d1ab905f71ba9ce1311eb218d5a9a8df264dd0ca9306b1de6725c38 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1809"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

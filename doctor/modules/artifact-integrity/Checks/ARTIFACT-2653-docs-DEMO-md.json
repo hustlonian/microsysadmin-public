@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2653",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/DEMO.md",
+        "summary": "Verify docs/DEMO.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2653",
+        "path": "{APP_ROOT}/docs/DEMO.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/941c30a5dc9320669e06fdc44cfebf37f9c3f28307d36a69aba7b7479541467b",
+        "sha256": "941c30a5dc9320669e06fdc44cfebf37f9c3f28307d36a69aba7b7479541467b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

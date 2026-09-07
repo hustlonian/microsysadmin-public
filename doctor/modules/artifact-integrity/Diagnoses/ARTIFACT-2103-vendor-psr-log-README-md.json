@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D2103",
+        "check_id": "ARTIFACT-C2103",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/psr/log/README.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/psr/log/README.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 4f2bc231e87cda248b1fa2aef7a930045f3e95f89ee46ff579188d2489372954 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-2103"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

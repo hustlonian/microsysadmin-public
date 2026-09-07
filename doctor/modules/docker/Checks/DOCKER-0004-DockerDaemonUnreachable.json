@@ -1,0 +1,28 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0004",
+        "module": "docker",
+        "name": "Restore Docker daemon connectivity",
+        "summary": "Restore Docker daemon connectivity.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "docker-daemon-unreachable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "docker"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "docker",
+            "info"
+        ],
+        "timeout": 30,
+        "skip_on_permission_denied": true
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0326",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Checks/BACKUP-0010-BackupRestorationUnverified.json",
+        "summary": "Verify doctor/modules/backups/Checks/BACKUP-0010-BackupRestorationUnverified.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0326",
+        "path": "{APP_ROOT}/doctor/modules/backups/Checks/BACKUP-0010-BackupRestorationUnverified.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2415bd7f6fff0b3000a107431309441a045a4385826588bd5630ee8bc7b44d27",
+        "sha256": "2415bd7f6fff0b3000a107431309441a045a4385826588bd5630ee8bc7b44d27",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

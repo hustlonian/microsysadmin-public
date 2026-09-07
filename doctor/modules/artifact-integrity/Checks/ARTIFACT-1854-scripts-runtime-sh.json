@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1854",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/runtime.sh",
+        "summary": "Verify scripts/runtime.sh against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1854",
+        "path": "{APP_ROOT}/scripts/runtime.sh",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0728b9aee36f15e150d6963a789bf7474cf515d64dbed4334224b693c5498e65",
+        "sha256": "0728b9aee36f15e150d6963a789bf7474cf515d64dbed4334224b693c5498e65",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

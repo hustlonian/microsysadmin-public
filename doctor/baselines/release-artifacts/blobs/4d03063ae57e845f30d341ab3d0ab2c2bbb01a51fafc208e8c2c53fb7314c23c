@@ -1,0 +1,110 @@
+{
+    "metadata": {
+        "repair_id": "MAIL-0001",
+        "module": "mail",
+        "name": "Install a missing sendmail-compatible command",
+        "summary": "Install a missing sendmail-compatible command.",
+        "problem_description": "Install a missing sendmail-compatible command.",
+        "symptoms": [
+            "sendmail command missing"
+        ],
+        "probable_causes": [
+            "The observed sendmail command missing condition differs from the required state."
+        ],
+        "severity": "HIGH",
+        "risk_level": "MEDIUM",
+        "automation_class": "REPORT_ONLY",
+        "default_execution_policy": "manual",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "read"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [],
+        "files_modified": [],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "none-required",
+        "rollback_supported": false,
+        "destructive": false,
+        "estimated_duration": "<1 minute review",
+        "verification_method": "Re-run the independent MAIL-C0001 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "mail",
+            "sendmail-command-missing",
+            "high"
+        ],
+        "documentation_reference": "modules/mail/Docs/MAIL-0001.md",
+        "commercial_tier": "advisory",
+        "customer_impact": "provides evidence and operator guidance",
+        "support_issue_family": "mail",
+        "safety_review": "advisory-only"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "executable_exists",
+        "command": "sendmail"
+    },
+    "actions": [],
+    "backup_paths": [],
+    "verification": {
+        "type": "executable_exists",
+        "command": "sendmail"
+    },
+    "rollback": {
+        "supported": false,
+        "strategy": "not-yet-implemented",
+        "primitive": null,
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.mail-0001",
+        "primitive": null,
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "advisory",
+        "support_issue_family": "mail",
+        "deterministic": null,
+        "bounded": null,
+        "reversible": null,
+        "independently_verifiable": null,
+        "quality_status": "advisory-only"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-2135",
+    "artifact": "vendor/symfony/process/Pipes/WindowsPipes.php",
+    "baseline_sha256": "dd9cdc429918d3880f435b18fe8a823dde7fb782af6e3fa06b705e2e77cae8b0",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

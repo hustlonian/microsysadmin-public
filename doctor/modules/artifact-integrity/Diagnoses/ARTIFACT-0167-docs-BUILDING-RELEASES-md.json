@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0167",
+        "check_id": "ARTIFACT-C0167",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for docs/BUILDING-RELEASES.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact docs/BUILDING-RELEASES.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 059e47a9878f96b1f3d03f91c3b1be6702ef96745fae0af239308e1f775f3d6d with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0167"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

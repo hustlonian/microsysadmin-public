@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0139",
+        "check_id": "ARTIFACT-C0139",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for composer.lock",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact composer.lock is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 7f53f757cca499b134a528d6aed01327172ffa90f7471496d73aea8c3a29e1e6 with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0139"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

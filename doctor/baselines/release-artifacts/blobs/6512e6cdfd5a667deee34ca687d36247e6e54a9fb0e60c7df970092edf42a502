@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "GIT-C0006",
+        "module": "git",
+        "name": "Resolve an interrupted Git cherry-pick safely",
+        "summary": "Resolve an interrupted Git cherry-pick safely.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "git",
+            "cherry-pick-in-progress"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_absent",
+        "path": "{PROJECT}/.git/CHERRY_PICK_HEAD"
+    },
+    "failure_status": "FAIL"
+}

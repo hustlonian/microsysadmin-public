@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0007",
+        "module": "backups",
+        "name": "Restore missing Doctor backup manifests",
+        "summary": "Restore missing Doctor backup manifests.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "backup-manifest-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_readable",
+        "path": "{STORAGE_PATH}/doctor/backups"
+    },
+    "failure_status": "FAIL"
+}

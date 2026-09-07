@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0078",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/DemoMachineAgent.php",
+        "summary": "Verify classes/DemoMachineAgent.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0078",
+        "path": "{APP_ROOT}/classes/DemoMachineAgent.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/bf5b4816988c67b455d8831bdddda64cee7c12606ea96a4385cd70214ca9c55f",
+        "sha256": "bf5b4816988c67b455d8831bdddda64cee7c12606ea96a4385cd70214ca9c55f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1806",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Primitives/ServicePrimitive.php",
+        "summary": "Verify doctor/sdk/Primitives/ServicePrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1806",
+        "path": "{APP_ROOT}/doctor/sdk/Primitives/ServicePrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/180d2ab3c4f4d468a7b77b31e28e3cb1e67791688cc394e92fc4875e139678d7",
+        "sha256": "180d2ab3c4f4d468a7b77b31e28e3cb1e67791688cc394e92fc4875e139678d7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

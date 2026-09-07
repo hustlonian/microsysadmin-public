@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "PHP-C0003",
+        "module": "php",
+        "name": "Enable the missing PDO MySQL extension",
+        "summary": "Enable the missing PDO MySQL extension.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "php",
+            "pdo-mysql-extension-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "php_extension",
+        "extension": "pdo_mysql"
+    },
+    "failure_status": "FAIL"
+}

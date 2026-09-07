@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1678",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Diagnoses/SSL-0008-CertbotMissing.json",
+        "summary": "Verify doctor/modules/ssl/Diagnoses/SSL-0008-CertbotMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1678",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Diagnoses/SSL-0008-CertbotMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2a5049f4f800bfb7709cca1619ef7fd66b52c67e7b5b0cb38c2931a35c2aefe2",
+        "sha256": "2a5049f4f800bfb7709cca1619ef7fd66b52c67e7b5b0cb38c2931a35c2aefe2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

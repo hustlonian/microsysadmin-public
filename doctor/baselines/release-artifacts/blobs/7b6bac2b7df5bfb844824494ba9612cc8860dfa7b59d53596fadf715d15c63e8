@@ -1,0 +1,24 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0006",
+        "module": "ssl",
+        "name": "Correct a TLS certificate and key mismatch",
+        "summary": "Correct a TLS certificate and key mismatch.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "certificate-key-mismatch"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "openssl"
+    ],
+    "probe": {
+        "type": "certificate_key_match",
+        "certificate": "/opt/lampp/etc/ssl.crt/server.crt",
+        "key": "/opt/lampp/etc/ssl.key/server.key"
+    },
+    "failure_status": "FAIL"
+}

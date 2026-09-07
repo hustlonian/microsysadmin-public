@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0368",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Repairs/BACKUP-0009-DatabaseBackupScheduleMissing.json",
+        "summary": "Verify doctor/modules/backups/Repairs/BACKUP-0009-DatabaseBackupScheduleMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0368",
+        "path": "{APP_ROOT}/doctor/modules/backups/Repairs/BACKUP-0009-DatabaseBackupScheduleMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/eda96e8ae0893b2ee65a69af302414add373c2558c016f8216b8da9bc1fa8467",
+        "sha256": "eda96e8ae0893b2ee65a69af302414add373c2558c016f8216b8da9bc1fa8467",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

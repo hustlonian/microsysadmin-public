@@ -1,0 +1,42 @@
+[
+    {
+        "repair_id": "MAIL-0001",
+        "fixture": "../Fixtures/MAIL-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MAIL-0002",
+        "fixture": "../Fixtures/MAIL-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MAIL-0003",
+        "fixture": "../Fixtures/MAIL-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MAIL-0004",
+        "fixture": "../Fixtures/MAIL-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MAIL-0005",
+        "fixture": "../Fixtures/MAIL-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MAIL-0006",
+        "fixture": "../Fixtures/MAIL-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MAIL-0007",
+        "fixture": "../Fixtures/MAIL-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "MAIL-0008",
+        "fixture": "../Fixtures/MAIL-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

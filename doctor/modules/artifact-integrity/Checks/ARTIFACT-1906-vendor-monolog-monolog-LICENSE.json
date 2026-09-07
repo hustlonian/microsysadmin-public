@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1906",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/LICENSE",
+        "summary": "Verify vendor/monolog/monolog/LICENSE against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1906",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/LICENSE",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3a351f8f434ff941f4946afb534f7df1185523638b311c22901631d8882f70e1",
+        "sha256": "3a351f8f434ff941f4946afb534f7df1185523638b311c22901631d8882f70e1",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1689",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Docs/SSL-0008.md",
+        "summary": "Verify doctor/modules/ssl/Docs/SSL-0008.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1689",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Docs/SSL-0008.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8ab174fa53d97e87fb3ba547945a7eaf070a878216f6c2320327d68e8a69b287",
+        "sha256": "8ab174fa53d97e87fb3ba547945a7eaf070a878216f6c2320327d68e8a69b287",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

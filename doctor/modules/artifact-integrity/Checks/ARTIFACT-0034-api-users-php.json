@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0034",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/users.php",
+        "summary": "Verify api/users.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0034",
+        "path": "{APP_ROOT}/api/users.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9238a4874188db0549f61208720434109fc3610bafe03ce8a47d507514e5f0bf",
+        "sha256": "9238a4874188db0549f61208720434109fc3610bafe03ce8a47d507514e5f0bf",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

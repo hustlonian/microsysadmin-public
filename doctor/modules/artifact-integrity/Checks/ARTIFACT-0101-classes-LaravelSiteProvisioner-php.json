@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0101",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/LaravelSiteProvisioner.php",
+        "summary": "Verify classes/LaravelSiteProvisioner.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0101",
+        "path": "{APP_ROOT}/classes/LaravelSiteProvisioner.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e3e968ba0eb8067181fe90445c59455440a1a833f6839df3219896f128aee940",
+        "sha256": "e3e968ba0eb8067181fe90445c59455440a1a833f6839df3219896f128aee940",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

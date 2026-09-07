@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0015",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/artisan.php",
+        "summary": "Verify api/artisan.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0015",
+        "path": "{APP_ROOT}/api/artisan.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/227f355dc08dd9e161af0f8c109b6a14c4d9832102ab4af667dd5703b7d69ac8",
+        "sha256": "227f355dc08dd9e161af0f8c109b6a14c4d9832102ab4af667dd5703b7d69ac8",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

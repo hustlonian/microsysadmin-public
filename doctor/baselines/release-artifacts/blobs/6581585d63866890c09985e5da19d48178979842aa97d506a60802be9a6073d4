@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0007",
+        "module": "ssl",
+        "name": "Restore the unavailable local HTTPS listener",
+        "summary": "Restore the unavailable local HTTPS listener.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "https-listener-unavailable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "tcp_connect",
+        "host": "127.0.0.1",
+        "port": 443,
+        "timeout": 1
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1264",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Changelog/MYSQL-0010.md",
+        "summary": "Verify doctor/modules/mysql/Changelog/MYSQL-0010.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1264",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Changelog/MYSQL-0010.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9499af61e77bcf46737dc0edb0636d7ab91431787c01ba8938ea0f233e988fe0",
+        "sha256": "9499af61e77bcf46737dc0edb0636d7ab91431787c01ba8938ea0f233e988fe0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

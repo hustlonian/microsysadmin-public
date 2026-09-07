@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0374",
+    "artifact": "doctor/modules/composer/Checks/COMPOSER-0002-ComposerJsonMissing.json",
+    "baseline_sha256": "4440c7cd513540f620083d55d749ccd01798b4c726eeb6897200df662443e491",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

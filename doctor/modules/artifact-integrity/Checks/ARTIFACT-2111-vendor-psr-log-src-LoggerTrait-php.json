@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2111",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/psr/log/src/LoggerTrait.php",
+        "summary": "Verify vendor/psr/log/src/LoggerTrait.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2111",
+        "path": "{APP_ROOT}/vendor/psr/log/src/LoggerTrait.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c854406af9c4706980e93183b5f37fa9cca523df9bb1019a927f8e4713834172",
+        "sha256": "c854406af9c4706980e93183b5f37fa9cca523df9bb1019a927f8e4713834172",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

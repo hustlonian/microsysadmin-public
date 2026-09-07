@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0090",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/HealthCheckService.php",
+        "summary": "Verify classes/HealthCheckService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0090",
+        "path": "{APP_ROOT}/classes/HealthCheckService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/80a3b2a2f868c3de0aac6098991b76bd145b209e1aff4527f62a79b6502992f2",
+        "sha256": "80a3b2a2f868c3de0aac6098991b76bd145b209e1aff4527f62a79b6502992f2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

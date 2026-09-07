@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1702",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Module.php",
+        "summary": "Verify doctor/modules/ssl/Module.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1702",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Module.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c66270656fc085bed46227e8239e9dbdb9abbf3587ee62a687f0b5eeb96d4340",
+        "sha256": "c66270656fc085bed46227e8239e9dbdb9abbf3587ee62a687f0b5eeb96d4340",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

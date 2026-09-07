@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1971",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/MissingExtensionException.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/MissingExtensionException.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1971",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/MissingExtensionException.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6cbad21da41457d71384fab2b0491f4608515d9cd565ed40a83df5f02c1f75f4",
+        "sha256": "6cbad21da41457d71384fab2b0491f4608515d9cd565ed40a83df5f02c1f75f4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

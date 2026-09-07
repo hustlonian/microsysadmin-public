@@ -1,0 +1,32 @@
+{
+    "metadata": {
+        "check_id": "GIT-C0008",
+        "module": "git",
+        "name": "Configure a missing Git origin remote",
+        "summary": "Configure a missing Git origin remote.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "git",
+            "remote-origin-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "git"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "git",
+            "-c",
+            "safe.directory={PROJECT}",
+            "remote",
+            "get-url",
+            "origin"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

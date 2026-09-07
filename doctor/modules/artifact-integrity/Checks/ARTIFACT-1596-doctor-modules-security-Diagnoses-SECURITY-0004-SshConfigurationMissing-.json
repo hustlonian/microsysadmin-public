@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1596",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Diagnoses/SECURITY-0004-SshConfigurationMissing.json",
+        "summary": "Verify doctor/modules/security/Diagnoses/SECURITY-0004-SshConfigurationMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1596",
+        "path": "{APP_ROOT}/doctor/modules/security/Diagnoses/SECURITY-0004-SshConfigurationMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2227909350c12e6f77a87c6cf060bfaf509878bc6ab4c34bafde3c692aac0d57",
+        "sha256": "2227909350c12e6f77a87c6cf060bfaf509878bc6ab4c34bafde3c692aac0d57",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

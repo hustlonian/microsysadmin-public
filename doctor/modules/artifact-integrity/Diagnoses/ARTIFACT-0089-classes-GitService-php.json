@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0089",
+        "check_id": "ARTIFACT-C0089",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/GitService.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/GitService.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 dd124ed3ae0c0a007c976829e4266a063bd051b721201a9e7bda768f43b130b1 with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0089"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

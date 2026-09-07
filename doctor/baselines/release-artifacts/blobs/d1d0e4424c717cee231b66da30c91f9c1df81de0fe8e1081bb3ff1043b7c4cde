@@ -1,0 +1,114 @@
+{
+    "metadata": {
+        "repair_id": "LINUX-0003",
+        "module": "linux",
+        "name": "Recover critically low application-partition capacity",
+        "summary": "Recover critically low application-partition capacity.",
+        "problem_description": "Recover critically low application-partition capacity.",
+        "symptoms": [
+            "application partition low space"
+        ],
+        "probable_causes": [
+            "The observed application partition low space condition differs from the required state."
+        ],
+        "severity": "CRITICAL",
+        "risk_level": "MEDIUM",
+        "automation_class": "REPORT_ONLY",
+        "default_execution_policy": "manual",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "read"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{PROJECT}"
+        ],
+        "files_modified": [],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "none-required",
+        "rollback_supported": false,
+        "destructive": false,
+        "estimated_duration": "<1 minute review",
+        "verification_method": "Re-run the independent LINUX-C0003 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "linux",
+            "application-partition-low-space",
+            "critical"
+        ],
+        "documentation_reference": "modules/linux/Docs/LINUX-0003.md",
+        "commercial_tier": "advisory",
+        "customer_impact": "provides evidence and operator guidance",
+        "support_issue_family": "linux",
+        "safety_review": "advisory-only"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "disk_free_percent",
+        "path": "{PROJECT}",
+        "minimum": 10
+    },
+    "actions": [],
+    "backup_paths": [],
+    "verification": {
+        "type": "disk_free_percent",
+        "path": "{PROJECT}",
+        "minimum": 10
+    },
+    "rollback": {
+        "supported": false,
+        "strategy": "not-yet-implemented",
+        "primitive": null,
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.linux-0003",
+        "primitive": null,
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "advisory",
+        "support_issue_family": "linux",
+        "deterministic": null,
+        "bounded": null,
+        "reversible": null,
+        "independently_verifiable": null,
+        "quality_status": "advisory-only"
+    }
+}

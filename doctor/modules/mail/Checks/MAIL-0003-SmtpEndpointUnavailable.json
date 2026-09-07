@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "MAIL-C0003",
+        "module": "mail",
+        "name": "Restore the unavailable local SMTP endpoint",
+        "summary": "Restore the unavailable local SMTP endpoint.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mail",
+            "smtp-endpoint-unavailable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "tcp_connect",
+        "host": "127.0.0.1",
+        "port": 25,
+        "timeout": 1
+    },
+    "failure_status": "FAIL"
+}

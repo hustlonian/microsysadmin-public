@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0306",
+    "artifact": "doctor/modules/apache/Repairs/APACHE-0003-InvalidConfigurationSyntax.json",
+    "baseline_sha256": "2bf39b93d03bf5ee0f4ee41f07b94e27ee552af268944eedb685004393f9ec6b",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

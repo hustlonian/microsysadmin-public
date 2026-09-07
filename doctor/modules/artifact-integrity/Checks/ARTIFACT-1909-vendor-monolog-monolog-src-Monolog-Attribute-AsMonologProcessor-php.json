@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1909",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Attribute/AsMonologProcessor.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Attribute/AsMonologProcessor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1909",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Attribute/AsMonologProcessor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/30ec7ef9ef9c84f5e091a81e3f5e59c24b7a2251152f5c37408ebd670be0e84e",
+        "sha256": "30ec7ef9ef9c84f5e091a81e3f5e59c24b7a2251152f5c37408ebd670be0e84e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0190",
+        "check_id": "ARTIFACT-C0190",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for docs/SECOND-MACHINE-CANARY.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact docs/SECOND-MACHINE-CANARY.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 eb54ebf5f9d98337ec595ac221d79bcc5dc3bca18d19a1bab0a3b5f31471590a with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0190"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

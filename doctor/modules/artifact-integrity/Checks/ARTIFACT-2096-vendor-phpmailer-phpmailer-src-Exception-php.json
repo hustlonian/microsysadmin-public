@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2096",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/phpmailer/phpmailer/src/Exception.php",
+        "summary": "Verify vendor/phpmailer/phpmailer/src/Exception.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2096",
+        "path": "{APP_ROOT}/vendor/phpmailer/phpmailer/src/Exception.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/22ab858ae438d98f58f41f38ad2191d1b0d59570aebea0463a7948cfae1021b7",
+        "sha256": "22ab858ae438d98f58f41f38ad2191d1b0d59570aebea0463a7948cfae1021b7",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

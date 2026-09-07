@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1328",
+        "check_id": "ARTIFACT-C1328",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/performance/Repairs/PERFORMANCE-0007-ComposerAutoloadUnoptimized.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/performance/Repairs/PERFORMANCE-0007-ComposerAutoloadUnoptimized.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 1694f6a5209a5113e3173fdf191d47b25375054fa5ba9c90908e360e3a2d802b with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1328"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

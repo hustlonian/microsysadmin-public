@@ -1,0 +1,31 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2644",
+        "module": "artifact-integrity",
+        "name": "Correct managed release directory mode vendor/symfony",
+        "summary": "Verify exact permission mode for release directory vendor/symfony.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "directory-topology",
+            "local-only",
+            "time-forward",
+            "mode-drift"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_directory_mode",
+        "repair_id": "ARTIFACT-2644",
+        "path": "{APP_ROOT}/vendor/symfony",
+        "mode": 493,
+        "condition": "mode"
+    },
+    "failure_status": "FAIL"
+}

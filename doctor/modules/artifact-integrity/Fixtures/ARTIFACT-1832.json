@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1832",
+    "artifact": "repair.sh",
+    "baseline_sha256": "2179f1b935a82e9de412c605c2a623eaf0c2635808235003c69f5b408a0ddefd",
+    "mode": "0755",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

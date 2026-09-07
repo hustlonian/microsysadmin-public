@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1429",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/queue/Checks/QUEUE-0009-QueueLogDirectoryMissing.json",
+        "summary": "Verify doctor/modules/queue/Checks/QUEUE-0009-QueueLogDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1429",
+        "path": "{APP_ROOT}/doctor/modules/queue/Checks/QUEUE-0009-QueueLogDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e24a632a48e5cb1ce7585ad999a22eccd10b577b5e7943f16eda9927179a93a0",
+        "sha256": "e24a632a48e5cb1ce7585ad999a22eccd10b577b5e7943f16eda9927179a93a0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "COMPOSER-C0005",
+        "module": "composer",
+        "name": "Install exact locked Composer dependencies",
+        "summary": "Install exact locked Composer dependencies.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "composer",
+            "vendor-directory-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "composer"
+    ],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{PROJECT}/vendor"
+    },
+    "failure_status": "FAIL"
+}

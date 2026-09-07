@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0897",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Docs/BATCH-001.md",
+        "summary": "Verify doctor/modules/mysql/Docs/BATCH-001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0897",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Docs/BATCH-001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/912d6c97b298f4de0e7ae2bfc37f532db842fdd36b4987d46864e98458d5131b",
+        "sha256": "912d6c97b298f4de0e7ae2bfc37f532db842fdd36b4987d46864e98458d5131b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

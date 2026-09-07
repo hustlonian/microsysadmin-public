@@ -1,0 +1,134 @@
+{
+    "metadata": {
+        "repair_id": "ARTIFACT-1476",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json",
+        "summary": "Restore doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json from its immutable local release baseline.",
+        "problem_description": "The managed application artifact doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json differs from the installed release baseline.",
+        "symptoms": [
+            "missing artifact",
+            "content hash drift",
+            "permission-mode drift"
+        ],
+        "probable_causes": [
+            "incomplete update",
+            "local file damage",
+            "unintended modification"
+        ],
+        "severity": "HIGH",
+        "risk_level": "LOW",
+        "automation_class": "AUTO_WITH_BACKUP",
+        "default_execution_policy": "safe-with-backup",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "all local MicroSysAdmin deployments"
+        ],
+        "supported_versions": [
+            "release baseline schema 3"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "not framework-dependent"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "write access to this application-owned artifact"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{APP_ROOT}/doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json",
+            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1007d09455198c4166d1f761108d6e99765f54a98328414cee6ef04ac17f606e"
+        ],
+        "files_modified": [
+            "{APP_ROOT}/doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json"
+        ],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "Exact pre-repair file snapshot with SHA-256 validation; missing-file creation is hash-guarded for rollback.",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "<1 second",
+        "verification_method": "Re-run ARTIFACT-C1476 and require the exact release SHA-256 and mode.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "zero-interaction",
+            "atomic",
+            "rollback"
+        ],
+        "documentation_reference": "modules/artifact-integrity/Docs/managed-artifact-restoration.md"
+    },
+    "confidence": 1,
+    "detection": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1476",
+        "path": "{APP_ROOT}/doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1007d09455198c4166d1f761108d6e99765f54a98328414cee6ef04ac17f606e",
+        "sha256": "1007d09455198c4166d1f761108d6e99765f54a98328414cee6ef04ac17f606e",
+        "mode": 420
+    },
+    "actions": [
+        {
+            "type": "restore_managed_artifact",
+            "repair_id": "ARTIFACT-1476",
+            "path": "{APP_ROOT}/doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json",
+            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1007d09455198c4166d1f761108d6e99765f54a98328414cee6ef04ac17f606e",
+            "sha256": "1007d09455198c4166d1f761108d6e99765f54a98328414cee6ef04ac17f606e",
+            "mode": 420,
+            "description": "Atomically restore doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json from its exact local release baseline."
+        }
+    ],
+    "backup_paths": [
+        "{APP_ROOT}/doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json"
+    ],
+    "verification": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1476",
+        "path": "{APP_ROOT}/doctor/modules/queue/Repairs/QUEUE-0003-SupervisorServiceDisabled.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1007d09455198c4166d1f761108d6e99765f54a98328414cee6ef04ac17f606e",
+        "sha256": "1007d09455198c4166d1f761108d6e99765f54a98328414cee6ef04ac17f606e",
+        "mode": 420
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "validated BackupManager snapshot or hash-guarded removal for a created file",
+        "primitive": "restore_managed_artifact",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.artifact-1476",
+        "primitive": "restore_managed_artifact",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "release-artifact-integrity",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-tested"
+    }
+}

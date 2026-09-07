@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0671",
+    "artifact": "doctor/modules/git/Diagnoses/GIT-0009-UserNameMissing.json",
+    "baseline_sha256": "17cbb6b418fe66aedad9db2d2aba8fd0fdd3ffbc84aa5f22f695f30cb23d26e9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

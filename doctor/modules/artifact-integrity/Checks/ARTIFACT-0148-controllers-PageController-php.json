@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0148",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact controllers/PageController.php",
+        "summary": "Verify controllers/PageController.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0148",
+        "path": "{APP_ROOT}/controllers/PageController.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8e3453d794da9dabf75b6882e609a1c9529fe0923b10b2020706ffc6959e7393",
+        "sha256": "8e3453d794da9dabf75b6882e609a1c9529fe0923b10b2020706ffc6959e7393",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

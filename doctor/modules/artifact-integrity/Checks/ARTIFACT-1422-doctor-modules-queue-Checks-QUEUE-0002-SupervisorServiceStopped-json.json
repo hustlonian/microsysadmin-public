@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1422",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/queue/Checks/QUEUE-0002-SupervisorServiceStopped.json",
+        "summary": "Verify doctor/modules/queue/Checks/QUEUE-0002-SupervisorServiceStopped.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1422",
+        "path": "{APP_ROOT}/doctor/modules/queue/Checks/QUEUE-0002-SupervisorServiceStopped.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6e4aafb853c6b3a9a41d72ae5f641b24574d1670554a33ef067e1017ec38d64b",
+        "sha256": "6e4aafb853c6b3a9a41d72ae5f641b24574d1670554a33ef067e1017ec38d64b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

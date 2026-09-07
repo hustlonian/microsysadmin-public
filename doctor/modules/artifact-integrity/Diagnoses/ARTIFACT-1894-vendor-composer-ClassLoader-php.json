@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1894",
+        "check_id": "ARTIFACT-C1894",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/composer/ClassLoader.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/composer/ClassLoader.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 d4b2313e562edf942838ec316d983c1a3459ca67da3e5658e861200b0b3693c2 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1894"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

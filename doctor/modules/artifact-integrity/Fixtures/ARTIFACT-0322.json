@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0322",
+    "artifact": "doctor/modules/backups/Checks/BACKUP-0006-BackupPartitionLowSpace.json",
+    "baseline_sha256": "a09f2c058d83fae7307b32d397b5a1a623ce29ca4561292116d68e63eb61e99b",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

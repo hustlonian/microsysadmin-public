@@ -1,0 +1,1879 @@
+{
+    "schema_version": 2,
+    "source": "clean_commercial_release_composer_install",
+    "composer_lock_sha256": "7f53f757cca499b134a528d6aed01327172ffa90f7471496d73aea8c3a29e1e6",
+    "composer_install_flags": [
+        "--no-dev",
+        "--prefer-dist",
+        "--no-interaction",
+        "--no-progress",
+        "--no-scripts",
+        "--classmap-authoritative"
+    ],
+    "packages": [
+        {
+            "name": "monolog/monolog",
+            "version": "3.10.0",
+            "reference": "b321dd6749f0bf7189444158a3ce785cc16d69b0"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v6.12.0",
+            "reference": "d1ac35d784bf9f5e61b424901d5a014967f15b12"
+        },
+        {
+            "name": "psr/log",
+            "version": "3.0.2",
+            "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v7.4.13",
+            "reference": "f5804be144caceb570f6747519999636b664f24c"
+        }
+    ],
+    "artifact_count": 247,
+    "directory_count": 27,
+    "catalog_revision": "4c2cfa14b67e556f0fc4ccb2887ceb5306694009ecba406d8fd22236cdbfbc7d",
+    "artifacts": [
+        {
+            "path": "vendor/autoload.php",
+            "sha256": "80c3d2afa4a78084e401a1b8ff38e6ccda9c5ceccdd9ad1f55cebd41cc58783d",
+            "mode": 420,
+            "size": 771,
+            "baseline": "doctor/baselines/release-artifacts/blobs/80c3d2afa4a78084e401a1b8ff38e6ccda9c5ceccdd9ad1f55cebd41cc58783d"
+        },
+        {
+            "path": "vendor/composer/ClassLoader.php",
+            "sha256": "d4b2313e562edf942838ec316d983c1a3459ca67da3e5658e861200b0b3693c2",
+            "mode": 420,
+            "size": 16378,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d4b2313e562edf942838ec316d983c1a3459ca67da3e5658e861200b0b3693c2"
+        },
+        {
+            "path": "vendor/composer/InstalledVersions.php",
+            "sha256": "21f4ba19e7859cb3f85b8b1680c970ee25d972546c1606dcae0e7e5f43f626f0",
+            "mode": 420,
+            "size": 16143,
+            "baseline": "doctor/baselines/release-artifacts/blobs/21f4ba19e7859cb3f85b8b1680c970ee25d972546c1606dcae0e7e5f43f626f0"
+        },
+        {
+            "path": "vendor/composer/LICENSE",
+            "sha256": "7855ac293067aebe7e51afdd23b9dea54b8be24187dbecc9b9142581c37f596c",
+            "mode": 420,
+            "size": 1068,
+            "baseline": "doctor/baselines/release-artifacts/blobs/7855ac293067aebe7e51afdd23b9dea54b8be24187dbecc9b9142581c37f596c"
+        },
+        {
+            "path": "vendor/composer/autoload_classmap.php",
+            "sha256": "8ac0935535f9017935ed2b036bab3d84cfa203307e1901c997265f3eb50e73d3",
+            "mode": 420,
+            "size": 39073,
+            "baseline": "doctor/baselines/release-artifacts/blobs/8ac0935535f9017935ed2b036bab3d84cfa203307e1901c997265f3eb50e73d3"
+        },
+        {
+            "path": "vendor/composer/autoload_namespaces.php",
+            "sha256": "ede505407590638a435137f4e060136f1008de79fc169b3de9793423b0cea38c",
+            "mode": 420,
+            "size": 139,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ede505407590638a435137f4e060136f1008de79fc169b3de9793423b0cea38c"
+        },
+        {
+            "path": "vendor/composer/autoload_psr4.php",
+            "sha256": "7ce8778d0f1da4021fc2749839de4768f39698863f40747997277ab80ea124e4",
+            "mode": 420,
+            "size": 650,
+            "baseline": "doctor/baselines/release-artifacts/blobs/7ce8778d0f1da4021fc2749839de4768f39698863f40747997277ab80ea124e4"
+        },
+        {
+            "path": "vendor/composer/autoload_real.php",
+            "sha256": "703cdcf490bf384e88179177f679c9b7856276793008f50027351826590c4712",
+            "mode": 420,
+            "size": 1186,
+            "baseline": "doctor/baselines/release-artifacts/blobs/703cdcf490bf384e88179177f679c9b7856276793008f50027351826590c4712"
+        },
+        {
+            "path": "vendor/composer/autoload_static.php",
+            "sha256": "12cc31df36a23f8784ef30666a6e9bfffdb83d312d15a4d39bba120b16df6b27",
+            "mode": 420,
+            "size": 45343,
+            "baseline": "doctor/baselines/release-artifacts/blobs/12cc31df36a23f8784ef30666a6e9bfffdb83d312d15a4d39bba120b16df6b27"
+        },
+        {
+            "path": "vendor/composer/installed.json",
+            "sha256": "a8abe88b40551b31402e16fe1cfb160071dae44cc7944c53a21cae5e4252f715",
+            "mode": 420,
+            "size": 12776,
+            "baseline": "doctor/baselines/release-artifacts/blobs/a8abe88b40551b31402e16fe1cfb160071dae44cc7944c53a21cae5e4252f715"
+        },
+        {
+            "path": "vendor/composer/installed.php",
+            "sha256": "bfb871f81d2a800817e9f3265dfd73788b6cab25fd06f738b43731e5b3afc767",
+            "mode": 420,
+            "size": 2323,
+            "baseline": "doctor/baselines/release-artifacts/blobs/bfb871f81d2a800817e9f3265dfd73788b6cab25fd06f738b43731e5b3afc767"
+        },
+        {
+            "path": "vendor/composer/platform_check.php",
+            "sha256": "230c364d17607b4f0500630f1c1bcca4e08e1486748340d2ec85024f3a0b73b4",
+            "mode": 420,
+            "size": 925,
+            "baseline": "doctor/baselines/release-artifacts/blobs/230c364d17607b4f0500630f1c1bcca4e08e1486748340d2ec85024f3a0b73b4"
+        },
+        {
+            "path": "vendor/monolog/monolog/CHANGELOG.md",
+            "sha256": "c31fbae044bf58ffd1a2603753f844f799adcb34e79f08aea4ae7da058192b94",
+            "mode": 420,
+            "size": 50636,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c31fbae044bf58ffd1a2603753f844f799adcb34e79f08aea4ae7da058192b94"
+        },
+        {
+            "path": "vendor/monolog/monolog/LICENSE",
+            "sha256": "3a351f8f434ff941f4946afb534f7df1185523638b311c22901631d8882f70e1",
+            "mode": 420,
+            "size": 1063,
+            "baseline": "doctor/baselines/release-artifacts/blobs/3a351f8f434ff941f4946afb534f7df1185523638b311c22901631d8882f70e1"
+        },
+        {
+            "path": "vendor/monolog/monolog/README.md",
+            "sha256": "0e009e7005609b61a812de8998542013d1b9a37f5736693ccfe4c9fc326ac897",
+            "mode": 420,
+            "size": 6593,
+            "baseline": "doctor/baselines/release-artifacts/blobs/0e009e7005609b61a812de8998542013d1b9a37f5736693ccfe4c9fc326ac897"
+        },
+        {
+            "path": "vendor/monolog/monolog/composer.json",
+            "sha256": "b6df971c180a65adb5ddfea6ac5900960809bd3c93696123396dcf48631ccab1",
+            "mode": 420,
+            "size": 3240,
+            "baseline": "doctor/baselines/release-artifacts/blobs/b6df971c180a65adb5ddfea6ac5900960809bd3c93696123396dcf48631ccab1"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Attribute/AsMonologProcessor.php",
+            "sha256": "30ec7ef9ef9c84f5e091a81e3f5e59c24b7a2251152f5c37408ebd670be0e84e",
+            "mode": 420,
+            "size": 1444,
+            "baseline": "doctor/baselines/release-artifacts/blobs/30ec7ef9ef9c84f5e091a81e3f5e59c24b7a2251152f5c37408ebd670be0e84e"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Attribute/WithMonologChannel.php",
+            "sha256": "7d7ec88956b15a6d6b6f3a222d17397583d89541df14b1b0d0ab82d4aa1fd2b9",
+            "mode": 420,
+            "size": 787,
+            "baseline": "doctor/baselines/release-artifacts/blobs/7d7ec88956b15a6d6b6f3a222d17397583d89541df14b1b0d0ab82d4aa1fd2b9"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/DateTimeImmutable.php",
+            "sha256": "59a279e374404e8db38afca8548201d8047956c49e8ebebade6ab99d8a221414",
+            "mode": 420,
+            "size": 583,
+            "baseline": "doctor/baselines/release-artifacts/blobs/59a279e374404e8db38afca8548201d8047956c49e8ebebade6ab99d8a221414"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/ErrorHandler.php",
+            "sha256": "421b7ae9e65a688ddadfc08d2dfb510084f74cbe0056cf6b0abb599d487002b1",
+            "mode": 420,
+            "size": 10256,
+            "baseline": "doctor/baselines/release-artifacts/blobs/421b7ae9e65a688ddadfc08d2dfb510084f74cbe0056cf6b0abb599d487002b1"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php",
+            "sha256": "461679045cddc93856d4aa6170704fe66094e9d0aadc652eeff41d0a8dc9c340",
+            "mode": 420,
+            "size": 2266,
+            "baseline": "doctor/baselines/release-artifacts/blobs/461679045cddc93856d4aa6170704fe66094e9d0aadc652eeff41d0a8dc9c340"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/ElasticaFormatter.php",
+            "sha256": "58c0df26770468233d17cc0d598b0533f0024f9591f7fc0121c582923afc1187",
+            "mode": 420,
+            "size": 1907,
+            "baseline": "doctor/baselines/release-artifacts/blobs/58c0df26770468233d17cc0d598b0533f0024f9591f7fc0121c582923afc1187"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/ElasticsearchFormatter.php",
+            "sha256": "ee0849c88faf512c611ef0ccecdb015891cc817235b4404b1432607b0c1c679b",
+            "mode": 420,
+            "size": 1839,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ee0849c88faf512c611ef0ccecdb015891cc817235b4404b1432607b0c1c679b"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/FlowdockFormatter.php",
+            "sha256": "d89cbd496e793f5b572e536dc81ab6d4dbd592e4ef0331df10098e51d04558a6",
+            "mode": 420,
+            "size": 2537,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d89cbd496e793f5b572e536dc81ab6d4dbd592e4ef0331df10098e51d04558a6"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/FluentdFormatter.php",
+            "sha256": "e5fe3b2257732c2bdd08a31cb1dbc21211600152c6ce802d14657e2df053f38b",
+            "mode": 420,
+            "size": 2078,
+            "baseline": "doctor/baselines/release-artifacts/blobs/e5fe3b2257732c2bdd08a31cb1dbc21211600152c6ce802d14657e2df053f38b"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/FormatterInterface.php",
+            "sha256": "c3f44f06fa6ae27011f95728d04dcf9a73671aa752693d39f25a779a94d7c3b0",
+            "mode": 420,
+            "size": 870,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c3f44f06fa6ae27011f95728d04dcf9a73671aa752693d39f25a779a94d7c3b0"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/GelfMessageFormatter.php",
+            "sha256": "0fb0d21186f23742c12770a8c77d5025e00f2401803a3ae349cf41a6d550732a",
+            "mode": 420,
+            "size": 5084,
+            "baseline": "doctor/baselines/release-artifacts/blobs/0fb0d21186f23742c12770a8c77d5025e00f2401803a3ae349cf41a6d550732a"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/GoogleCloudLoggingFormatter.php",
+            "sha256": "4e8fcccbe55a563976ff49040ba0f3b1332716cd5f279d178f774350421f0c8f",
+            "mode": 420,
+            "size": 1179,
+            "baseline": "doctor/baselines/release-artifacts/blobs/4e8fcccbe55a563976ff49040ba0f3b1332716cd5f279d178f774350421f0c8f"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/HtmlFormatter.php",
+            "sha256": "490c01b91fb71c6a2531054be96f01395295c1a2d9cfcab55e06efef170bf1b4",
+            "mode": 420,
+            "size": 4549,
+            "baseline": "doctor/baselines/release-artifacts/blobs/490c01b91fb71c6a2531054be96f01395295c1a2d9cfcab55e06efef170bf1b4"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php",
+            "sha256": "cbdc47613c47761f199efad4a948320c17316147673359f7771baf23b02adebe",
+            "mode": 420,
+            "size": 6603,
+            "baseline": "doctor/baselines/release-artifacts/blobs/cbdc47613c47761f199efad4a948320c17316147673359f7771baf23b02adebe"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/LineFormatter.php",
+            "sha256": "090d4517489f412e246a82a99135c03e944c0cbc8ed1804b93c5ff126d0bbc98",
+            "mode": 420,
+            "size": 9891,
+            "baseline": "doctor/baselines/release-artifacts/blobs/090d4517489f412e246a82a99135c03e944c0cbc8ed1804b93c5ff126d0bbc98"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/LogglyFormatter.php",
+            "sha256": "eb41c1b207a8096f02cfb3a8b44bf9502c5ab54ac3f6cad814256f88629cb1d7",
+            "mode": 420,
+            "size": 1280,
+            "baseline": "doctor/baselines/release-artifacts/blobs/eb41c1b207a8096f02cfb3a8b44bf9502c5ab54ac3f6cad814256f88629cb1d7"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/LogmaticFormatter.php",
+            "sha256": "bf95b325e95ee4322a19711863628cfaa05e84170b52d611469b5f75be30de41",
+            "mode": 420,
+            "size": 1573,
+            "baseline": "doctor/baselines/release-artifacts/blobs/bf95b325e95ee4322a19711863628cfaa05e84170b52d611469b5f75be30de41"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/LogstashFormatter.php",
+            "sha256": "40c84cee9d935f9606e67e8e236458f16423dfb6b7cb2355f3cb4f0c4b060890",
+            "mode": 420,
+            "size": 3432,
+            "baseline": "doctor/baselines/release-artifacts/blobs/40c84cee9d935f9606e67e8e236458f16423dfb6b7cb2355f3cb4f0c4b060890"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/MongoDBFormatter.php",
+            "sha256": "954476e61bec24fa1cea19031bf2cb8e14dd52fe9e6151bc66ed9d26f5a96226",
+            "mode": 420,
+            "size": 3894,
+            "baseline": "doctor/baselines/release-artifacts/blobs/954476e61bec24fa1cea19031bf2cb8e14dd52fe9e6151bc66ed9d26f5a96226"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/NormalizerFormatter.php",
+            "sha256": "d8ee7fe2794cbf1c6d71370734f946263ffdea008d03ce4c2998d6aaded4746b",
+            "mode": 420,
+            "size": 10169,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d8ee7fe2794cbf1c6d71370734f946263ffdea008d03ce4c2998d6aaded4746b"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/ScalarFormatter.php",
+            "sha256": "18e35896a12c177156d1ee0e8201c6390dd07bb4c445e915b5ffe26e823b1039",
+            "mode": 420,
+            "size": 1137,
+            "baseline": "doctor/baselines/release-artifacts/blobs/18e35896a12c177156d1ee0e8201c6390dd07bb4c445e915b5ffe26e823b1039"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/SyslogFormatter.php",
+            "sha256": "a3c891bf01ed3f0aae3a0f954361cdb9754f8d230d9ff97c7dec70fe555c1856",
+            "mode": 420,
+            "size": 1893,
+            "baseline": "doctor/baselines/release-artifacts/blobs/a3c891bf01ed3f0aae3a0f954361cdb9754f8d230d9ff97c7dec70fe555c1856"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter/WildfireFormatter.php",
+            "sha256": "1c83c6bf597c1cae34b14557725c2bcfdd5002d5da7e13dfe146edf0e0107940",
+            "mode": 420,
+            "size": 4049,
+            "baseline": "doctor/baselines/release-artifacts/blobs/1c83c6bf597c1cae34b14557725c2bcfdd5002d5da7e13dfe146edf0e0107940"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/AbstractHandler.php",
+            "sha256": "d8a77b7a1f529ca85c6540b10cb6865effc65d0485b3164b8669ae1aa6f149fa",
+            "mode": 420,
+            "size": 2674,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d8a77b7a1f529ca85c6540b10cb6865effc65d0485b3164b8669ae1aa6f149fa"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/AbstractProcessingHandler.php",
+            "sha256": "b0315f8119ae7512878303942669086d1439264f4c89d6e8c3ecc7e9ee302b14",
+            "mode": 420,
+            "size": 1499,
+            "baseline": "doctor/baselines/release-artifacts/blobs/b0315f8119ae7512878303942669086d1439264f4c89d6e8c3ecc7e9ee302b14"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/AbstractSyslogHandler.php",
+            "sha256": "1d3f69c885ba356b1ae73e1aedbea24cfda06dfde6ba1f1bc94fe951f3f1a754",
+            "mode": 420,
+            "size": 3225,
+            "baseline": "doctor/baselines/release-artifacts/blobs/1d3f69c885ba356b1ae73e1aedbea24cfda06dfde6ba1f1bc94fe951f3f1a754"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/AmqpHandler.php",
+            "sha256": "bd059fa7165a8f889df2a34dca91fa33a1cbf21d5ec8a46c62e93672478cc5f3",
+            "mode": 420,
+            "size": 5070,
+            "baseline": "doctor/baselines/release-artifacts/blobs/bd059fa7165a8f889df2a34dca91fa33a1cbf21d5ec8a46c62e93672478cc5f3"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/BrowserConsoleHandler.php",
+            "sha256": "dd39c4817b8c6dc634a56de66b65e5c37c27a5a06e926a70c03c12ca7a8c8105",
+            "mode": 420,
+            "size": 9232,
+            "baseline": "doctor/baselines/release-artifacts/blobs/dd39c4817b8c6dc634a56de66b65e5c37c27a5a06e926a70c03c12ca7a8c8105"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/BufferHandler.php",
+            "sha256": "2f0316fd92390cf65e413af357072f3653743b3923add8243938f5e2db5a3772",
+            "mode": 420,
+            "size": 4660,
+            "baseline": "doctor/baselines/release-artifacts/blobs/2f0316fd92390cf65e413af357072f3653743b3923add8243938f5e2db5a3772"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/ChromePHPHandler.php",
+            "sha256": "f4c92b4b357a6b332cebc20f66e8cc0c8534c7aae9a54c10e9daf67095d50194",
+            "mode": 420,
+            "size": 4909,
+            "baseline": "doctor/baselines/release-artifacts/blobs/f4c92b4b357a6b332cebc20f66e8cc0c8534c7aae9a54c10e9daf67095d50194"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/CouchDBHandler.php",
+            "sha256": "83714f3c42b91ad63ac41cdcae9490eb252b145668a366411c5e9dd22208e011",
+            "mode": 420,
+            "size": 2610,
+            "baseline": "doctor/baselines/release-artifacts/blobs/83714f3c42b91ad63ac41cdcae9490eb252b145668a366411c5e9dd22208e011"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/CubeHandler.php",
+            "sha256": "4328b8ae23c51dda69e5b963c4a5b16df3a5b6fe353e52cbc5cdb0f8a8f34696",
+            "mode": 420,
+            "size": 5436,
+            "baseline": "doctor/baselines/release-artifacts/blobs/4328b8ae23c51dda69e5b963c4a5b16df3a5b6fe353e52cbc5cdb0f8a8f34696"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/Curl/Util.php",
+            "sha256": "48386bccc6fe95dc2fc88db9842f558f220c064b22d102a78b0c39f5c0230b40",
+            "mode": 420,
+            "size": 1613,
+            "baseline": "doctor/baselines/release-artifacts/blobs/48386bccc6fe95dc2fc88db9842f558f220c064b22d102a78b0c39f5c0230b40"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/DeduplicationHandler.php",
+            "sha256": "c12789fc3dbb55b313917c623821cc6b57609cc9cd472131952a79846ccf7df9",
+            "mode": 420,
+            "size": 6442,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c12789fc3dbb55b313917c623821cc6b57609cc9cd472131952a79846ccf7df9"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/DoctrineCouchDBHandler.php",
+            "sha256": "280780ffaed0977da6091fba26a023262777eddfffb1e6a02693c5a88d68a019",
+            "mode": 420,
+            "size": 1150,
+            "baseline": "doctor/baselines/release-artifacts/blobs/280780ffaed0977da6091fba26a023262777eddfffb1e6a02693c5a88d68a019"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/DynamoDbHandler.php",
+            "sha256": "5ac2f191fcaea9560037b51990ce2317350d09d46f38be95034931100ee18947",
+            "mode": 420,
+            "size": 1934,
+            "baseline": "doctor/baselines/release-artifacts/blobs/5ac2f191fcaea9560037b51990ce2317350d09d46f38be95034931100ee18947"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/ElasticaHandler.php",
+            "sha256": "b922e00a5aca8612612c620eb9d9bbd04c87722eb8e09d58d881c57ec598e8da",
+            "mode": 420,
+            "size": 3743,
+            "baseline": "doctor/baselines/release-artifacts/blobs/b922e00a5aca8612612c620eb9d9bbd04c87722eb8e09d58d881c57ec598e8da"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/ElasticsearchHandler.php",
+            "sha256": "d65bf48d17152631b45642ed016ac4bccf1a0c1076cad4b00785c2f11d2daff4",
+            "mode": 420,
+            "size": 7271,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d65bf48d17152631b45642ed016ac4bccf1a0c1076cad4b00785c2f11d2daff4"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/ErrorLogHandler.php",
+            "sha256": "34f30834f6b0f7a29214739bc38f9cee21919970124af5c586b18d5f376b6acc",
+            "mode": 420,
+            "size": 2674,
+            "baseline": "doctor/baselines/release-artifacts/blobs/34f30834f6b0f7a29214739bc38f9cee21919970124af5c586b18d5f376b6acc"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FallbackGroupHandler.php",
+            "sha256": "ce0cac331d87f167ffc1945b94bd2980706b7ea2dbb20297a1061d1a9767c3da",
+            "mode": 420,
+            "size": 1720,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ce0cac331d87f167ffc1945b94bd2980706b7ea2dbb20297a1061d1a9767c3da"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FilterHandler.php",
+            "sha256": "ee962ad4220a46ff9916575978c4a1923be6cd09217d965112ee23d71db185bc",
+            "mode": 420,
+            "size": 7091,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ee962ad4220a46ff9916575978c4a1923be6cd09217d965112ee23d71db185bc"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FingersCrossed/ActivationStrategyInterface.php",
+            "sha256": "d81cb1f7ea0e799e9eb012a86c5d9da564ca2efb25697779b444b6738328eb5e",
+            "mode": 420,
+            "size": 649,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d81cb1f7ea0e799e9eb012a86c5d9da564ca2efb25697779b444b6738328eb5e"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FingersCrossed/ChannelLevelActivationStrategy.php",
+            "sha256": "1435bb95b2721eaa4c8926117f2810fd17b4a8cbe284b86f4a32dd0ced40f62b",
+            "mode": 420,
+            "size": 2438,
+            "baseline": "doctor/baselines/release-artifacts/blobs/1435bb95b2721eaa4c8926117f2810fd17b4a8cbe284b86f4a32dd0ced40f62b"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FingersCrossed/ErrorLevelActivationStrategy.php",
+            "sha256": "c4472c040e816bbe3be8c2c3bd8fd2f1076f39d8d7bf157d98a32945b3242e41",
+            "mode": 420,
+            "size": 1083,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c4472c040e816bbe3be8c2c3bd8fd2f1076f39d8d7bf157d98a32945b3242e41"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FingersCrossedHandler.php",
+            "sha256": "4ae206acb6cc4630b8a1464fcfcde7dcd4c56ce15d6e17b45912248fdcb77bce",
+            "mode": 420,
+            "size": 8185,
+            "baseline": "doctor/baselines/release-artifacts/blobs/4ae206acb6cc4630b8a1464fcfcde7dcd4c56ce15d6e17b45912248fdcb77bce"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FirePHPHandler.php",
+            "sha256": "bac72261b2a93855142f4dd6347766beb6b89ae35a87e1c721d0e498ed702f3b",
+            "mode": 420,
+            "size": 5153,
+            "baseline": "doctor/baselines/release-artifacts/blobs/bac72261b2a93855142f4dd6347766beb6b89ae35a87e1c721d0e498ed702f3b"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FleepHookHandler.php",
+            "sha256": "ee49bc383aefd4c4ee0a09e4aa64539a1d05249f9ac8f5947285542d922fd7b1",
+            "mode": 420,
+            "size": 3525,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ee49bc383aefd4c4ee0a09e4aa64539a1d05249f9ac8f5947285542d922fd7b1"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FlowdockHandler.php",
+            "sha256": "1f957c1d60a6be43a0e9d1cf0091dd32020e2e6872ceb684a5541873342718fc",
+            "mode": 420,
+            "size": 3482,
+            "baseline": "doctor/baselines/release-artifacts/blobs/1f957c1d60a6be43a0e9d1cf0091dd32020e2e6872ceb684a5541873342718fc"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FormattableHandlerInterface.php",
+            "sha256": "da34546947008fafb237f41c194d70b907f52c3e0ed049631f380346498bf3c4",
+            "mode": 420,
+            "size": 757,
+            "baseline": "doctor/baselines/release-artifacts/blobs/da34546947008fafb237f41c194d70b907f52c3e0ed049631f380346498bf3c4"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FormattableHandlerTrait.php",
+            "sha256": "c7278ec8ab7f72435747d4a8d64ddb6b61067edfa4a9e2d9e2324f71edbba75a",
+            "mode": 420,
+            "size": 1268,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c7278ec8ab7f72435747d4a8d64ddb6b61067edfa4a9e2d9e2324f71edbba75a"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/GelfHandler.php",
+            "sha256": "9ac603f0282e01c79518f88b2ba52245a6468fc01886f3f8815b51c4cb7ce0cc",
+            "mode": 420,
+            "size": 1454,
+            "baseline": "doctor/baselines/release-artifacts/blobs/9ac603f0282e01c79518f88b2ba52245a6468fc01886f3f8815b51c4cb7ce0cc"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/GroupHandler.php",
+            "sha256": "92939f1497458997a28592c1e86e94ff7b0ae50564309fa8edd89db9788a09e8",
+            "mode": 420,
+            "size": 3270,
+            "baseline": "doctor/baselines/release-artifacts/blobs/92939f1497458997a28592c1e86e94ff7b0ae50564309fa8edd89db9788a09e8"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/Handler.php",
+            "sha256": "d8fed948377a07a44f11c548751fc942f2eeb9e352d98a6457750dc1d5b0a8dc",
+            "mode": 420,
+            "size": 1015,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d8fed948377a07a44f11c548751fc942f2eeb9e352d98a6457750dc1d5b0a8dc"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/HandlerInterface.php",
+            "sha256": "5b0f770ce764d50d871d805da2683ccfca39e64e70e56be3518648873318eeec",
+            "mode": 420,
+            "size": 2779,
+            "baseline": "doctor/baselines/release-artifacts/blobs/5b0f770ce764d50d871d805da2683ccfca39e64e70e56be3518648873318eeec"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/HandlerWrapper.php",
+            "sha256": "f3f570d902b5c3da0fb06b287df640764f5475e27aa5949897c7d3659c4f2e2e",
+            "mode": 420,
+            "size": 3355,
+            "baseline": "doctor/baselines/release-artifacts/blobs/f3f570d902b5c3da0fb06b287df640764f5475e27aa5949897c7d3659c4f2e2e"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/IFTTTHandler.php",
+            "sha256": "2a0037ae9c34bf756d30812189ad3bdb84be54049cd1aee3cf8cbf1ecd4480a3",
+            "mode": 420,
+            "size": 2269,
+            "baseline": "doctor/baselines/release-artifacts/blobs/2a0037ae9c34bf756d30812189ad3bdb84be54049cd1aee3cf8cbf1ecd4480a3"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/InsightOpsHandler.php",
+            "sha256": "4e7ab6956fe6fa00b4c5adf8b973f9138ef9c1e87900030fe69577eca4573d89",
+            "mode": 420,
+            "size": 2088,
+            "baseline": "doctor/baselines/release-artifacts/blobs/4e7ab6956fe6fa00b4c5adf8b973f9138ef9c1e87900030fe69577eca4573d89"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/LogEntriesHandler.php",
+            "sha256": "dab2ab36249acaf1cf62a88c1b02f833310fcce5b2cbe57244949125782ec259",
+            "mode": 420,
+            "size": 1907,
+            "baseline": "doctor/baselines/release-artifacts/blobs/dab2ab36249acaf1cf62a88c1b02f833310fcce5b2cbe57244949125782ec259"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/LogglyHandler.php",
+            "sha256": "18291245f82f1b37c00017d592e0ef79e8a60de11cca7ecd32182832b376ff13",
+            "mode": 420,
+            "size": 4111,
+            "baseline": "doctor/baselines/release-artifacts/blobs/18291245f82f1b37c00017d592e0ef79e8a60de11cca7ecd32182832b376ff13"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/LogmaticHandler.php",
+            "sha256": "fb4cc34a644d9f6075a67236a703970abf8fcb51812aa48d5067a80e28740b91",
+            "mode": 420,
+            "size": 2634,
+            "baseline": "doctor/baselines/release-artifacts/blobs/fb4cc34a644d9f6075a67236a703970abf8fcb51812aa48d5067a80e28740b91"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/MailHandler.php",
+            "sha256": "175982c1551b55828fd948f501636fbce2ebf8751041c3929e3732478e6476a3",
+            "mode": 420,
+            "size": 2245,
+            "baseline": "doctor/baselines/release-artifacts/blobs/175982c1551b55828fd948f501636fbce2ebf8751041c3929e3732478e6476a3"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/MandrillHandler.php",
+            "sha256": "49ed52af420dfd7571edcc24e654ab8ddc8fab060f67dfc10a164ec3ef9b57c7",
+            "mode": 420,
+            "size": 2540,
+            "baseline": "doctor/baselines/release-artifacts/blobs/49ed52af420dfd7571edcc24e654ab8ddc8fab060f67dfc10a164ec3ef9b57c7"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/MissingExtensionException.php",
+            "sha256": "6cbad21da41457d71384fab2b0491f4608515d9cd565ed40a83df5f02c1f75f4",
+            "mode": 420,
+            "size": 473,
+            "baseline": "doctor/baselines/release-artifacts/blobs/6cbad21da41457d71384fab2b0491f4608515d9cd565ed40a83df5f02c1f75f4"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/MongoDBHandler.php",
+            "sha256": "b3fa4cf7bd6519cce78c718b92dfb0086e9a0d843f8eee2de6ba6c594dcf2650",
+            "mode": 420,
+            "size": 2472,
+            "baseline": "doctor/baselines/release-artifacts/blobs/b3fa4cf7bd6519cce78c718b92dfb0086e9a0d843f8eee2de6ba6c594dcf2650"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/NativeMailerHandler.php",
+            "sha256": "bc3fe1dfb95e7bb9843a90a6a3c34b71046638a7dbe7addd4b151c134ee18157",
+            "mode": 420,
+            "size": 5200,
+            "baseline": "doctor/baselines/release-artifacts/blobs/bc3fe1dfb95e7bb9843a90a6a3c34b71046638a7dbe7addd4b151c134ee18157"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/NewRelicHandler.php",
+            "sha256": "12026d01e146b0524222d81b5bc2323e01115825bd1d5d72de8b9e77439f7f48",
+            "mode": 420,
+            "size": 5837,
+            "baseline": "doctor/baselines/release-artifacts/blobs/12026d01e146b0524222d81b5bc2323e01115825bd1d5d72de8b9e77439f7f48"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/NoopHandler.php",
+            "sha256": "9cac11e9a77d02c59cb9d10d98d86c37503973ddb9c1be30f89194a5d1a00a49",
+            "mode": 420,
+            "size": 908,
+            "baseline": "doctor/baselines/release-artifacts/blobs/9cac11e9a77d02c59cb9d10d98d86c37503973ddb9c1be30f89194a5d1a00a49"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/NullHandler.php",
+            "sha256": "1a9a267a4a060c5001a3c6cf9d8592fc7f80be2deff753c14207fc91f91eb4f3",
+            "mode": 420,
+            "size": 1331,
+            "baseline": "doctor/baselines/release-artifacts/blobs/1a9a267a4a060c5001a3c6cf9d8592fc7f80be2deff753c14207fc91f91eb4f3"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/OverflowHandler.php",
+            "sha256": "466117a395f43f30b89e367d126292e002867a0eda6f195235dfa34ce9a873c3",
+            "mode": 420,
+            "size": 4312,
+            "baseline": "doctor/baselines/release-artifacts/blobs/466117a395f43f30b89e367d126292e002867a0eda6f195235dfa34ce9a873c3"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/PHPConsoleHandler.php",
+            "sha256": "c3707699164e339ed70cb9c3f76bef1b08b04d7036d6b3bde073e987e646e8f9",
+            "mode": 420,
+            "size": 12298,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c3707699164e339ed70cb9c3f76bef1b08b04d7036d6b3bde073e987e646e8f9"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/ProcessHandler.php",
+            "sha256": "263f832c958990f9bc9303d3e1ecfa1b07d0ad743a93fa9a77acbbb61a373e27",
+            "mode": 420,
+            "size": 5484,
+            "baseline": "doctor/baselines/release-artifacts/blobs/263f832c958990f9bc9303d3e1ecfa1b07d0ad743a93fa9a77acbbb61a373e27"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/ProcessableHandlerInterface.php",
+            "sha256": "2f951faf55182850873e0c302277ab8b75b943db4d9b17f778b3791feb535643",
+            "mode": 420,
+            "size": 1185,
+            "baseline": "doctor/baselines/release-artifacts/blobs/2f951faf55182850873e0c302277ab8b75b943db4d9b17f778b3791feb535643"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/ProcessableHandlerTrait.php",
+            "sha256": "7de97be3b653016783c1885af79cc790822652ce25d350e30d83f5b71ba8665c",
+            "mode": 420,
+            "size": 1618,
+            "baseline": "doctor/baselines/release-artifacts/blobs/7de97be3b653016783c1885af79cc790822652ce25d350e30d83f5b71ba8665c"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/PsrHandler.php",
+            "sha256": "6896619e19f82e397096ed8c0de90c46958b7f17f38c5168b21e69b120059648",
+            "mode": 420,
+            "size": 2470,
+            "baseline": "doctor/baselines/release-artifacts/blobs/6896619e19f82e397096ed8c0de90c46958b7f17f38c5168b21e69b120059648"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/PushoverHandler.php",
+            "sha256": "72403bb1f4f6b412c10231b81bc0ab8a85f280ed2f3b9fd267e7a1a6ccc13a61",
+            "mode": 420,
+            "size": 8112,
+            "baseline": "doctor/baselines/release-artifacts/blobs/72403bb1f4f6b412c10231b81bc0ab8a85f280ed2f3b9fd267e7a1a6ccc13a61"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/RedisHandler.php",
+            "sha256": "e09b41fb5b24ad81051ce0629d0edacde130b54b82aa40621c94a28f059238b8",
+            "mode": 420,
+            "size": 2734,
+            "baseline": "doctor/baselines/release-artifacts/blobs/e09b41fb5b24ad81051ce0629d0edacde130b54b82aa40621c94a28f059238b8"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/RedisPubSubHandler.php",
+            "sha256": "733f109c734803ab8e6987402a13fc7e26e7fb6455d0911525ba90fd37164e9d",
+            "mode": 420,
+            "size": 1683,
+            "baseline": "doctor/baselines/release-artifacts/blobs/733f109c734803ab8e6987402a13fc7e26e7fb6455d0911525ba90fd37164e9d"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/RollbarHandler.php",
+            "sha256": "d5fe5a984fef52259648d9b92fd7ff055e5776dcad94758f41ca496f7f9e21e9",
+            "mode": 420,
+            "size": 3564,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d5fe5a984fef52259648d9b92fd7ff055e5776dcad94758f41ca496f7f9e21e9"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php",
+            "sha256": "dc07c8cb8e36547ab42111aed36474acaa361f16fceab058e8a07694fb937209",
+            "mode": 420,
+            "size": 7751,
+            "baseline": "doctor/baselines/release-artifacts/blobs/dc07c8cb8e36547ab42111aed36474acaa361f16fceab058e8a07694fb937209"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SamplingHandler.php",
+            "sha256": "cd82b9f8f391057830bbd66f79e8c915bae80d7011916f24ed884d78205051d8",
+            "mode": 420,
+            "size": 3917,
+            "baseline": "doctor/baselines/release-artifacts/blobs/cd82b9f8f391057830bbd66f79e8c915bae80d7011916f24ed884d78205051d8"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SendGridHandler.php",
+            "sha256": "04c2060ead6352648568f4a0f2e4935a6affe9dc7a12af218bba41aa1c3cbdef",
+            "mode": 420,
+            "size": 3089,
+            "baseline": "doctor/baselines/release-artifacts/blobs/04c2060ead6352648568f4a0f2e4935a6affe9dc7a12af218bba41aa1c3cbdef"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/Slack/SlackRecord.php",
+            "sha256": "ceb5d24d459f6f7f1aa1731893634568421dd104df947f2f5e74bec4ae475a78",
+            "mode": 420,
+            "size": 10660,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ceb5d24d459f6f7f1aa1731893634568421dd104df947f2f5e74bec4ae475a78"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SlackHandler.php",
+            "sha256": "5e4ce5b16465f3fc3e1fb1d33519ffe09b7e9c73b881f62010fbcd7f40dcb764",
+            "mode": 420,
+            "size": 7160,
+            "baseline": "doctor/baselines/release-artifacts/blobs/5e4ce5b16465f3fc3e1fb1d33519ffe09b7e9c73b881f62010fbcd7f40dcb764"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SlackWebhookHandler.php",
+            "sha256": "531ef871e788c26a5315658999833069cfc10840d83166a664fc298419ec7527",
+            "mode": 420,
+            "size": 3924,
+            "baseline": "doctor/baselines/release-artifacts/blobs/531ef871e788c26a5315658999833069cfc10840d83166a664fc298419ec7527"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SocketHandler.php",
+            "sha256": "1f2581422eb64d523b2cf0476d3ebb064c82da6f30c3ee6b2440b3a1409ed011",
+            "mode": 420,
+            "size": 12127,
+            "baseline": "doctor/baselines/release-artifacts/blobs/1f2581422eb64d523b2cf0476d3ebb064c82da6f30c3ee6b2440b3a1409ed011"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SqsHandler.php",
+            "sha256": "5af231e98664ef11969140212dabe7cd6657da9b67d057161fa9bb4b4c2e5d7d",
+            "mode": 420,
+            "size": 1750,
+            "baseline": "doctor/baselines/release-artifacts/blobs/5af231e98664ef11969140212dabe7cd6657da9b67d057161fa9bb4b4c2e5d7d"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/StreamHandler.php",
+            "sha256": "0aa5f1f07c90a6808ee2b033f3a5d21c3639ee795580b52b2954984d4e8fee03",
+            "mode": 420,
+            "size": 8950,
+            "baseline": "doctor/baselines/release-artifacts/blobs/0aa5f1f07c90a6808ee2b033f3a5d21c3639ee795580b52b2954984d4e8fee03"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SymfonyMailerHandler.php",
+            "sha256": "07c85f2c8f9ce8cc3dc4a6de840200a54f32736d62d23bc4a0b98f7406ae16ed",
+            "mode": 420,
+            "size": 3529,
+            "baseline": "doctor/baselines/release-artifacts/blobs/07c85f2c8f9ce8cc3dc4a6de840200a54f32736d62d23bc4a0b98f7406ae16ed"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SyslogHandler.php",
+            "sha256": "828003d23dc1f5bce273d0989d9e138728511c94631e1fbb9fc4f4dc5f3df204",
+            "mode": 420,
+            "size": 1687,
+            "baseline": "doctor/baselines/release-artifacts/blobs/828003d23dc1f5bce273d0989d9e138728511c94631e1fbb9fc4f4dc5f3df204"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SyslogUdp/UdpSocket.php",
+            "sha256": "99fffbeba783f84430d15409022f6af85b7950fad7d034ce3c73c9a8e06300da",
+            "mode": 420,
+            "size": 1965,
+            "baseline": "doctor/baselines/release-artifacts/blobs/99fffbeba783f84430d15409022f6af85b7950fad7d034ce3c73c9a8e06300da"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SyslogUdpHandler.php",
+            "sha256": "577d7733061ff27dff04988cd0efce07b8165264e780b470468596e9d6e50989",
+            "mode": 420,
+            "size": 4714,
+            "baseline": "doctor/baselines/release-artifacts/blobs/577d7733061ff27dff04988cd0efce07b8165264e780b470468596e9d6e50989"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/TelegramBotHandler.php",
+            "sha256": "5f5e95a78444d4593845c10d9d081e09e954bf5f565e7cb4d327ee59018d713e",
+            "mode": 420,
+            "size": 9515,
+            "baseline": "doctor/baselines/release-artifacts/blobs/5f5e95a78444d4593845c10d9d081e09e954bf5f565e7cb4d327ee59018d713e"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/TestHandler.php",
+            "sha256": "b47e559f28d280921f8407007a990d538aea28f12ac8ac042c0eff60164dc313",
+            "mode": 420,
+            "size": 6892,
+            "baseline": "doctor/baselines/release-artifacts/blobs/b47e559f28d280921f8407007a990d538aea28f12ac8ac042c0eff60164dc313"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/WebRequestRecognizerTrait.php",
+            "sha256": "60ca14bb1e155764482d99bcd909d9162c9d4299b76ecd5577ece44f311ad23f",
+            "mode": 420,
+            "size": 504,
+            "baseline": "doctor/baselines/release-artifacts/blobs/60ca14bb1e155764482d99bcd909d9162c9d4299b76ecd5577ece44f311ad23f"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/WhatFailureGroupHandler.php",
+            "sha256": "74969296e046f733b0bf2cf3eed559bb898607f63ed40d43510f60e11e0ea6b7",
+            "mode": 420,
+            "size": 1911,
+            "baseline": "doctor/baselines/release-artifacts/blobs/74969296e046f733b0bf2cf3eed559bb898607f63ed40d43510f60e11e0ea6b7"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/ZendMonitorHandler.php",
+            "sha256": "2f5706754a33530a85a224b1f974e1e70801bf11675bac1865dd8313067761b9",
+            "mode": 420,
+            "size": 2851,
+            "baseline": "doctor/baselines/release-artifacts/blobs/2f5706754a33530a85a224b1f974e1e70801bf11675bac1865dd8313067761b9"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/JsonSerializableDateTimeImmutable.php",
+            "sha256": "10ef69c94ac474e47e7910aaa668c783b7a51c46651a0c0daaa1c3dd0f264eb1",
+            "mode": 420,
+            "size": 1253,
+            "baseline": "doctor/baselines/release-artifacts/blobs/10ef69c94ac474e47e7910aaa668c783b7a51c46651a0c0daaa1c3dd0f264eb1"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Level.php",
+            "sha256": "a8c1b1235dae0025d18971b1b357727419aab3591e83139caa3d74eaf123928f",
+            "mode": 420,
+            "size": 5332,
+            "baseline": "doctor/baselines/release-artifacts/blobs/a8c1b1235dae0025d18971b1b357727419aab3591e83139caa3d74eaf123928f"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/LogRecord.php",
+            "sha256": "033537f4768ed1791c4eea0ef9c6c03f8346b2ea24059e50e85392a6636790e8",
+            "mode": 420,
+            "size": 3460,
+            "baseline": "doctor/baselines/release-artifacts/blobs/033537f4768ed1791c4eea0ef9c6c03f8346b2ea24059e50e85392a6636790e8"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Logger.php",
+            "sha256": "fe7a0a0a924ff3b2174c8b7b8decdf6691fb3daea0994b2b60a7218a93acdfaf",
+            "mode": 420,
+            "size": 23087,
+            "baseline": "doctor/baselines/release-artifacts/blobs/fe7a0a0a924ff3b2174c8b7b8decdf6691fb3daea0994b2b60a7218a93acdfaf"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/ClosureContextProcessor.php",
+            "sha256": "31d9ec44cc80c7be34f38e77c89f784625b8b6ab454cd852de2e2a783410f24b",
+            "mode": 420,
+            "size": 1512,
+            "baseline": "doctor/baselines/release-artifacts/blobs/31d9ec44cc80c7be34f38e77c89f784625b8b6ab454cd852de2e2a783410f24b"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/GitProcessor.php",
+            "sha256": "2d64e9ea4bbaefc3838a459080667fcd3a8c90f284fcfc996e6c103091dc1883",
+            "mode": 420,
+            "size": 1984,
+            "baseline": "doctor/baselines/release-artifacts/blobs/2d64e9ea4bbaefc3838a459080667fcd3a8c90f284fcfc996e6c103091dc1883"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/HostnameProcessor.php",
+            "sha256": "f71edaa35ce1e7c48b0aa88d6c8c994ee3a80513f3c60271a7a20a40a5af1691",
+            "mode": 420,
+            "size": 736,
+            "baseline": "doctor/baselines/release-artifacts/blobs/f71edaa35ce1e7c48b0aa88d6c8c994ee3a80513f3c60271a7a20a40a5af1691"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/IntrospectionProcessor.php",
+            "sha256": "e6abb7cd2ee5f885d111f5b436feaa2891470da6e0a72cbbb1836c79bf41a85f",
+            "mode": 420,
+            "size": 3790,
+            "baseline": "doctor/baselines/release-artifacts/blobs/e6abb7cd2ee5f885d111f5b436feaa2891470da6e0a72cbbb1836c79bf41a85f"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/LoadAverageProcessor.php",
+            "sha256": "436a0c0836430b05fef0d692da2843804e27cb60bc2ccba2cd79a8a03a0238c7",
+            "mode": 420,
+            "size": 1631,
+            "baseline": "doctor/baselines/release-artifacts/blobs/436a0c0836430b05fef0d692da2843804e27cb60bc2ccba2cd79a8a03a0238c7"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/MemoryPeakUsageProcessor.php",
+            "sha256": "bde7180cabfde59aa0d9faaa9ee805dcde6d47a9e522c13097c5a4cfe27785a7",
+            "mode": 420,
+            "size": 864,
+            "baseline": "doctor/baselines/release-artifacts/blobs/bde7180cabfde59aa0d9faaa9ee805dcde6d47a9e522c13097c5a4cfe27785a7"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/MemoryProcessor.php",
+            "sha256": "d0489d1bac5304439e68c5e18060dd4a6ef7ae82d4e0e1076c34ffbc883b2eb1",
+            "mode": 420,
+            "size": 1804,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d0489d1bac5304439e68c5e18060dd4a6ef7ae82d4e0e1076c34ffbc883b2eb1"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/MemoryUsageProcessor.php",
+            "sha256": "6fd512425072408b1ef59fd71204faca8118755a259ff0a54644c2f5d69d8a22",
+            "mode": 420,
+            "size": 845,
+            "baseline": "doctor/baselines/release-artifacts/blobs/6fd512425072408b1ef59fd71204faca8118755a259ff0a54644c2f5d69d8a22"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/MercurialProcessor.php",
+            "sha256": "75c2efffcbfe7a1e07964757d854137a8a4edae480b07b78fea90fde904fb03f",
+            "mode": 420,
+            "size": 2096,
+            "baseline": "doctor/baselines/release-artifacts/blobs/75c2efffcbfe7a1e07964757d854137a8a4edae480b07b78fea90fde904fb03f"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/ProcessIdProcessor.php",
+            "sha256": "7c8ccc3afa7d1c28442b449c9e9bbfc4b2a3cccaafcd71c338b58cca3efd70c8",
+            "mode": 420,
+            "size": 635,
+            "baseline": "doctor/baselines/release-artifacts/blobs/7c8ccc3afa7d1c28442b449c9e9bbfc4b2a3cccaafcd71c338b58cca3efd70c8"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/ProcessorInterface.php",
+            "sha256": "d0677f42c12ff384b545d6358473f7505ab4d3f59617f7d3a4aca1a615732f35",
+            "mode": 420,
+            "size": 576,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d0677f42c12ff384b545d6358473f7505ab4d3f59617f7d3a4aca1a615732f35"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php",
+            "sha256": "37c76ccc6b142c1262b9812679d16a29672924e351a031aca7d9df2cf6fb72de",
+            "mode": 420,
+            "size": 3077,
+            "baseline": "doctor/baselines/release-artifacts/blobs/37c76ccc6b142c1262b9812679d16a29672924e351a031aca7d9df2cf6fb72de"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/TagProcessor.php",
+            "sha256": "bed8addb465d007ed403c74a148bb82e1f04416251576a494137600aaef47ae7",
+            "mode": 420,
+            "size": 1200,
+            "baseline": "doctor/baselines/release-artifacts/blobs/bed8addb465d007ed403c74a148bb82e1f04416251576a494137600aaef47ae7"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/UidProcessor.php",
+            "sha256": "0ea99abc6ea435c9f5082c7c097e81ab318b3aa2ae7f1669446b2918ebec6087",
+            "mode": 420,
+            "size": 1493,
+            "baseline": "doctor/baselines/release-artifacts/blobs/0ea99abc6ea435c9f5082c7c097e81ab318b3aa2ae7f1669446b2918ebec6087"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor/WebProcessor.php",
+            "sha256": "04134cd76ce4204c92817eba73e194caa9b7f032cda1040b65464587a9ee1a44",
+            "mode": 420,
+            "size": 3471,
+            "baseline": "doctor/baselines/release-artifacts/blobs/04134cd76ce4204c92817eba73e194caa9b7f032cda1040b65464587a9ee1a44"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Registry.php",
+            "sha256": "280edfb3c7fdb30b56a91fa4597cc12c7f2c4aa6e6bd5c5f4ce6f5048bac451a",
+            "mode": 420,
+            "size": 4022,
+            "baseline": "doctor/baselines/release-artifacts/blobs/280edfb3c7fdb30b56a91fa4597cc12c7f2c4aa6e6bd5c5f4ce6f5048bac451a"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/ResettableInterface.php",
+            "sha256": "3101f006af65878ce8fd24ea6d0706e4f7c6b046690ac2f19e42b45bdc902974",
+            "mode": 420,
+            "size": 974,
+            "baseline": "doctor/baselines/release-artifacts/blobs/3101f006af65878ce8fd24ea6d0706e4f7c6b046690ac2f19e42b45bdc902974"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/SignalHandler.php",
+            "sha256": "ed097894188b05bbb61cc7c991e451e20a1997a7129c9167ee383adbc59460c8",
+            "mode": 420,
+            "size": 3906,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ed097894188b05bbb61cc7c991e451e20a1997a7129c9167ee383adbc59460c8"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Test/MonologTestCase.php",
+            "sha256": "5dd94dcf726e0221f454290d0d408caf2b124279e5a5b5f9833faa77e4d52400",
+            "mode": 420,
+            "size": 2180,
+            "baseline": "doctor/baselines/release-artifacts/blobs/5dd94dcf726e0221f454290d0d408caf2b124279e5a5b5f9833faa77e4d52400"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Test/TestCase.php",
+            "sha256": "ed0759bd02f989b97f5ae8880f4f3c9ada613055f92e067545874618ed4f1c93",
+            "mode": 420,
+            "size": 517,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ed0759bd02f989b97f5ae8880f4f3c9ada613055f92e067545874618ed4f1c93"
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Utils.php",
+            "sha256": "d5ede483ccc3060cb487a765d9934cdafbacd7bf7238f61e1bd28c81987b2685",
+            "mode": 420,
+            "size": 8945,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d5ede483ccc3060cb487a765d9934cdafbacd7bf7238f61e1bd28c81987b2685"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/COMMITMENT",
+            "sha256": "340ae872d625b128586b8751f3d599f63893417d8867cdb488702c48ea58fbc1",
+            "mode": 420,
+            "size": 2092,
+            "baseline": "doctor/baselines/release-artifacts/blobs/340ae872d625b128586b8751f3d599f63893417d8867cdb488702c48ea58fbc1"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/LICENSE",
+            "sha256": "a1a33180d02960ab1c5de36cf20b1a2f0fe9888d83826ad263da5db52f1b183b",
+            "mode": 420,
+            "size": 26529,
+            "baseline": "doctor/baselines/release-artifacts/blobs/a1a33180d02960ab1c5de36cf20b1a2f0fe9888d83826ad263da5db52f1b183b"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/README.md",
+            "sha256": "8917f9dfca267cb2da990091d155e5948b82460c44504812cc5176ce0bc712a1",
+            "mode": 420,
+            "size": 16832,
+            "baseline": "doctor/baselines/release-artifacts/blobs/8917f9dfca267cb2da990091d155e5948b82460c44504812cc5176ce0bc712a1"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/SECURITY.md",
+            "sha256": "748329021e3d7307694d5c0e108dd8a31850e58ac96bc6de6cf1099568906eca",
+            "mode": 420,
+            "size": 7585,
+            "baseline": "doctor/baselines/release-artifacts/blobs/748329021e3d7307694d5c0e108dd8a31850e58ac96bc6de6cf1099568906eca"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/SMTPUTF8.md",
+            "sha256": "eb3409266849cdb958db6d939b70a31097767f87e0e1003353528a746423a013",
+            "mode": 420,
+            "size": 5915,
+            "baseline": "doctor/baselines/release-artifacts/blobs/eb3409266849cdb958db6d939b70a31097767f87e0e1003353528a746423a013"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/VERSION",
+            "sha256": "26ca10c15d00d68ad63bbf62a819e2262a552ea6ebb39461e44659e46a0bafb4",
+            "mode": 420,
+            "size": 7,
+            "baseline": "doctor/baselines/release-artifacts/blobs/26ca10c15d00d68ad63bbf62a819e2262a552ea6ebb39461e44659e46a0bafb4"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/composer.json",
+            "sha256": "988c74b659c07ecc32f6473ee151eb808a7f74cb1e3c3e2f14562caaf9c5785a",
+            "mode": 420,
+            "size": 2775,
+            "baseline": "doctor/baselines/release-artifacts/blobs/988c74b659c07ecc32f6473ee151eb808a7f74cb1e3c3e2f14562caaf9c5785a"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/get_oauth_token.php",
+            "sha256": "9564843fbfc9f153e464849e736d08cb41f124f1acb2fcd6c129d50be14d52b8",
+            "mode": 420,
+            "size": 6261,
+            "baseline": "doctor/baselines/release-artifacts/blobs/9564843fbfc9f153e464849e736d08cb41f124f1acb2fcd6c129d50be14d52b8"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-af.php",
+            "sha256": "d4c5272712f1b1cd6b3d08f83a89fbdae257de308a58e6eee1f4e7f519c86062",
+            "mode": 420,
+            "size": 1584,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d4c5272712f1b1cd6b3d08f83a89fbdae257de308a58e6eee1f4e7f519c86062"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ar.php",
+            "sha256": "ad11ffbf21f84fe6e812a0cf4f82df4412dd232ab6f6b6fe47e2c760845ec04f",
+            "mode": 420,
+            "size": 2024,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ad11ffbf21f84fe6e812a0cf4f82df4412dd232ab6f6b6fe47e2c760845ec04f"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-as.php",
+            "sha256": "8aaaa3925b2e79a475ffd7b65e29406b1e86c8ea48a666ec32243668f5e28494",
+            "mode": 420,
+            "size": 3792,
+            "baseline": "doctor/baselines/release-artifacts/blobs/8aaaa3925b2e79a475ffd7b65e29406b1e86c8ea48a666ec32243668f5e28494"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-az.php",
+            "sha256": "8b116561af83e2bd1ef3319ff8103f169883e89efab592115d98c9ae7c09d6df",
+            "mode": 420,
+            "size": 1749,
+            "baseline": "doctor/baselines/release-artifacts/blobs/8b116561af83e2bd1ef3319ff8103f169883e89efab592115d98c9ae7c09d6df"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ba.php",
+            "sha256": "df573ba9a9431bff2c602b7b297040e0f9cf9b319562f17c686f01f1ed4ebfad",
+            "mode": 420,
+            "size": 1745,
+            "baseline": "doctor/baselines/release-artifacts/blobs/df573ba9a9431bff2c602b7b297040e0f9cf9b319562f17c686f01f1ed4ebfad"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-be.php",
+            "sha256": "47c51cef7371142b993b58764c0abd4e82fe7213f9bd85b6dcfb24d0acd223ec",
+            "mode": 420,
+            "size": 2178,
+            "baseline": "doctor/baselines/release-artifacts/blobs/47c51cef7371142b993b58764c0abd4e82fe7213f9bd85b6dcfb24d0acd223ec"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-bg.php",
+            "sha256": "9a556b5ad45ead80d7331f5ed713799e7fb810c52f8d7913725585fbeff084c2",
+            "mode": 420,
+            "size": 2196,
+            "baseline": "doctor/baselines/release-artifacts/blobs/9a556b5ad45ead80d7331f5ed713799e7fb810c52f8d7913725585fbeff084c2"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-bn.php",
+            "sha256": "ff7842ce6fdc7cbb846b16f292e126fbc578e0c27da48092e4a5f44d928aebe6",
+            "mode": 420,
+            "size": 3845,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ff7842ce6fdc7cbb846b16f292e126fbc578e0c27da48092e4a5f44d928aebe6"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ca.php",
+            "sha256": "2b62db0921d2d321c80869bc9544b744747fd7cf398cc17358c0ae0b2533548c",
+            "mode": 420,
+            "size": 1730,
+            "baseline": "doctor/baselines/release-artifacts/blobs/2b62db0921d2d321c80869bc9544b744747fd7cf398cc17358c0ae0b2533548c"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-cs.php",
+            "sha256": "4bdb6445032c31fa1c41d65b8840f4fed0c30b96a6e68418ea6968e6de49f664",
+            "mode": 420,
+            "size": 1798,
+            "baseline": "doctor/baselines/release-artifacts/blobs/4bdb6445032c31fa1c41d65b8840f4fed0c30b96a6e68418ea6968e6de49f664"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-da.php",
+            "sha256": "32a35e1df4a39d8d4bd7c4daad3a19eae2c139cdb1b58dead36a2b5dc91e83db",
+            "mode": 420,
+            "size": 2409,
+            "baseline": "doctor/baselines/release-artifacts/blobs/32a35e1df4a39d8d4bd7c4daad3a19eae2c139cdb1b58dead36a2b5dc91e83db"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-de.php",
+            "sha256": "41e9bee22a8b00d42b28ebadae85ba531134a2482108489c0e5ced6ddc25b062",
+            "mode": 420,
+            "size": 1886,
+            "baseline": "doctor/baselines/release-artifacts/blobs/41e9bee22a8b00d42b28ebadae85ba531134a2482108489c0e5ced6ddc25b062"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-el.php",
+            "sha256": "3760e138e5c0fdc17a896718d2d86239b6d2d936abc0cf016fc5350ee034a8dd",
+            "mode": 420,
+            "size": 3307,
+            "baseline": "doctor/baselines/release-artifacts/blobs/3760e138e5c0fdc17a896718d2d86239b6d2d936abc0cf016fc5350ee034a8dd"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-eo.php",
+            "sha256": "d7dc252b77f7a098e4b3c3e7beca875be08b6f01bf68129bc658fce26b06bb31",
+            "mode": 420,
+            "size": 1665,
+            "baseline": "doctor/baselines/release-artifacts/blobs/d7dc252b77f7a098e4b3c3e7beca875be08b6f01bf68129bc658fce26b06bb31"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-es.php",
+            "sha256": "6f84a5e4b7fe9fb5867941bb23e21189caaf52b97948a87589132f6bd9ae34f7",
+            "mode": 420,
+            "size": 2588,
+            "baseline": "doctor/baselines/release-artifacts/blobs/6f84a5e4b7fe9fb5867941bb23e21189caaf52b97948a87589132f6bd9ae34f7"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-et.php",
+            "sha256": "7a854b796bc5058913ab5f5ad489b02ed246ad49220e844a1c3fbb0ffa908fa6",
+            "mode": 420,
+            "size": 1744,
+            "baseline": "doctor/baselines/release-artifacts/blobs/7a854b796bc5058913ab5f5ad489b02ed246ad49220e844a1c3fbb0ffa908fa6"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-fa.php",
+            "sha256": "7e38e2e75326d9d7bbb87fc4f6dc5c40ce79c9ce43016a707e84af9d7e332102",
+            "mode": 420,
+            "size": 2079,
+            "baseline": "doctor/baselines/release-artifacts/blobs/7e38e2e75326d9d7bbb87fc4f6dc5c40ce79c9ce43016a707e84af9d7e332102"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-fi.php",
+            "sha256": "3efb47c9e164860b45ee3a9f707975210d7f87bbc356a7dada075528fc37052c",
+            "mode": 420,
+            "size": 1659,
+            "baseline": "doctor/baselines/release-artifacts/blobs/3efb47c9e164860b45ee3a9f707975210d7f87bbc356a7dada075528fc37052c"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-fo.php",
+            "sha256": "2b778d73170ff1864126bd65839d39098a9dde290e31fe6ea6719b68a030daa2",
+            "mode": 420,
+            "size": 1637,
+            "baseline": "doctor/baselines/release-artifacts/blobs/2b778d73170ff1864126bd65839d39098a9dde290e31fe6ea6719b68a030daa2"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-fr.php",
+            "sha256": "1d816ccae7fa8eea24907686ffeeeeb5861ffdf794690e6a91c142d49d05efd7",
+            "mode": 420,
+            "size": 2732,
+            "baseline": "doctor/baselines/release-artifacts/blobs/1d816ccae7fa8eea24907686ffeeeeb5861ffdf794690e6a91c142d49d05efd7"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-gl.php",
+            "sha256": "fe2fd5068446a04e73ca767ca05eba81f6648fcb93988a307a4dbd619054780a",
+            "mode": 420,
+            "size": 1742,
+            "baseline": "doctor/baselines/release-artifacts/blobs/fe2fd5068446a04e73ca767ca05eba81f6648fcb93988a307a4dbd619054780a"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-he.php",
+            "sha256": "7d944fe5e073d0dfb8a53cf9f8e9c409d40f5f0149ce6d47c1f4088cb28d69fe",
+            "mode": 420,
+            "size": 1812,
+            "baseline": "doctor/baselines/release-artifacts/blobs/7d944fe5e073d0dfb8a53cf9f8e9c409d40f5f0149ce6d47c1f4088cb28d69fe"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-hi.php",
+            "sha256": "2a260e1b5f0d7efbfccc436ea040aa172ecd5ac8ea394482c0dd9a2e7c9d3206",
+            "mode": 420,
+            "size": 3768,
+            "baseline": "doctor/baselines/release-artifacts/blobs/2a260e1b5f0d7efbfccc436ea040aa172ecd5ac8ea394482c0dd9a2e7c9d3206"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-hr.php",
+            "sha256": "b337f280f2e5f087daaa44bd1f359bbc41e01062cbd07a5c67345a45a01ccbaf",
+            "mode": 420,
+            "size": 1754,
+            "baseline": "doctor/baselines/release-artifacts/blobs/b337f280f2e5f087daaa44bd1f359bbc41e01062cbd07a5c67345a45a01ccbaf"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-hu.php",
+            "sha256": "94045618ef5a86dc4f8176f3ebae3fbb1e29b7ef7cb1ce99ba57ee4724aef3be",
+            "mode": 420,
+            "size": 1717,
+            "baseline": "doctor/baselines/release-artifacts/blobs/94045618ef5a86dc4f8176f3ebae3fbb1e29b7ef7cb1ce99ba57ee4724aef3be"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-hy.php",
+            "sha256": "52fc3f40d24d55ef95702a59ec006c4c5996a22e54a6b00e54a25707db341629",
+            "mode": 420,
+            "size": 2185,
+            "baseline": "doctor/baselines/release-artifacts/blobs/52fc3f40d24d55ef95702a59ec006c4c5996a22e54a6b00e54a25707db341629"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-id.php",
+            "sha256": "a9c606b5da1470c02140c96c1ef3fc5ba1175ad0ce119b6f2d93e02c112d2ae1",
+            "mode": 420,
+            "size": 1997,
+            "baseline": "doctor/baselines/release-artifacts/blobs/a9c606b5da1470c02140c96c1ef3fc5ba1175ad0ce119b6f2d93e02c112d2ae1"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-it.php",
+            "sha256": "06e7faf9dc2dabebe8ea8c684eb9b798ffd241ce039945a8e5583993705b1c3e",
+            "mode": 420,
+            "size": 1819,
+            "baseline": "doctor/baselines/release-artifacts/blobs/06e7faf9dc2dabebe8ea8c684eb9b798ffd241ce039945a8e5583993705b1c3e"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ja.php",
+            "sha256": "c1cb38a994fb2f1b523dc622174dd4f7b9e9ba20e8cd864ae44744bd2b8050fc",
+            "mode": 420,
+            "size": 2934,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c1cb38a994fb2f1b523dc622174dd4f7b9e9ba20e8cd864ae44744bd2b8050fc"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ka.php",
+            "sha256": "0bf765b1e28e33947df929657c325cd957c506ec42d44d2a32b3d30794f09b31",
+            "mode": 420,
+            "size": 2884,
+            "baseline": "doctor/baselines/release-artifacts/blobs/0bf765b1e28e33947df929657c325cd957c506ec42d44d2a32b3d30794f09b31"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ko.php",
+            "sha256": "674f7f333694475a3a6164c1c5cb84e25f94a5b0d3118cb49ff2e5a318260c64",
+            "mode": 420,
+            "size": 1771,
+            "baseline": "doctor/baselines/release-artifacts/blobs/674f7f333694475a3a6164c1c5cb84e25f94a5b0d3118cb49ff2e5a318260c64"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ku.php",
+            "sha256": "4cc2ad8c0516ce01090997c802c7cdc3362e974e55ea26823140e60d50328f71",
+            "mode": 420,
+            "size": 2238,
+            "baseline": "doctor/baselines/release-artifacts/blobs/4cc2ad8c0516ce01090997c802c7cdc3362e974e55ea26823140e60d50328f71"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-lt.php",
+            "sha256": "ee21a138a136caf9b213b3fe9f070afb9c20f4cdd51178045798bb60ccc82865",
+            "mode": 420,
+            "size": 1627,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ee21a138a136caf9b213b3fe9f070afb9c20f4cdd51178045798bb60ccc82865"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-lv.php",
+            "sha256": "a986f934cb4a2b9cf5bad1c150f0af9d8a0c7745d36b9904882d68b1bb07fb5d",
+            "mode": 420,
+            "size": 1643,
+            "baseline": "doctor/baselines/release-artifacts/blobs/a986f934cb4a2b9cf5bad1c150f0af9d8a0c7745d36b9904882d68b1bb07fb5d"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-mg.php",
+            "sha256": "eebd4b1c9caa2b0ad5637b623cad66a0b67363a2e752cbd86eacb2139636fd85",
+            "mode": 420,
+            "size": 1782,
+            "baseline": "doctor/baselines/release-artifacts/blobs/eebd4b1c9caa2b0ad5637b623cad66a0b67363a2e752cbd86eacb2139636fd85"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-mn.php",
+            "sha256": "e1b246c27568a92fef27a44e9601ce3ff41ca0dac0f564782dc46bfd03f42724",
+            "mode": 420,
+            "size": 2186,
+            "baseline": "doctor/baselines/release-artifacts/blobs/e1b246c27568a92fef27a44e9601ce3ff41ca0dac0f564782dc46bfd03f42724"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ms.php",
+            "sha256": "f6b8ec01f2734624eadb3e9135e408a5a6da20a5a684b5577d7ba29bddd4b5aa",
+            "mode": 420,
+            "size": 1734,
+            "baseline": "doctor/baselines/release-artifacts/blobs/f6b8ec01f2734624eadb3e9135e408a5a6da20a5a684b5577d7ba29bddd4b5aa"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-nb.php",
+            "sha256": "3f7070f004b6f6b3e3c64a6ce63ebe32c861bfbd5bd7c6ddd40c4e19a37fadb8",
+            "mode": 420,
+            "size": 2288,
+            "baseline": "doctor/baselines/release-artifacts/blobs/3f7070f004b6f6b3e3c64a6ce63ebe32c861bfbd5bd7c6ddd40c4e19a37fadb8"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-nl.php",
+            "sha256": "9d43b5bcdd2446f3bc6eea5aec01b7084a9a83ec0c50a73ac968b6c1260dcbe3",
+            "mode": 420,
+            "size": 2365,
+            "baseline": "doctor/baselines/release-artifacts/blobs/9d43b5bcdd2446f3bc6eea5aec01b7084a9a83ec0c50a73ac968b6c1260dcbe3"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-pl.php",
+            "sha256": "130beb1aedccab6f9aff7eb76db0e477c40a15485d1eb129555e7d28ec2ee6f9",
+            "mode": 420,
+            "size": 2635,
+            "baseline": "doctor/baselines/release-artifacts/blobs/130beb1aedccab6f9aff7eb76db0e477c40a15485d1eb129555e7d28ec2ee6f9"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-pt.php",
+            "sha256": "588e547a80a7c867594f2e956ca12625d3b48446b16cd0e47f48fea71ef3ed2c",
+            "mode": 420,
+            "size": 2465,
+            "baseline": "doctor/baselines/release-artifacts/blobs/588e547a80a7c867594f2e956ca12625d3b48446b16cd0e47f48fea71ef3ed2c"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-pt_br.php",
+            "sha256": "8965d817b5667787efd6ffe58b15af236e51ff085594562fafccaf85d9f1bcd8",
+            "mode": 420,
+            "size": 2719,
+            "baseline": "doctor/baselines/release-artifacts/blobs/8965d817b5667787efd6ffe58b15af236e51ff085594562fafccaf85d9f1bcd8"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ro.php",
+            "sha256": "f0cf6c8032723215293095e7a9b2f2a9c1159bb51221511efb6163f4096b9232",
+            "mode": 420,
+            "size": 2448,
+            "baseline": "doctor/baselines/release-artifacts/blobs/f0cf6c8032723215293095e7a9b2f2a9c1159bb51221511efb6163f4096b9232"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ru.php",
+            "sha256": "981aa0630326df0b5dd48da086c19c4a329571a7426c36f6e08ff6470f24687d",
+            "mode": 420,
+            "size": 3297,
+            "baseline": "doctor/baselines/release-artifacts/blobs/981aa0630326df0b5dd48da086c19c4a329571a7426c36f6e08ff6470f24687d"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-si.php",
+            "sha256": "502364f4ccb0c546093c13b4fc2a9ef15e0d47b4e4b789729d72b6cb33c6871e",
+            "mode": 420,
+            "size": 3425,
+            "baseline": "doctor/baselines/release-artifacts/blobs/502364f4ccb0c546093c13b4fc2a9ef15e0d47b4e4b789729d72b6cb33c6871e"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-sk.php",
+            "sha256": "b3327b7d377f16e0aeabca54ca2c8906e23c5a77cdb19d2d4fb85f0bbd39d3cd",
+            "mode": 420,
+            "size": 1909,
+            "baseline": "doctor/baselines/release-artifacts/blobs/b3327b7d377f16e0aeabca54ca2c8906e23c5a77cdb19d2d4fb85f0bbd39d3cd"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-sl.php",
+            "sha256": "642ab71b9a02ee00abc39516e6d005957beff6dde91948155d0f25ce4f98630d",
+            "mode": 420,
+            "size": 2577,
+            "baseline": "doctor/baselines/release-artifacts/blobs/642ab71b9a02ee00abc39516e6d005957beff6dde91948155d0f25ce4f98630d"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-sr.php",
+            "sha256": "9982802bafa971f1d2e376fca86f8da86c7e43158ef6d3cb6f7c3ff51cc1c7e9",
+            "mode": 420,
+            "size": 2301,
+            "baseline": "doctor/baselines/release-artifacts/blobs/9982802bafa971f1d2e376fca86f8da86c7e43158ef6d3cb6f7c3ff51cc1c7e9"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-sr_latn.php",
+            "sha256": "0f67cf31fa3b5f2db2a2c74911096a73892377096c966923c0dc1fbbbc612a32",
+            "mode": 420,
+            "size": 1814,
+            "baseline": "doctor/baselines/release-artifacts/blobs/0f67cf31fa3b5f2db2a2c74911096a73892377096c966923c0dc1fbbbc612a32"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-sv.php",
+            "sha256": "c1cb0390311cdff2f93ab37fff165b389fa74dca7f6341ce08240eca886b5ac3",
+            "mode": 420,
+            "size": 1610,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c1cb0390311cdff2f93ab37fff165b389fa74dca7f6341ce08240eca886b5ac3"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-tl.php",
+            "sha256": "48fa60bb2a88fdeb53960878fd0cdf88f7a59736a9efa487787b61de1c5d9db9",
+            "mode": 420,
+            "size": 1721,
+            "baseline": "doctor/baselines/release-artifacts/blobs/48fa60bb2a88fdeb53960878fd0cdf88f7a59736a9efa487787b61de1c5d9db9"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-tr.php",
+            "sha256": "9f19069be7c25d8a0563ee535bbc57ebe3c65698b2af99320349a4002db99091",
+            "mode": 420,
+            "size": 2606,
+            "baseline": "doctor/baselines/release-artifacts/blobs/9f19069be7c25d8a0563ee535bbc57ebe3c65698b2af99320349a4002db99091"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-uk.php",
+            "sha256": "767609225673b2983c2cf7b208ae954d49d7728287da2c2cb859ca8c9273efd3",
+            "mode": 420,
+            "size": 2282,
+            "baseline": "doctor/baselines/release-artifacts/blobs/767609225673b2983c2cf7b208ae954d49d7728287da2c2cb859ca8c9273efd3"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-ur.php",
+            "sha256": "4404c38f4f64a1098678e0d30a62c63cd1dd56949fcc7f6ea89557fbf0693e06",
+            "mode": 420,
+            "size": 2265,
+            "baseline": "doctor/baselines/release-artifacts/blobs/4404c38f4f64a1098678e0d30a62c63cd1dd56949fcc7f6ea89557fbf0693e06"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-vi.php",
+            "sha256": "3b5acbfceceb34f90dc7f905f044a51e48cce7f79cbf998b579b8bf00fa1fabc",
+            "mode": 420,
+            "size": 1793,
+            "baseline": "doctor/baselines/release-artifacts/blobs/3b5acbfceceb34f90dc7f905f044a51e48cce7f79cbf998b579b8bf00fa1fabc"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-zh.php",
+            "sha256": "ad235ae24994a85b63ff1bd2dadab9de1f2806a9764c162cf047459fa037814c",
+            "mode": 420,
+            "size": 1669,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ad235ae24994a85b63ff1bd2dadab9de1f2806a9764c162cf047459fa037814c"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language/phpmailer.lang-zh_cn.php",
+            "sha256": "cd53b733c64eeac233b140e33a6d58d337cd1ac28d6a5cd3231d87169f548c07",
+            "mode": 420,
+            "size": 2333,
+            "baseline": "doctor/baselines/release-artifacts/blobs/cd53b733c64eeac233b140e33a6d58d337cd1ac28d6a5cd3231d87169f548c07"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/src/DSNConfigurator.php",
+            "sha256": "429f5f0a962864ec7b67efd572c0f85cc0f33fd4585413d8dc80d41c8562399e",
+            "mode": 420,
+            "size": 6883,
+            "baseline": "doctor/baselines/release-artifacts/blobs/429f5f0a962864ec7b67efd572c0f85cc0f33fd4585413d8dc80d41c8562399e"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/src/Exception.php",
+            "sha256": "22ab858ae438d98f58f41f38ad2191d1b0d59570aebea0463a7948cfae1021b7",
+            "mode": 420,
+            "size": 1256,
+            "baseline": "doctor/baselines/release-artifacts/blobs/22ab858ae438d98f58f41f38ad2191d1b0d59570aebea0463a7948cfae1021b7"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/src/OAuth.php",
+            "sha256": "44b2c9a3b6e538a65b90261251f197d700e2eb90d51d4944fb80577263210fb4",
+            "mode": 420,
+            "size": 3791,
+            "baseline": "doctor/baselines/release-artifacts/blobs/44b2c9a3b6e538a65b90261251f197d700e2eb90d51d4944fb80577263210fb4"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/src/OAuthTokenProvider.php",
+            "sha256": "f2318ea1b2841b2481b636e205c281a733f9de944a71ae403e0b59fa71219572",
+            "mode": 420,
+            "size": 1538,
+            "baseline": "doctor/baselines/release-artifacts/blobs/f2318ea1b2841b2481b636e205c281a733f9de944a71ae403e0b59fa71219572"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/src/PHPMailer.php",
+            "sha256": "451486c23f7f82e822ddb0667237714d2ce265920c9ed9cf1128b4c5fc46b657",
+            "mode": 420,
+            "size": 187770,
+            "baseline": "doctor/baselines/release-artifacts/blobs/451486c23f7f82e822ddb0667237714d2ce265920c9ed9cf1128b4c5fc46b657"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/src/POP3.php",
+            "sha256": "ca5878d97c447d7129b1629a805091ef103cac7dac5f6b87cebb5d8510941087",
+            "mode": 420,
+            "size": 12352,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ca5878d97c447d7129b1629a805091ef103cac7dac5f6b87cebb5d8510941087"
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/src/SMTP.php",
+            "sha256": "db2f51574ce9e004d32432dea93b354644aa0e05bc311e900b1254c77e5ad51d",
+            "mode": 420,
+            "size": 50097,
+            "baseline": "doctor/baselines/release-artifacts/blobs/db2f51574ce9e004d32432dea93b354644aa0e05bc311e900b1254c77e5ad51d"
+        },
+        {
+            "path": "vendor/psr/log/LICENSE",
+            "sha256": "6e944907067bae93c00a9f2ad51032243820b22df34b77c77690d46cb2e98e24",
+            "mode": 420,
+            "size": 1085,
+            "baseline": "doctor/baselines/release-artifacts/blobs/6e944907067bae93c00a9f2ad51032243820b22df34b77c77690d46cb2e98e24"
+        },
+        {
+            "path": "vendor/psr/log/README.md",
+            "sha256": "4f2bc231e87cda248b1fa2aef7a930045f3e95f89ee46ff579188d2489372954",
+            "mode": 420,
+            "size": 1346,
+            "baseline": "doctor/baselines/release-artifacts/blobs/4f2bc231e87cda248b1fa2aef7a930045f3e95f89ee46ff579188d2489372954"
+        },
+        {
+            "path": "vendor/psr/log/composer.json",
+            "sha256": "1f8dfc72d50f452d0795681fde72b7c008eedd4fcbca482b70a35401c9fbb661",
+            "mode": 420,
+            "size": 555,
+            "baseline": "doctor/baselines/release-artifacts/blobs/1f8dfc72d50f452d0795681fde72b7c008eedd4fcbca482b70a35401c9fbb661"
+        },
+        {
+            "path": "vendor/psr/log/src/AbstractLogger.php",
+            "sha256": "84c69c6cc60fd805eb525daa79bd04a8d0b73e52776e1a0c2a9e666b37b4512e",
+            "mode": 420,
+            "size": 414,
+            "baseline": "doctor/baselines/release-artifacts/blobs/84c69c6cc60fd805eb525daa79bd04a8d0b73e52776e1a0c2a9e666b37b4512e"
+        },
+        {
+            "path": "vendor/psr/log/src/InvalidArgumentException.php",
+            "sha256": "403c6def4d4199a12cb4a54e804c7d29405968871366500f72d6f3ea401bfc64",
+            "mode": 420,
+            "size": 96,
+            "baseline": "doctor/baselines/release-artifacts/blobs/403c6def4d4199a12cb4a54e804c7d29405968871366500f72d6f3ea401bfc64"
+        },
+        {
+            "path": "vendor/psr/log/src/LogLevel.php",
+            "sha256": "9f2520b22945ce1599c4fedba0a4c75985f172ca86cdf386766ebb8b2363768c",
+            "mode": 420,
+            "size": 336,
+            "baseline": "doctor/baselines/release-artifacts/blobs/9f2520b22945ce1599c4fedba0a4c75985f172ca86cdf386766ebb8b2363768c"
+        },
+        {
+            "path": "vendor/psr/log/src/LoggerAwareInterface.php",
+            "sha256": "076efac38ab493f4fc3e701cce9a2641135048f2bf0407b322c45712ef73813c",
+            "mode": 420,
+            "size": 231,
+            "baseline": "doctor/baselines/release-artifacts/blobs/076efac38ab493f4fc3e701cce9a2641135048f2bf0407b322c45712ef73813c"
+        },
+        {
+            "path": "vendor/psr/log/src/LoggerAwareTrait.php",
+            "sha256": "eb114e265de2d1c8c1190b0fa9cb5f8a25e262a46d1d28d1aa02f01aaf025c64",
+            "mode": 420,
+            "size": 347,
+            "baseline": "doctor/baselines/release-artifacts/blobs/eb114e265de2d1c8c1190b0fa9cb5f8a25e262a46d1d28d1aa02f01aaf025c64"
+        },
+        {
+            "path": "vendor/psr/log/src/LoggerInterface.php",
+            "sha256": "05aecbaded98967719d76a058ea27465ffae03b7800dc36049e1ed23c825e6b3",
+            "mode": 420,
+            "size": 2770,
+            "baseline": "doctor/baselines/release-artifacts/blobs/05aecbaded98967719d76a058ea27465ffae03b7800dc36049e1ed23c825e6b3"
+        },
+        {
+            "path": "vendor/psr/log/src/LoggerTrait.php",
+            "sha256": "c854406af9c4706980e93183b5f37fa9cca523df9bb1019a927f8e4713834172",
+            "mode": 420,
+            "size": 2755,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c854406af9c4706980e93183b5f37fa9cca523df9bb1019a927f8e4713834172"
+        },
+        {
+            "path": "vendor/psr/log/src/NullLogger.php",
+            "sha256": "22fbb348f7b25259ca801f595fc9aa22b9f035a44e7899687bd89bf4070d78c8",
+            "mode": 420,
+            "size": 643,
+            "baseline": "doctor/baselines/release-artifacts/blobs/22fbb348f7b25259ca801f595fc9aa22b9f035a44e7899687bd89bf4070d78c8"
+        },
+        {
+            "path": "vendor/symfony/process/CHANGELOG.md",
+            "sha256": "c3ebeac37f004b395088f6955e20d8bdaad07b1c1de08be695197334d274f13d",
+            "mode": 420,
+            "size": 4446,
+            "baseline": "doctor/baselines/release-artifacts/blobs/c3ebeac37f004b395088f6955e20d8bdaad07b1c1de08be695197334d274f13d"
+        },
+        {
+            "path": "vendor/symfony/process/Exception/ExceptionInterface.php",
+            "sha256": "544e59b6d6023f113920c1d6a037e33ff4389350802899ce0b22a4e978262876",
+            "mode": 420,
+            "size": 450,
+            "baseline": "doctor/baselines/release-artifacts/blobs/544e59b6d6023f113920c1d6a037e33ff4389350802899ce0b22a4e978262876"
+        },
+        {
+            "path": "vendor/symfony/process/Exception/InvalidArgumentException.php",
+            "sha256": "804a50e6fddbd347ef2e58ce1e517bb9b5c0e6e85f3e180aa737a309efa275eb",
+            "mode": 420,
+            "size": 496,
+            "baseline": "doctor/baselines/release-artifacts/blobs/804a50e6fddbd347ef2e58ce1e517bb9b5c0e6e85f3e180aa737a309efa275eb"
+        },
+        {
+            "path": "vendor/symfony/process/Exception/LogicException.php",
+            "sha256": "324d0170880899015dddab3d4bfb41586358c9052b7996bd7e691d5ab7ac7a59",
+            "mode": 420,
+            "size": 466,
+            "baseline": "doctor/baselines/release-artifacts/blobs/324d0170880899015dddab3d4bfb41586358c9052b7996bd7e691d5ab7ac7a59"
+        },
+        {
+            "path": "vendor/symfony/process/Exception/ProcessFailedException.php",
+            "sha256": "3065238d8730da4e7f3bac06eb3808f081a0539079e4d8e1be0a5cb761e52ffd",
+            "mode": 420,
+            "size": 1428,
+            "baseline": "doctor/baselines/release-artifacts/blobs/3065238d8730da4e7f3bac06eb3808f081a0539079e4d8e1be0a5cb761e52ffd"
+        },
+        {
+            "path": "vendor/symfony/process/Exception/ProcessSignaledException.php",
+            "sha256": "5f9865c681c0bdf062c9c8855e15dccbe29b8abefb1484de86618def7eb4cf20",
+            "mode": 420,
+            "size": 906,
+            "baseline": "doctor/baselines/release-artifacts/blobs/5f9865c681c0bdf062c9c8855e15dccbe29b8abefb1484de86618def7eb4cf20"
+        },
+        {
+            "path": "vendor/symfony/process/Exception/ProcessStartFailedException.php",
+            "sha256": "b262411891190a990a2b8538ec492b59691390777cbd37cad605afd103c72059",
+            "mode": 420,
+            "size": 1148,
+            "baseline": "doctor/baselines/release-artifacts/blobs/b262411891190a990a2b8538ec492b59691390777cbd37cad605afd103c72059"
+        },
+        {
+            "path": "vendor/symfony/process/Exception/ProcessTimedOutException.php",
+            "sha256": "fbf5cd109b758720cc2b920ceda24e2bd197d64f0c9873af6cae145686d3f2e9",
+            "mode": 420,
+            "size": 1554,
+            "baseline": "doctor/baselines/release-artifacts/blobs/fbf5cd109b758720cc2b920ceda24e2bd197d64f0c9873af6cae145686d3f2e9"
+        },
+        {
+            "path": "vendor/symfony/process/Exception/RunProcessFailedException.php",
+            "sha256": "f2e31482561ba3e43c4ded1777a244e2b29a46fc482e2eca122a7c6533eb8789",
+            "mode": 420,
+            "size": 666,
+            "baseline": "doctor/baselines/release-artifacts/blobs/f2e31482561ba3e43c4ded1777a244e2b29a46fc482e2eca122a7c6533eb8789"
+        },
+        {
+            "path": "vendor/symfony/process/Exception/RuntimeException.php",
+            "sha256": "6a030facd29abdb91ecaf44baf3f0f9dd210e3085e1928f153a721229a253d84",
+            "mode": 420,
+            "size": 481,
+            "baseline": "doctor/baselines/release-artifacts/blobs/6a030facd29abdb91ecaf44baf3f0f9dd210e3085e1928f153a721229a253d84"
+        },
+        {
+            "path": "vendor/symfony/process/ExecutableFinder.php",
+            "sha256": "39df2a82aaef2c1bdc09370122f16dc9b32f234e29376cc27c18e553e4aba1e5",
+            "mode": 420,
+            "size": 3575,
+            "baseline": "doctor/baselines/release-artifacts/blobs/39df2a82aaef2c1bdc09370122f16dc9b32f234e29376cc27c18e553e4aba1e5"
+        },
+        {
+            "path": "vendor/symfony/process/InputStream.php",
+            "sha256": "ac403529b98c5048a101cc06972869e17be1f9903670ff9730aed1ad5fe401df",
+            "mode": 420,
+            "size": 2385,
+            "baseline": "doctor/baselines/release-artifacts/blobs/ac403529b98c5048a101cc06972869e17be1f9903670ff9730aed1ad5fe401df"
+        },
+        {
+            "path": "vendor/symfony/process/LICENSE",
+            "sha256": "18da7e490d2aa77197a0619b25bcc771a0110132a9d76071665718d3295e73cb",
+            "mode": 420,
+            "size": 1068,
+            "baseline": "doctor/baselines/release-artifacts/blobs/18da7e490d2aa77197a0619b25bcc771a0110132a9d76071665718d3295e73cb"
+        },
+        {
+            "path": "vendor/symfony/process/Messenger/RunProcessContext.php",
+            "sha256": "318ee4a511ccbbd8b3c8b1107602f1d4313ff75a26f411e6af13239663552395",
+            "mode": 420,
+            "size": 936,
+            "baseline": "doctor/baselines/release-artifacts/blobs/318ee4a511ccbbd8b3c8b1107602f1d4313ff75a26f411e6af13239663552395"
+        },
+        {
+            "path": "vendor/symfony/process/Messenger/RunProcessMessage.php",
+            "sha256": "bef8f02c94c88072983d23a204b036da9108b1e3f00b6a2b61a68487e9230c88",
+            "mode": 420,
+            "size": 1296,
+            "baseline": "doctor/baselines/release-artifacts/blobs/bef8f02c94c88072983d23a204b036da9108b1e3f00b6a2b61a68487e9230c88"
+        },
+        {
+            "path": "vendor/symfony/process/Messenger/RunProcessMessageHandler.php",
+            "sha256": "a539ad084700a56744d8676902c62952ddd2a467bd18f701a89b5af154d588a9",
+            "mode": 420,
+            "size": 1209,
+            "baseline": "doctor/baselines/release-artifacts/blobs/a539ad084700a56744d8676902c62952ddd2a467bd18f701a89b5af154d588a9"
+        },
+        {
+            "path": "vendor/symfony/process/PhpExecutableFinder.php",
+            "sha256": "4697ea736892b5fe645f5ab1233feca27237021939bb54e5b94a1045932da12c",
+            "mode": 420,
+            "size": 2474,
+            "baseline": "doctor/baselines/release-artifacts/blobs/4697ea736892b5fe645f5ab1233feca27237021939bb54e5b94a1045932da12c"
+        },
+        {
+            "path": "vendor/symfony/process/PhpProcess.php",
+            "sha256": "8a042bb6a08d8af67c88a1169f85267e24879dee3450ca42b8a905ee4e0db52b",
+            "mode": 420,
+            "size": 2497,
+            "baseline": "doctor/baselines/release-artifacts/blobs/8a042bb6a08d8af67c88a1169f85267e24879dee3450ca42b8a905ee4e0db52b"
+        },
+        {
+            "path": "vendor/symfony/process/PhpSubprocess.php",
+            "sha256": "705daadf547b5ffe363185c9fcfeab4df73850e4fc4112658f99f0663070f8f7",
+            "mode": 420,
+            "size": 6146,
+            "baseline": "doctor/baselines/release-artifacts/blobs/705daadf547b5ffe363185c9fcfeab4df73850e4fc4112658f99f0663070f8f7"
+        },
+        {
+            "path": "vendor/symfony/process/Pipes/AbstractPipes.php",
+            "sha256": "abe1dc02de2214fa2d99829032fd254fa244403f1fcfa38e47b36984ab747e27",
+            "mode": 420,
+            "size": 6113,
+            "baseline": "doctor/baselines/release-artifacts/blobs/abe1dc02de2214fa2d99829032fd254fa244403f1fcfa38e47b36984ab747e27"
+        },
+        {
+            "path": "vendor/symfony/process/Pipes/PipesInterface.php",
+            "sha256": "7045ea2133fe37c5ba243c44f7f23827918228b1a02ac83a0125d9c7fb6e72bc",
+            "mode": 420,
+            "size": 1502,
+            "baseline": "doctor/baselines/release-artifacts/blobs/7045ea2133fe37c5ba243c44f7f23827918228b1a02ac83a0125d9c7fb6e72bc"
+        },
+        {
+            "path": "vendor/symfony/process/Pipes/UnixPipes.php",
+            "sha256": "55a1b13c6845ca9e7265ae07c954ca96d64f98b03bbf60a59c9d97f0760d750a",
+            "mode": 420,
+            "size": 3739,
+            "baseline": "doctor/baselines/release-artifacts/blobs/55a1b13c6845ca9e7265ae07c954ca96d64f98b03bbf60a59c9d97f0760d750a"
+        },
+        {
+            "path": "vendor/symfony/process/Pipes/WindowsPipes.php",
+            "sha256": "dd9cdc429918d3880f435b18fe8a823dde7fb782af6e3fa06b705e2e77cae8b0",
+            "mode": 420,
+            "size": 5849,
+            "baseline": "doctor/baselines/release-artifacts/blobs/dd9cdc429918d3880f435b18fe8a823dde7fb782af6e3fa06b705e2e77cae8b0"
+        },
+        {
+            "path": "vendor/symfony/process/Process.php",
+            "sha256": "73c4e31230f9602768b73cda3451ed7ec0dddc20ddef6cc0d6795ea879600c39",
+            "mode": 420,
+            "size": 58891,
+            "baseline": "doctor/baselines/release-artifacts/blobs/73c4e31230f9602768b73cda3451ed7ec0dddc20ddef6cc0d6795ea879600c39"
+        },
+        {
+            "path": "vendor/symfony/process/ProcessUtils.php",
+            "sha256": "64ff42af8a4a6cfb494ee3bca4bbfdd849f4053dea603f414fa380ae433fcd74",
+            "mode": 420,
+            "size": 1753,
+            "baseline": "doctor/baselines/release-artifacts/blobs/64ff42af8a4a6cfb494ee3bca4bbfdd849f4053dea603f414fa380ae433fcd74"
+        },
+        {
+            "path": "vendor/symfony/process/README.md",
+            "sha256": "39b4a88fa70f43cb9b4640526b266863d503c0eb6901e1d8758171835c2b6f32",
+            "mode": 420,
+            "size": 472,
+            "baseline": "doctor/baselines/release-artifacts/blobs/39b4a88fa70f43cb9b4640526b266863d503c0eb6901e1d8758171835c2b6f32"
+        },
+        {
+            "path": "vendor/symfony/process/composer.json",
+            "sha256": "6bd8967c3e4e4164500a03c9c4bae1359b4910f954c609f21d95e31663fcb440",
+            "mode": 420,
+            "size": 671,
+            "baseline": "doctor/baselines/release-artifacts/blobs/6bd8967c3e4e4164500a03c9c4bae1359b4910f954c609f21d95e31663fcb440"
+        }
+    ],
+    "directories": [
+        {
+            "path": "vendor",
+            "mode": 493
+        },
+        {
+            "path": "vendor/composer",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Attribute",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Formatter",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/Curl",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/FingersCrossed",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/Slack",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Handler/SyslogUdp",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Processor",
+            "mode": 493
+        },
+        {
+            "path": "vendor/monolog/monolog/src/Monolog/Test",
+            "mode": 493
+        },
+        {
+            "path": "vendor/phpmailer",
+            "mode": 493
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer",
+            "mode": 493
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/language",
+            "mode": 493
+        },
+        {
+            "path": "vendor/phpmailer/phpmailer/src",
+            "mode": 493
+        },
+        {
+            "path": "vendor/psr",
+            "mode": 493
+        },
+        {
+            "path": "vendor/psr/log",
+            "mode": 493
+        },
+        {
+            "path": "vendor/psr/log/src",
+            "mode": 493
+        },
+        {
+            "path": "vendor/symfony",
+            "mode": 493
+        },
+        {
+            "path": "vendor/symfony/process",
+            "mode": 493
+        },
+        {
+            "path": "vendor/symfony/process/Exception",
+            "mode": 493
+        },
+        {
+            "path": "vendor/symfony/process/Messenger",
+            "mode": 493
+        },
+        {
+            "path": "vendor/symfony/process/Pipes",
+            "mode": 493
+        }
+    ]
+}

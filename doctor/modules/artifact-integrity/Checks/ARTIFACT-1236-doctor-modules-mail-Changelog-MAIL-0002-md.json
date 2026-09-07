@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1236",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Changelog/MAIL-0002.md",
+        "summary": "Verify doctor/modules/mail/Changelog/MAIL-0002.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1236",
+        "path": "{APP_ROOT}/doctor/modules/mail/Changelog/MAIL-0002.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3a89e8d507f0bef857a7e6020ac986a879ff51e4ccadba09422ced266c89c733",
+        "sha256": "3a89e8d507f0bef857a7e6020ac986a879ff51e4ccadba09422ced266c89c733",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

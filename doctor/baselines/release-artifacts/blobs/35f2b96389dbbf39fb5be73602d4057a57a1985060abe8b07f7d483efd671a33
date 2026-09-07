@@ -1,0 +1,42 @@
+[
+    {
+        "repair_id": "PERFORMANCE-0001",
+        "fixture": "../Fixtures/PERFORMANCE-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PERFORMANCE-0002",
+        "fixture": "../Fixtures/PERFORMANCE-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PERFORMANCE-0003",
+        "fixture": "../Fixtures/PERFORMANCE-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PERFORMANCE-0004",
+        "fixture": "../Fixtures/PERFORMANCE-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PERFORMANCE-0005",
+        "fixture": "../Fixtures/PERFORMANCE-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PERFORMANCE-0006",
+        "fixture": "../Fixtures/PERFORMANCE-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PERFORMANCE-0007",
+        "fixture": "../Fixtures/PERFORMANCE-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "PERFORMANCE-0008",
+        "fixture": "../Fixtures/PERFORMANCE-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

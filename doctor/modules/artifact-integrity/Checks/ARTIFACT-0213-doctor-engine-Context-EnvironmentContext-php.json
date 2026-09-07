@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0213",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Context/EnvironmentContext.php",
+        "summary": "Verify doctor/engine/Context/EnvironmentContext.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0213",
+        "path": "{APP_ROOT}/doctor/engine/Context/EnvironmentContext.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2db93f64928c59bdc803d162fcfa335d0c759b031e0e1bf0fafe8f0249a778f9",
+        "sha256": "2db93f64928c59bdc803d162fcfa335d0c759b031e0e1bf0fafe8f0249a778f9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

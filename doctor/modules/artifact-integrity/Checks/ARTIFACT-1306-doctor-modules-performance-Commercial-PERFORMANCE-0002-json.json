@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1306",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Commercial/PERFORMANCE-0002.json",
+        "summary": "Verify doctor/modules/performance/Commercial/PERFORMANCE-0002.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1306",
+        "path": "{APP_ROOT}/doctor/modules/performance/Commercial/PERFORMANCE-0002.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ddc7e84867ea8a2967da237b589a63f90b65caebcd5fed06f99cf6feb2f9f711",
+        "sha256": "ddc7e84867ea8a2967da237b589a63f90b65caebcd5fed06f99cf6feb2f9f711",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

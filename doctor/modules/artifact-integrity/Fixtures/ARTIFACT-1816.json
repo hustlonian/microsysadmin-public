@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1816",
+    "artifact": "doctor/sdk/Support/TreeSnapshotManager.php",
+    "baseline_sha256": "d9e1cfd523788b39a15ce27aeca6feb27bb1d95aaf0bc4249a62dd7512e4a30a",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

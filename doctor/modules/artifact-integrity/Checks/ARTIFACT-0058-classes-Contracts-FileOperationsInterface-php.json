@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0058",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/FileOperationsInterface.php",
+        "summary": "Verify classes/Contracts/FileOperationsInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0058",
+        "path": "{APP_ROOT}/classes/Contracts/FileOperationsInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7419c175d8ed227ec712035f874a5dfdb81a96a05c014b44f13d8332ead6fb04",
+        "sha256": "7419c175d8ed227ec712035f874a5dfdb81a96a05c014b44f13d8332ead6fb04",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

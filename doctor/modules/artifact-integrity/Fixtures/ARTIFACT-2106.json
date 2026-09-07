@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-2106",
+    "artifact": "vendor/psr/log/src/InvalidArgumentException.php",
+    "baseline_sha256": "403c6def4d4199a12cb4a54e804c7d29405968871366500f72d6f3ea401bfc64",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

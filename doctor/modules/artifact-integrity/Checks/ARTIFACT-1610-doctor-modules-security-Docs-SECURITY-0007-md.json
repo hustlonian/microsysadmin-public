@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1610",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Docs/SECURITY-0007.md",
+        "summary": "Verify doctor/modules/security/Docs/SECURITY-0007.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1610",
+        "path": "{APP_ROOT}/doctor/modules/security/Docs/SECURITY-0007.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/62e8e0fbd89bfee0b001699ee1ce9479c41aa17461957cd1a855d860002c3437",
+        "sha256": "62e8e0fbd89bfee0b001699ee1ce9479c41aa17461957cd1a855d860002c3437",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

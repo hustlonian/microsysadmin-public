@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0524",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Fixtures/DNS-0009.json",
+        "summary": "Verify doctor/modules/dns/Fixtures/DNS-0009.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0524",
+        "path": "{APP_ROOT}/doctor/modules/dns/Fixtures/DNS-0009.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/86b6344092604bce8105a2729c4c8a721778bec8fb10cbc98ca69d8e8a37467e",
+        "sha256": "86b6344092604bce8105a2729c4c8a721778bec8fb10cbc98ca69d8e8a37467e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

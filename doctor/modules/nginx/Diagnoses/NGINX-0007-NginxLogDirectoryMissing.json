@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "NGINX-D0007",
+        "check_id": "NGINX-C0007",
+        "module": "nginx",
+        "name": "Restore the missing Nginx log directory diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore the missing Nginx log directory.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed nginx log directory missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "NGINX-0007"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

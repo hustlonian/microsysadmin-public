@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0700",
+    "artifact": "doctor/modules/git/Repairs/GIT-0005-RebaseInProgress.json",
+    "baseline_sha256": "74f6db60a9b9311cf10bcad7e53622b243c0c8cb07a6431d2a58ba931adb6adb",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

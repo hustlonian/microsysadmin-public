@@ -1,0 +1,28 @@
+{
+    "metadata": {
+        "check_id": "APACHE-C0008",
+        "module": "apache",
+        "name": "Resolve an unavailable Apache HTTP listener",
+        "summary": "Resolve an unavailable Apache HTTP listener.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "apache",
+            "http-port-unavailable"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "apache",
+            "xampp"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "tcp_connect",
+        "host": "127.0.0.1",
+        "port": 80,
+        "timeout": 1
+    },
+    "failure_status": "FAIL"
+}

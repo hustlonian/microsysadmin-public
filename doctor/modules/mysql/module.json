@@ -1,0 +1,11 @@
+{
+    "name": "mysql",
+    "display_name": "MySQL and MariaDB",
+    "description": "Cause-specific MySQL and MariaDB diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 1,
+    "enabled": true,
+    "repair_prefix": "MYSQL",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

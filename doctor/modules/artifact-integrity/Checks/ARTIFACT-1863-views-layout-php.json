@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1863",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/layout.php",
+        "summary": "Verify views/layout.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1863",
+        "path": "{APP_ROOT}/views/layout.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e42703843084fa7dffab8c1e5ff82e5d17e8c92d9f16fe70c9ddb75dbce199b6",
+        "sha256": "e42703843084fa7dffab8c1e5ff82e5d17e8c92d9f16fe70c9ddb75dbce199b6",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

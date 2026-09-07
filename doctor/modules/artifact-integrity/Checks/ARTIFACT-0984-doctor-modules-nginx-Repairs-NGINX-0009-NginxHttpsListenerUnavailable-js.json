@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0984",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Repairs/NGINX-0009-NginxHttpsListenerUnavailable.json",
+        "summary": "Verify doctor/modules/nginx/Repairs/NGINX-0009-NginxHttpsListenerUnavailable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0984",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Repairs/NGINX-0009-NginxHttpsListenerUnavailable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c2b92a3c4150fc3bd2c68dcbccf75e6f74f851ab3b192f11d55e497306c4293a",
+        "sha256": "c2b92a3c4150fc3bd2c68dcbccf75e6f74f851ab3b192f11d55e497306c4293a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

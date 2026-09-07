@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0064",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/MachineIdentityInterface.php",
+        "summary": "Verify classes/Contracts/MachineIdentityInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0064",
+        "path": "{APP_ROOT}/classes/Contracts/MachineIdentityInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2d2646232fa09253b5ce2ccc5d56f06dca2b55ba12e48d5ace64db90d1a116c4",
+        "sha256": "2d2646232fa09253b5ce2ccc5d56f06dca2b55ba12e48d5ace64db90d1a116c4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

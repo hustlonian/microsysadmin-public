@@ -1,0 +1,28 @@
+{
+    "metadata": {
+        "check_id": "FILESYSTEM-C0007",
+        "module": "filesystem",
+        "name": "Recover exhausted application filesystem inodes",
+        "summary": "Recover exhausted application filesystem inodes.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "filesystem",
+            "application-inodes-low"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "df"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "df",
+            "-Pi",
+            "{PROJECT}"
+        ],
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

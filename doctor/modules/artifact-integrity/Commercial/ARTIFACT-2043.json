@@ -1,0 +1,9 @@
+{
+    "repair_id": "ARTIFACT-2043",
+    "commercial_tier": "professional",
+    "customer_impact": "restores one damaged or missing release artifact",
+    "support_issue_family": "release-artifact-integrity",
+    "automation_class": "AUTO_WITH_BACKUP",
+    "risk_level": "LOW",
+    "quality_status": "contract-tested"
+}

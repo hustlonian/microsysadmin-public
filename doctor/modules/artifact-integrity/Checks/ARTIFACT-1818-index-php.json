@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1818",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact index.php",
+        "summary": "Verify index.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1818",
+        "path": "{APP_ROOT}/index.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/434860d88cf8674e94f235c4fca3893a458cf60535ea33b854f1ce1e6234677d",
+        "sha256": "434860d88cf8674e94f235c4fca3893a458cf60535ea33b854f1ce1e6234677d",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

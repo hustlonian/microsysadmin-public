@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1913",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1913",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/ChromePHPFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/461679045cddc93856d4aa6170704fe66094e9d0aadc652eeff41d0a8dc9c340",
+        "sha256": "461679045cddc93856d4aa6170704fe66094e9d0aadc652eeff41d0a8dc9c340",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

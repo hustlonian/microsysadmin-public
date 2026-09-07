@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1728",
+    "artifact": "doctor/modules/xampp/Checks/XAMPP-0001-XamppControlMissing.json",
+    "baseline_sha256": "ad668af30d70e5937ed69479a965a4c98f3ef3a852078e503fd80525b74ecf46",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "CRON-C0006",
+        "module": "cron",
+        "name": "Restore the missing cron spool directory",
+        "summary": "Restore the missing cron spool directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "cron",
+            "cron-spool-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/var/spool/cron"
+    },
+    "failure_status": "FAIL"
+}

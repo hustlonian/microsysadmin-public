@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1446",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/queue/Diagnoses/QUEUE-0006-HorizonUnavailable.json",
+        "summary": "Verify doctor/modules/queue/Diagnoses/QUEUE-0006-HorizonUnavailable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1446",
+        "path": "{APP_ROOT}/doctor/modules/queue/Diagnoses/QUEUE-0006-HorizonUnavailable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2f84f3031f17990010ba802f497ea89684070d78f9afcb41ae09427b1e668ce4",
+        "sha256": "2f84f3031f17990010ba802f497ea89684070d78f9afcb41ae09427b1e668ce4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

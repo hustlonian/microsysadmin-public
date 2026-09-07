@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "XAMPP-C0008",
+        "module": "xampp",
+        "name": "Correct invalid XAMPP Apache configuration",
+        "summary": "Correct invalid XAMPP Apache configuration.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "xampp",
+            "xampp-apache-config-invalid"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "xampp-httpd"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "xampp-httpd",
+            "-t"
+        ],
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

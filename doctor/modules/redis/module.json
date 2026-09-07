@@ -1,0 +1,11 @@
+{
+    "name": "redis",
+    "display_name": "Redis",
+    "description": "Cause-specific Redis diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 3,
+    "enabled": true,
+    "repair_prefix": "REDIS",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

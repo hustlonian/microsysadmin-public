@@ -1,0 +1,24 @@
+{
+    "repair_id": "SECURITY-0007",
+    "diagnosis_id": "SECURITY-D0007",
+    "check_id": "SECURITY-C0007",
+    "primitive": "set_env_value",
+    "healthy_fixture": {
+        "probe_expected": true
+    },
+    "failure_fixture": {
+        "probe_expected": false
+    },
+    "assertions": [
+        "detection",
+        "root-cause",
+        "exact-plan",
+        "backup",
+        "repair",
+        "verification",
+        "rollback",
+        "verification-after-rollback",
+        "audit",
+        "idempotency"
+    ]
+}

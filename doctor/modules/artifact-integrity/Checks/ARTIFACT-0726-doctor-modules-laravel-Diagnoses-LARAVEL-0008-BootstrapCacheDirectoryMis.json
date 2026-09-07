@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0726",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/laravel/Diagnoses/LARAVEL-0008-BootstrapCacheDirectoryMissing.json",
+        "summary": "Verify doctor/modules/laravel/Diagnoses/LARAVEL-0008-BootstrapCacheDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0726",
+        "path": "{APP_ROOT}/doctor/modules/laravel/Diagnoses/LARAVEL-0008-BootstrapCacheDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a5bf9280c31d239b439b322a32661f398269090bdcc6a8b95f0ec680878449c2",
+        "sha256": "a5bf9280c31d239b439b322a32661f398269090bdcc6a8b95f0ec680878449c2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

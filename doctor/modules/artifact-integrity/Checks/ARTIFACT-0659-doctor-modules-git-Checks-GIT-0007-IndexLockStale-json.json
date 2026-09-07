@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0659",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Checks/GIT-0007-IndexLockStale.json",
+        "summary": "Verify doctor/modules/git/Checks/GIT-0007-IndexLockStale.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0659",
+        "path": "{APP_ROOT}/doctor/modules/git/Checks/GIT-0007-IndexLockStale.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4325d909b07c257d8bc54a5bce1889a49f510281bc66e26df684bd25bf5cac2e",
+        "sha256": "4325d909b07c257d8bc54a5bce1889a49f510281bc66e26df684bd25bf5cac2e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

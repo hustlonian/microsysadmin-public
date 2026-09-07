@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "APACHE-C0001",
+        "module": "apache",
+        "name": "Install the missing Apache executable",
+        "summary": "Install the missing Apache executable.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "apache",
+            "apache-missing"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "apache",
+            "xampp"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "xampp-httpd"
+    },
+    "failure_status": "FAIL"
+}

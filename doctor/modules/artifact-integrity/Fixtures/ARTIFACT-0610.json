@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0610",
+    "artifact": "doctor/modules/filesystem/Diagnoses/FILESYSTEM-0004-StorageRootMissing.json",
+    "baseline_sha256": "5382eb5a2cd066cc9c7107e3cfb3911a084cc41271fdbc27946092f3d67e7529",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0050",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/CommercialBootstrap.php",
+        "summary": "Verify classes/CommercialBootstrap.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0050",
+        "path": "{APP_ROOT}/classes/CommercialBootstrap.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/562134821d390fabbe0666ceb4a50b9fccb30025646f61d019226173f8fef14f",
+        "sha256": "562134821d390fabbe0666ceb4a50b9fccb30025646f61d019226173f8fef14f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

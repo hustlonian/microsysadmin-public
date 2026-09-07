@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "FILESYSTEM-C0005",
+        "module": "filesystem",
+        "name": "Create the missing Doctor report directory",
+        "summary": "Create the missing Doctor report directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "filesystem",
+            "doctor-report-directory-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{STORAGE_PATH}/doctor/reports"
+    },
+    "failure_status": "FAIL"
+}

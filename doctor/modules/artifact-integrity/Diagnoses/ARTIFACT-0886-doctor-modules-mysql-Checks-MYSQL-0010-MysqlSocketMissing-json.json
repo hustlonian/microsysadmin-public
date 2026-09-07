@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0886",
+        "check_id": "ARTIFACT-C0886",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/mysql/Checks/MYSQL-0010-MysqlSocketMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/mysql/Checks/MYSQL-0010-MysqlSocketMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 812146e9c46ae8c21a4bab56682f963f3ea7adc90d55d9c169fe0eb934c3ee1f with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0886"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

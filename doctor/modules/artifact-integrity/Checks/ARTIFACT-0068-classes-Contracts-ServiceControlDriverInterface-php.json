@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0068",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/ServiceControlDriverInterface.php",
+        "summary": "Verify classes/Contracts/ServiceControlDriverInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0068",
+        "path": "{APP_ROOT}/classes/Contracts/ServiceControlDriverInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c41eefb9131b59e0e66113606d7e1baaa816064d942b8ae0ed1e6c46e092098d",
+        "sha256": "c41eefb9131b59e0e66113606d7e1baaa816064d942b8ae0ed1e6c46e092098d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

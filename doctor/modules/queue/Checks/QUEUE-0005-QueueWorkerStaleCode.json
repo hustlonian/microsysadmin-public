@@ -1,0 +1,36 @@
+{
+    "metadata": {
+        "check_id": "QUEUE-C0005",
+        "module": "queue",
+        "name": "Restart Laravel queue workers using stale code",
+        "summary": "Restart Laravel queue workers using stale code.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "queue",
+            "queue-worker-stale-code"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ],
+        "queue_expected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "php"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "php",
+            "artisan",
+            "queue:monitor"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

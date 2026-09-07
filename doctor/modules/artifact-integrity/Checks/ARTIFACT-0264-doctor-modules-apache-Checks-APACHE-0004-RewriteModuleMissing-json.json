@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0264",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Checks/APACHE-0004-RewriteModuleMissing.json",
+        "summary": "Verify doctor/modules/apache/Checks/APACHE-0004-RewriteModuleMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0264",
+        "path": "{APP_ROOT}/doctor/modules/apache/Checks/APACHE-0004-RewriteModuleMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2efc48a6ca6c1327bec8215cdd312517417afd6c8a06c32f0de50f41366ce2e5",
+        "sha256": "2efc48a6ca6c1327bec8215cdd312517417afd6c8a06c32f0de50f41366ce2e5",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

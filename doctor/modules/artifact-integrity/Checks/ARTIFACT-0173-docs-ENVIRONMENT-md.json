@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0173",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/ENVIRONMENT.md",
+        "summary": "Verify docs/ENVIRONMENT.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0173",
+        "path": "{APP_ROOT}/docs/ENVIRONMENT.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9420d8391fbee1cde9db2983a0801a67c0bd8a2974f2fbc70377aa876a5cf4c4",
+        "sha256": "9420d8391fbee1cde9db2983a0801a67c0bd8a2974f2fbc70377aa876a5cf4c4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "QUEUE-C0010",
+        "module": "queue",
+        "name": "Correct an unwritable queue runtime directory",
+        "summary": "Correct an unwritable queue runtime directory.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "queue",
+            "queue-runtime-directory-not-writable"
+        ]
+    },
+    "supports": {
+        "queue_expected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "path_writable",
+        "path": "{PROJECT}/storage/framework"
+    },
+    "failure_status": "FAIL"
+}

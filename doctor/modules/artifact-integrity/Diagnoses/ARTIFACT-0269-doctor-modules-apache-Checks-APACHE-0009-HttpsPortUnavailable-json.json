@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0269",
+        "check_id": "ARTIFACT-C0269",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/apache/Checks/APACHE-0009-HttpsPortUnavailable.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/apache/Checks/APACHE-0009-HttpsPortUnavailable.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 970e84d8480b3210f6c999146336fb2f065bd9158577d796183fb147615e01db with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0269"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

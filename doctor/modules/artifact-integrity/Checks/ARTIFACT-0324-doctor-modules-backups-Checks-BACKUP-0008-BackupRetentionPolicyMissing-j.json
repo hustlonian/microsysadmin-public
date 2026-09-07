@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0324",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/Checks/BACKUP-0008-BackupRetentionPolicyMissing.json",
+        "summary": "Verify doctor/modules/backups/Checks/BACKUP-0008-BackupRetentionPolicyMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0324",
+        "path": "{APP_ROOT}/doctor/modules/backups/Checks/BACKUP-0008-BackupRetentionPolicyMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0f49459574c78b20e63dec5fe75d13419d9e58bccf03422929b846b351d3453c",
+        "sha256": "0f49459574c78b20e63dec5fe75d13419d9e58bccf03422929b846b351d3453c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

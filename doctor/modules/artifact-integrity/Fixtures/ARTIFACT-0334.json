@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0334",
+    "artifact": "doctor/modules/backups/Diagnoses/BACKUP-0008-BackupRetentionPolicyMissing.json",
+    "baseline_sha256": "7c73ae0ed9e8b4e560e7187f4e10641ea49d6cd32b96ae9c0df99810c652b5b3",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

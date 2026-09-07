@@ -1,0 +1,27 @@
+{
+    "metadata": {
+        "check_id": "LARAVEL-C0010",
+        "module": "laravel",
+        "name": "Clear stale Laravel configuration cache",
+        "summary": "Clear stale Laravel configuration cache.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "laravel",
+            "stale-configuration-cache"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "php"
+    ],
+    "probe": {
+        "type": "path_absent",
+        "path": "{PROJECT}/bootstrap/cache/config.php"
+    },
+    "failure_status": "FAIL"
+}

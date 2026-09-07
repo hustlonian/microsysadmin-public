@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1832",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact repair.sh",
+        "summary": "Verify repair.sh against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1832",
+        "path": "{APP_ROOT}/repair.sh",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2179f1b935a82e9de412c605c2a623eaf0c2635808235003c69f5b408a0ddefd",
+        "sha256": "2179f1b935a82e9de412c605c2a623eaf0c2635808235003c69f5b408a0ddefd",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

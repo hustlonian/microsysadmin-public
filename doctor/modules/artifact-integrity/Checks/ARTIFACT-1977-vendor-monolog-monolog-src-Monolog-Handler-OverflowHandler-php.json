@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1977",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/OverflowHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/OverflowHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1977",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/OverflowHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/466117a395f43f30b89e367d126292e002867a0eda6f195235dfa34ce9a873c3",
+        "sha256": "466117a395f43f30b89e367d126292e002867a0eda6f195235dfa34ce9a873c3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

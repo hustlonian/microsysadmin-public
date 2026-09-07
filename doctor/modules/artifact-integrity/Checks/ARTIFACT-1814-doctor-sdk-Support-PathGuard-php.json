@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1814",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Support/PathGuard.php",
+        "summary": "Verify doctor/sdk/Support/PathGuard.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1814",
+        "path": "{APP_ROOT}/doctor/sdk/Support/PathGuard.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9cab20b75b4b933da5195ac9e7ad8e72e6c5d6134ca7c4d65b0673f3d11260de",
+        "sha256": "9cab20b75b4b933da5195ac9e7ad8e72e6c5d6134ca7c4d65b0673f3d11260de",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

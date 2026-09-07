@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0081",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Drivers/InspectionServiceControlDriver.php",
+        "summary": "Verify classes/Drivers/InspectionServiceControlDriver.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0081",
+        "path": "{APP_ROOT}/classes/Drivers/InspectionServiceControlDriver.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4a7dc0538e587ef8a1ecf6e4d259ecf2d4f12e40fc10c1cd3118a59b5846314f",
+        "sha256": "4a7dc0538e587ef8a1ecf6e4d259ecf2d4f12e40fc10c1cd3118a59b5846314f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

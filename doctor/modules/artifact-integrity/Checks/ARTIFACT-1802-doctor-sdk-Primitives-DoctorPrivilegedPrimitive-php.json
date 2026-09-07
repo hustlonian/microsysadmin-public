@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1802",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Primitives/DoctorPrivilegedPrimitive.php",
+        "summary": "Verify doctor/sdk/Primitives/DoctorPrivilegedPrimitive.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1802",
+        "path": "{APP_ROOT}/doctor/sdk/Primitives/DoctorPrivilegedPrimitive.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/00c7af42d59b78c0d64c27b501c03d2616f4f7556a4853c0c36908b9cf76024d",
+        "sha256": "00c7af42d59b78c0d64c27b501c03d2616f4f7556a4853c0c36908b9cf76024d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

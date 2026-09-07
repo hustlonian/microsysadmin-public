@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1993",
+    "artifact": "vendor/monolog/monolog/src/Monolog/Handler/SocketHandler.php",
+    "baseline_sha256": "1f2581422eb64d523b2cf0476d3ebb064c82da6f30c3ee6b2440b3a1409ed011",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

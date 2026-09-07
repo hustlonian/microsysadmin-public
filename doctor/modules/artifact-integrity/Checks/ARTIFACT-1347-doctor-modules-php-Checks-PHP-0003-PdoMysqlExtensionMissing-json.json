@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1347",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/Checks/PHP-0003-PdoMysqlExtensionMissing.json",
+        "summary": "Verify doctor/modules/php/Checks/PHP-0003-PdoMysqlExtensionMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1347",
+        "path": "{APP_ROOT}/doctor/modules/php/Checks/PHP-0003-PdoMysqlExtensionMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4e99758781f1c1c92e909de87aa894bcb77f9aa110d24b89e370905882bfc7be",
+        "sha256": "4e99758781f1c1c92e909de87aa894bcb77f9aa110d24b89e370905882bfc7be",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

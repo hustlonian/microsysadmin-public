@@ -1,0 +1,114 @@
+{
+    "schema_version": 1,
+    "cycle": 2,
+    "generated_at": "2026-08-02T18:19:58Z",
+    "portfolio": {
+        "repair_definitions": 1224,
+        "executable_repairs": 1072,
+        "fully_automatic_repairs": 1050,
+        "approval_required_repairs": 22,
+        "report_only_repairs": 152,
+        "permanent_inventory_records": 1677
+    },
+    "coverage_percent": {
+        "automation": 87.58,
+        "fully_automatic": 85.78,
+        "rollback": 100.0,
+        "verification": 100.0,
+        "diagnosis": 100.0,
+        "documentation": 100.0,
+        "contract": 100.0,
+        "audit_metadata": 100.0,
+        "changelog": 100.0,
+        "commercial_metadata": 100.0,
+        "sdk_actions": 100.0
+    },
+    "modules": {
+        "completed": [
+            "apache",
+            "artifact-integrity",
+            "backups",
+            "composer",
+            "cron",
+            "dns",
+            "docker",
+            "filesystem",
+            "git",
+            "laravel",
+            "linux",
+            "mail",
+            "mysql",
+            "nginx",
+            "performance",
+            "php",
+            "queue",
+            "redis",
+            "security",
+            "ssl",
+            "xampp"
+        ],
+        "needing_work": []
+    },
+    "new_primitives": [
+        "tree-snapshot",
+        "path-guard",
+        "composer-command",
+        "time-sync",
+        "privileged-helper-client",
+        "doctor-privileged-hash-rollback",
+        "crontab-deduplication",
+        "filesystem-symlink-repair",
+        "time-sync-capability-probe"
+    ],
+    "duplicate_logic_eliminated": {
+        "rollback_debt_repairs_migrated": 7,
+        "non_reversible_repairs_reclassified": 1,
+        "raw_executable_run_command_actions_remaining": 0,
+        "stale_run_command_audit_declarations_remaining": 0,
+        "centralized_privileged_helper_contracts": true,
+        "centralized_tree_snapshot_contracts": true,
+        "remaining_declarative_signature_groups": {
+            "actions": 6,
+            "commands": 2,
+            "verification": 7
+        }
+    },
+    "tests": {
+        "sdk_assertions": 1181,
+        "doctor_assertions": 11604,
+        "time_forward_assertions": 30723,
+        "time_forward_scenarios": 3072,
+        "privileged_helper_tests": 6,
+        "application_tests": 23,
+        "installer_failure_mode_tests": 12,
+        "isolated_commercial_assertions": 70,
+        "enumerated_assertions_and_cases": 43619,
+        "failures": 0
+    },
+    "live_health": {
+        "execution_id": "doc_20260802_181856_8b15bfcbd72a",
+        "score_percent": 100,
+        "grade": "A+",
+        "applicable_pass": 150,
+        "warning": 0,
+        "fail": 0,
+        "skipped_in_scored_set": 0,
+        "detected_causes": 0
+    },
+    "artifact_integrity": {
+        "repairs": 1024,
+        "baseline_blobs": 1247,
+        "revision": "4b66ed14a1ceeb0dc80e31e960af8b90eade9eb43aaa84db7274ed8e11af5e13",
+        "manifest_sha256": "7be33e1bf311238f244d57aa9edd69620a8e7a3fe7c44cee6c434a8c72637970",
+        "consecutive_generation_reproducible": true
+    },
+    "remaining_technical_debt": {
+        "rollback_debt": [],
+        "report_only_repairs": 152,
+        "definition_scale_gap": 3776,
+        "executable_scale_gap": 1428,
+        "standalone_per_repair_evidence_for_artifact_cohort": "future granularity improvement; aggregate lifecycle harness is passing"
+    },
+    "quality_score": 100.0,
+    "commercial_readiness_score": 80.1
+}

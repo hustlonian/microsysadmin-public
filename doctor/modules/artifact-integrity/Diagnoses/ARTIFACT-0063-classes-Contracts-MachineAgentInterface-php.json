@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0063",
+        "check_id": "ARTIFACT-C0063",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/Contracts/MachineAgentInterface.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/Contracts/MachineAgentInterface.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 b233dd54e99225f804ecf18982df83708a5a01fd496122feda0bd348b5622251 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0063"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

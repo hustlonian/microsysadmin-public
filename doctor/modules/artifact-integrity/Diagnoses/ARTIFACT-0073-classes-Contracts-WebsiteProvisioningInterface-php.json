@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0073",
+        "check_id": "ARTIFACT-C0073",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/Contracts/WebsiteProvisioningInterface.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/Contracts/WebsiteProvisioningInterface.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 1c96df07c98dc26dec6f1c7d562eedd307cbb47b2e12e659fc66cac116b3f987 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0073"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

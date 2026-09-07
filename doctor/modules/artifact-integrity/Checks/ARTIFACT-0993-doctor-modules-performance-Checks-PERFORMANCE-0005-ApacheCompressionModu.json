@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0993",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Checks/PERFORMANCE-0005-ApacheCompressionModuleMissing.json",
+        "summary": "Verify doctor/modules/performance/Checks/PERFORMANCE-0005-ApacheCompressionModuleMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0993",
+        "path": "{APP_ROOT}/doctor/modules/performance/Checks/PERFORMANCE-0005-ApacheCompressionModuleMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b6bab235ee9c8e490fde457b8d4da5838ef071a8aea90f19f62f1e022b9fb8ef",
+        "sha256": "b6bab235ee9c8e490fde457b8d4da5838ef071a8aea90f19f62f1e022b9fb8ef",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

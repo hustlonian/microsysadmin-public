@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1137",
+    "artifact": "doctor/modules/docker/Changelog/DOCKER-0006.md",
+    "baseline_sha256": "4ba9cd5fea22e95be54b951e8b4b9f57e0fed00b23a453b08e097e89fb857c7c",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

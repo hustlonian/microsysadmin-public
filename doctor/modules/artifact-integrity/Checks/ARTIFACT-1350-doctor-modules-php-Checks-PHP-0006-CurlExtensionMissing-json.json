@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1350",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/Checks/PHP-0006-CurlExtensionMissing.json",
+        "summary": "Verify doctor/modules/php/Checks/PHP-0006-CurlExtensionMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1350",
+        "path": "{APP_ROOT}/doctor/modules/php/Checks/PHP-0006-CurlExtensionMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/22bc9b618b7582fb04779ec8f738fd0fb8f45fdc8e787fbde95820aa21dde499",
+        "sha256": "22bc9b618b7582fb04779ec8f738fd0fb8f45fdc8e787fbde95820aa21dde499",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

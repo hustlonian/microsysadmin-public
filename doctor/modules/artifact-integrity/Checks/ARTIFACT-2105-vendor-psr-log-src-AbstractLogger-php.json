@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2105",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/psr/log/src/AbstractLogger.php",
+        "summary": "Verify vendor/psr/log/src/AbstractLogger.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2105",
+        "path": "{APP_ROOT}/vendor/psr/log/src/AbstractLogger.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/84c69c6cc60fd805eb525daa79bd04a8d0b73e52776e1a0c2a9e666b37b4512e",
+        "sha256": "84c69c6cc60fd805eb525daa79bd04a8d0b73e52776e1a0c2a9e666b37b4512e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

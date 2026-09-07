@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0895",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Diagnoses/MYSQL-0009-MysqlErrorLogMissing.json",
+        "summary": "Verify doctor/modules/mysql/Diagnoses/MYSQL-0009-MysqlErrorLogMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0895",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Diagnoses/MYSQL-0009-MysqlErrorLogMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/66f24995c5023f95945c22787aad20bedc333c4ffb59cc165d97db0d08f16484",
+        "sha256": "66f24995c5023f95945c22787aad20bedc333c4ffb59cc165d97db0d08f16484",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

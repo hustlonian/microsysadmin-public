@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1935",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/AmqpHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/AmqpHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1935",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/AmqpHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/bd059fa7165a8f889df2a34dca91fa33a1cbf21d5ec8a46c62e93672478cc5f3",
+        "sha256": "bd059fa7165a8f889df2a34dca91fa33a1cbf21d5ec8a46c62e93672478cc5f3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

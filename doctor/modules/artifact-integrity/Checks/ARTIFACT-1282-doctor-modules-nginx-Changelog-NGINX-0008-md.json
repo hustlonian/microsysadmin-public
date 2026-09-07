@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1282",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/nginx/Changelog/NGINX-0008.md",
+        "summary": "Verify doctor/modules/nginx/Changelog/NGINX-0008.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1282",
+        "path": "{APP_ROOT}/doctor/modules/nginx/Changelog/NGINX-0008.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/bd08c3c1902154c70cd4fb2745a45287bba72c35ed5dc45b9d066cd7f68e25ff",
+        "sha256": "bd08c3c1902154c70cd4fb2745a45287bba72c35ed5dc45b9d066cd7f68e25ff",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

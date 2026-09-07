@@ -1,0 +1,35 @@
+{
+    "repair_id": "CRON-0004",
+    "lifecycle": [
+        "detect-failure",
+        "diagnose",
+        "plan",
+        "backup",
+        "execute",
+        "verify-pass",
+        "rollback",
+        "verify-failure-again"
+    ],
+    "primitive_descriptor": {
+        "type": "ensure_crontab_entry",
+        "category": "cron",
+        "local_only": true,
+        "structured_arguments": true,
+        "reversible": true,
+        "rollback": "complete-crontab-snapshot",
+        "internal_backup": true,
+        "safety_class": "structured-command-exact-marker",
+        "required_fields": [
+            "schedule",
+            "command",
+            "marker"
+        ]
+    },
+    "prohibited": [
+        "shell-string-command",
+        "unbounded-path",
+        "missing-verification",
+        "missing-rollback",
+        "network-without-declaration"
+    ]
+}

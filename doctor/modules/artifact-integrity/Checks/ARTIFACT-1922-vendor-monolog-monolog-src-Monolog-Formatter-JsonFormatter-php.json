@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1922",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1922",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/cbdc47613c47761f199efad4a948320c17316147673359f7771baf23b02adebe",
+        "sha256": "cbdc47613c47761f199efad4a948320c17316147673359f7771baf23b02adebe",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

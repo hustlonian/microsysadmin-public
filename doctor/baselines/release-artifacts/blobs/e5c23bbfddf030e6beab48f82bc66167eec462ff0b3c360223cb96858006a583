@@ -1,0 +1,34 @@
+{
+    "metadata": {
+        "check_id": "CRON-C0005",
+        "module": "cron",
+        "name": "Remove duplicate Laravel scheduler entries",
+        "summary": "Remove duplicate Laravel scheduler entries.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "cron",
+            "duplicate-laravel-scheduler-entry"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [
+        "crontab"
+    ],
+    "probe": {
+        "type": "command_occurrences",
+        "command": [
+            "crontab",
+            "-l"
+        ],
+        "needle": "# MicroSysAdmin Doctor CRON-0004",
+        "minimum": 0,
+        "maximum": 1,
+        "timeout": 20
+    },
+    "failure_status": "FAIL"
+}

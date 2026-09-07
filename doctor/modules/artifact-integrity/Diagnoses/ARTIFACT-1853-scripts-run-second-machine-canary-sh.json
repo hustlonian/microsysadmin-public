@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1853",
+        "check_id": "ARTIFACT-C1853",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for scripts/run-second-machine-canary.sh",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact scripts/run-second-machine-canary.sh is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 965fa91853e6dc1f5ac4c59b9c2668bfc1c50f88d5caf2efaa0027dd10bfc717 with mode 0755.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1853"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

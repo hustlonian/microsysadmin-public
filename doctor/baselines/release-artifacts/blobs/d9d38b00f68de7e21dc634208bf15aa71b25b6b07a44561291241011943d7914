@@ -1,0 +1,14 @@
+{
+    "repair_id": "SECURITY-0007",
+    "commercial_tier": "professional",
+    "customer_impact": "restores a bounded supported state",
+    "support_issue_family": "production-debug-exposure",
+    "automation_class": "AUTO_WITH_BACKUP",
+    "risk_level": "LOW",
+    "sdk_primitives": [
+        "set_env_value"
+    ],
+    "quality_status": "contract-ready",
+    "rollback_supported": true,
+    "verification_defined": true
+}

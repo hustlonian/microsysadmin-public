@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "NGINX-D0010",
+        "check_id": "NGINX-C0010",
+        "module": "nginx",
+        "name": "Correct an Nginx PHP-FPM socket mismatch diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Correct an Nginx PHP-FPM socket mismatch.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed nginx php fpm socket mismatch condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "NGINX-0010"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

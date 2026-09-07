@@ -1,0 +1,24 @@
+{
+    "repair_id": "XAMPP-0010",
+    "diagnosis_id": "XAMPP-D0010",
+    "check_id": "XAMPP-C0010",
+    "primitive": "create_known_directory",
+    "healthy_fixture": {
+        "probe_expected": true
+    },
+    "failure_fixture": {
+        "probe_expected": false
+    },
+    "assertions": [
+        "detection",
+        "root-cause",
+        "exact-plan",
+        "backup",
+        "repair",
+        "verification",
+        "rollback",
+        "verification-after-rollback",
+        "audit",
+        "idempotency"
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1904",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/composer/platform_check.php",
+        "summary": "Verify vendor/composer/platform_check.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1904",
+        "path": "{APP_ROOT}/vendor/composer/platform_check.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/230c364d17607b4f0500630f1c1bcca4e08e1486748340d2ec85024f3a0b73b4",
+        "sha256": "230c364d17607b4f0500630f1c1bcca4e08e1486748340d2ec85024f3a0b73b4",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

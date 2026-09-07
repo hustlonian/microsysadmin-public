@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0124",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/ServiceControlManager.php",
+        "summary": "Verify classes/ServiceControlManager.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0124",
+        "path": "{APP_ROOT}/classes/ServiceControlManager.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/817d5cdb7b3ad8d17340bfb1fc6136ebffa564761edcc3b4b11a21e0554d12c9",
+        "sha256": "817d5cdb7b3ad8d17340bfb1fc6136ebffa564761edcc3b4b11a21e0554d12c9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

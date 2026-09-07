@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0048",
+        "check_id": "ARTIFACT-C0048",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/BackupService.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/BackupService.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 3815a961f15f177772728dacf7c771a0201cf71cb1c5c3689fba829eb763fd76 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0048"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

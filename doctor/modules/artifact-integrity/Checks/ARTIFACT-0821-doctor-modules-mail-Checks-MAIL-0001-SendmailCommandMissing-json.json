@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0821",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Checks/MAIL-0001-SendmailCommandMissing.json",
+        "summary": "Verify doctor/modules/mail/Checks/MAIL-0001-SendmailCommandMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0821",
+        "path": "{APP_ROOT}/doctor/modules/mail/Checks/MAIL-0001-SendmailCommandMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/de945b17427a633b59cb152aad4e205f883048a1b53f8d63c8a6750b24d247e9",
+        "sha256": "de945b17427a633b59cb152aad4e205f883048a1b53f8d63c8a6750b24d247e9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

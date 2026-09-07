@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1738",
+    "artifact": "doctor/modules/xampp/Commercial/XAMPP-0001.json",
+    "baseline_sha256": "89a9c56b7bcb5f859fe54f736b16cb954b93cecc29ea0b9d708ea0885b265deb",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

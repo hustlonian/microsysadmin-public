@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1128",
+        "check_id": "ARTIFACT-C1128",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/dns/Commercial/DNS-0007.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/dns/Commercial/DNS-0007.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 4b49efd7c5a3c5f14cf89afad534cfb547628f059f5de05ccc804f5b7cb0c7ec with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1128"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

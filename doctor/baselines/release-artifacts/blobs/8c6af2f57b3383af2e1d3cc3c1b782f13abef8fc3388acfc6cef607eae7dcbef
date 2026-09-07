@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0004",
+        "module": "ssl",
+        "name": "Renew an expired local TLS certificate",
+        "summary": "Renew an expired local TLS certificate.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "certificate-expired"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "openssl"
+    ],
+    "probe": {
+        "type": "certificate_expiry",
+        "certificate": "/opt/lampp/etc/ssl.crt/server.crt",
+        "mode": "expired",
+        "minimum_valid_seconds": 0
+    },
+    "failure_status": "FAIL"
+}

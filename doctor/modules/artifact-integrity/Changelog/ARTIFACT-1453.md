@@ -1,0 +1,9 @@
+# ARTIFACT-1453
+
+Added exact local-baseline restoration for `doctor/modules/queue/Docs/QUEUE-0002.md`.
+
+- Primitive: `restore_managed_artifact`
+- Automation: `AUTO_WITH_BACKUP`
+- Risk: `LOW`
+- Verification: `ARTIFACT-C1453`
+- Rollback: automatic

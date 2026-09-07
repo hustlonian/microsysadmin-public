@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0865",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Repairs/MAIL-0002-PostfixCommandMissing.json",
+        "summary": "Verify doctor/modules/mail/Repairs/MAIL-0002-PostfixCommandMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0865",
+        "path": "{APP_ROOT}/doctor/modules/mail/Repairs/MAIL-0002-PostfixCommandMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c9b3368bc4a1bdb0ab70f1d82f8a3884182f51ab3d15764a8541a54f98a083fe",
+        "sha256": "c9b3368bc4a1bdb0ab70f1d82f8a3884182f51ab3d15764a8541a54f98a083fe",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

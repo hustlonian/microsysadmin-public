@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0918",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Module.php",
+        "summary": "Verify doctor/modules/mysql/Module.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0918",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Module.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/997b2a439b4c851c819d9e9453b604532e35f998a5b74ea5dec73fe5b5d69a23",
+        "sha256": "997b2a439b4c851c819d9e9453b604532e35f998a5b74ea5dec73fe5b5d69a23",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

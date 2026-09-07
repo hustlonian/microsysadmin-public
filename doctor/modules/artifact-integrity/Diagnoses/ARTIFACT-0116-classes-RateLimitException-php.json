@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0116",
+        "check_id": "ARTIFACT-C0116",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/RateLimitException.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/RateLimitException.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 29be37b111ca683d115098f177ed20f18ee8f246a5a5f0e92c8e9732477d7736 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0116"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

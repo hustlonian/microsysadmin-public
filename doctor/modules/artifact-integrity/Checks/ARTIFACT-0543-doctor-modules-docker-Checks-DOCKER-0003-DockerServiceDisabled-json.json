@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0543",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Checks/DOCKER-0003-DockerServiceDisabled.json",
+        "summary": "Verify doctor/modules/docker/Checks/DOCKER-0003-DockerServiceDisabled.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0543",
+        "path": "{APP_ROOT}/doctor/modules/docker/Checks/DOCKER-0003-DockerServiceDisabled.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/cd3abf76149918dc559fec5a37d9e0075947ef1c1ccba9dd6e2aaf22d45d464f",
+        "sha256": "cd3abf76149918dc559fec5a37d9e0075947ef1c1ccba9dd6e2aaf22d45d464f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

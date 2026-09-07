@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1942",
+    "artifact": "vendor/monolog/monolog/src/Monolog/Handler/DeduplicationHandler.php",
+    "baseline_sha256": "c12789fc3dbb55b313917c623821cc6b57609cc9cd472131952a79846ccf7df9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

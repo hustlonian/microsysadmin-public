@@ -1,0 +1,11 @@
+{
+    "name": "composer",
+    "display_name": "Composer",
+    "description": "Cause-specific Composer diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 1,
+    "enabled": true,
+    "repair_prefix": "COMPOSER",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

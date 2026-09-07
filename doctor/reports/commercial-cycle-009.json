@@ -1,0 +1,159 @@
+{
+    "cycle": 9,
+    "generated_at": "2026-08-02T21:06:53Z",
+    "outcome": {
+        "quality_score": 100.0,
+        "commercial_readiness_score": 93.33,
+        "live_health_percent": 100.0,
+        "live_health_grade": "A+",
+        "repository_gate": "PASS"
+    },
+    "portfolio": {
+        "definitions": 2682,
+        "checks": 2682,
+        "diagnoses": 2682,
+        "executable": 2547,
+        "fully_automatic": 2528,
+        "approval_required": 19,
+        "report_only": 135,
+        "permanent_inventory_records": 3304,
+        "active_inventory_records": 2682,
+        "backlog_inventory_records": 453,
+        "retired_inventory_records": 169
+    },
+    "coverage_percent": {
+        "automation": 94.97,
+        "fully_automatic": 94.26,
+        "rollback": 100.0,
+        "verification": 100.0,
+        "diagnosis": 100.0,
+        "documentation": 100.0,
+        "fixture": 100.0,
+        "contract": 100.0,
+        "audit_metadata": 100.0,
+        "changelog": 100.0,
+        "commercial_metadata": 100.0,
+        "sdk_actions": 100.0
+    },
+    "cycle_delta": {
+        "definitions": -143,
+        "executable": -130,
+        "fully_automatic": -127,
+        "approval_required": -3,
+        "report_only": -13,
+        "permanent_inventory_records": 1
+    },
+    "deduplication": {
+        "retired_functional_owners": 18,
+        "retired_advisory_owners": 13,
+        "retired_executable_owners": 5,
+        "retired_generated_package_file_lifecycles": 126,
+        "repeated_parent_actions_eliminated": 14,
+        "previous_broad_report_only_overlap_groups": 21,
+        "corrected_genuine_report_only_overlap_groups": 11,
+        "exact_report_only_overlap_groups": 0,
+        "duplicate_executable_lifecycle_owners": 0,
+        "orphan_test_cases": 0,
+        "archives": [
+            {
+                "path": "doctor/reports/retired-duplicate-packages-cycle-009.tar.gz",
+                "files": 91,
+                "sha256": "af8efbdfbf460158adb14e3051f3d894024be274266790b829d74cd8082bf16b"
+            },
+            {
+                "path": "doctor/reports/retired-duplicate-executable-packages-cycle-009.tar.gz",
+                "files": 35,
+                "sha256": "4a957cf67eebff22b5db76b55eb5f6cace77342dde2511a1e50db529f56b97ba"
+            }
+        ]
+    },
+    "artifact_integrity": {
+        "file_lifecycles": 1990,
+        "missing_directory_lifecycles": 255,
+        "directory_mode_lifecycles": 255,
+        "total_executable": 2500,
+        "retired_permanent_ids": 151,
+        "local_blobs": 2451,
+        "unreferenced_historical_blobs": 461,
+        "catalog_revision": "9e05f561e44aff21b1648c73f4bd8eca47b5702d64c2e12b78d584235e1352e8",
+        "manifest_sha256": "2dba9580fd896712ba7d0932100529006ee1390ad5a719aa2f67b7ca708ca00b",
+        "locked_vendor_revision": "4c2cfa14b67e556f0fc4ccb2887ceb5306694009ecba406d8fd22236cdbfbc7d",
+        "locked_vendor_manifest_sha256": "9deb9cd405de222a11ae8fc3e6f501757fa298bf5785aa3f98c1de0fa92f4fe7"
+    },
+    "new_or_hardened_primitives": [
+        "identity-guarded bounded create_directory parent chain",
+        "exact umask-independent directory mode application and verification",
+        "canonical exact executable lifecycle ownership audit",
+        "orphaned test-index case audit",
+        "locked local Composer vendor materialization and exact verification"
+    ],
+    "tests": {
+        "sdk_assertions": 2718,
+        "doctor_assertions": 26204,
+        "file_time_forward_assertions": 59706,
+        "file_time_forward_scenarios": 5970,
+        "directory_time_forward_assertions": 18365,
+        "directory_time_forward_scenarios": 1530,
+        "application_tests": 23,
+        "privileged_helper_tests": 11,
+        "installer_failure_mode_tests": 12,
+        "git_security_failure_mode_tests": 8,
+        "isolated_commercial_assertions": 70,
+        "total_enumerated": 107117,
+        "total_failed": 0,
+        "future_lifecycle_scenarios": 7500,
+        "repository_gate": "PASS",
+        "reproducible_release_sha256": "effefe68de6d729141cb2b5d436c0a7f91bbebee5bd8fbf57a9227a1a27e002b",
+        "repository_gate_release_sha256": "effefe68de6d729141cb2b5d436c0a7f91bbebee5bd8fbf57a9227a1a27e002b"
+    },
+    "live_scan": {
+        "execution_id": "doc_20260802_210459_f52e1aa84448",
+        "status": "COMPLETED",
+        "pass": 136,
+        "warning": 0,
+        "fail": 0,
+        "error": 0,
+        "unknown": 0,
+        "skipped": 0,
+        "detected_causes": 0,
+        "health_percent": 100.0,
+        "grade": "A+",
+        "module_count": 21,
+        "modules_at_100_percent": 21
+    },
+    "modules": {
+        "quality_completed": [
+            "apache", "artifact-integrity", "backups", "composer", "cron", "dns", "docker", "filesystem", "git", "laravel", "linux", "mail", "mysql", "nginx", "performance", "php", "queue", "redis", "security", "ssl", "xampp"
+        ],
+        "quality_needing_work": [],
+        "breadth_needing_work": [
+            "apache", "backups", "composer", "cron", "dns", "docker", "filesystem", "git", "laravel", "linux", "mail", "mysql", "nginx", "performance", "php", "queue", "redis", "security", "ssl", "xampp"
+        ]
+    },
+    "report_only_backlog": {
+        "total": 135,
+        "exact_overlap_groups": 0,
+        "classifications": {
+            "BUSINESS_INPUT_REQUIRED": 8,
+            "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW": 26,
+            "MANUAL_RESEARCH_REQUIRED": 24,
+            "MISSING_DATA_RECOVERY_REQUIRED": 6,
+            "OWNERSHIP_PERMISSION_CONTRACT_REVIEW": 11,
+            "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY": 26,
+            "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW": 6,
+            "ROOT_CAUSE_VARIANT_RESEARCH": 28
+        }
+    },
+    "remaining_technical_debt": [
+        "2318 additional active definitions are required to reach 5000",
+        "135 active report-only definitions require deterministic cause-specific contracts or must remain advisory",
+        "453 permanent backlog records lack an active exact lifecycle",
+        "461 unreferenced historical blobs require a signed retention policy before any deletion",
+        "the Doctor bootstrap root requires an independently installed absence verifier",
+        "functional module breadth remains below the long-term commercial targets"
+    ],
+    "scale_progress_percent": {
+        "definitions": 53.64,
+        "executable": 101.88
+    }
+}

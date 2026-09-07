@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0149",
+    "artifact": "controllers/ProductApiController.php",
+    "baseline_sha256": "711a5ec011e3e9b3a15a1742cd9c51d469faa9a14e03ed4810d8477cfe24e114",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

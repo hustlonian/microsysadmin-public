@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "MAIL-C0007",
+        "module": "mail",
+        "name": "Configure the application mail host",
+        "summary": "Configure the application mail host.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mail",
+            "mail-host-unconfigured"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "env_value",
+        "path": "{PROJECT}/.env",
+        "key": "MAIL_HOST"
+    },
+    "failure_status": "FAIL"
+}

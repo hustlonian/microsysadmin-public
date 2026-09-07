@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0009",
+        "module": "redis",
+        "name": "Restore the missing Redis log directory",
+        "summary": "Restore the missing Redis log directory.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "redis-log-directory-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/var/log/redis"
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0146",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact controllers/DashboardController.php",
+        "summary": "Verify controllers/DashboardController.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0146",
+        "path": "{APP_ROOT}/controllers/DashboardController.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/54511cc0d8492c9887e5c1fd6a5ca2b8590d738e00ab519be0563f6c5195e64f",
+        "sha256": "54511cc0d8492c9887e5c1fd6a5ca2b8590d738e00ab519be0563f6c5195e64f",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

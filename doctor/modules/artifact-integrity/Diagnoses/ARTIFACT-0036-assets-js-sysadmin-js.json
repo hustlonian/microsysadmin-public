@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0036",
+        "check_id": "ARTIFACT-C0036",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for assets/js/sysadmin.js",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact assets/js/sysadmin.js is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 ba2844c073a04754459bcd5c4fa5d75e1366a5acff31093561e87402d6e063cd with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0036"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

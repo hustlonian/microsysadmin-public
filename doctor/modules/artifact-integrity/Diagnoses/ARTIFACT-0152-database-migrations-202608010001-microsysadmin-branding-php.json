@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0152",
+        "check_id": "ARTIFACT-C0152",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for database/migrations/202608010001_microsysadmin_branding.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact database/migrations/202608010001_microsysadmin_branding.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c4ba562265e6e4c31efc7fadf4219b7763ddc41803e39d5fd39429d148b0ffb4 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0152"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

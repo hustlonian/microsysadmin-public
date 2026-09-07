@@ -1,0 +1,32 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0010",
+        "module": "docker",
+        "name": "Correct unhealthy running containers",
+        "summary": "Correct unhealthy running containers.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "container-health-failure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "docker"
+    ],
+    "probe": {
+        "type": "command_stdout_empty",
+        "command": [
+            "docker",
+            "ps",
+            "--filter",
+            "health=unhealthy",
+            "--format",
+            "{{.ID}}"
+        ],
+        "timeout": 30,
+        "skip_on_permission_denied": true
+    },
+    "failure_status": "FAIL"
+}

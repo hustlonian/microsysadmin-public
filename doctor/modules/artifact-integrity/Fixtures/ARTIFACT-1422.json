@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1422",
+    "artifact": "doctor/modules/queue/Checks/QUEUE-0002-SupervisorServiceStopped.json",
+    "baseline_sha256": "6e4aafb853c6b3a9a41d72ae5f641b24574d1670554a33ef067e1017ec38d64b",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

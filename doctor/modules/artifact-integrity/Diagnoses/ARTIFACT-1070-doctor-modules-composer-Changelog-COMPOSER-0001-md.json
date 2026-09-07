@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1070",
+        "check_id": "ARTIFACT-C1070",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/composer/Changelog/COMPOSER-0001.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/composer/Changelog/COMPOSER-0001.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 a4f0e4f5d9c7edc88d373e5978564aad73c0fca3be38ff568da9be9ee468666e with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1070"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

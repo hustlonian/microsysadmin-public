@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0032",
+        "check_id": "ARTIFACT-C0032",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for api/services.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact api/services.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 343a8fbd0c73f3b6e0bacaac2a1f57567800563322e7a9d04b8f61ab5c581d2b with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0032"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0042",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/AgentSigner.php",
+        "summary": "Verify classes/AgentSigner.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0042",
+        "path": "{APP_ROOT}/classes/AgentSigner.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d484285ecef3f066f700a34da07bdfb427b16dfd38e1eb2ba6f0cfd7ec488613",
+        "sha256": "d484285ecef3f066f700a34da07bdfb427b16dfd38e1eb2ba6f0cfd7ec488613",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0808",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Repairs/LINUX-0001-OperatingSystemReleaseMissing.json",
+        "summary": "Verify doctor/modules/linux/Repairs/LINUX-0001-OperatingSystemReleaseMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0808",
+        "path": "{APP_ROOT}/doctor/modules/linux/Repairs/LINUX-0001-OperatingSystemReleaseMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/8d2a94628edc02a538a0f7056103c398146a600b7606550c0a5ea2cef5685eed",
+        "sha256": "8d2a94628edc02a538a0f7056103c398146a600b7606550c0a5ea2cef5685eed",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

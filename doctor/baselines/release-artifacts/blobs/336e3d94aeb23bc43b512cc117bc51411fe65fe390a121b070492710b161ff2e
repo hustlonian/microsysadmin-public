@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0001",
+        "module": "docker",
+        "name": "Install the missing Docker client",
+        "summary": "Install the missing Docker client.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "docker-client-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "docker"
+    },
+    "failure_status": "FAIL"
+}

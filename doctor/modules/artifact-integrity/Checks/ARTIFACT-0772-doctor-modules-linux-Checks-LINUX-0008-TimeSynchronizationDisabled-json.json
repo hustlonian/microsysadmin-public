@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0772",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Checks/LINUX-0008-TimeSynchronizationDisabled.json",
+        "summary": "Verify doctor/modules/linux/Checks/LINUX-0008-TimeSynchronizationDisabled.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0772",
+        "path": "{APP_ROOT}/doctor/modules/linux/Checks/LINUX-0008-TimeSynchronizationDisabled.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e1fe7c5ce1a7baaf4d643dad2b2746d04cb7a89769ca3dda4c832ce3e4a18813",
+        "sha256": "e1fe7c5ce1a7baaf4d643dad2b2746d04cb7a89769ca3dda4c832ce3e4a18813",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

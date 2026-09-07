@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0234",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Reporting/ReportBuilder.php",
+        "summary": "Verify doctor/engine/Reporting/ReportBuilder.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0234",
+        "path": "{APP_ROOT}/doctor/engine/Reporting/ReportBuilder.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/fdadc6c6dc2431d0b8df8df45ee030a195298cba1d688b135917f03ae44778b0",
+        "sha256": "fdadc6c6dc2431d0b8df8df45ee030a195298cba1d688b135917f03ae44778b0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

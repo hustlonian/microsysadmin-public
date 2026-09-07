@@ -1,0 +1,52 @@
+[
+    {
+        "repair_id": "SECURITY-0001",
+        "fixture": "../Fixtures/SECURITY-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SECURITY-0002",
+        "fixture": "../Fixtures/SECURITY-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SECURITY-0003",
+        "fixture": "../Fixtures/SECURITY-0003.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SECURITY-0004",
+        "fixture": "../Fixtures/SECURITY-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SECURITY-0005",
+        "fixture": "../Fixtures/SECURITY-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SECURITY-0006",
+        "fixture": "../Fixtures/SECURITY-0006.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SECURITY-0007",
+        "fixture": "../Fixtures/SECURITY-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SECURITY-0008",
+        "fixture": "../Fixtures/SECURITY-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SECURITY-0009",
+        "fixture": "../Fixtures/SECURITY-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "SECURITY-0010",
+        "fixture": "../Fixtures/SECURITY-0010.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

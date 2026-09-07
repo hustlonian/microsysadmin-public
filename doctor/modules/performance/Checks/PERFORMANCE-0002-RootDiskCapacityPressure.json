@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "PERFORMANCE-C0002",
+        "module": "performance",
+        "name": "Reduce root filesystem capacity pressure",
+        "summary": "Reduce root filesystem capacity pressure.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "performance",
+            "root-disk-capacity-pressure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "disk_free_percent",
+        "path": "/",
+        "minimum": 15
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,38 @@
+{
+    "repair_id": "SSL-0005",
+    "lifecycle": [
+        "detect-failure",
+        "diagnose",
+        "plan",
+        "backup",
+        "execute",
+        "verify-pass",
+        "rollback",
+        "verify-failure-again"
+    ],
+    "primitive_descriptor": {
+        "type": "doctor_action",
+        "category": "privileged-local",
+        "local_only": true,
+        "structured_arguments": true,
+        "reversible": true,
+        "rollback": "helper-owned validated backup reference",
+        "internal_backup": true,
+        "safety_class": "exact-privileged-helper-allowlist",
+        "allowed_actions": [
+            "enable-opcache",
+            "renew-local-tls"
+        ],
+        "required_fields": [
+            "action",
+            "path"
+        ]
+    },
+    "prohibited": [
+        "shell-string-command",
+        "unbounded-path",
+        "missing-verification",
+        "missing-rollback",
+        "network-without-declaration"
+    ]
+}

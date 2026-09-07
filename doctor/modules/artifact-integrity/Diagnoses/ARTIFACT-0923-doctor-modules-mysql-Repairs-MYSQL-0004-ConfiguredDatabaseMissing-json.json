@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0923",
+        "check_id": "ARTIFACT-C0923",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/mysql/Repairs/MYSQL-0004-ConfiguredDatabaseMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/mysql/Repairs/MYSQL-0004-ConfiguredDatabaseMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 4704d37b77de258a1307bf8b7cfab94c3856ab2eaf0e4bb08f2a8b9fff020f48 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0923"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

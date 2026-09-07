@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0372",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/backups/repair-inventory.json",
+        "summary": "Verify doctor/modules/backups/repair-inventory.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0372",
+        "path": "{APP_ROOT}/doctor/modules/backups/repair-inventory.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/73e3a7df9b22d861023ac72a2a899cb6f0610e7f3eb02337bca2c8aa0dd8dcdf",
+        "sha256": "73e3a7df9b22d861023ac72a2a899cb6f0610e7f3eb02337bca2c8aa0dd8dcdf",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

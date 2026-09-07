@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "COMPOSER-C0003",
+        "module": "composer",
+        "name": "Correct invalid Composer manifest JSON",
+        "summary": "Correct invalid Composer manifest JSON.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "composer",
+            "composer-json-invalid"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "json_valid",
+        "path": "{PROJECT}/composer.json"
+    },
+    "failure_status": "FAIL"
+}

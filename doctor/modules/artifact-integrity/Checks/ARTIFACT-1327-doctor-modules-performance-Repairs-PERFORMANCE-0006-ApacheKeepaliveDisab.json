@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1327",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Repairs/PERFORMANCE-0006-ApacheKeepaliveDisabled.json",
+        "summary": "Verify doctor/modules/performance/Repairs/PERFORMANCE-0006-ApacheKeepaliveDisabled.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1327",
+        "path": "{APP_ROOT}/doctor/modules/performance/Repairs/PERFORMANCE-0006-ApacheKeepaliveDisabled.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/fd9586ee3e15013700d3e6c8a7804d18db4a71898d3010dfebebbe56024dd179",
+        "sha256": "fd9586ee3e15013700d3e6c8a7804d18db4a71898d3010dfebebbe56024dd179",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

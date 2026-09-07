@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0534",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Repairs/DNS-0007-Ipv6LoopbackEntryMissing.json",
+        "summary": "Verify doctor/modules/dns/Repairs/DNS-0007-Ipv6LoopbackEntryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0534",
+        "path": "{APP_ROOT}/doctor/modules/dns/Repairs/DNS-0007-Ipv6LoopbackEntryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1801f3797058989c81afb942803827b9c887bd75fd65d0485f360242d5530776",
+        "sha256": "1801f3797058989c81afb942803827b9c887bd75fd65d0485f360242d5530776",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

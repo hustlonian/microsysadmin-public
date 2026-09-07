@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "FILESYSTEM-D0004",
+        "check_id": "FILESYSTEM-C0004",
+        "module": "filesystem",
+        "name": "Create the missing Doctor storage root diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Create the missing Doctor storage root.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed storage root missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "FILESYSTEM-0004"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The repair is scoped, deterministic, previewed, and independently verified."
+    }
+}

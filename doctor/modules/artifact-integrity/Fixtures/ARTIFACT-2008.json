@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-2008",
+    "artifact": "vendor/monolog/monolog/src/Monolog/Logger.php",
+    "baseline_sha256": "fe7a0a0a924ff3b2174c8b7b8decdf6691fb3daea0994b2b60a7218a93acdfaf",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2128",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/symfony/process/Messenger/RunProcessMessageHandler.php",
+        "summary": "Verify vendor/symfony/process/Messenger/RunProcessMessageHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2128",
+        "path": "{APP_ROOT}/vendor/symfony/process/Messenger/RunProcessMessageHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a539ad084700a56744d8676902c62952ddd2a467bd18f701a89b5af154d588a9",
+        "sha256": "a539ad084700a56744d8676902c62952ddd2a467bd18f701a89b5af154d588a9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

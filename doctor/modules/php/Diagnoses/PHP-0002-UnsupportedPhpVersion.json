@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "PHP-D0002",
+        "check_id": "PHP-C0002",
+        "module": "php",
+        "name": "Upgrade an unsupported PHP runtime diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Upgrade an unsupported PHP runtime.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed unsupported php version condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "PHP-0002"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

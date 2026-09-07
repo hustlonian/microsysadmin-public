@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1828",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact packaging/systemd/microsysadmin-health.service",
+        "summary": "Verify packaging/systemd/microsysadmin-health.service against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1828",
+        "path": "{APP_ROOT}/packaging/systemd/microsysadmin-health.service",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c19429da23fddfca285accfece19bb455b96b36881b074761e759a04fbc75258",
+        "sha256": "c19429da23fddfca285accfece19bb455b96b36881b074761e759a04fbc75258",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

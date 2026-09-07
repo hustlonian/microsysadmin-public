@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "SSL-C0001",
+        "module": "ssl",
+        "name": "Install the missing OpenSSL executable",
+        "summary": "Install the missing OpenSSL executable.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "ssl",
+            "openssl-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "openssl"
+    },
+    "failure_status": "FAIL"
+}

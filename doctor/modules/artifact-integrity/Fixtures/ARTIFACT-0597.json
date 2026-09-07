@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0597",
+    "artifact": "doctor/modules/filesystem/Checks/FILESYSTEM-0001-ProjectRootMissing.json",
+    "baseline_sha256": "a1fe8164ae636fc73b8bfffee168d148e31829f4b25bf415c326a7dac3cd585e",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

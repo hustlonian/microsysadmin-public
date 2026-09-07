@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0622",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Docs/FILESYSTEM-0005.md",
+        "summary": "Verify doctor/modules/filesystem/Docs/FILESYSTEM-0005.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0622",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Docs/FILESYSTEM-0005.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/833ab6e9152b6a3727fcd949f1eb53927e2bb91e8283d6a6559a94e766454050",
+        "sha256": "833ab6e9152b6a3727fcd949f1eb53927e2bb91e8283d6a6559a94e766454050",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0150",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact cron/runner.php",
+        "summary": "Verify cron/runner.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0150",
+        "path": "{APP_ROOT}/cron/runner.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7376f67e65c6d3f6c41cb858a660e364819eb9fc5bb6c9245cadfa7ba6c301b0",
+        "sha256": "7376f67e65c6d3f6c41cb858a660e364819eb9fc5bb6c9245cadfa7ba6c301b0",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0488",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Checks/DNS-0004-ResolverConfigurationUnreadable.json",
+        "summary": "Verify doctor/modules/dns/Checks/DNS-0004-ResolverConfigurationUnreadable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0488",
+        "path": "{APP_ROOT}/doctor/modules/dns/Checks/DNS-0004-ResolverConfigurationUnreadable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1433a3add2308f0596186ac74ac947858b6af38d4996db78f7d4bfed3da3c9cc",
+        "sha256": "1433a3add2308f0596186ac74ac947858b6af38d4996db78f7d4bfed3da3c9cc",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

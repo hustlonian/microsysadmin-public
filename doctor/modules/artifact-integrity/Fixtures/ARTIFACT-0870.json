@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0870",
+    "artifact": "doctor/modules/mail/Repairs/MAIL-0007-MailHostUnconfigured.json",
+    "baseline_sha256": "e4efb5343c2cafb3b5a4e6ce40f5558f104bae1d69f8bfdaa57dcb1560a68a0a",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

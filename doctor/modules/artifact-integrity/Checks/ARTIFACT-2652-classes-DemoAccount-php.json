@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2652",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/DemoAccount.php",
+        "summary": "Verify classes/DemoAccount.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2652",
+        "path": "{APP_ROOT}/classes/DemoAccount.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/995b24b70fe719db649206d7560d0b765f8fec3f5125b0d95d81dd20c1c07edf",
+        "sha256": "995b24b70fe719db649206d7560d0b765f8fec3f5125b0d95d81dd20c1c07edf",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

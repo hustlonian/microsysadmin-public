@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1566",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Changelog/SECURITY-0004.md",
+        "summary": "Verify doctor/modules/security/Changelog/SECURITY-0004.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1566",
+        "path": "{APP_ROOT}/doctor/modules/security/Changelog/SECURITY-0004.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ee7c719c6a0c483956537e832813e3cf97054e70030e0dd940ca8f7f94ca1ce2",
+        "sha256": "ee7c719c6a0c483956537e832813e3cf97054e70030e0dd940ca8f7f94ca1ce2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

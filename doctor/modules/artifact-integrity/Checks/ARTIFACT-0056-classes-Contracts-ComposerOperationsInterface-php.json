@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0056",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/ComposerOperationsInterface.php",
+        "summary": "Verify classes/Contracts/ComposerOperationsInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0056",
+        "path": "{APP_ROOT}/classes/Contracts/ComposerOperationsInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a2f56fbd2568367868baa6c7056bb0694561e4ace9c5315f26ceb9fb498230f6",
+        "sha256": "a2f56fbd2568367868baa6c7056bb0694561e4ace9c5315f26ceb9fb498230f6",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "GIT-C0005",
+        "module": "git",
+        "name": "Resolve an interrupted Git rebase safely",
+        "summary": "Resolve an interrupted Git rebase safely.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "git",
+            "rebase-in-progress"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_absent",
+        "path": "{PROJECT}/.git/rebase-merge"
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0891",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Diagnoses/MYSQL-0005-UsersTableMissing.json",
+        "summary": "Verify doctor/modules/mysql/Diagnoses/MYSQL-0005-UsersTableMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0891",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Diagnoses/MYSQL-0005-UsersTableMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0571b0e8d79142efe79ca8e2ab8c643b16003a00172149c573cefd3e9518d409",
+        "sha256": "0571b0e8d79142efe79ca8e2ab8c643b16003a00172149c573cefd3e9518d409",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

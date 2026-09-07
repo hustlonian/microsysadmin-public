@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1320",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Module.php",
+        "summary": "Verify doctor/modules/performance/Module.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1320",
+        "path": "{APP_ROOT}/doctor/modules/performance/Module.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/59e8dc82bcf4c5d989b95342d269d624caa390471704a1b96f412ec8186f1639",
+        "sha256": "59e8dc82bcf4c5d989b95342d269d624caa390471704a1b96f412ec8186f1639",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

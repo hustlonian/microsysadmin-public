@@ -1,0 +1,9 @@
+{
+    "repair_id": "ARTIFACT-2167",
+    "commercial_tier": "professional",
+    "customer_impact": "restores one missing release directory",
+    "support_issue_family": "missing-release-directory",
+    "automation_class": "AUTO_SAFE",
+    "risk_level": "LOW",
+    "quality_status": "contract-tested"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "DNS-D0009",
+        "check_id": "DNS-C0009",
+        "module": "dns",
+        "name": "Install the missing DNS diagnostic utility diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Install the missing DNS diagnostic utility.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed dig command missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "DNS-0009"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

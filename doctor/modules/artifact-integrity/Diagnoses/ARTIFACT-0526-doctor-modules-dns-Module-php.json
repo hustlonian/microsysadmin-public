@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0526",
+        "check_id": "ARTIFACT-C0526",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/dns/Module.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/dns/Module.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 7ac7b78d2df5894a07fd4e5c47f8745c75d6ed64b98b353e2d21361789a803b0 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0526"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

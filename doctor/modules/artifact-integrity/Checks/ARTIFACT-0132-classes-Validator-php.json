@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0132",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Validator.php",
+        "summary": "Verify classes/Validator.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0132",
+        "path": "{APP_ROOT}/classes/Validator.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/84d5d168b9e205ec9f78bdeafe8e26974375f8bea71c5978f07d2228aed7e0e9",
+        "sha256": "84d5d168b9e205ec9f78bdeafe8e26974375f8bea71c5978f07d2228aed7e0e9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

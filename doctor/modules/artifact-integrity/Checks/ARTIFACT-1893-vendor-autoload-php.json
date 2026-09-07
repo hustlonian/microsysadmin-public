@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1893",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/autoload.php",
+        "summary": "Verify vendor/autoload.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1893",
+        "path": "{APP_ROOT}/vendor/autoload.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/80c3d2afa4a78084e401a1b8ff38e6ccda9c5ceccdd9ad1f55cebd41cc58783d",
+        "sha256": "80c3d2afa4a78084e401a1b8ff38e6ccda9c5ceccdd9ad1f55cebd41cc58783d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

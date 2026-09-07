@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "CRON-D0001",
+        "check_id": "CRON-C0001",
+        "module": "cron",
+        "name": "Install the missing crontab command diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Install the missing crontab command.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed crontab command missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "CRON-0001"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

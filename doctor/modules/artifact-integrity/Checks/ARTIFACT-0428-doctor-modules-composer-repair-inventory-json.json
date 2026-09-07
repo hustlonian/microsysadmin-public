@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0428",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/repair-inventory.json",
+        "summary": "Verify doctor/modules/composer/repair-inventory.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0428",
+        "path": "{APP_ROOT}/doctor/modules/composer/repair-inventory.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3fa19bb49cdfb85bfd4210a48f4c225dfd39f5d3eb3cc5be8b863c2a698931c2",
+        "sha256": "3fa19bb49cdfb85bfd4210a48f4c225dfd39f5d3eb3cc5be8b863c2a698931c2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

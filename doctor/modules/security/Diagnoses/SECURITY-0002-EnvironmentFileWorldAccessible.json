@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "SECURITY-D0002",
+        "check_id": "SECURITY-C0002",
+        "module": "security",
+        "name": "Restrict overly broad environment-file permissions diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restrict overly broad environment-file permissions.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed environment file world accessible condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "SECURITY-0002"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The repair is scoped, deterministic, previewed, and independently verified."
+    }
+}

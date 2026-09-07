@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0668",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Diagnoses/GIT-0006-CherryPickInProgress.json",
+        "summary": "Verify doctor/modules/git/Diagnoses/GIT-0006-CherryPickInProgress.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0668",
+        "path": "{APP_ROOT}/doctor/modules/git/Diagnoses/GIT-0006-CherryPickInProgress.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/df9e89a174fcaf503a5fef28375c5cc2b3bc7a7233836859034e56df73291c7a",
+        "sha256": "df9e89a174fcaf503a5fef28375c5cc2b3bc7a7233836859034e56df73291c7a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

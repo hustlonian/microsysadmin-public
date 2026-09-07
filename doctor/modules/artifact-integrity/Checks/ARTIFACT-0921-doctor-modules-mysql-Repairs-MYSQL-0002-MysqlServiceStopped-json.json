@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0921",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Repairs/MYSQL-0002-MysqlServiceStopped.json",
+        "summary": "Verify doctor/modules/mysql/Repairs/MYSQL-0002-MysqlServiceStopped.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0921",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Repairs/MYSQL-0002-MysqlServiceStopped.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3908806441a56ea0dbe2e8fafac93422b9dfe7e4aa879ea28dfd45c4325584e3",
+        "sha256": "3908806441a56ea0dbe2e8fafac93422b9dfe7e4aa879ea28dfd45c4325584e3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

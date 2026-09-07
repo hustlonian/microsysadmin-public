@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1681",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Docs/BATCH-001.md",
+        "summary": "Verify doctor/modules/ssl/Docs/BATCH-001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1681",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Docs/BATCH-001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2a61c800239893cae694fb96b99a144166de3d32dd835ffd1665a659a91e25e0",
+        "sha256": "2a61c800239893cae694fb96b99a144166de3d32dd835ffd1665a659a91e25e0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

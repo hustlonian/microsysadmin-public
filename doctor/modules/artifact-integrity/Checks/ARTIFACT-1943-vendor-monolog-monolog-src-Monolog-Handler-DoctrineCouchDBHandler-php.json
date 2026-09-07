@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1943",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Handler/DoctrineCouchDBHandler.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Handler/DoctrineCouchDBHandler.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1943",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Handler/DoctrineCouchDBHandler.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/280780ffaed0977da6091fba26a023262777eddfffb1e6a02693c5a88d68a019",
+        "sha256": "280780ffaed0977da6091fba26a023262777eddfffb1e6a02693c5a88d68a019",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

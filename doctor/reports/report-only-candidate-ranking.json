@@ -1,0 +1,3402 @@
+{
+    "generated_at": "2026-08-02T21:02:02+00:00",
+    "report_only_count": 135,
+    "classification_counts": {
+        "BUSINESS_INPUT_REQUIRED": 8,
+        "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW": 26,
+        "MANUAL_RESEARCH_REQUIRED": 24,
+        "MISSING_DATA_RECOVERY_REQUIRED": 6,
+        "OWNERSHIP_PERMISSION_CONTRACT_REVIEW": 11,
+        "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY": 26,
+        "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW": 6,
+        "ROOT_CAUSE_VARIANT_RESEARCH": 28
+    },
+    "module_counts": {
+        "apache": 9,
+        "backups": 7,
+        "composer": 7,
+        "cron": 4,
+        "dns": 8,
+        "docker": 8,
+        "filesystem": 5,
+        "git": 9,
+        "laravel": 1,
+        "linux": 6,
+        "mail": 6,
+        "mysql": 8,
+        "nginx": 8,
+        "performance": 5,
+        "php": 8,
+        "queue": 7,
+        "redis": 8,
+        "security": 6,
+        "ssl": 8,
+        "xampp": 7
+    },
+    "overlap_groups": [],
+    "candidates": [
+        {
+            "repair_id": "CRON-0006",
+            "module": "cron",
+            "name": "Restore the missing cron spool directory",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "/var/spool/cron"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/var/spool/cron\",\"type\":\"directory_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW",
+            "commercial_priority_score": 75,
+            "blockers": [
+                "distribution-specific owner/group/mode and service applicability must be proven"
+            ],
+            "next_action": "Define one fixed token, exact identity evidence, and empty-directory rollback contract.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "LINUX-0009",
+            "module": "linux",
+            "name": "Restore the missing system log directory",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "/var/log"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/var/log\",\"type\":\"directory_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW",
+            "commercial_priority_score": 75,
+            "blockers": [
+                "distribution-specific owner/group/mode and service applicability must be proven"
+            ],
+            "next_action": "Define one fixed token, exact identity evidence, and empty-directory rollback contract.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "NGINX-0006",
+            "module": "nginx",
+            "name": "Restore the missing Nginx sites directory",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "/etc/nginx/sites-available"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/etc/nginx/sites-available\",\"type\":\"directory_exists\"},\"supports\":{\"primary_web_server\":[\"nginx\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "nginx"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW",
+            "commercial_priority_score": 75,
+            "blockers": [
+                "distribution-specific owner/group/mode and service applicability must be proven"
+            ],
+            "next_action": "Define one fixed token, exact identity evidence, and empty-directory rollback contract.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "NGINX-0007",
+            "module": "nginx",
+            "name": "Restore the missing Nginx log directory",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "/var/log/nginx"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/var/log/nginx\",\"type\":\"directory_exists\"},\"supports\":{\"primary_web_server\":[\"nginx\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "nginx"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW",
+            "commercial_priority_score": 75,
+            "blockers": [
+                "distribution-specific owner/group/mode and service applicability must be proven"
+            ],
+            "next_action": "Define one fixed token, exact identity evidence, and empty-directory rollback contract.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "REDIS-0009",
+            "module": "redis",
+            "name": "Restore the missing Redis log directory",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "/var/log/redis"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/var/log/redis\",\"type\":\"directory_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW",
+            "commercial_priority_score": 75,
+            "blockers": [
+                "distribution-specific owner/group/mode and service applicability must be proven"
+            ],
+            "next_action": "Define one fixed token, exact identity evidence, and empty-directory rollback contract.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "XAMPP-0002",
+            "module": "xampp",
+            "name": "Restore the missing XAMPP installation root",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "/opt/lampp"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp\",\"type\":\"directory_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PRIVILEGED_DIRECTORY_CONTRACT_REVIEW",
+            "commercial_priority_score": 75,
+            "blockers": [
+                "distribution-specific owner/group/mode and service applicability must be proven"
+            ],
+            "next_action": "Define one fixed token, exact identity evidence, and empty-directory rollback contract.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "APACHE-0004",
+            "module": "apache",
+            "name": "Enable the missing Apache rewrite module",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "/opt/lampp/etc/httpd.conf",
+                "contains": "rewrite_module"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"rewrite_module\",\"path\":\"/opt/lampp/etc/httpd.conf\",\"type\":\"file_contains\"},\"supports\":{\"primary_web_server\":[\"apache\",\"xampp\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "apache",
+                    "xampp"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "APACHE-0005",
+            "module": "apache",
+            "name": "Enable the missing Apache SSL module",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "/opt/lampp/etc/httpd.conf",
+                "contains": "ssl_module"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"ssl_module\",\"path\":\"/opt/lampp/etc/httpd.conf\",\"type\":\"file_contains\"},\"supports\":{\"primary_web_server\":[\"apache\",\"xampp\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "apache",
+                    "xampp"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "APACHE-0006",
+            "module": "apache",
+            "name": "Enable the missing Apache headers module",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "/opt/lampp/etc/httpd.conf",
+                "contains": "headers_module"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"headers_module\",\"path\":\"/opt/lampp/etc/httpd.conf\",\"type\":\"file_contains\"},\"supports\":{\"primary_web_server\":[\"apache\",\"xampp\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "apache",
+                    "xampp"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "APACHE-0007",
+            "module": "apache",
+            "name": "Restore the missing Apache virtual-host file",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/opt/lampp/etc/extra/httpd-vhosts.conf"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/etc/extra/httpd-vhosts.conf\",\"type\":\"file_exists\"},\"supports\":{\"primary_web_server\":[\"apache\",\"xampp\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "apache",
+                    "xampp"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "APACHE-0010",
+            "module": "apache",
+            "name": "Create the missing Apache error-log path",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/opt/lampp/logs/error_log"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/logs/error_log\",\"type\":\"file_exists\"},\"supports\":{\"primary_web_server\":[\"apache\",\"xampp\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "apache",
+                    "xampp"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "BACKUP-0008",
+            "module": "backups",
+            "name": "Define an explicit backup retention policy",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "{PROJECT}/doctor/config/doctor.php",
+                "contains": "report_retention_days"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"report_retention_days\",\"path\":\"{PROJECT}/doctor/config/doctor.php\",\"type\":\"file_contains\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "COMPOSER-0002",
+            "module": "composer",
+            "name": "Restore a missing Composer project manifest",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "{PROJECT}/composer.json"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/composer.json\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "COMPOSER-0003",
+            "module": "composer",
+            "name": "Correct invalid Composer manifest JSON",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "json_valid",
+                "path": "{PROJECT}/composer.json"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/composer.json\",\"type\":\"json_valid\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "COMPOSER-0004",
+            "module": "composer",
+            "name": "Create a missing deterministic dependency lock",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "{PROJECT}/composer.lock"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/composer.lock\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DNS-0003",
+            "module": "dns",
+            "name": "Restore the missing resolver configuration",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/etc/resolv.conf"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/etc/resolv.conf\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DNS-0005",
+            "module": "dns",
+            "name": "Restore the missing hosts file",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/etc/hosts"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/etc/hosts\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DNS-0007",
+            "module": "dns",
+            "name": "Restore the missing IPv6 loopback host entry",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "/etc/hosts",
+                "contains": "::1"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"::1\",\"path\":\"/etc/hosts\",\"type\":\"file_contains\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DOCKER-0005",
+            "module": "docker",
+            "name": "Restore the missing Docker Compose definition",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "{PROJECT}/compose.yaml"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/compose.yaml\",\"type\":\"file_exists\"},\"supports\":{\"docker_project_detected\":[true]}}",
+            "supports": {
+                "docker_project_detected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DOCKER-0007",
+            "module": "docker",
+            "name": "Restore the missing project Dockerfile",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "{PROJECT}/Dockerfile"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/Dockerfile\",\"type\":\"file_exists\"},\"supports\":{\"docker_project_detected\":[true]}}",
+            "supports": {
+                "docker_project_detected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "LINUX-0001",
+            "module": "linux",
+            "name": "Restore missing operating-system release metadata",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/etc/os-release"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/etc/os-release\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "LINUX-0007",
+            "module": "linux",
+            "name": "Restore the missing loopback hosts entry",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "/etc/hosts",
+                "contains": "127.0.0.1"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"127.0.0.1\",\"path\":\"/etc/hosts\",\"type\":\"file_contains\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MYSQL-0008",
+            "module": "mysql",
+            "name": "Restore the missing MySQL configuration file",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/opt/lampp/etc/my.cnf"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/etc/my.cnf\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "NGINX-0005",
+            "module": "nginx",
+            "name": "Restore the missing Nginx configuration",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/etc/nginx/nginx.conf"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/etc/nginx/nginx.conf\",\"type\":\"file_exists\"},\"supports\":{\"primary_web_server\":[\"nginx\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "nginx"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "NGINX-0010",
+            "module": "nginx",
+            "name": "Correct an Nginx PHP-FPM socket mismatch",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "/etc/nginx/nginx.conf",
+                "contains": "fastcgi_pass"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"fastcgi_pass\",\"path\":\"/etc/nginx/nginx.conf\",\"type\":\"file_contains\"},\"supports\":{\"primary_web_server\":[\"nginx\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "nginx"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PERFORMANCE-0005",
+            "module": "performance",
+            "name": "Enable Apache response compression",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "/opt/lampp/etc/httpd.conf",
+                "contains": "deflate_module"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"deflate_module\",\"path\":\"/opt/lampp/etc/httpd.conf\",\"type\":\"file_contains\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PERFORMANCE-0006",
+            "module": "performance",
+            "name": "Enable correctly bounded Apache KeepAlive",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "/opt/lampp/etc/extra/httpd-default.conf",
+                "contains": "KeepAlive On"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"KeepAlive On\",\"path\":\"/opt/lampp/etc/extra/httpd-default.conf\",\"type\":\"file_contains\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PHP-0008",
+            "module": "php",
+            "name": "Restore the missing active PHP configuration",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/opt/lampp/etc/php.ini"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/etc/php.ini\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SECURITY-0004",
+            "module": "security",
+            "name": "Restore the missing SSH server configuration",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/etc/ssh/sshd_config"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/etc/ssh/sshd_config\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SECURITY-0009",
+            "module": "security",
+            "name": "Enable Apache security response headers",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "/opt/lampp/etc/httpd.conf",
+                "contains": "headers_module"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"headers_module\",\"path\":\"/opt/lampp/etc/httpd.conf\",\"type\":\"file_contains\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SSL-0002",
+            "module": "ssl",
+            "name": "Restore the missing configured TLS certificate",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/opt/lampp/etc/ssl.crt/server.crt"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/etc/ssl.crt/server.crt\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SSL-0003",
+            "module": "ssl",
+            "name": "Restore the missing configured TLS private key",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/opt/lampp/etc/ssl.key/server.key"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/etc/ssl.key/server.key\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "LOCAL_TEMPLATE_OR_SEMANTIC_PATCH_REVIEW",
+            "commercial_priority_score": 65,
+            "blockers": [
+                "exact approved source or semantic patch is not yet declared"
+            ],
+            "next_action": "Locate a local immutable template or design a field-level semantic primitive.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "BACKUP-0002",
+            "module": "backups",
+            "name": "Correct an unwritable backup root",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_writable",
+                "path": "{STORAGE_PATH}/backups"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{STORAGE_PATH}/backups\",\"type\":\"path_writable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "BACKUP-0007",
+            "module": "backups",
+            "name": "Restore missing Doctor backup manifests",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_readable",
+                "path": "{STORAGE_PATH}/doctor/backups"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{STORAGE_PATH}/doctor/backups\",\"type\":\"path_readable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "BACKUP-0010",
+            "module": "backups",
+            "name": "Verify backup restoration in an isolated environment",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_readable",
+                "path": "{STORAGE_PATH}/backups"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{STORAGE_PATH}/backups\",\"type\":\"path_readable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DNS-0004",
+            "module": "dns",
+            "name": "Correct unreadable resolver configuration",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_readable",
+                "path": "/etc/resolv.conf"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/etc/resolv.conf\",\"type\":\"path_readable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "FILESYSTEM-0002",
+            "module": "filesystem",
+            "name": "Correct an unreadable project root",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_readable",
+                "path": "{PROJECT}"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}\",\"type\":\"path_readable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "FILESYSTEM-0010",
+            "module": "filesystem",
+            "name": "Restore unavailable temporary workspace storage",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_writable",
+                "path": "/tmp"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/tmp\",\"type\":\"path_writable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PHP-0009",
+            "module": "php",
+            "name": "Correct an unwritable PHP session directory",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_writable",
+                "path": "/opt/lampp/temp/"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/temp/\",\"type\":\"path_writable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "QUEUE-0010",
+            "module": "queue",
+            "name": "Correct an unwritable queue runtime directory",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_writable",
+                "path": "{PROJECT}/storage/framework"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/storage/framework\",\"type\":\"path_writable\"},\"supports\":{\"queue_expected\":[true]}}",
+            "supports": {
+                "queue_expected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SECURITY-0001",
+            "module": "security",
+            "name": "Correct an unreadable application environment file",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_readable",
+                "path": "{PROJECT}/.env"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/.env\",\"type\":\"path_readable\"},\"supports\":{\"laravel_detected\":[true]}}",
+            "supports": {
+                "laravel_detected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SSL-0009",
+            "module": "ssl",
+            "name": "Correct unreadable TLS certificate storage",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_readable",
+                "path": "/opt/lampp/etc/ssl.crt"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/etc/ssl.crt\",\"type\":\"path_readable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SSL-0010",
+            "module": "ssl",
+            "name": "Correct unsafe TLS private-key directory permissions",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_readable",
+                "path": "/opt/lampp/etc/ssl.key"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/etc/ssl.key\",\"type\":\"path_readable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "OWNERSHIP_PERMISSION_CONTRACT_REVIEW",
+            "commercial_priority_score": 50,
+            "blockers": [
+                "desired UID, GID, mode, and current-state rollback guard are not yet explicit"
+            ],
+            "next_action": "Derive ownership from an authoritative service contract before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "APACHE-0003",
+            "module": "apache",
+            "name": "Correct invalid Apache configuration syntax",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "xampp-httpd",
+                    "-t"
+                ],
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"xampp-httpd\",\"-t\"],\"timeout\":30,\"type\":\"command\"},\"supports\":{\"primary_web_server\":[\"apache\",\"xampp\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "apache",
+                    "xampp"
+                ]
+            },
+            "required_commands": [
+                "xampp-httpd"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "APACHE-0008",
+            "module": "apache",
+            "name": "Resolve an unavailable Apache HTTP listener",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "tcp_connect",
+                "host": "127.0.0.1",
+                "port": 80,
+                "timeout": 1
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"127.0.0.1\",\"port\":80,\"timeout\":1,\"type\":\"tcp_connect\"},\"supports\":{\"primary_web_server\":[\"apache\",\"xampp\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "apache",
+                    "xampp"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "APACHE-0009",
+            "module": "apache",
+            "name": "Resolve an unavailable Apache HTTPS listener",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "tcp_connect",
+                "host": "127.0.0.1",
+                "port": 443,
+                "timeout": 1
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"127.0.0.1\",\"port\":443,\"timeout\":1,\"type\":\"tcp_connect\"},\"supports\":{\"primary_web_server\":[\"apache\",\"xampp\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "apache",
+                    "xampp"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "COMPOSER-0007",
+            "module": "composer",
+            "name": "Correct Composer manifest and lock inconsistency",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "composer",
+                    "validate",
+                    "--no-interaction"
+                ],
+                "cwd": "{PROJECT}",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"composer\",\"validate\",\"--no-interaction\"],\"cwd\":\"{PROJECT}\",\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "composer"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "COMPOSER-0008",
+            "module": "composer",
+            "name": "Correct Composer platform requirement failures",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "composer",
+                    "check-platform-reqs",
+                    "--no-interaction"
+                ],
+                "cwd": "{PROJECT}",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"composer\",\"check-platform-reqs\",\"--no-interaction\"],\"cwd\":\"{PROJECT}\",\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "composer"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "COMPOSER-0009",
+            "module": "composer",
+            "name": "Report a Composer self-check failure without guessing its cause",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "composer",
+                    "diagnose",
+                    "--no-interaction"
+                ],
+                "cwd": "{PROJECT}",
+                "timeout": 30,
+                "expected_exits": [
+                    0,
+                    1
+                ],
+                "stdout_contains_all": [
+                    "Checking composer.json: OK",
+                    "Checking platform settings: OK",
+                    "Checking git settings: OK",
+                    "Checking http connectivity to packagist: OK",
+                    "Checking https connectivity to packagist: OK",
+                    "Checking disk free space: OK",
+                    "Could not find Composer's installed.json, this must be a non-standard Composer installation."
+                ]
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"composer\",\"diagnose\",\"--no-interaction\"],\"cwd\":\"{PROJECT}\",\"expected_exits\":[0,1],\"stdout_contains_all\":[\"Checking composer.json: OK\",\"Checking platform settings: OK\",\"Checking git settings: OK\",\"Checking http connectivity to packagist: OK\",\"Checking https connectivity to packagist: OK\",\"Checking disk free space: OK\",\"Could not find Composer's installed.json, this must be a non-standard Composer installation.\"],\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "composer"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "CRON-0008",
+            "module": "cron",
+            "name": "Correct a stale project path in scheduled commands",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "crontab",
+                    "-l"
+                ],
+                "stdout_contains": "{PROJECT}",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"crontab\",\"-l\"],\"stdout_contains\":\"{PROJECT}\",\"timeout\":30,\"type\":\"command\"},\"supports\":{\"laravel_detected\":[true]}}",
+            "supports": {
+                "laravel_detected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DNS-0001",
+            "module": "dns",
+            "name": "Restore localhost name resolution",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "dns_resolves",
+                "host": "localhost"
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"localhost\",\"type\":\"dns_resolves\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DNS-0002",
+            "module": "dns",
+            "name": "Restore local hostname resolution",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "dns_resolves",
+                "host": "LinuxLite7"
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"LinuxLite7\",\"type\":\"dns_resolves\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DNS-0008",
+            "module": "dns",
+            "name": "Restore external DNS resolution",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "dns_resolves",
+                "host": "example.com"
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"example.com\",\"type\":\"dns_resolves\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DOCKER-0004",
+            "module": "docker",
+            "name": "Restore Docker daemon connectivity",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "docker",
+                    "info"
+                ],
+                "timeout": 30,
+                "skip_on_permission_denied": true
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"docker\",\"info\"],\"skip_on_permission_denied\":true,\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "docker"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DOCKER-0006",
+            "module": "docker",
+            "name": "Correct invalid Docker Compose configuration",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "docker",
+                    "compose",
+                    "config",
+                    "--quiet"
+                ],
+                "cwd": "{PROJECT}",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"docker\",\"compose\",\"config\",\"--quiet\"],\"cwd\":\"{PROJECT}\",\"timeout\":30,\"type\":\"command\"},\"supports\":{\"docker_project_detected\":[true]}}",
+            "supports": {
+                "docker_project_detected": [
+                    true
+                ]
+            },
+            "required_commands": [
+                "docker"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DOCKER-0010",
+            "module": "docker",
+            "name": "Correct unhealthy running containers",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command_stdout_empty",
+                "command": [
+                    "docker",
+                    "ps",
+                    "--filter",
+                    "health=unhealthy",
+                    "--format",
+                    "{{.ID}}"
+                ],
+                "timeout": 30,
+                "skip_on_permission_denied": true
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"docker\",\"ps\",\"--filter\",\"health=unhealthy\",\"--format\",\"{{.ID}}\"],\"skip_on_permission_denied\":true,\"timeout\":30,\"type\":\"command_stdout_empty\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "docker"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "GIT-0003",
+            "module": "git",
+            "name": "Recover corrupt Git repository objects",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "git",
+                    "-c",
+                    "safe.directory={PROJECT}",
+                    "fsck",
+                    "--no-dangling"
+                ],
+                "cwd": "{PROJECT}",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"git\",\"-c\",\"safe.directory={PROJECT}\",\"fsck\",\"--no-dangling\"],\"cwd\":\"{PROJECT}\",\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "git"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MAIL-0003",
+            "module": "mail",
+            "name": "Restore the unavailable local SMTP endpoint",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "tcp_connect",
+                "host": "127.0.0.1",
+                "port": 25,
+                "timeout": 1
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"127.0.0.1\",\"port\":25,\"timeout\":1,\"type\":\"tcp_connect\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MYSQL-0003",
+            "module": "mysql",
+            "name": "Restore the unavailable MySQL TCP endpoint",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "tcp_connect",
+                "host": "127.0.0.1",
+                "port": 3306,
+                "timeout": 1
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"127.0.0.1\",\"port\":3306,\"timeout\":1,\"type\":\"tcp_connect\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "NGINX-0004",
+            "module": "nginx",
+            "name": "Correct invalid Nginx configuration syntax",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "nginx",
+                    "-t"
+                ],
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"nginx\",\"-t\"],\"timeout\":30,\"type\":\"command\"},\"supports\":{\"primary_web_server\":[\"nginx\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "nginx"
+                ]
+            },
+            "required_commands": [
+                "nginx"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "NGINX-0008",
+            "module": "nginx",
+            "name": "Restore the unavailable Nginx HTTP listener",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "tcp_connect",
+                "host": "127.0.0.1",
+                "port": 80,
+                "timeout": 1
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"127.0.0.1\",\"port\":80,\"timeout\":1,\"type\":\"tcp_connect\"},\"supports\":{\"primary_web_server\":[\"nginx\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "nginx"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "NGINX-0009",
+            "module": "nginx",
+            "name": "Restore the unavailable Nginx HTTPS listener",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "tcp_connect",
+                "host": "127.0.0.1",
+                "port": 443,
+                "timeout": 1
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"127.0.0.1\",\"port\":443,\"timeout\":1,\"type\":\"tcp_connect\"},\"supports\":{\"primary_web_server\":[\"nginx\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "nginx"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PERFORMANCE-0004",
+            "module": "performance",
+            "name": "Increase an insufficient PHP memory limit",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "php",
+                    "-r",
+                    "$v=(int)ini_get(\"memory_limit\"); exit($v === -1 || $v >= 128 ? 0 : 1);"
+                ],
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"php\",\"-r\",\"$v=(int)ini_get(\\\"memory_limit\\\"); exit($v === -1 || $v >= 128 ? 0 : 1);\"],\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "php"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "QUEUE-0004",
+            "module": "queue",
+            "name": "Correct invalid Supervisor configuration",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "supervisorctl",
+                    "status"
+                ],
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"supervisorctl\",\"status\"],\"timeout\":30,\"type\":\"command\"},\"supports\":{\"queue_expected\":[true]}}",
+            "supports": {
+                "queue_expected": [
+                    true
+                ]
+            },
+            "required_commands": [
+                "supervisorctl"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "QUEUE-0005",
+            "module": "queue",
+            "name": "Restart Laravel queue workers using stale code",
+            "severity": "HIGH",
+            "risk": "LOW",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "php",
+                    "artisan",
+                    "queue:monitor"
+                ],
+                "cwd": "{PROJECT}",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"php\",\"artisan\",\"queue:monitor\"],\"cwd\":\"{PROJECT}\",\"timeout\":30,\"type\":\"command\"},\"supports\":{\"laravel_detected\":[true],\"queue_expected\":[true]}}",
+            "supports": {
+                "laravel_detected": [
+                    true
+                ],
+                "queue_expected": [
+                    true
+                ]
+            },
+            "required_commands": [
+                "php"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "QUEUE-0006",
+            "module": "queue",
+            "name": "Restore unavailable Laravel Horizon workers",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "php",
+                    "artisan",
+                    "horizon:status"
+                ],
+                "stdout_contains": "running",
+                "cwd": "{PROJECT}",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"php\",\"artisan\",\"horizon:status\"],\"cwd\":\"{PROJECT}\",\"stdout_contains\":\"running\",\"timeout\":30,\"type\":\"command\"},\"supports\":{\"laravel_detected\":[true],\"queue_expected\":[true]}}",
+            "supports": {
+                "laravel_detected": [
+                    true
+                ],
+                "queue_expected": [
+                    true
+                ]
+            },
+            "required_commands": [
+                "php"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "REDIS-0003",
+            "module": "redis",
+            "name": "Restore the unavailable Redis endpoint",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "tcp_connect",
+                "host": "127.0.0.1",
+                "port": 6379,
+                "timeout": 1
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"127.0.0.1\",\"port\":6379,\"timeout\":1,\"type\":\"tcp_connect\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "REDIS-0006",
+            "module": "redis",
+            "name": "Correct Redis command connectivity failure",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "redis-cli",
+                    "ping"
+                ],
+                "stdout_contains": "PONG",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"redis-cli\",\"ping\"],\"stdout_contains\":\"PONG\",\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "redis-cli"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "REDIS-0007",
+            "module": "redis",
+            "name": "Restore the missing Redis configuration",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "redis-cli",
+                    "INFO",
+                    "server"
+                ],
+                "stdout_contains": "config_file:/",
+                "timeout": 10
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"redis-cli\",\"INFO\",\"server\"],\"stdout_contains\":\"config_file:/\",\"timeout\":10,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "redis-cli"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SSL-0007",
+            "module": "ssl",
+            "name": "Restore the unavailable local HTTPS listener",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "tcp_connect",
+                "host": "127.0.0.1",
+                "port": 443,
+                "timeout": 1
+            },
+            "probe_signature": "{\"probe\":{\"host\":\"127.0.0.1\",\"port\":443,\"timeout\":1,\"type\":\"tcp_connect\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "XAMPP-0008",
+            "module": "xampp",
+            "name": "Correct invalid XAMPP Apache configuration",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "xampp-httpd",
+                    "-t"
+                ],
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"xampp-httpd\",\"-t\"],\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "xampp-httpd"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "ROOT_CAUSE_VARIANT_RESEARCH",
+            "commercial_priority_score": 35,
+            "blockers": [
+                "a failed observation has multiple materially different causes"
+            ],
+            "next_action": "Split the diagnosis into cause-specific permanent variants before mutation.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "CRON-0009",
+            "module": "cron",
+            "name": "Correct a missing PHP executable in scheduled commands",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "php"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"php\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DOCKER-0008",
+            "module": "docker",
+            "name": "Restore the missing Docker daemon socket",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_exists",
+                "path": "/var/run/docker.sock"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/var/run/docker.sock\",\"type\":\"path_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DOCKER-0009",
+            "module": "docker",
+            "name": "Recover Docker storage capacity",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "disk_free_percent",
+                "path": "/var/lib/docker",
+                "minimum": 15
+            },
+            "probe_signature": "{\"probe\":{\"minimum\":15,\"path\":\"/var/lib/docker\",\"type\":\"disk_free_percent\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "FILESYSTEM-0001",
+            "module": "filesystem",
+            "name": "Restore the missing project root",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "{PROJECT}"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}\",\"type\":\"directory_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "FILESYSTEM-0008",
+            "module": "filesystem",
+            "name": "Recover a read-only application filesystem",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "filesystem_mount_writable",
+                "path": "{PROJECT}"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}\",\"type\":\"filesystem_mount_writable\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "findmnt"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "GIT-0004",
+            "module": "git",
+            "name": "Resolve an interrupted Git merge safely",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_absent",
+                "path": "{PROJECT}/.git/MERGE_HEAD"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/.git/MERGE_HEAD\",\"type\":\"path_absent\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "GIT-0005",
+            "module": "git",
+            "name": "Resolve an interrupted Git rebase safely",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_absent",
+                "path": "{PROJECT}/.git/rebase-merge"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/.git/rebase-merge\",\"type\":\"path_absent\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "GIT-0006",
+            "module": "git",
+            "name": "Resolve an interrupted Git cherry-pick safely",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_absent",
+                "path": "{PROJECT}/.git/CHERRY_PICK_HEAD"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/.git/CHERRY_PICK_HEAD\",\"type\":\"path_absent\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MYSQL-0004",
+            "module": "mysql",
+            "name": "Create the missing configured application database",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "database_exists",
+                "database": "microsysadmin"
+            },
+            "probe_signature": "{\"probe\":{\"database\":\"microsysadmin\",\"type\":\"database_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MYSQL-0005",
+            "module": "mysql",
+            "name": "Restore the missing application users table",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "database_table_exists",
+                "database": "microsysadmin",
+                "table": "users"
+            },
+            "probe_signature": "{\"probe\":{\"database\":\"microsysadmin\",\"table\":\"users\",\"type\":\"database_table_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MYSQL-0006",
+            "module": "mysql",
+            "name": "Restore the missing schema-migrations table",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "database_table_exists",
+                "database": "microsysadmin",
+                "table": "schema_migrations"
+            },
+            "probe_signature": "{\"probe\":{\"database\":\"microsysadmin\",\"table\":\"schema_migrations\",\"type\":\"database_table_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PHP-0003",
+            "module": "php",
+            "name": "Enable the missing PDO MySQL extension",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "php_extension",
+                "extension": "pdo_mysql"
+            },
+            "probe_signature": "{\"probe\":{\"extension\":\"pdo_mysql\",\"type\":\"php_extension\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PHP-0004",
+            "module": "php",
+            "name": "Enable the missing mbstring extension",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "php_extension",
+                "extension": "mbstring"
+            },
+            "probe_signature": "{\"probe\":{\"extension\":\"mbstring\",\"type\":\"php_extension\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PHP-0005",
+            "module": "php",
+            "name": "Enable the missing OpenSSL extension",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "php_extension",
+                "extension": "openssl"
+            },
+            "probe_signature": "{\"probe\":{\"extension\":\"openssl\",\"type\":\"php_extension\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PHP-0006",
+            "module": "php",
+            "name": "Enable the missing cURL extension",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "php_extension",
+                "extension": "curl"
+            },
+            "probe_signature": "{\"probe\":{\"extension\":\"curl\",\"type\":\"php_extension\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PHP-0007",
+            "module": "php",
+            "name": "Enable the missing fileinfo extension",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "php_extension",
+                "extension": "fileinfo"
+            },
+            "probe_signature": "{\"probe\":{\"extension\":\"fileinfo\",\"type\":\"php_extension\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "QUEUE-0007",
+            "module": "queue",
+            "name": "Restore the missing Laravel failed-jobs table",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "database_table_exists",
+                "table": "failed_jobs"
+            },
+            "probe_signature": "{\"probe\":{\"table\":\"failed_jobs\",\"type\":\"database_table_exists\"},\"supports\":{\"queue_expected\":[true]}}",
+            "supports": {
+                "queue_expected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "QUEUE-0008",
+            "module": "queue",
+            "name": "Restore the missing Laravel jobs table",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "database_table_exists",
+                "table": "jobs"
+            },
+            "probe_signature": "{\"probe\":{\"table\":\"jobs\",\"type\":\"database_table_exists\"},\"supports\":{\"queue_expected\":[true]}}",
+            "supports": {
+                "queue_expected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "REDIS-0010",
+            "module": "redis",
+            "name": "Correct missing Laravel Redis configuration",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "env_value",
+                "path": "{PROJECT}/.env",
+                "key": "REDIS_HOST"
+            },
+            "probe_signature": "{\"probe\":{\"key\":\"REDIS_HOST\",\"path\":\"{PROJECT}/.env\",\"type\":\"env_value\"},\"supports\":{\"laravel_detected\":[true]}}",
+            "supports": {
+                "laravel_detected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SSL-0006",
+            "module": "ssl",
+            "name": "Correct a TLS certificate and key mismatch",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "certificate_key_match",
+                "certificate": "/opt/lampp/etc/ssl.crt/server.crt",
+                "key": "/opt/lampp/etc/ssl.key/server.key"
+            },
+            "probe_signature": "{\"probe\":{\"certificate\":\"/opt/lampp/etc/ssl.crt/server.crt\",\"key\":\"/opt/lampp/etc/ssl.key/server.key\",\"type\":\"certificate_key_match\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "openssl"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "XAMPP-0001",
+            "module": "xampp",
+            "name": "Restore the missing XAMPP control executable",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "xampp"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"xampp\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "XAMPP-0003",
+            "module": "xampp",
+            "name": "Restore the missing XAMPP PHP executable",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "xampp-php"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"xampp-php\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "XAMPP-0004",
+            "module": "xampp",
+            "name": "Restore the missing XAMPP Apache executable",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "xampp-httpd"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"xampp-httpd\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "XAMPP-0005",
+            "module": "xampp",
+            "name": "Restore the missing XAMPP MySQL client",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "xampp-mysql"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"xampp-mysql\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MANUAL_RESEARCH_REQUIRED",
+            "commercial_priority_score": 20,
+            "blockers": [
+                "no deterministic reversible primitive contract has been identified"
+            ],
+            "next_action": "Gather support evidence and define exact expected state before conversion.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "APACHE-0001",
+            "module": "apache",
+            "name": "Install the missing Apache executable",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "xampp-httpd"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"xampp-httpd\",\"type\":\"executable_exists\"},\"supports\":{\"primary_web_server\":[\"apache\",\"xampp\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "apache",
+                    "xampp"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "BACKUP-0004",
+            "module": "backups",
+            "name": "Install the missing database backup tool",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "mysqldump"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"mysqldump\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "BACKUP-0005",
+            "module": "backups",
+            "name": "Install the missing archive utility",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "tar"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"tar\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "BACKUP-0006",
+            "module": "backups",
+            "name": "Recover low backup-storage capacity",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "disk_free_percent",
+                "path": "{STORAGE_PATH}/backups",
+                "minimum": 15
+            },
+            "probe_signature": "{\"probe\":{\"minimum\":15,\"path\":\"{STORAGE_PATH}/backups\",\"type\":\"disk_free_percent\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "COMPOSER-0001",
+            "module": "composer",
+            "name": "Install the missing Composer executable",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "composer"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"composer\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "CRON-0001",
+            "module": "cron",
+            "name": "Install the missing crontab command",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "crontab"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"crontab\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DNS-0009",
+            "module": "dns",
+            "name": "Install the missing DNS diagnostic utility",
+            "severity": "LOW",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "dig"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"dig\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "DOCKER-0001",
+            "module": "docker",
+            "name": "Install the missing Docker client",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "docker"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"docker\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "FILESYSTEM-0007",
+            "module": "filesystem",
+            "name": "Recover exhausted application filesystem inodes",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "df",
+                    "-Pi",
+                    "{PROJECT}"
+                ],
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"df\",\"-Pi\",\"{PROJECT}\"],\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "df"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "GIT-0001",
+            "module": "git",
+            "name": "Install the missing Git executable",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "git"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"git\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "GIT-0002",
+            "module": "git",
+            "name": "Restore missing Git repository metadata",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "{PROJECT}/.git"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"{PROJECT}/.git\",\"type\":\"directory_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MISSING_DATA_RECOVERY_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "creating an empty path would hide missing customer or service data"
+            ],
+            "next_action": "Require recovery evidence or a validated backup source.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "GIT-0008",
+            "module": "git",
+            "name": "Configure a missing Git origin remote",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "git",
+                    "-c",
+                    "safe.directory={PROJECT}",
+                    "remote",
+                    "get-url",
+                    "origin"
+                ],
+                "cwd": "{PROJECT}",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"git\",\"-c\",\"safe.directory={PROJECT}\",\"remote\",\"get-url\",\"origin\"],\"cwd\":\"{PROJECT}\",\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "git"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "BUSINESS_INPUT_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "required value is customer- or organization-specific"
+            ],
+            "next_action": "Collect an explicit business value; never synthesize it in zero-interaction mode.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "GIT-0009",
+            "module": "git",
+            "name": "Configure a missing repository Git author name",
+            "severity": "LOW",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "git",
+                    "config",
+                    "--get",
+                    "user.name"
+                ],
+                "cwd": "{PROJECT}",
+                "healthy_when_path_not_writable": "{PROJECT}/.git",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"git\",\"config\",\"--get\",\"user.name\"],\"cwd\":\"{PROJECT}\",\"healthy_when_path_not_writable\":\"{PROJECT}/.git\",\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "git"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "BUSINESS_INPUT_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "required value is customer- or organization-specific"
+            ],
+            "next_action": "Collect an explicit business value; never synthesize it in zero-interaction mode.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "GIT-0010",
+            "module": "git",
+            "name": "Configure a missing repository Git author email",
+            "severity": "LOW",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "git",
+                    "config",
+                    "--get",
+                    "user.email"
+                ],
+                "cwd": "{PROJECT}",
+                "healthy_when_path_not_writable": "{PROJECT}/.git",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"git\",\"config\",\"--get\",\"user.email\"],\"cwd\":\"{PROJECT}\",\"healthy_when_path_not_writable\":\"{PROJECT}/.git\",\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "git"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "BUSINESS_INPUT_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "required value is customer- or organization-specific"
+            ],
+            "next_action": "Collect an explicit business value; never synthesize it in zero-interaction mode.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "LARAVEL-0002",
+            "module": "laravel",
+            "name": "Report a missing Laravel application key",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "env_value",
+                "path": "{PROJECT}/.env",
+                "key": "APP_KEY"
+            },
+            "probe_signature": "{\"probe\":{\"key\":\"APP_KEY\",\"path\":\"{PROJECT}/.env\",\"type\":\"env_value\"},\"supports\":{\"laravel_detected\":[true]}}",
+            "supports": {
+                "laravel_detected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "BUSINESS_INPUT_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "required value is customer- or organization-specific"
+            ],
+            "next_action": "Collect an explicit business value; never synthesize it in zero-interaction mode.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "LINUX-0002",
+            "module": "linux",
+            "name": "Recover critically low root-partition capacity",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "disk_free_percent",
+                "path": "/",
+                "minimum": 10
+            },
+            "probe_signature": "{\"probe\":{\"minimum\":10,\"path\":\"/\",\"type\":\"disk_free_percent\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "LINUX-0003",
+            "module": "linux",
+            "name": "Recover critically low application-partition capacity",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "disk_free_percent",
+                "path": "{PROJECT}",
+                "minimum": 10
+            },
+            "probe_signature": "{\"probe\":{\"minimum\":10,\"path\":\"{PROJECT}\",\"type\":\"disk_free_percent\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "LINUX-0004",
+            "module": "linux",
+            "name": "Install a missing system CA certificate bundle",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_exists",
+                "path": "/etc/ssl/certs/ca-certificates.crt"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/etc/ssl/certs/ca-certificates.crt\",\"type\":\"file_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MAIL-0001",
+            "module": "mail",
+            "name": "Install a missing sendmail-compatible command",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "sendmail"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"sendmail\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MAIL-0002",
+            "module": "mail",
+            "name": "Install the missing Postfix service",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "postfix"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"postfix\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MAIL-0006",
+            "module": "mail",
+            "name": "Configure the application mail transport",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "env_value",
+                "path": "{PROJECT}/.env",
+                "key": "MAIL_MAILER"
+            },
+            "probe_signature": "{\"probe\":{\"key\":\"MAIL_MAILER\",\"path\":\"{PROJECT}/.env\",\"type\":\"env_value\"},\"supports\":{\"laravel_detected\":[true]}}",
+            "supports": {
+                "laravel_detected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "BUSINESS_INPUT_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "required value is customer- or organization-specific"
+            ],
+            "next_action": "Collect an explicit business value; never synthesize it in zero-interaction mode.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MAIL-0007",
+            "module": "mail",
+            "name": "Configure the application mail host",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "env_value",
+                "path": "{PROJECT}/.env",
+                "key": "MAIL_HOST"
+            },
+            "probe_signature": "{\"probe\":{\"key\":\"MAIL_HOST\",\"path\":\"{PROJECT}/.env\",\"type\":\"env_value\"},\"supports\":{\"laravel_detected\":[true]}}",
+            "supports": {
+                "laravel_detected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "BUSINESS_INPUT_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "required value is customer- or organization-specific"
+            ],
+            "next_action": "Collect an explicit business value; never synthesize it in zero-interaction mode.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MAIL-0008",
+            "module": "mail",
+            "name": "Configure the application sender address",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "env_value",
+                "path": "{PROJECT}/.env",
+                "key": "MAIL_FROM_ADDRESS"
+            },
+            "probe_signature": "{\"probe\":{\"key\":\"MAIL_FROM_ADDRESS\",\"path\":\"{PROJECT}/.env\",\"type\":\"env_value\"},\"supports\":{\"laravel_detected\":[true]}}",
+            "supports": {
+                "laravel_detected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "BUSINESS_INPUT_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "required value is customer- or organization-specific"
+            ],
+            "next_action": "Collect an explicit business value; never synthesize it in zero-interaction mode.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MYSQL-0007",
+            "module": "mysql",
+            "name": "Restore the missing XAMPP MySQL data directory",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "/opt/lampp/var/mysql"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/var/mysql\",\"type\":\"directory_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MISSING_DATA_RECOVERY_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "creating an empty path would hide missing customer or service data"
+            ],
+            "next_action": "Require recovery evidence or a validated backup source.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MYSQL-0009",
+            "module": "mysql",
+            "name": "Restore MySQL error logging",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "glob_exists",
+                "pattern": "/opt/lampp/var/mysql/*.err"
+            },
+            "probe_signature": "{\"probe\":{\"pattern\":\"/opt/lampp/var/mysql/*.err\",\"type\":\"glob_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MISSING_DATA_RECOVERY_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "creating an empty path would hide missing customer or service data"
+            ],
+            "next_action": "Require recovery evidence or a validated backup source.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "MYSQL-0010",
+            "module": "mysql",
+            "name": "Restore the missing MySQL Unix socket",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "path_exists",
+                "path": "/opt/lampp/var/mysql/mysql.sock"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/var/mysql/mysql.sock\",\"type\":\"path_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MISSING_DATA_RECOVERY_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "creating an empty path would hide missing customer or service data"
+            ],
+            "next_action": "Require recovery evidence or a validated backup source.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "NGINX-0001",
+            "module": "nginx",
+            "name": "Install the missing Nginx executable",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "nginx"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"nginx\",\"type\":\"executable_exists\"},\"supports\":{\"primary_web_server\":[\"nginx\"]}}",
+            "supports": {
+                "primary_web_server": [
+                    "nginx"
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PERFORMANCE-0002",
+            "module": "performance",
+            "name": "Reduce root filesystem capacity pressure",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "disk_free_percent",
+                "path": "/",
+                "minimum": 15
+            },
+            "probe_signature": "{\"probe\":{\"minimum\":15,\"path\":\"/\",\"type\":\"disk_free_percent\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PERFORMANCE-0003",
+            "module": "performance",
+            "name": "Reduce application filesystem capacity pressure",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "disk_free_percent",
+                "path": "{PROJECT}",
+                "minimum": 15
+            },
+            "probe_signature": "{\"probe\":{\"minimum\":15,\"path\":\"{PROJECT}\",\"type\":\"disk_free_percent\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "PHP-0002",
+            "module": "php",
+            "name": "Upgrade an unsupported PHP runtime",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "php_version",
+                "minimum": "8.2.0"
+            },
+            "probe_signature": "{\"probe\":{\"minimum\":\"8.2.0\",\"type\":\"php_version\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "QUEUE-0001",
+            "module": "queue",
+            "name": "Install the missing Supervisor control client",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "supervisorctl"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"supervisorctl\",\"type\":\"executable_exists\"},\"supports\":{\"queue_expected\":[true]}}",
+            "supports": {
+                "queue_expected": [
+                    true
+                ]
+            },
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "REDIS-0001",
+            "module": "redis",
+            "name": "Install the missing Redis client",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "redis-cli"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"redis-cli\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "REDIS-0002",
+            "module": "redis",
+            "name": "Install the missing Redis server",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "redis-server"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"redis-server\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "REDIS-0008",
+            "module": "redis",
+            "name": "Restore the missing Redis data directory",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "/var/lib/redis"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/var/lib/redis\",\"type\":\"directory_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MISSING_DATA_RECOVERY_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "creating an empty path would hide missing customer or service data"
+            ],
+            "next_action": "Require recovery evidence or a validated backup source.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SECURITY-0005",
+            "module": "security",
+            "name": "Install a supported firewall management tool",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "any_executable_exists",
+                "commands": [
+                    "ufw",
+                    "nft",
+                    "iptables",
+                    "firewall-cmd"
+                ]
+            },
+            "probe_signature": "{\"probe\":{\"commands\":[\"ufw\",\"nft\",\"iptables\",\"firewall-cmd\"],\"type\":\"any_executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SECURITY-0008",
+            "module": "security",
+            "name": "Remove default administrator credential exposure",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "file_contains",
+                "path": "{PROJECT}/config/config.php",
+                "contains": "'reject_default_credentials' => true"
+            },
+            "probe_signature": "{\"probe\":{\"contains\":\"'reject_default_credentials' => true\",\"path\":\"{PROJECT}/config/config.php\",\"type\":\"file_contains\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "BUSINESS_INPUT_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "required value is customer- or organization-specific"
+            ],
+            "next_action": "Collect an explicit business value; never synthesize it in zero-interaction mode.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SECURITY-0010",
+            "module": "security",
+            "name": "Resolve known dependency security advisories",
+            "severity": "HIGH",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "command",
+                "command": [
+                    "composer",
+                    "audit",
+                    "--locked",
+                    "--no-interaction"
+                ],
+                "cwd": "{PROJECT}",
+                "timeout": 30
+            },
+            "probe_signature": "{\"probe\":{\"command\":[\"composer\",\"audit\",\"--locked\",\"--no-interaction\"],\"cwd\":\"{PROJECT}\",\"timeout\":30,\"type\":\"command\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [
+                "composer"
+            ],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SSL-0001",
+            "module": "ssl",
+            "name": "Install the missing OpenSSL executable",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "executable_exists",
+                "command": "openssl"
+            },
+            "probe_signature": "{\"probe\":{\"command\":\"openssl\",\"type\":\"executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "SSL-0008",
+            "module": "ssl",
+            "name": "Install the missing Certbot client",
+            "severity": "MEDIUM",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "any_executable_exists",
+                "commands": [
+                    "certbot",
+                    "openssl"
+                ]
+            },
+            "probe_signature": "{\"probe\":{\"commands\":[\"certbot\",\"openssl\"],\"type\":\"any_executable_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "PACKAGE_NETWORK_OR_DESTRUCTIVE_BOUNDARY",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "requires package/network selection, data deletion, or host-wide recovery intent"
+            ],
+            "next_action": "Keep advisory until an exact local source and reversible bounded plan exist.",
+            "overlap_repair_ids": []
+        },
+        {
+            "repair_id": "XAMPP-0009",
+            "module": "xampp",
+            "name": "Restore the missing XAMPP document root",
+            "severity": "CRITICAL",
+            "risk": "MEDIUM",
+            "probe": {
+                "type": "directory_exists",
+                "path": "/opt/lampp/htdocs"
+            },
+            "probe_signature": "{\"probe\":{\"path\":\"/opt/lampp/htdocs\",\"type\":\"directory_exists\"},\"supports\":[]}",
+            "supports": [],
+            "required_commands": [],
+            "diagnosis_confidence": 0.9499999999999999555910790149937383830547332763671875,
+            "classification": "MISSING_DATA_RECOVERY_REQUIRED",
+            "commercial_priority_score": 5,
+            "blockers": [
+                "creating an empty path would hide missing customer or service data"
+            ],
+            "next_action": "Require recovery evidence or a validated backup source.",
+            "overlap_repair_ids": []
+        }
+    ]
+}

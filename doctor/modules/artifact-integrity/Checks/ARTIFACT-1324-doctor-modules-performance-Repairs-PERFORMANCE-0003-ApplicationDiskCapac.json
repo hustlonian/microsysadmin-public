@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1324",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Repairs/PERFORMANCE-0003-ApplicationDiskCapacityPressure.json",
+        "summary": "Verify doctor/modules/performance/Repairs/PERFORMANCE-0003-ApplicationDiskCapacityPressure.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1324",
+        "path": "{APP_ROOT}/doctor/modules/performance/Repairs/PERFORMANCE-0003-ApplicationDiskCapacityPressure.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/15c716308c896b3f6c174fd01e4076e4e2f4b0df531b708bbb0290e46af5af3a",
+        "sha256": "15c716308c896b3f6c174fd01e4076e4e2f4b0df531b708bbb0290e46af5af3a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

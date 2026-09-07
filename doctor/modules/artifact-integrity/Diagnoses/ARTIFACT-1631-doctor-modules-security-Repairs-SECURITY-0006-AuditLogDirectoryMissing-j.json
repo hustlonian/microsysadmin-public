@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1631",
+        "check_id": "ARTIFACT-C1631",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/security/Repairs/SECURITY-0006-AuditLogDirectoryMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/security/Repairs/SECURITY-0006-AuditLogDirectoryMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c98d206c63d8c91ff3ef3a28353d3b159f7cc050428ad4a07cff4a19570cd2b7 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1631"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

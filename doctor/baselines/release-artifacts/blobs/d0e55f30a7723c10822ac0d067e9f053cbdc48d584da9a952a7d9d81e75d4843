@@ -1,0 +1,24 @@
+{
+    "repair_id": "GIT-0007",
+    "diagnosis_id": "GIT-D0007",
+    "check_id": "GIT-C0007",
+    "primitive": "quarantine_stale_git_lock",
+    "healthy_fixture": {
+        "probe_expected": true
+    },
+    "failure_fixture": {
+        "probe_expected": false
+    },
+    "assertions": [
+        "detection",
+        "root-cause",
+        "exact-plan",
+        "backup",
+        "repair",
+        "verification",
+        "rollback",
+        "verification-after-rollback",
+        "audit",
+        "idempotency"
+    ]
+}

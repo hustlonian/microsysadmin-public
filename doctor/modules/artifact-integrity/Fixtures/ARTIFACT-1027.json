@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1027",
+    "artifact": "doctor/.htaccess",
+    "baseline_sha256": "6289b441fda51b09e9c5eb9def920f3add3dc3517af30a7487d28d654b3e3a91",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

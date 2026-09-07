@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1462",
+    "artifact": "doctor/modules/queue/Fixtures/QUEUE-0001.json",
+    "baseline_sha256": "c721d2db1356f42d5870a958b20ba01b59a396a25d2523617d7d8fe776711de4",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

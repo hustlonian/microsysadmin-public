@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0240",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Support/RepairStatus.php",
+        "summary": "Verify doctor/engine/Support/RepairStatus.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0240",
+        "path": "{APP_ROOT}/doctor/engine/Support/RepairStatus.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b8a1f786df7444367f6868c8fc173ae8f2685bba593f3400d44e2454fcd2d61d",
+        "sha256": "b8a1f786df7444367f6868c8fc173ae8f2685bba593f3400d44e2454fcd2d61d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

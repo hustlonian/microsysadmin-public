@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1526",
+    "artifact": "doctor/modules/redis/Diagnoses/REDIS-0010-LaravelRedisConfigurationMissing.json",
+    "baseline_sha256": "83d9d9c828ae4bdfd6c59040d3511230ea891ac2ea4b675efbf88181b1b1b5f6",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2107",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/psr/log/src/LogLevel.php",
+        "summary": "Verify vendor/psr/log/src/LogLevel.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2107",
+        "path": "{APP_ROOT}/vendor/psr/log/src/LogLevel.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/9f2520b22945ce1599c4fedba0a4c75985f172ca86cdf386766ebb8b2363768c",
+        "sha256": "9f2520b22945ce1599c4fedba0a4c75985f172ca86cdf386766ebb8b2363768c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

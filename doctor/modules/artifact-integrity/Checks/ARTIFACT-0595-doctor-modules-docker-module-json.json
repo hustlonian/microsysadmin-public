@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0595",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/module.json",
+        "summary": "Verify doctor/modules/docker/module.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0595",
+        "path": "{APP_ROOT}/doctor/modules/docker/module.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0df2759e9f7a103b30e47a5674cf0ff80a90c3689f4d19e08918337008431bd2",
+        "sha256": "0df2759e9f7a103b30e47a5674cf0ff80a90c3689f4d19e08918337008431bd2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

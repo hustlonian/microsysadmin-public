@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0158",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/AGENT-API.md",
+        "summary": "Verify docs/AGENT-API.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0158",
+        "path": "{APP_ROOT}/docs/AGENT-API.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/785fa4238cbc4550b4532e8fe1aca9479f2d99b28dfba7d4d3c0c68d294ee7b5",
+        "sha256": "785fa4238cbc4550b4532e8fe1aca9479f2d99b28dfba7d4d3c0c68d294ee7b5",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

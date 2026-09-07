@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "QUEUE-D0005",
+        "check_id": "QUEUE-C0005",
+        "module": "queue",
+        "name": "Restart Laravel queue workers using stale code diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restart Laravel queue workers using stale code.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed queue worker stale code condition differs from the required state.",
+        "confidence": 0.9499999999999999555910790149937383830547332763671875,
+        "related_repair_ids": [
+            "QUEUE-0005"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "A queue restart is a temporal worker transition: workers that exit and load new code cannot be returned to their exact pre-repair process state."
+    }
+}

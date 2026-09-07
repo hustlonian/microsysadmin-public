@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1041",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/apache/Commercial/APACHE-0002.json",
+        "summary": "Verify doctor/modules/apache/Commercial/APACHE-0002.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1041",
+        "path": "{APP_ROOT}/doctor/modules/apache/Commercial/APACHE-0002.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a5b802a500feb71d924a658928b3247f3384fd24d253885c429f337db31fa702",
+        "sha256": "a5b802a500feb71d924a658928b3247f3384fd24d253885c429f337db31fa702",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

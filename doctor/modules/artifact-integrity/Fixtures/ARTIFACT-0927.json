@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0927",
+    "artifact": "doctor/modules/mysql/Repairs/MYSQL-0008-MysqlConfigurationMissing.json",
+    "baseline_sha256": "57a61c3620ef5ac01483fd6a5fb0dc7bbeb1310c0339b654e6b4c61350f51a4b",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

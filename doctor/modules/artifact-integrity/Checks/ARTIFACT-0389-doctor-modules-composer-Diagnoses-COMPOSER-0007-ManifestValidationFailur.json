@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0389",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Diagnoses/COMPOSER-0007-ManifestValidationFailure.json",
+        "summary": "Verify doctor/modules/composer/Diagnoses/COMPOSER-0007-ManifestValidationFailure.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0389",
+        "path": "{APP_ROOT}/doctor/modules/composer/Diagnoses/COMPOSER-0007-ManifestValidationFailure.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d0289fa276f4154c0a1fd64eb9318a9e6bec6c52e0ab0949488b0b9fce28b7e2",
+        "sha256": "d0289fa276f4154c0a1fd64eb9318a9e6bec6c52e0ab0949488b0b9fce28b7e2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

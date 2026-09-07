@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1857",
+        "check_id": "ARTIFACT-C1857",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for scripts/update-cli.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact scripts/update-cli.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 03739c785c96851c5d56b9e35754c31fecd6d01ad24c4faef5fbd1fca1fedbb1 with mode 0755.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1857"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

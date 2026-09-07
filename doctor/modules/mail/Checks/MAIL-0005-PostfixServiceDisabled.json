@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "MAIL-C0005",
+        "module": "mail",
+        "name": "Enable the disabled Postfix service",
+        "summary": "Enable the disabled Postfix service.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "mail",
+            "postfix-service-disabled"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_enabled",
+        "service": "postfix"
+    },
+    "failure_status": "FAIL"
+}

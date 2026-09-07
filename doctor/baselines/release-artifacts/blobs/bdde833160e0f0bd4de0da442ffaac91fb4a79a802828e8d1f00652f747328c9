@@ -1,0 +1,11 @@
+{
+    "name": "php",
+    "display_name": "PHP",
+    "description": "Cause-specific PHP diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 1,
+    "enabled": true,
+    "repair_prefix": "PHP",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

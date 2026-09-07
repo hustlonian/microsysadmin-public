@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0143",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact controllers/AgentController.php",
+        "summary": "Verify controllers/AgentController.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0143",
+        "path": "{APP_ROOT}/controllers/AgentController.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/214b8625c5763bb312453533af3f4727f8acb4be4ff7513d84e46bb44e3f2fba",
+        "sha256": "214b8625c5763bb312453533af3f4727f8acb4be4ff7513d84e46bb44e3f2fba",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

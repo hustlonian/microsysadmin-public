@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0007",
+        "module": "security",
+        "name": "Disable Laravel debug output in production",
+        "summary": "Disable Laravel debug output in production.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "application-debug-enabled"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "production_debug_disabled",
+        "path": "{PROJECT}/.env"
+    },
+    "failure_status": "FAIL"
+}

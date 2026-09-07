@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "SSL-D0003",
+        "check_id": "SSL-C0003",
+        "module": "ssl",
+        "name": "Restore the missing configured TLS private key diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore the missing configured TLS private key.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed private key file missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "SSL-0003"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

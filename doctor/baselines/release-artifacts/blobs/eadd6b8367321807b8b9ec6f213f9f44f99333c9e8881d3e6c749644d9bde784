@@ -1,0 +1,29 @@
+{
+    "metadata": {
+        "check_id": "COMPOSER-C0007",
+        "module": "composer",
+        "name": "Correct Composer manifest and lock inconsistency",
+        "summary": "Correct Composer manifest and lock inconsistency.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "composer",
+            "manifest-validation-failure"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "composer"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "composer",
+            "validate",
+            "--no-interaction"
+        ],
+        "cwd": "{PROJECT}",
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0384",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Diagnoses/COMPOSER-0002-ComposerJsonMissing.json",
+        "summary": "Verify doctor/modules/composer/Diagnoses/COMPOSER-0002-ComposerJsonMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0384",
+        "path": "{APP_ROOT}/doctor/modules/composer/Diagnoses/COMPOSER-0002-ComposerJsonMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a3191f04f43d24dc0d9c2c5b095b2bc0ee796d9e445248684c21c555d335c07a",
+        "sha256": "a3191f04f43d24dc0d9c2c5b095b2bc0ee796d9e445248684c21c555d335c07a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

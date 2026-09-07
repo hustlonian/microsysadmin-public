@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1457",
+        "check_id": "ARTIFACT-C1457",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/queue/Docs/QUEUE-0006.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/queue/Docs/QUEUE-0006.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 416109bf16848df4a7e2c1057a6e8c945cebbcb8010d190287254c39390ae28d with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1457"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

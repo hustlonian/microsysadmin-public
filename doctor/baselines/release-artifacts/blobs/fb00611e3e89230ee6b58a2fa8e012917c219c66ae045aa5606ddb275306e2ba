@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0002",
+        "module": "backups",
+        "name": "Correct an unwritable backup root",
+        "summary": "Correct an unwritable backup root.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "backup-root-not-writable"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "path_writable",
+        "path": "{STORAGE_PATH}/backups"
+    },
+    "failure_status": "FAIL"
+}

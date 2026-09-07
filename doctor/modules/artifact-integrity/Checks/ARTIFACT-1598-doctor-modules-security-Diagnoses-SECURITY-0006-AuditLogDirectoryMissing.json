@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1598",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Diagnoses/SECURITY-0006-AuditLogDirectoryMissing.json",
+        "summary": "Verify doctor/modules/security/Diagnoses/SECURITY-0006-AuditLogDirectoryMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1598",
+        "path": "{APP_ROOT}/doctor/modules/security/Diagnoses/SECURITY-0006-AuditLogDirectoryMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7d2dea7032a77e4c36bdf9236b7fa2878d1ef8afb2c6f56f2b06302d95c8a07c",
+        "sha256": "7d2dea7032a77e4c36bdf9236b7fa2878d1ef8afb2c6f56f2b06302d95c8a07c",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

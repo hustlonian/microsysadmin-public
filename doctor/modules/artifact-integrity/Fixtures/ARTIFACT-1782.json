@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1782",
+    "artifact": "doctor/modules/xampp/Repairs/XAMPP-0002-XamppRootMissing.json",
+    "baseline_sha256": "1365ab2a459670795112e62dda6e4134450f7d2f68101bfc1955368406ed55bb",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

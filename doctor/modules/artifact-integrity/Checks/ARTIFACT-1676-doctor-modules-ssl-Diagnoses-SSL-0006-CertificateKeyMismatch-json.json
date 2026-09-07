@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1676",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Diagnoses/SSL-0006-CertificateKeyMismatch.json",
+        "summary": "Verify doctor/modules/ssl/Diagnoses/SSL-0006-CertificateKeyMismatch.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1676",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Diagnoses/SSL-0006-CertificateKeyMismatch.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/cabed81a6a6a22520ce8c0532b04720a19e32fe78c6cf6181c2264b813444220",
+        "sha256": "cabed81a6a6a22520ce8c0532b04720a19e32fe78c6cf6181c2264b813444220",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

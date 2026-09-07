@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1450",
+        "check_id": "ARTIFACT-C1450",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/queue/Diagnoses/QUEUE-0010-QueueRuntimeDirectoryNotWritable.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/queue/Diagnoses/QUEUE-0010-QueueRuntimeDirectoryNotWritable.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 ab01273c04033342da0d60acfef67616644f505a3dac999ed4a4a9f409a2176b with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1450"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

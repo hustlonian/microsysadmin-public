@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1626",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Repairs/SECURITY-0001-EnvironmentFileUnreadable.json",
+        "summary": "Verify doctor/modules/security/Repairs/SECURITY-0001-EnvironmentFileUnreadable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1626",
+        "path": "{APP_ROOT}/doctor/modules/security/Repairs/SECURITY-0001-EnvironmentFileUnreadable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f6f0c75db8d96d1d74961b6df9253080b3d8e691ba7459957c6b6c35b6f56ea3",
+        "sha256": "f6f0c75db8d96d1d74961b6df9253080b3d8e691ba7459957c6b6c35b6f56ea3",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

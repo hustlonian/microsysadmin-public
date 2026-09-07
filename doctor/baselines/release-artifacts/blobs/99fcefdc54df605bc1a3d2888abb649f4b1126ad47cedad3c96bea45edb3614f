@@ -1,0 +1,38 @@
+{
+    "repair_id": "SECURITY-0003",
+    "lifecycle": [
+        "detect-failure",
+        "diagnose",
+        "plan",
+        "backup",
+        "execute",
+        "verify-pass",
+        "rollback",
+        "verify-failure-again"
+    ],
+    "primitive_descriptor": {
+        "type": "create_known_directory",
+        "category": "privileged-filesystem",
+        "local_only": true,
+        "structured_arguments": true,
+        "reversible": true,
+        "rollback": "remove only the exact helper-created directory while its identity is unchanged and it remains empty",
+        "internal_backup": true,
+        "safety_class": "fixed-token-empty-directory",
+        "required_fields": [
+            "target",
+            "path"
+        ],
+        "allowed_targets": [
+            "xampp-logs",
+            "xampp-ssl-key"
+        ]
+    },
+    "prohibited": [
+        "shell-string-command",
+        "unbounded-path",
+        "missing-verification",
+        "missing-rollback",
+        "network-without-declaration"
+    ]
+}

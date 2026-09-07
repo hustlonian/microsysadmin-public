@@ -1,0 +1,402 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+xampp_root="${MICROSYSADMIN_XAMPP_ROOT:-/opt/lampp}"
+app_root="${MICROSYSADMIN_APP_ROOT:-/opt/lampp/htdocs/microsysadmin}"
+storage_root="${MICROSYSADMIN_STORAGE_ROOT:-${app_root}/storage}"
+PATH="/usr/sbin:/usr/bin:/sbin:/bin:${xampp_root}/bin:${xampp_root}/sbin"
+
+service="${1:-}"
+action="${2:-}"
+argument_one="${3:-}"
+argument_two="${4:-}"
+log_dir="${storage_root}/logs"
+
+fail() {
+    echo "$1" >&2
+    exit "${2:-1}"
+}
+
+require_known() {
+    case "$service:$action" in
+        apache:status|apache:start|apache:stop|apache:restart|apache:reload) return 0 ;;
+        mysql:status|mysql:start|mysql:stop|mysql:restart|mysql:reload) return 0 ;;
+        ssh:status|ssh:start|ssh:stop|ssh:restart|ssh:reload) return 0 ;;
+        cron:status|cron:start|cron:stop|cron:restart|cron:reload) return 0 ;;
+        php-fpm:status|php-fpm:start|php-fpm:stop|php-fpm:restart|php-fpm:reload) return 0 ;;
+        *) fail "Service/action is not approved: ${service}/${action}" 64 ;;
+    esac
+}
+
+port_listening() {
+    local port="$1"
+    ss -ltn 2>/dev/null | awk '{print $4}' | grep -Eq "(:|\\])${port}$"
+}
+
+status_apache() {
+    if pgrep -f "${xampp_root}/bin/httpd" >/dev/null 2>&1 && { port_listening 80 || port_listening 443; }; then
+        echo "Apache is running and listening on HTTP/HTTPS."
+    else
+        echo "Apache is not running."
+    fi
+}
+
+status_mysql() {
+    if pgrep -x mysqld >/dev/null 2>&1 && port_listening 3306; then
+        echo "MySQL is running and listening on TCP 3306."
+    else
+        echo "MySQL is not running."
+    fi
+}
+
+status_ssh() {
+    if systemctl is-active --quiet ssh.service 2>/dev/null; then
+        echo "SSH service is active."
+    elif systemctl is-active --quiet ssh.socket 2>/dev/null; then
+        echo "SSH socket is active and listening on TCP 22."
+    elif pgrep -x sshd >/dev/null 2>&1 || port_listening 22; then
+        echo "SSH is listening on TCP 22."
+    else
+        echo "SSH is not running."
+    fi
+}
+
+status_cron() {
+    if systemctl is-active --quiet cron.service 2>/dev/null || pgrep -x cron >/dev/null 2>&1 || pgrep -x crond >/dev/null 2>&1; then
+        echo "Cron is running."
+    else
+        echo "Cron is not running."
+    fi
+}
+
+find_php_fpm_unit() {
+    for unit in php8.4-fpm.service php8.3-fpm.service php8.2-fpm.service php-fpm.service; do
+        if systemctl list-unit-files "$unit" --no-legend 2>/dev/null | grep -q "$unit"; then
+            echo "$unit"
+            return 0
+        fi
+    done
+    return 1
+}
+
+status_php_fpm() {
+    local unit
+    if unit="$(find_php_fpm_unit)"; then
+        if systemctl is-active --quiet "$unit"; then
+            echo "PHP-FPM is running through ${unit}."
+        else
+            echo "PHP-FPM unit ${unit} is installed but inactive."
+        fi
+    elif pgrep -x php-fpm >/dev/null 2>&1; then
+        echo "PHP-FPM process is running."
+    else
+        echo "PHP-FPM is not installed or not running."
+    fi
+}
+
+queue_xampp() {
+    local label="$1"
+    local lampp_action="$2"
+    mkdir -p "$log_dir"
+    nohup bash -lc "sleep 1; '${xampp_root}/lampp' '${lampp_action}'" > "${log_dir}/service-${label}-${action}.log" 2>&1 &
+    echo "Queued ${label} ${action}. Output will be written to ${log_dir}/service-${label}-${action}.log."
+}
+
+doctor_backup_path=""
+doctor_backup_sha256=""
+
+doctor_backup_file() {
+    local source="$1"
+    local label="$2"
+    local backup_dir="${storage_root}/doctor/backups/privileged"
+    [[ -f "$source" && ! -L "$source" ]] || fail "Doctor backup source is not a regular file: ${source}" 66
+    [[ -d "${storage_root}/doctor/backups" && ! -L "${storage_root}/doctor/backups" ]] || fail "Doctor backup root is unavailable." 66
+    mkdir -p -- "$backup_dir"
+    [[ -d "$backup_dir" && ! -L "$backup_dir" ]] || fail "Doctor privileged backup directory is unsafe." 66
+    chmod 0750 -- "$backup_dir"
+    doctor_backup_path="${backup_dir}/${label}-$(date -u +%Y%m%dT%H%M%SZ)-$$.bak"
+    [[ "$doctor_backup_path" == "${backup_dir}/"* ]] || fail "Doctor backup target escaped its root." 66
+    cp --preserve=mode,ownership,timestamps -- "$source" "$doctor_backup_path"
+    [[ -s "$doctor_backup_path" ]] || fail "Doctor privileged backup validation failed." 74
+    doctor_backup_sha256="$(sha256sum -- "$doctor_backup_path" | awk '{print $1}')"
+    [[ "$doctor_backup_sha256" =~ ^[a-f0-9]{64}$ ]] || fail "Doctor privileged backup hash validation failed." 74
+}
+
+doctor_print_backup_reference() {
+    [[ -n "$doctor_backup_path" && "$doctor_backup_sha256" =~ ^[a-f0-9]{64}$ ]] || fail "Doctor rollback reference is unavailable." 74
+    printf 'DOCTOR_BACKUP_PATH=%s\n' "$doctor_backup_path"
+    printf 'DOCTOR_BACKUP_SHA256=%s\n' "$doctor_backup_sha256"
+}
+
+doctor_validate_backup_reference() {
+    local label="$1"
+    local backup="$2"
+    local expected_sha256="$3"
+    local backup_dir="${storage_root}/doctor/backups/privileged"
+    [[ "$expected_sha256" =~ ^[a-f0-9]{64}$ ]] || fail "Doctor rollback hash is invalid." 64
+    [[ -d "$backup_dir" && ! -L "$backup_dir" && -f "$backup" && ! -L "$backup" ]] || fail "Doctor rollback backup is unavailable or unsafe." 66
+    local backup_dir_real backup_real basename_value actual_sha256
+    backup_dir_real="$(readlink -f -- "$backup_dir")"
+    backup_real="$(readlink -f -- "$backup")"
+    [[ -n "$backup_dir_real" && -n "$backup_real" && "$(dirname -- "$backup_real")" == "$backup_dir_real" ]] || fail "Doctor rollback backup escaped its exact root." 66
+    basename_value="$(basename -- "$backup_real")"
+    case "$label" in
+        php.ini) [[ "$basename_value" =~ ^php\.ini-[0-9]{8}T[0-9]{6}Z-[0-9]+\.bak$ ]] || fail "Doctor OPcache rollback backup name is invalid." 66 ;;
+        server.crt) [[ "$basename_value" =~ ^server\.crt-[0-9]{8}T[0-9]{6}Z-[0-9]+\.bak$ ]] || fail "Doctor TLS rollback backup name is invalid." 66 ;;
+        *) fail "Doctor rollback label is invalid." 64 ;;
+    esac
+    actual_sha256="$(sha256sum -- "$backup_real" | awk '{print $1}')"
+    [[ "$actual_sha256" == "$expected_sha256" ]] || fail "Doctor rollback backup hash does not match its audit reference." 65
+    doctor_backup_path="$backup_real"
+    doctor_backup_sha256="$actual_sha256"
+}
+
+doctor_enable_opcache() {
+    local php_ini="${xampp_root}/etc/php.ini"
+    local extension="${xampp_root}/lib/php/extensions/no-debug-non-zts-20220829/opcache.so"
+    [[ -f "$php_ini" && ! -L "$php_ini" && -f "$extension" && -x "${xampp_root}/bin/php" ]] || fail "The XAMPP OPcache inputs are unavailable or unsafe." 66
+    if grep -Eq '^[[:space:]]*zend_extension[[:space:]]*=[[:space:]]*opcache\.so[[:space:]]*$' "$php_ini"; then
+        echo "XAMPP OPcache is already enabled."
+        echo "DOCTOR_NO_CHANGE=1"
+        return 0
+    fi
+
+    doctor_backup_file "$php_ini" "php.ini"
+    local backup="$doctor_backup_path"
+    local staged
+    staged="$(mktemp "${php_ini}.microsysadmin.XXXXXX")"
+    [[ -n "$staged" && "$staged" == "${php_ini}.microsysadmin."* && -f "$staged" && ! -L "$staged" ]] || fail "Unable to stage the OPcache configuration update." 74
+    sed '0,/^[[:space:]]*;[[:space:]]*zend_extension[[:space:]]*=[[:space:]]*opcache\.so[[:space:]]*$/s//zend_extension=opcache.so/' "$php_ini" > "$staged"
+    grep -Eq '^[[:space:]]*zend_extension[[:space:]]*=[[:space:]]*opcache\.so[[:space:]]*$' "$staged" || fail "The staged OPcache configuration did not validate." 65
+    chown --reference="$php_ini" -- "$staged"
+    chmod --reference="$php_ini" -- "$staged"
+    mv -- "$staged" "$php_ini"
+    if ! "${xampp_root}/bin/php" -c "$php_ini" -r 'exit(extension_loaded("Zend OPcache") ? 0 : 1);'; then
+        cp --preserve=mode,ownership,timestamps -- "$backup" "$php_ini"
+        fail "OPcache validation failed; the original PHP configuration was restored." 65
+    fi
+    queue_xampp apache reloadapache
+    echo "Enabled XAMPP OPcache."
+    doctor_print_backup_reference
+}
+
+doctor_restore_opcache() {
+    local php_ini="${xampp_root}/etc/php.ini"
+    [[ -f "$php_ini" && ! -L "$php_ini" && -x "${xampp_root}/bin/php" ]] || fail "The XAMPP OPcache rollback target is unavailable or unsafe." 66
+    doctor_validate_backup_reference "php.ini" "$argument_one" "$argument_two"
+    local staged
+    staged="$(mktemp "${php_ini}.microsysadmin-rollback.XXXXXX")"
+    [[ -n "$staged" && "$staged" == "${php_ini}.microsysadmin-rollback."* && -f "$staged" && ! -L "$staged" ]] || fail "Unable to stage OPcache rollback." 74
+    cp --preserve=mode,ownership,timestamps -- "$doctor_backup_path" "$staged"
+    "${xampp_root}/bin/php" -c "$staged" -r 'exit(0);' >/dev/null
+    mv -- "$staged" "$php_ini"
+    [[ "$(sha256sum -- "$php_ini" | awk '{print $1}')" == "$doctor_backup_sha256" ]] || fail "OPcache rollback target hash validation failed." 65
+    queue_xampp apache reloadapache
+    echo "Restored the exact pre-repair XAMPP PHP configuration."
+}
+
+doctor_renew_local_tls() {
+    local certificate="${xampp_root}/etc/ssl.crt/server.crt"
+    local private_key="${xampp_root}/etc/ssl.key/server.key"
+    local openssl="${xampp_root}/bin/openssl"
+    [[ -x "$openssl" ]] || openssl="/usr/bin/openssl"
+    [[ -x "$openssl" && -f "$certificate" && ! -L "$certificate" && -f "$private_key" && ! -L "$private_key" ]] || fail "The XAMPP TLS inputs are unavailable or unsafe." 66
+
+    doctor_backup_file "$certificate" "server.crt"
+    local backup="$doctor_backup_path"
+    local staged
+    staged="$(mktemp "${certificate}.microsysadmin.XXXXXX")"
+    [[ -n "$staged" && "$staged" == "${certificate}.microsysadmin."* && -f "$staged" && ! -L "$staged" ]] || fail "Unable to stage the local TLS certificate." 74
+    "$openssl" req -new -x509 -sha256 -days 825 -key "$private_key" -out "$staged" -subj '/CN=localhost' -addext 'subjectAltName=DNS:localhost,IP:127.0.0.1'
+    "$openssl" x509 -in "$staged" -noout -checkend 86400 >/dev/null
+    local certificate_hash
+    local private_key_hash
+    certificate_hash="$($openssl x509 -in "$staged" -pubkey -noout | sha256sum | awk '{print $1}')"
+    private_key_hash="$($openssl pkey -in "$private_key" -pubout | sha256sum | awk '{print $1}')"
+    [[ -n "$certificate_hash" && -n "$private_key_hash" && "$certificate_hash" == "$private_key_hash" ]] || fail "The staged certificate does not match the configured private key." 65
+    chown --reference="$certificate" -- "$staged"
+    chmod --reference="$certificate" -- "$staged"
+    mv -- "$staged" "$certificate"
+    if ! "$openssl" x509 -in "$certificate" -noout -checkend 86400 >/dev/null; then
+        cp --preserve=mode,ownership,timestamps -- "$backup" "$certificate"
+        fail "TLS certificate installation failed; the prior certificate was restored." 65
+    fi
+    queue_xampp apache reloadapache
+    echo "Renewed the XAMPP local TLS certificate."
+    doctor_print_backup_reference
+}
+
+doctor_restore_local_tls() {
+    local certificate="${xampp_root}/etc/ssl.crt/server.crt"
+    local private_key="${xampp_root}/etc/ssl.key/server.key"
+    local openssl="${xampp_root}/bin/openssl"
+    [[ -x "$openssl" ]] || openssl="/usr/bin/openssl"
+    [[ -x "$openssl" && -f "$certificate" && ! -L "$certificate" && -f "$private_key" && ! -L "$private_key" ]] || fail "The XAMPP TLS rollback inputs are unavailable or unsafe." 66
+    doctor_validate_backup_reference "server.crt" "$argument_one" "$argument_two"
+    local staged certificate_hash private_key_hash
+    staged="$(mktemp "${certificate}.microsysadmin-rollback.XXXXXX")"
+    [[ -n "$staged" && "$staged" == "${certificate}.microsysadmin-rollback."* && -f "$staged" && ! -L "$staged" ]] || fail "Unable to stage local TLS rollback." 74
+    cp --preserve=mode,ownership,timestamps -- "$doctor_backup_path" "$staged"
+    "$openssl" x509 -in "$staged" -noout >/dev/null
+    certificate_hash="$($openssl x509 -in "$staged" -pubkey -noout | sha256sum | awk '{print $1}')"
+    private_key_hash="$($openssl pkey -in "$private_key" -pubout | sha256sum | awk '{print $1}')"
+    [[ -n "$certificate_hash" && "$certificate_hash" == "$private_key_hash" ]] || fail "The rollback certificate does not match the configured private key." 65
+    mv -- "$staged" "$certificate"
+    [[ "$(sha256sum -- "$certificate" | awk '{print $1}')" == "$doctor_backup_sha256" ]] || fail "TLS rollback target hash validation failed." 65
+    queue_xampp apache reloadapache
+    echo "Restored the exact pre-repair XAMPP TLS certificate."
+}
+
+doctor_set_ntp() {
+    local desired="$argument_one"
+    [[ "$desired" == "true" || "$desired" == "false" ]] || fail "Doctor time-sync state must be true or false." 64
+    local timedatectl_binary="/usr/bin/timedatectl"
+    [[ -x "$timedatectl_binary" ]] || timedatectl_binary="$(command -v timedatectl || true)"
+    [[ -n "$timedatectl_binary" && -x "$timedatectl_binary" ]] || fail "timedatectl is unavailable." 66
+    "$timedatectl_binary" set-ntp "$desired"
+    local actual expected
+    actual="$("$timedatectl_binary" show --property=NTP --value)"
+    expected="no"
+    [[ "$desired" == "true" ]] && expected="yes"
+    [[ "$actual" == "$expected" ]] || fail "Time synchronization did not reach the exact requested state." 65
+    printf 'NTP=%s\n' "$actual"
+}
+
+doctor_known_directory_path() {
+    case "$1" in
+        xampp-logs) printf '%s\n' "${xampp_root}/logs" ;;
+        xampp-ssl-key) printf '%s\n' "${xampp_root}/etc/ssl.key" ;;
+        *) fail "Doctor known-directory target is not approved." 64 ;;
+    esac
+}
+
+doctor_known_directory_parent() {
+    case "$1" in
+        xampp-logs) printf '%s\n' "${xampp_root}" ;;
+        xampp-ssl-key) printf '%s\n' "${xampp_root}/etc" ;;
+        *) fail "Doctor known-directory target is not approved." 64 ;;
+    esac
+}
+
+doctor_directory_identity() {
+    local path="$1"
+    [[ -d "$path" && ! -L "$path" ]] || fail "Doctor known-directory target is not an exact directory." 66
+    stat -Lc '%d:%i:%a:%u:%g' -- "$path"
+}
+
+doctor_create_known_directory() {
+    local token="$argument_one"
+    local target parent
+    target="$(doctor_known_directory_path "$token")"
+    parent="$(doctor_known_directory_parent "$token")"
+    [[ -d "$xampp_root" && ! -L "$xampp_root" ]] || fail "The configured XAMPP root is unavailable or symbolic." 66
+    [[ "$(readlink -f -- "$xampp_root")" == "$xampp_root" && -d "$parent" && ! -L "$parent" && "$(readlink -f -- "$parent")" == "$parent" ]] || fail "Doctor known-directory parent is unavailable or symbolic." 66
+    [[ "$(dirname -- "$target")" == "$parent" ]] || fail "Doctor known-directory target escaped its exact parent." 66
+    case "$parent" in "$xampp_root"|"$xampp_root"/*) ;; *) fail "Doctor known-directory target escaped its exact root." 66 ;; esac
+    if [[ -e "$target" || -L "$target" ]]; then
+        [[ -d "$target" && ! -L "$target" ]] || fail "Doctor known-directory target is occupied by an unsafe path." 66
+        echo "DOCTOR_NO_CHANGE=1"
+    else
+        mkdir --mode=0755 -- "$target"
+        [[ -d "$target" && ! -L "$target" ]] || fail "Doctor known-directory creation failed." 74
+    fi
+    printf 'DOCTOR_DIRECTORY_PATH=%s\n' "$target"
+    printf 'DOCTOR_DIRECTORY_IDENTITY=%s\n' "$(doctor_directory_identity "$target")"
+}
+
+doctor_remove_known_directory() {
+    local token="$argument_one"
+    local expected_identity="$argument_two"
+    local target parent actual_identity
+    [[ "$expected_identity" =~ ^[0-9]+:[0-9]+:[0-7]{3,4}:[0-9]+:[0-9]+$ ]] || fail "Doctor known-directory rollback identity is invalid." 64
+    target="$(doctor_known_directory_path "$token")"
+    parent="$(doctor_known_directory_parent "$token")"
+    [[ -d "$xampp_root" && ! -L "$xampp_root" && "$(readlink -f -- "$xampp_root")" == "$xampp_root" ]] || fail "The configured XAMPP root is unavailable or symbolic." 66
+    [[ -d "$parent" && ! -L "$parent" && "$(readlink -f -- "$parent")" == "$parent" && "$(dirname -- "$target")" == "$parent" && -d "$target" && ! -L "$target" ]] || fail "Doctor known-directory rollback target is unavailable or unsafe." 66
+    case "$parent" in "$xampp_root"|"$xampp_root"/*) ;; *) fail "Doctor known-directory rollback target escaped its exact root." 66 ;; esac
+    actual_identity="$(doctor_directory_identity "$target")"
+    [[ "$actual_identity" == "$expected_identity" ]] || fail "Doctor known-directory rollback identity changed after repair." 65
+    [[ -z "$(find "$target" -mindepth 1 -maxdepth 1 -print -quit)" ]] || fail "Doctor known-directory rollback refuses a non-empty directory." 65
+    rmdir -- "$target"
+    [[ ! -e "$target" && ! -L "$target" ]] || fail "Doctor known-directory rollback removal failed." 74
+    echo "Removed the exact empty Doctor-created directory."
+}
+
+xampp_control() {
+    local label="$1"
+    local lampp_action=""
+    case "$label:$action" in
+        apache:start) lampp_action="startapache" ;;
+        apache:stop) lampp_action="stopapache" ;;
+        apache:restart) lampp_action="restartapache" ;;
+        apache:reload) lampp_action="reloadapache" ;;
+        mysql:start) lampp_action="startmysql" ;;
+        mysql:stop) lampp_action="stopmysql" ;;
+        mysql:restart) lampp_action="restartmysql" ;;
+        mysql:reload) lampp_action="reloadmysql" ;;
+        *) fail "Unsupported XAMPP action: ${label}/${action}" 64 ;;
+    esac
+    queue_xampp "$label" "$lampp_action"
+}
+
+systemctl_control() {
+    local unit="$1"
+    case "$action" in
+        start|stop|restart) systemctl "$action" "$unit" ;;
+        reload) systemctl reload "$unit" || systemctl restart "$unit" ;;
+        *) fail "Unsupported systemctl action: ${action}" 64 ;;
+    esac
+}
+
+ssh_control() {
+    case "$action" in
+        start) systemctl start ssh.socket ;;
+        stop) systemctl stop ssh.socket ssh.service ;;
+        restart) systemctl restart ssh.socket ;;
+        reload)
+            if systemctl is-active --quiet ssh.service; then
+                systemctl reload ssh.service || systemctl restart ssh.service
+            else
+                systemctl restart ssh.socket
+            fi
+            ;;
+        *) fail "Unsupported SSH action: ${action}" 64 ;;
+    esac
+}
+
+if [[ "$service" == "file" ]]; then
+    shift
+    SYSADMIN_FILE_CONTROL_ELEVATED=1 exec "${xampp_root}/bin/php" "${app_root}/scripts/file-control.php" "$@"
+fi
+
+if [[ "$service" == "doctor" ]]; then
+    case "$action" in
+        enable-opcache) doctor_enable_opcache ;;
+        restore-opcache) doctor_restore_opcache ;;
+        renew-local-tls) doctor_renew_local_tls ;;
+        restore-local-tls) doctor_restore_local_tls ;;
+        set-ntp) doctor_set_ntp ;;
+        create-known-directory) doctor_create_known_directory ;;
+        remove-known-directory) doctor_remove_known_directory ;;
+        *) fail "Doctor action is not approved: ${action}" 64 ;;
+    esac
+    exit 0
+fi
+
+require_known
+
+case "$service:$action" in
+    apache:status) status_apache ;;
+    mysql:status) status_mysql ;;
+    ssh:status) status_ssh ;;
+    cron:status) status_cron ;;
+    php-fpm:status) status_php_fpm ;;
+    apache:*) xampp_control apache ;;
+    mysql:*) xampp_control mysql ;;
+    ssh:*) ssh_control ;;
+    cron:*) systemctl_control cron.service ;;
+    php-fpm:*)
+        unit="$(find_php_fpm_unit)" || fail "No PHP-FPM systemd unit is installed." 4
+        systemctl_control "$unit"
+        ;;
+esac

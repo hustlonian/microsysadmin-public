@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0024",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/media.php",
+        "summary": "Verify api/media.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0024",
+        "path": "{APP_ROOT}/api/media.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c1c093e1a2fcbfbb6d0f9088d32cc1d007505be61e1fd5fc05ab66c3129fcfb6",
+        "sha256": "c1c093e1a2fcbfbb6d0f9088d32cc1d007505be61e1fd5fc05ab66c3129fcfb6",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

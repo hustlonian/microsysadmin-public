@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1026",
+        "check_id": "ARTIFACT-C1026",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for config/release-public-key.pub",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact config/release-public-key.pub is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 06e2073855e411b5b1edadd16cc62cce0ae85ff5999ac418c4b4f07dd4186212 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1026"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

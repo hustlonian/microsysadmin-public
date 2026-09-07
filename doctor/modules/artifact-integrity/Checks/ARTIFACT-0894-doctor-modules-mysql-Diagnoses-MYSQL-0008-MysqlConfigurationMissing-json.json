@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0894",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Diagnoses/MYSQL-0008-MysqlConfigurationMissing.json",
+        "summary": "Verify doctor/modules/mysql/Diagnoses/MYSQL-0008-MysqlConfigurationMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0894",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Diagnoses/MYSQL-0008-MysqlConfigurationMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/aae0df7aa3233d200cc6f39dccd2e88a1d5abd3e20c7152b5053ae95b881b913",
+        "sha256": "aae0df7aa3233d200cc6f39dccd2e88a1d5abd3e20c7152b5053ae95b881b913",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

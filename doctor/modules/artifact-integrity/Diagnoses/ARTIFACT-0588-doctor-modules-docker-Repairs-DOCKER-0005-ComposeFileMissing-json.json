@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0588",
+        "check_id": "ARTIFACT-C0588",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/docker/Repairs/DOCKER-0005-ComposeFileMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/docker/Repairs/DOCKER-0005-ComposeFileMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 6ba448ad32de5e3244beb2637b38853e33024a5206d36f57cc23c7092b37a164 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0588"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

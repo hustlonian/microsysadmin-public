@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0539",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/module.json",
+        "summary": "Verify doctor/modules/dns/module.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0539",
+        "path": "{APP_ROOT}/doctor/modules/dns/module.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ae5ef12f74ad5ae231e08ff230caf11c6c1aafe6ca32f785324b9b2c0cd2965b",
+        "sha256": "ae5ef12f74ad5ae231e08ff230caf11c6c1aafe6ca32f785324b9b2c0cd2965b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

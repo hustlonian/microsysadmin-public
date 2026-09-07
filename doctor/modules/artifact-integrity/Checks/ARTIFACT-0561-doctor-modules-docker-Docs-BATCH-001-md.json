@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0561",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Docs/BATCH-001.md",
+        "summary": "Verify doctor/modules/docker/Docs/BATCH-001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0561",
+        "path": "{APP_ROOT}/doctor/modules/docker/Docs/BATCH-001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d16ea716a991bbf1a34a7db0975b18b6211f9a805ab2b30b4eb132f01a863f21",
+        "sha256": "d16ea716a991bbf1a34a7db0975b18b6211f9a805ab2b30b4eb132f01a863f21",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

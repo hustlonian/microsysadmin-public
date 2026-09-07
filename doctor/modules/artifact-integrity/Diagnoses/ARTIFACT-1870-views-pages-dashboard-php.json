@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1870",
+        "check_id": "ARTIFACT-C1870",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for views/pages/dashboard.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact views/pages/dashboard.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 40d01603137e0a55efabd8a3b9b98480f20d386a5122b83742a482f425127ff2 with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1870"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

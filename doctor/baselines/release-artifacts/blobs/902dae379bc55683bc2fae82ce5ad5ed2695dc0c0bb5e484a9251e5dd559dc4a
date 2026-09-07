@@ -1,0 +1,28 @@
+{
+    "metadata": {
+        "check_id": "PERFORMANCE-C0004",
+        "module": "performance",
+        "name": "Increase an insufficient PHP memory limit",
+        "summary": "Increase an insufficient PHP memory limit.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "performance",
+            "php-memory-limit-too-low"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "php"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "php",
+            "-r",
+            "$v=(int)ini_get(\"memory_limit\"); exit($v === -1 || $v >= 128 ? 0 : 1);"
+        ],
+        "timeout": 30
+    },
+    "failure_status": "FAIL"
+}

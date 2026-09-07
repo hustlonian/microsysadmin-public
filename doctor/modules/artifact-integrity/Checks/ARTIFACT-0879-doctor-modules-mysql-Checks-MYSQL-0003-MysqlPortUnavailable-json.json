@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0879",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Checks/MYSQL-0003-MysqlPortUnavailable.json",
+        "summary": "Verify doctor/modules/mysql/Checks/MYSQL-0003-MysqlPortUnavailable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0879",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Checks/MYSQL-0003-MysqlPortUnavailable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/040fef4ba0b4e17e482d21e12eb71f97670ee9ef108f70f6e52f8d36122aadbe",
+        "sha256": "040fef4ba0b4e17e482d21e12eb71f97670ee9ef108f70f6e52f8d36122aadbe",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

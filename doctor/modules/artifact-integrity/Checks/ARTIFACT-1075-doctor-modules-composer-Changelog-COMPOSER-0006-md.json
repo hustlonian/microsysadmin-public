@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1075",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Changelog/COMPOSER-0006.md",
+        "summary": "Verify doctor/modules/composer/Changelog/COMPOSER-0006.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1075",
+        "path": "{APP_ROOT}/doctor/modules/composer/Changelog/COMPOSER-0006.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/eda68f8de1c06faea156ffd4931e94fba402ca0e202c8c7d6b1b8126a0c8c5df",
+        "sha256": "eda68f8de1c06faea156ffd4931e94fba402ca0e202c8c7d6b1b8126a0c8c5df",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

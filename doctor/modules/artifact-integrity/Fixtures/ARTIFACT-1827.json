@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1827",
+    "artifact": "packaging/release-excludes.txt",
+    "baseline_sha256": "35dfe559c06d140f8835165e25ca33a17acfde09db33ce1ae30c817a83934e05",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

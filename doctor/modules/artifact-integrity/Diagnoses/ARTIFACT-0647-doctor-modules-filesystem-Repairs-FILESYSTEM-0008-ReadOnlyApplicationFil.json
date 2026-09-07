@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0647",
+        "check_id": "ARTIFACT-C0647",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/filesystem/Repairs/FILESYSTEM-0008-ReadOnlyApplicationFilesystem.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/filesystem/Repairs/FILESYSTEM-0008-ReadOnlyApplicationFilesystem.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 034da6dd5733c0796d57109cbaa05d667adda2e91230b4d8fabad6d441fc3c9f with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0647"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

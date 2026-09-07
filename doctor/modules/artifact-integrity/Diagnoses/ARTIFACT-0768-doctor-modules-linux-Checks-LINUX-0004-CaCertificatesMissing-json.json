@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0768",
+        "check_id": "ARTIFACT-C0768",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/linux/Checks/LINUX-0004-CaCertificatesMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/linux/Checks/LINUX-0004-CaCertificatesMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 07521425ab4945267d0c1fd2191ac5457e1818fe9065699b61e6c5c1d62aa073 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0768"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

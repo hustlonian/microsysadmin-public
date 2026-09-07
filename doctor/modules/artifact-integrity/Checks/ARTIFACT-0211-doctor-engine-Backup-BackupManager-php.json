@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0211",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Backup/BackupManager.php",
+        "summary": "Verify doctor/engine/Backup/BackupManager.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0211",
+        "path": "{APP_ROOT}/doctor/engine/Backup/BackupManager.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/eeef6b5fab3831729c3119016de41a30c63bcea05a62a03bc3c78b20429074bd",
+        "sha256": "eeef6b5fab3831729c3119016de41a30c63bcea05a62a03bc3c78b20429074bd",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0090",
+        "check_id": "ARTIFACT-C0090",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/HealthCheckService.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/HealthCheckService.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 80a3b2a2f868c3de0aac6098991b76bd145b209e1aff4527f62a79b6502992f2 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0090"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "check_id": "MAIL-C0006",
+        "module": "mail",
+        "name": "Configure the application mail transport",
+        "summary": "Configure the application mail transport.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mail",
+            "mail-transport-unconfigured"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "env_value",
+        "path": "{PROJECT}/.env",
+        "key": "MAIL_MAILER"
+    },
+    "failure_status": "FAIL"
+}

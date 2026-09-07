@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0056",
+        "check_id": "ARTIFACT-C0056",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/Contracts/ComposerOperationsInterface.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/Contracts/ComposerOperationsInterface.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 a2f56fbd2568367868baa6c7056bb0694561e4ace9c5315f26ceb9fb498230f6 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0056"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

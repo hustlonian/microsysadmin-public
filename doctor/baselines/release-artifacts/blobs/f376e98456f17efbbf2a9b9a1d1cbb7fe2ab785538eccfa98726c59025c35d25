@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "MYSQL-C0004",
+        "module": "mysql",
+        "name": "Create the missing configured application database",
+        "summary": "Create the missing configured application database.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "mysql",
+            "configured-database-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "database_exists",
+        "database": "microsysadmin"
+    },
+    "failure_status": "FAIL"
+}

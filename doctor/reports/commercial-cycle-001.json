@@ -1,0 +1,98 @@
+{
+    "schema_version": 1,
+    "cycle": 1,
+    "generated_at": "2026-08-02T17:36:59Z",
+    "portfolio": {
+        "repair_definitions": 1224,
+        "executable_repairs": 1070,
+        "fully_automatic_repairs": 1047,
+        "approval_required_repairs": 23,
+        "report_only_repairs": 154,
+        "permanent_inventory_records": 1677
+    },
+    "coverage_percent": {
+        "automation": 87.42,
+        "fully_automatic": 85.54,
+        "rollback": 99.25,
+        "verification": 100.0,
+        "diagnosis": 100.0,
+        "documentation": 100.0,
+        "contract": 100.0,
+        "audit_metadata": 100.0,
+        "changelog": 100.0,
+        "commercial_metadata": 100.0,
+        "sdk_actions": 100.0
+    },
+    "modules": {
+        "completed": [
+            "apache",
+            "artifact-integrity",
+            "backups",
+            "cron",
+            "dns",
+            "docker",
+            "filesystem",
+            "git",
+            "mail",
+            "mysql",
+            "nginx",
+            "php",
+            "redis",
+            "security",
+            "xampp"
+        ],
+        "needing_work": [
+            "composer",
+            "laravel",
+            "linux",
+            "performance",
+            "queue",
+            "ssl"
+        ]
+    },
+    "new_primitives": [
+        "filesystem",
+        "command",
+        "service",
+        "doctor-privileged",
+        "crontab",
+        "artisan"
+    ],
+    "duplicate_logic_eliminated": {
+        "service_repairs_migrated": 18,
+        "raw_systemctl_commands_removed": 14,
+        "raw_artisan_commands_removed": 2,
+        "definition_repair_mutation_branches_centralized": true
+    },
+    "tests": {
+        "sdk_assertions": 1135,
+        "doctor_assertions": 11594,
+        "time_forward_assertions": 30723,
+        "time_forward_scenarios": 3072,
+        "application_tests": 23,
+        "installer_failure_mode_tests": 12,
+        "isolated_commercial_assertions": 70,
+        "failures": 0
+    },
+    "live_health": {
+        "score_percent": 100,
+        "grade": "A+",
+        "pass": 151,
+        "warning": 0,
+        "fail": 0,
+        "skipped": 0,
+        "detected_causes": 0
+    },
+    "remaining_rollback_debt": [
+        "COMPOSER-0005",
+        "COMPOSER-0006",
+        "LARAVEL-0003",
+        "LINUX-0008",
+        "PERFORMANCE-0001",
+        "PERFORMANCE-0007",
+        "QUEUE-0005",
+        "SSL-0004"
+    ],
+    "quality_score": 99.92,
+    "commercial_readiness_score": 80.04
+}

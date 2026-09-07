@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0013",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/administration.php",
+        "summary": "Verify api/administration.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0013",
+        "path": "{APP_ROOT}/api/administration.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2625531eab39add653e18dd2748466e6e9352a104ae7720eef792a3ad05db8f2",
+        "sha256": "2625531eab39add653e18dd2748466e6e9352a104ae7720eef792a3ad05db8f2",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

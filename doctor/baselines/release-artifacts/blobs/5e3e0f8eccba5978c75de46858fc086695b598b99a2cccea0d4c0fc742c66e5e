@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "APACHE-D0008",
+        "check_id": "APACHE-C0008",
+        "module": "apache",
+        "name": "Resolve an unavailable Apache HTTP listener diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Resolve an unavailable Apache HTTP listener.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed http port unavailable condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "APACHE-0008"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

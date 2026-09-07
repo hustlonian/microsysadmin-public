@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "QUEUE-D0003",
+        "check_id": "QUEUE-C0003",
+        "module": "queue",
+        "name": "Enable the disabled Supervisor service diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Enable the disabled Supervisor service.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed supervisor service disabled condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "QUEUE-0003"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The repair is scoped, deterministic, previewed, and independently verified."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0869",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Repairs/MAIL-0006-MailTransportUnconfigured.json",
+        "summary": "Verify doctor/modules/mail/Repairs/MAIL-0006-MailTransportUnconfigured.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0869",
+        "path": "{APP_ROOT}/doctor/modules/mail/Repairs/MAIL-0006-MailTransportUnconfigured.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3b14b028d5f96fddf577e72b152c7d6c671c5af308311517d36f63dbc00a7601",
+        "sha256": "3b14b028d5f96fddf577e72b152c7d6c671c5af308311517d36f63dbc00a7601",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

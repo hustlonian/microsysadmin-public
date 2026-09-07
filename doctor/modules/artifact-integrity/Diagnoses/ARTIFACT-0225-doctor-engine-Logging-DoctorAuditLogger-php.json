@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0225",
+        "check_id": "ARTIFACT-C0225",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/engine/Logging/DoctorAuditLogger.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/engine/Logging/DoctorAuditLogger.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 6329e7a6fcfc0a7fe4e9da677f95b2ab7ee5ad2f883770c9792d6dce97a41db5 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0225"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

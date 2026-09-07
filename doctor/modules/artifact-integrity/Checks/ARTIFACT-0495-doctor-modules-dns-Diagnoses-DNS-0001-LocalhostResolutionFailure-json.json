@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0495",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/dns/Diagnoses/DNS-0001-LocalhostResolutionFailure.json",
+        "summary": "Verify doctor/modules/dns/Diagnoses/DNS-0001-LocalhostResolutionFailure.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0495",
+        "path": "{APP_ROOT}/doctor/modules/dns/Diagnoses/DNS-0001-LocalhostResolutionFailure.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f591124d7fb675f05762dd4f114c2858bdd205d47115343638ed6aaf49082478",
+        "sha256": "f591124d7fb675f05762dd4f114c2858bdd205d47115343638ed6aaf49082478",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1520",
+    "artifact": "doctor/modules/redis/Diagnoses/REDIS-0004-RedisServiceStopped.json",
+    "baseline_sha256": "fdaf15127d4c01b68b82f40f615da3a67d49defc4f0473560bc6c540bca8c65e",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

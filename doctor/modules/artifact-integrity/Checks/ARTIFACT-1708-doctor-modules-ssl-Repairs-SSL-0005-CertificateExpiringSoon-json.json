@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1708",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/ssl/Repairs/SSL-0005-CertificateExpiringSoon.json",
+        "summary": "Verify doctor/modules/ssl/Repairs/SSL-0005-CertificateExpiringSoon.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1708",
+        "path": "{APP_ROOT}/doctor/modules/ssl/Repairs/SSL-0005-CertificateExpiringSoon.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3e84a55627041531fe48a40965cec37770ad0e481e777b335a7d624f92b6c04d",
+        "sha256": "3e84a55627041531fe48a40965cec37770ad0e481e777b335a7d624f92b6c04d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

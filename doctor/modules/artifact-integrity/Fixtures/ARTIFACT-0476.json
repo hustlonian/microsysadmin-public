@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0476",
+    "artifact": "doctor/modules/cron/Repairs/CRON-0005-DuplicateLaravelSchedulerEntry.json",
+    "baseline_sha256": "2745b8d9898868238aac59e63f2955d012362ce8a3bb2a05d226841f973184f9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

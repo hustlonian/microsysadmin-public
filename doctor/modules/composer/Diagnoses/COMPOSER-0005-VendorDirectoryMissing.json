@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "COMPOSER-D0005",
+        "check_id": "COMPOSER-C0005",
+        "module": "composer",
+        "name": "Install exact locked Composer dependencies diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Install exact locked Composer dependencies.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed vendor directory missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "COMPOSER-0005"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The repair is scoped, deterministic, previewed, and independently verified."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1026",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact config/release-public-key.pub",
+        "summary": "Verify config/release-public-key.pub against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1026",
+        "path": "{APP_ROOT}/config/release-public-key.pub",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/06e2073855e411b5b1edadd16cc62cce0ae85ff5999ac418c4b4f07dd4186212",
+        "sha256": "06e2073855e411b5b1edadd16cc62cce0ae85ff5999ac418c4b4f07dd4186212",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,25 @@
+{
+    "metadata": {
+        "check_id": "DOCKER-C0005",
+        "module": "docker",
+        "name": "Restore the missing Docker Compose definition",
+        "summary": "Restore the missing Docker Compose definition.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "docker",
+            "compose-file-missing"
+        ]
+    },
+    "supports": {
+        "docker_project_detected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "{PROJECT}/compose.yaml"
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1328",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Repairs/PERFORMANCE-0007-ComposerAutoloadUnoptimized.json",
+        "summary": "Verify doctor/modules/performance/Repairs/PERFORMANCE-0007-ComposerAutoloadUnoptimized.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1328",
+        "path": "{APP_ROOT}/doctor/modules/performance/Repairs/PERFORMANCE-0007-ComposerAutoloadUnoptimized.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1694f6a5209a5113e3173fdf191d47b25375054fa5ba9c90908e360e3a2d802b",
+        "sha256": "1694f6a5209a5113e3173fdf191d47b25375054fa5ba9c90908e360e3a2d802b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

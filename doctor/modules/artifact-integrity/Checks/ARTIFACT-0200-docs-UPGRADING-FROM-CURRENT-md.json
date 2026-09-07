@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0200",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/UPGRADING-FROM-CURRENT.md",
+        "summary": "Verify docs/UPGRADING-FROM-CURRENT.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0200",
+        "path": "{APP_ROOT}/docs/UPGRADING-FROM-CURRENT.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/28dc65086a334c0bb8c96b89bfc11a7c2d0a057a41b4efd031a99511973e2616",
+        "sha256": "28dc65086a334c0bb8c96b89bfc11a7c2d0a057a41b4efd031a99511973e2616",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

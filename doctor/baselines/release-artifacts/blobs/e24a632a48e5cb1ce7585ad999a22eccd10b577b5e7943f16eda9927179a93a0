@@ -1,0 +1,28 @@
+{
+    "metadata": {
+        "check_id": "QUEUE-C0009",
+        "module": "queue",
+        "name": "Create the missing queue log directory",
+        "summary": "Create the missing queue log directory.",
+        "severity": "MEDIUM",
+        "version": "1.0.0",
+        "tags": [
+            "queue",
+            "queue-log-directory-missing"
+        ]
+    },
+    "supports": {
+        "laravel_detected": [
+            true
+        ],
+        "queue_expected": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{PROJECT}/storage/logs"
+    },
+    "failure_status": "FAIL"
+}

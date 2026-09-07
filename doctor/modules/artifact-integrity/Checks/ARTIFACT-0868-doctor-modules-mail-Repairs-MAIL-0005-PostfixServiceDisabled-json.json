@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0868",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Repairs/MAIL-0005-PostfixServiceDisabled.json",
+        "summary": "Verify doctor/modules/mail/Repairs/MAIL-0005-PostfixServiceDisabled.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0868",
+        "path": "{APP_ROOT}/doctor/modules/mail/Repairs/MAIL-0005-PostfixServiceDisabled.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1eab00d78499558a93d998f82a0fa6b2e3c25c7ce572e2344118e1112255e826",
+        "sha256": "1eab00d78499558a93d998f82a0fa6b2e3c25c7ce572e2344118e1112255e826",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

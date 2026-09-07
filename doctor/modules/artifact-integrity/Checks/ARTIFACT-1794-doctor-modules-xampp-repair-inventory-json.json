@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1794",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/repair-inventory.json",
+        "summary": "Verify doctor/modules/xampp/repair-inventory.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1794",
+        "path": "{APP_ROOT}/doctor/modules/xampp/repair-inventory.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/50b75be6ed9a75d4948b21fb867ad82fe5a9663741ef1db06005277dcbb45300",
+        "sha256": "50b75be6ed9a75d4948b21fb867ad82fe5a9663741ef1db06005277dcbb45300",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

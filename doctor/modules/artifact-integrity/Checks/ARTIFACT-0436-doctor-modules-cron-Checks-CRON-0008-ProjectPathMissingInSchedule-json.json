@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0436",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Checks/CRON-0008-ProjectPathMissingInSchedule.json",
+        "summary": "Verify doctor/modules/cron/Checks/CRON-0008-ProjectPathMissingInSchedule.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0436",
+        "path": "{APP_ROOT}/doctor/modules/cron/Checks/CRON-0008-ProjectPathMissingInSchedule.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/827eb7609985b89e6f7a445bf041bc072c4f2aade440ba1494b4c32c14b8333b",
+        "sha256": "827eb7609985b89e6f7a445bf041bc072c4f2aade440ba1494b4c32c14b8333b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

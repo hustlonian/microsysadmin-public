@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0201",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/WEBHOOKS.md",
+        "summary": "Verify docs/WEBHOOKS.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0201",
+        "path": "{APP_ROOT}/docs/WEBHOOKS.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/767f8a1b5d4020c1ce32c0ac479711bc2489a5dbac7394ccb690f6a6375449a9",
+        "sha256": "767f8a1b5d4020c1ce32c0ac479711bc2489a5dbac7394ccb690f6a6375449a9",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

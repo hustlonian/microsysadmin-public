@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0202",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/openapi.yaml",
+        "summary": "Verify docs/openapi.yaml against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0202",
+        "path": "{APP_ROOT}/docs/openapi.yaml",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f6fda8f5b39b5f3c09fb9b6f9fa74d5d2b0c3589935891df32e9adf4d6d2491d",
+        "sha256": "f6fda8f5b39b5f3c09fb9b6f9fa74d5d2b0c3589935891df32e9adf4d6d2491d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

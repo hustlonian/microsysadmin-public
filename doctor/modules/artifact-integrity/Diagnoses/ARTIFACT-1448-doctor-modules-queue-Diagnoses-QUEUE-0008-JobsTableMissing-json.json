@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1448",
+        "check_id": "ARTIFACT-C1448",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/queue/Diagnoses/QUEUE-0008-JobsTableMissing.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/queue/Diagnoses/QUEUE-0008-JobsTableMissing.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 90e7ab97e9f04dad4e2565e59bad14b5401e04fc9d6659693c2e63896f5010df with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1448"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

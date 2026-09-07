@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1876",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact views/pages/logs.php",
+        "summary": "Verify views/pages/logs.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1876",
+        "path": "{APP_ROOT}/views/pages/logs.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/933665f801e4567a55ed570e7875614313c9a9a8fbc4e3e7d04c3cab3e648364",
+        "sha256": "933665f801e4567a55ed570e7875614313c9a9a8fbc4e3e7d04c3cab3e648364",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

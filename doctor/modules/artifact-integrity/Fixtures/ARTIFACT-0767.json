@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0767",
+    "artifact": "doctor/modules/linux/Checks/LINUX-0003-ApplicationPartitionLowSpace.json",
+    "baseline_sha256": "2134a61572e5d5a968f3ace2950f38065f490e4420fb094df8a7ef0f3bc043f2",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

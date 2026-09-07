@@ -1,0 +1,21 @@
+# Apache batch 001 implementation report
+
+- Module: apache
+- Batch: 001
+- Repair IDs added: APACHE-0001, APACHE-0002, APACHE-0003, APACHE-0004, APACHE-0005, APACHE-0006, APACHE-0007, APACHE-0008, APACHE-0009, APACHE-0010
+- Checks added: 10
+- Diagnoses added: 10
+- Automated or approval-controlled repairs implemented: 1
+- Report-only findings added: 9
+- Fixtures added: 10
+- Contract test cases added: 10
+- Verification methods added: 10 independent probe replays
+- Rollback methods added: 0
+- Compatibility coverage: Linux, XAMPP/LAMPP, PHP 8.2+, with environment support gates
+- Unsupported conditions: skipped when commands, framework context, queue context, container context, or primary web-server context is absent
+- Safety decisions: destructive and ambiguous operations remain report-only; commands use structured arguments; scoped mutations are locked and verified
+- Remaining long-term inventory target: 90 checks and 50 repairs
+- Recommended next batch: add the next highest-value distribution/version-specific causes without reusing IDs
+- Files changed: module manifest, Module.php, 10 check units, 10 diagnosis units, 10 repair/report units, 10 fixtures, 10 documentation pages, inventory, test cases, README
+- Commands required to test: `/opt/lampp/bin/php doctor/tests/run.php` and `doctor/bin/doctor scan --module=apache`
+- Test results: recorded in `doctor/reports/IMPLEMENTATION-REPORT-2026-08-01.md`; this file does not fabricate future results.

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0175",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/GITHUB-TERMINAL-READINESS-REPORT.md",
+        "summary": "Verify docs/GITHUB-TERMINAL-READINESS-REPORT.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0175",
+        "path": "{APP_ROOT}/docs/GITHUB-TERMINAL-READINESS-REPORT.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/67ab909372b6a607153ba6e37753c1113cc9c8763e5dc9c7294816db92fd051f",
+        "sha256": "67ab909372b6a607153ba6e37753c1113cc9c8763e5dc9c7294816db92fd051f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

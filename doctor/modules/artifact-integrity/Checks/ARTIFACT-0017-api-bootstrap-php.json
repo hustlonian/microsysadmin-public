@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0017",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact api/bootstrap.php",
+        "summary": "Verify api/bootstrap.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0017",
+        "path": "{APP_ROOT}/api/bootstrap.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/95d480d8067bf6dc6ee43f30a69107eba2136f1d7e5f6a545e7071a3500e6975",
+        "sha256": "95d480d8067bf6dc6ee43f30a69107eba2136f1d7e5f6a545e7071a3500e6975",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1634",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Repairs/SECURITY-0009-SecurityHeadersModuleMissing.json",
+        "summary": "Verify doctor/modules/security/Repairs/SECURITY-0009-SecurityHeadersModuleMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1634",
+        "path": "{APP_ROOT}/doctor/modules/security/Repairs/SECURITY-0009-SecurityHeadersModuleMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/54b6b5ab2f6f7fa4f0c00eaa893937ac2ea54827f5ab1aa22dbe1be2fa5eabbe",
+        "sha256": "54b6b5ab2f6f7fa4f0c00eaa893937ac2ea54827f5ab1aa22dbe1be2fa5eabbe",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

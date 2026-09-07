@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0664",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Diagnoses/GIT-0002-RepositoryMetadataMissing.json",
+        "summary": "Verify doctor/modules/git/Diagnoses/GIT-0002-RepositoryMetadataMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0664",
+        "path": "{APP_ROOT}/doctor/modules/git/Diagnoses/GIT-0002-RepositoryMetadataMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/ff0b0c4a782f6e74cf916bf6b43c89b3e8726e72d48afe82675a15340e4dd27d",
+        "sha256": "ff0b0c4a782f6e74cf916bf6b43c89b3e8726e72d48afe82675a15340e4dd27d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "MYSQL-C0008",
+        "module": "mysql",
+        "name": "Restore the missing MySQL configuration file",
+        "summary": "Restore the missing MySQL configuration file.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "mysql",
+            "mysql-configuration-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/opt/lampp/etc/my.cnf"
+    },
+    "failure_status": "FAIL"
+}

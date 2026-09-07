@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0196",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/SUPPORTED-ENVIRONMENTS.md",
+        "summary": "Verify docs/SUPPORTED-ENVIRONMENTS.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0196",
+        "path": "{APP_ROOT}/docs/SUPPORTED-ENVIRONMENTS.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/db6ea30e75565e39bb2b1634c5361e5176cf2672471eb012629b680551955c6e",
+        "sha256": "db6ea30e75565e39bb2b1634c5361e5176cf2672471eb012629b680551955c6e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

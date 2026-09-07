@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0447",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/cron/Diagnoses/CRON-0009-PhpPathMissingInSchedule.json",
+        "summary": "Verify doctor/modules/cron/Diagnoses/CRON-0009-PhpPathMissingInSchedule.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0447",
+        "path": "{APP_ROOT}/doctor/modules/cron/Diagnoses/CRON-0009-PhpPathMissingInSchedule.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b578cf6145c8169107fbfacb3e202948e43e47bcaa5293833765562445d27816",
+        "sha256": "b578cf6145c8169107fbfacb3e202948e43e47bcaa5293833765562445d27816",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,29 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0007",
+        "module": "redis",
+        "name": "Restore the missing Redis configuration",
+        "summary": "Restore the missing Redis configuration.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "redis-configuration-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "redis-cli"
+    ],
+    "probe": {
+        "type": "command",
+        "command": [
+            "redis-cli",
+            "INFO",
+            "server"
+        ],
+        "stdout_contains": "config_file:/",
+        "timeout": 10
+    },
+    "failure_status": "WARNING"
+}

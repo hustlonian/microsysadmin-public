@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2020",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2020",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/37c76ccc6b142c1262b9812679d16a29672924e351a031aca7d9df2cf6fb72de",
+        "sha256": "37c76ccc6b142c1262b9812679d16a29672924e351a031aca7d9df2cf6fb72de",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

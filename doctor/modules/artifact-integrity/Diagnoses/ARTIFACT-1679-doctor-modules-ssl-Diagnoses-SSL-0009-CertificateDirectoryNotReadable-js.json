@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1679",
+        "check_id": "ARTIFACT-C1679",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/modules/ssl/Diagnoses/SSL-0009-CertificateDirectoryNotReadable.json",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/modules/ssl/Diagnoses/SSL-0009-CertificateDirectoryNotReadable.json is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 c3c27c5ef88bb80933275b64e3913202dd8a0f1d0e8f20df712ec4ad20385358 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1679"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0057",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Contracts/DatabaseOperationsInterface.php",
+        "summary": "Verify classes/Contracts/DatabaseOperationsInterface.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0057",
+        "path": "{APP_ROOT}/classes/Contracts/DatabaseOperationsInterface.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e78f9cea94ce39a8201786356be4af74f44ea6cdc81df88e0283fa25fe857f7e",
+        "sha256": "e78f9cea94ce39a8201786356be4af74f44ea6cdc81df88e0283fa25fe857f7e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

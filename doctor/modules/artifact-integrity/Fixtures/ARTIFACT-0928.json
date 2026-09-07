@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0928",
+    "artifact": "doctor/modules/mysql/Repairs/MYSQL-0009-MysqlErrorLogMissing.json",
+    "baseline_sha256": "47c6ce708a9d1db51b7404ba4d2f01d1dc494872ad4f67f2b3a2f51df6c512d2",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1930",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/SyslogFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/SyslogFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1930",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/SyslogFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a3c891bf01ed3f0aae3a0f954361cdb9754f8d230d9ff97c7dec70fe555c1856",
+        "sha256": "a3c891bf01ed3f0aae3a0f954361cdb9754f8d230d9ff97c7dec70fe555c1856",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

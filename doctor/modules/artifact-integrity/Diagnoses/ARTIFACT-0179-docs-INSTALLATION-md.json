@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0179",
+        "check_id": "ARTIFACT-C0179",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for docs/INSTALLATION.md",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact docs/INSTALLATION.md is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 909577dc2b87900be557bbd59862e0e7d709348c6f1fc193daea0900e76ee950 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0179"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

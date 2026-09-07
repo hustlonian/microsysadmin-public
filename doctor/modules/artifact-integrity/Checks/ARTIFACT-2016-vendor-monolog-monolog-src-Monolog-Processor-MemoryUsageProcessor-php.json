@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2016",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Processor/MemoryUsageProcessor.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Processor/MemoryUsageProcessor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2016",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Processor/MemoryUsageProcessor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6fd512425072408b1ef59fd71204faca8118755a259ff0a54644c2f5d69d8a22",
+        "sha256": "6fd512425072408b1ef59fd71204faca8118755a259ff0a54644c2f5d69d8a22",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

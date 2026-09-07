@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0001",
+        "module": "redis",
+        "name": "Install the missing Redis client",
+        "summary": "Install the missing Redis client.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "redis-client-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "redis-cli"
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "PHP-C0002",
+        "module": "php",
+        "name": "Upgrade an unsupported PHP runtime",
+        "summary": "Upgrade an unsupported PHP runtime.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "php",
+            "unsupported-php-version"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "php_version",
+        "minimum": "8.2.0"
+    },
+    "failure_status": "FAIL"
+}

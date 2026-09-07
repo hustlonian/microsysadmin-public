@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0080",
+    "artifact": "classes/DisabledHubClient.php",
+    "baseline_sha256": "879834b3927e93ac8cc52edb89c7c9b6cab2b298c55b8d420d9ea659c0b2acd9",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

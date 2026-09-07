@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0005",
+        "module": "redis",
+        "name": "Enable the disabled Redis service",
+        "summary": "Enable the disabled Redis service.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "redis-service-disabled"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_enabled",
+        "service": "redis-server"
+    },
+    "failure_status": "FAIL"
+}

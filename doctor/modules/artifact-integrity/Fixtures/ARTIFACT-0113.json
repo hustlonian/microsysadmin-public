@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0113",
+    "artifact": "classes/OutboundUrlPolicy.php",
+    "baseline_sha256": "7c2882f24e3b4509f6b39e89b117efd4fc9cc6a79c3f14bf6a97aedbfbaf7e53",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

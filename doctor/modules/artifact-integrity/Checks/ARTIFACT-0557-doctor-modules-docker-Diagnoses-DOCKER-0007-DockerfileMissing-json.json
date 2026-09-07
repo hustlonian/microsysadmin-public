@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0557",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/docker/Diagnoses/DOCKER-0007-DockerfileMissing.json",
+        "summary": "Verify doctor/modules/docker/Diagnoses/DOCKER-0007-DockerfileMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0557",
+        "path": "{APP_ROOT}/doctor/modules/docker/Diagnoses/DOCKER-0007-DockerfileMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/fa2996fd6ba4c5ea58288e807bedbb79fe609d1895a221b0adf34ce37fb535cb",
+        "sha256": "fa2996fd6ba4c5ea58288e807bedbb79fe609d1895a221b0adf34ce37fb535cb",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

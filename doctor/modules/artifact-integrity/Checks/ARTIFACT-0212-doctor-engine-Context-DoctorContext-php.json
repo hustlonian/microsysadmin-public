@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0212",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Context/DoctorContext.php",
+        "summary": "Verify doctor/engine/Context/DoctorContext.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0212",
+        "path": "{APP_ROOT}/doctor/engine/Context/DoctorContext.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/e050bf652ae1f8e27bdab62e91474dfcca2c46d4ada7a83e231b10f8389ef2dd",
+        "sha256": "e050bf652ae1f8e27bdab62e91474dfcca2c46d4ada7a83e231b10f8389ef2dd",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

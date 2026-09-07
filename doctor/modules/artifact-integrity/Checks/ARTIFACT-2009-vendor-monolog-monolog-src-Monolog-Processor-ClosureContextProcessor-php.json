@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2009",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Processor/ClosureContextProcessor.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Processor/ClosureContextProcessor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2009",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Processor/ClosureContextProcessor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/31d9ec44cc80c7be34f38e77c89f784625b8b6ab454cd852de2e2a783410f24b",
+        "sha256": "31d9ec44cc80c7be34f38e77c89f784625b8b6ab454cd852de2e2a783410f24b",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

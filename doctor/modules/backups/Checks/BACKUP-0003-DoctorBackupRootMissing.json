@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "BACKUP-C0003",
+        "module": "backups",
+        "name": "Create the missing Doctor recovery root",
+        "summary": "Create the missing Doctor recovery root.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "backups",
+            "doctor-backup-root-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{STORAGE_PATH}/doctor/backups"
+    },
+    "failure_status": "FAIL"
+}

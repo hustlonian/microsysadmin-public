@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0053",
+        "check_id": "ARTIFACT-C0053",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/Contracts/ArtisanOperationsInterface.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/Contracts/ArtisanOperationsInterface.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 448534dfd8c802e08d15856a9b2b942008630c8be90dbf2dd181622bd38d08d1 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0053"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

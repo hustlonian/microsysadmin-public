@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0114",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/PathGuard.php",
+        "summary": "Verify classes/PathGuard.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0114",
+        "path": "{APP_ROOT}/classes/PathGuard.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1ddb09858f28f9b704c37315ff79cd8e4e329d570e91bb47253f064b838362ec",
+        "sha256": "1ddb09858f28f9b704c37315ff79cd8e4e329d570e91bb47253f064b838362ec",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

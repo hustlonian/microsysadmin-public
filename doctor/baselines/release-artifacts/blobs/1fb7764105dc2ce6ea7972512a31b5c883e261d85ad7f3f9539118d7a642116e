@@ -1,0 +1,22 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0008",
+        "module": "security",
+        "name": "Remove default administrator credential exposure",
+        "summary": "Remove default administrator credential exposure.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "default-admin-credential-risk"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_contains",
+        "path": "{PROJECT}/config/config.php",
+        "contains": "'reject_default_credentials' => true"
+    },
+    "failure_status": "FAIL"
+}

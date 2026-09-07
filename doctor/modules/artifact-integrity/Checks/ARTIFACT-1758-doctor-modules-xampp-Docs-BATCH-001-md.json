@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1758",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/xampp/Docs/BATCH-001.md",
+        "summary": "Verify doctor/modules/xampp/Docs/BATCH-001.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1758",
+        "path": "{APP_ROOT}/doctor/modules/xampp/Docs/BATCH-001.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c60dd6ca2d41d18dffb0e960fa356d498e09bb2001be6f86f3af459fcb02ef4a",
+        "sha256": "c60dd6ca2d41d18dffb0e960fa356d498e09bb2001be6f86f3af459fcb02ef4a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

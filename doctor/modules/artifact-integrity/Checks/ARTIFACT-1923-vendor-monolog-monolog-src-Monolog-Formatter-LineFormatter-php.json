@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1923",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Formatter/LineFormatter.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Formatter/LineFormatter.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1923",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Formatter/LineFormatter.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/090d4517489f412e246a82a99135c03e944c0cbc8ed1804b93c5ff126d0bbc98",
+        "sha256": "090d4517489f412e246a82a99135c03e944c0cbc8ed1804b93c5ff126d0bbc98",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

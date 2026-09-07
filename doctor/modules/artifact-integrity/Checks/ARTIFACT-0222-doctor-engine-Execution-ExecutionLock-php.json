@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0222",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/engine/Execution/ExecutionLock.php",
+        "summary": "Verify doctor/engine/Execution/ExecutionLock.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0222",
+        "path": "{APP_ROOT}/doctor/engine/Execution/ExecutionLock.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/119174db3b18439e8f0ee0f3a513ea41656ef9b99737bfc6abd81fd97923fe6f",
+        "sha256": "119174db3b18439e8f0ee0f3a513ea41656ef9b99737bfc6abd81fd97923fe6f",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

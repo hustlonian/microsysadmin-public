@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1801",
+        "check_id": "ARTIFACT-C1801",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for doctor/sdk/Primitives/CrontabPrimitive.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact doctor/sdk/Primitives/CrontabPrimitive.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 95354352a563c91a4c0475fddada6775587dc8773f56b154e6f2064f4959f388 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1801"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

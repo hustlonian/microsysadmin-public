@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0122",
+        "check_id": "ARTIFACT-C0122",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/Security.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/Security.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 4ea57d10a5c17e0dbfe0b491701e3392aeeddecc5eb1a4d481d9e5cbef3533bb with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0122"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

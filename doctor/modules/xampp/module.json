@@ -1,0 +1,11 @@
+{
+    "name": "xampp",
+    "display_name": "XAMPP/LAMPP",
+    "description": "Cause-specific XAMPP/LAMPP diagnostics and repairs.",
+    "version": "1.0.0",
+    "stage": 4,
+    "enabled": true,
+    "repair_prefix": "XAMPP",
+    "minimum_php": "8.2",
+    "repair_inventory": "repair-inventory.json"
+}

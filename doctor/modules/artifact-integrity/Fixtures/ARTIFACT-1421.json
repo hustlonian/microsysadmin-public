@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1421",
+    "artifact": "doctor/modules/queue/Checks/QUEUE-0001-SupervisorctlMissing.json",
+    "baseline_sha256": "227eff40b555b69f43cccd82645180011652c78b88e51769c81b3fc8648687f7",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

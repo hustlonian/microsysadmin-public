@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0643",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/filesystem/Repairs/FILESYSTEM-0004-StorageRootMissing.json",
+        "summary": "Verify doctor/modules/filesystem/Repairs/FILESYSTEM-0004-StorageRootMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0643",
+        "path": "{APP_ROOT}/doctor/modules/filesystem/Repairs/FILESYSTEM-0004-StorageRootMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/96648ea97ccfaa900267c86b14f8b01bfe80f7aa75e7a10e08b8c876bed1a06a",
+        "sha256": "96648ea97ccfaa900267c86b14f8b01bfe80f7aa75e7a10e08b8c876bed1a06a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

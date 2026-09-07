@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1898",
+        "check_id": "ARTIFACT-C1898",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for vendor/composer/autoload_namespaces.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact vendor/composer/autoload_namespaces.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 ede505407590638a435137f4e060136f1008de79fc169b3de9793423b0cea38c with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1898"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1842",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/health-check-cli.php",
+        "summary": "Verify scripts/health-check-cli.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1842",
+        "path": "{APP_ROOT}/scripts/health-check-cli.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/5fbbb06703fb25c932a0cf40b9d64e15f0886ee08eb0b80c4ee0d11c35b609fe",
+        "sha256": "5fbbb06703fb25c932a0cf40b9d64e15f0886ee08eb0b80c4ee0d11c35b609fe",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "REDIS-C0002",
+        "module": "redis",
+        "name": "Install the missing Redis server",
+        "summary": "Install the missing Redis server.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "redis",
+            "redis-server-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "executable_exists",
+        "command": "redis-server"
+    },
+    "failure_status": "FAIL"
+}

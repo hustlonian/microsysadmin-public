@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1447",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/queue/Diagnoses/QUEUE-0007-FailedJobsTableMissing.json",
+        "summary": "Verify doctor/modules/queue/Diagnoses/QUEUE-0007-FailedJobsTableMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1447",
+        "path": "{APP_ROOT}/doctor/modules/queue/Diagnoses/QUEUE-0007-FailedJobsTableMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3293faf40a2c2254972e77628bff034acd2f0392ecd9c00ea4dca82580af932a",
+        "sha256": "3293faf40a2c2254972e77628bff034acd2f0392ecd9c00ea4dca82580af932a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

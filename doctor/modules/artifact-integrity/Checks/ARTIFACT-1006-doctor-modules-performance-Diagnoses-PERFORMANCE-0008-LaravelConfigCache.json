@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1006",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/performance/Diagnoses/PERFORMANCE-0008-LaravelConfigCacheMissing.json",
+        "summary": "Verify doctor/modules/performance/Diagnoses/PERFORMANCE-0008-LaravelConfigCacheMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1006",
+        "path": "{APP_ROOT}/doctor/modules/performance/Diagnoses/PERFORMANCE-0008-LaravelConfigCacheMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/aaceab673c7a6e46c177aa9ecdc64ea2259f359486500dc299d0194ad11db643",
+        "sha256": "aaceab673c7a6e46c177aa9ecdc64ea2259f359486500dc299d0194ad11db643",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

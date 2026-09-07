@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "DNS-C0005",
+        "module": "dns",
+        "name": "Restore the missing hosts file",
+        "summary": "Restore the missing hosts file.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "dns",
+            "hosts-file-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "file_exists",
+        "path": "/etc/hosts"
+    },
+    "failure_status": "FAIL"
+}

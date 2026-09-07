@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0662",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Checks/GIT-0010-UserEmailMissing.json",
+        "summary": "Verify doctor/modules/git/Checks/GIT-0010-UserEmailMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0662",
+        "path": "{APP_ROOT}/doctor/modules/git/Checks/GIT-0010-UserEmailMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/dd43a4bb3819d427b474f91b8ed5cd28b5b174d4153a1db36c1fb98a2f85d451",
+        "sha256": "dd43a4bb3819d427b474f91b8ed5cd28b5b174d4153a1db36c1fb98a2f85d451",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

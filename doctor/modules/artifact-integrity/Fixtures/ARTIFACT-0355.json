@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0355",
+    "artifact": "doctor/modules/backups/Fixtures/BACKUP-0008.json",
+    "baseline_sha256": "3cf1e8f5c0518f5f23d5192b5b4daa5c7b451b016521fc644aa5c04e19b5ed36",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

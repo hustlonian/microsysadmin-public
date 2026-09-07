@@ -1,0 +1,21 @@
+# Security batch 001 implementation report
+
+- Module: security
+- Batch: 001
+- Repair IDs added: SECURITY-0001, SECURITY-0002, SECURITY-0003, SECURITY-0004, SECURITY-0005, SECURITY-0006, SECURITY-0007, SECURITY-0008, SECURITY-0009, SECURITY-0010
+- Checks added: 10
+- Diagnoses added: 10
+- Automated or approval-controlled repairs implemented: 1
+- Report-only findings added: 9
+- Fixtures added: 10
+- Contract test cases added: 10
+- Verification methods added: 10 independent probe replays
+- Rollback methods added: 1
+- Compatibility coverage: Linux, XAMPP/LAMPP, PHP 8.2+, with environment support gates
+- Unsupported conditions: skipped when commands, framework context, queue context, container context, or primary web-server context is absent
+- Safety decisions: destructive and ambiguous operations remain report-only; commands use structured arguments; scoped mutations are locked and verified
+- Remaining long-term inventory target: 110 checks and 40 repairs
+- Recommended next batch: add the next highest-value distribution/version-specific causes without reusing IDs
+- Files changed: module manifest, Module.php, 10 check units, 10 diagnosis units, 10 repair/report units, 10 fixtures, 10 documentation pages, inventory, test cases, README
+- Commands required to test: `/opt/lampp/bin/php doctor/tests/run.php` and `doctor/bin/doctor scan --module=security`
+- Test results: recorded in `doctor/reports/IMPLEMENTATION-REPORT-2026-08-01.md`; this file does not fabricate future results.

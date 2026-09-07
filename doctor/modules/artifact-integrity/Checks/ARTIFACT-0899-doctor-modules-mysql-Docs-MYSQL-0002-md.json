@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0899",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mysql/Docs/MYSQL-0002.md",
+        "summary": "Verify doctor/modules/mysql/Docs/MYSQL-0002.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0899",
+        "path": "{APP_ROOT}/doctor/modules/mysql/Docs/MYSQL-0002.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4d5033dcdf20c1eabf244e2a8e4938e7ba5374497f096a4b9737d1b889c15651",
+        "sha256": "4d5033dcdf20c1eabf244e2a8e4938e7ba5374497f096a4b9737d1b889c15651",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

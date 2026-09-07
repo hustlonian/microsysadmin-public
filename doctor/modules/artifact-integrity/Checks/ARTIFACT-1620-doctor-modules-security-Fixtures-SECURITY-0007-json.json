@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1620",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/security/Fixtures/SECURITY-0007.json",
+        "summary": "Verify doctor/modules/security/Fixtures/SECURITY-0007.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1620",
+        "path": "{APP_ROOT}/doctor/modules/security/Fixtures/SECURITY-0007.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f2c7df61f2f253c4dcdc2d2c96fe31b2a4571f03ebba06431b09ac9f84d890cb",
+        "sha256": "f2c7df61f2f253c4dcdc2d2c96fe31b2a4571f03ebba06431b09ac9f84d890cb",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

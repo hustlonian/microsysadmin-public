@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0082",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Drivers/SystemdServiceControlDriver.php",
+        "summary": "Verify classes/Drivers/SystemdServiceControlDriver.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0082",
+        "path": "{APP_ROOT}/classes/Drivers/SystemdServiceControlDriver.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/95b2d8ecf3b814f24239a3b5b9351e95dad2dfb4ae073127e5dc29f5819dc122",
+        "sha256": "95b2d8ecf3b814f24239a3b5b9351e95dad2dfb4ae073127e5dc29f5819dc122",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

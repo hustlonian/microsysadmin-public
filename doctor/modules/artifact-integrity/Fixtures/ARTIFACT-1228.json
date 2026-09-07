@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1228",
+    "artifact": "doctor/modules/linux/Commercial/LINUX-0004.json",
+    "baseline_sha256": "7751e3a8fc881aff46b8902ad0f6ccc1d394017e5f1241d4118f6af584e8aa8f",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

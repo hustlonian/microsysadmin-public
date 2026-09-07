@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1467",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/queue/Fixtures/QUEUE-0006.json",
+        "summary": "Verify doctor/modules/queue/Fixtures/QUEUE-0006.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1467",
+        "path": "{APP_ROOT}/doctor/modules/queue/Fixtures/QUEUE-0006.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/f44650645cab92046e6de5c872eba8d88c864088d5cec01b587616aa43d146ee",
+        "sha256": "f44650645cab92046e6de5c872eba8d88c864088d5cec01b587616aa43d146ee",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

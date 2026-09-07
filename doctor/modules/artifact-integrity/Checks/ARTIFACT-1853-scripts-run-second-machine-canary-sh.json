@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1853",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact scripts/run-second-machine-canary.sh",
+        "summary": "Verify scripts/run-second-machine-canary.sh against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1853",
+        "path": "{APP_ROOT}/scripts/run-second-machine-canary.sh",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/965fa91853e6dc1f5ac4c59b9c2668bfc1c50f88d5caf2efaa0027dd10bfc717",
+        "sha256": "965fa91853e6dc1f5ac4c59b9c2668bfc1c50f88d5caf2efaa0027dd10bfc717",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

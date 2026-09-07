@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1813",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/sdk/Support/FileSnapshotManager.php",
+        "summary": "Verify doctor/sdk/Support/FileSnapshotManager.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1813",
+        "path": "{APP_ROOT}/doctor/sdk/Support/FileSnapshotManager.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3affe3de1f26041a17080a4cdf8b5b35b837866af08d547e8641abd83b6a2a5d",
+        "sha256": "3affe3de1f26041a17080a4cdf8b5b35b837866af08d547e8641abd83b6a2a5d",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

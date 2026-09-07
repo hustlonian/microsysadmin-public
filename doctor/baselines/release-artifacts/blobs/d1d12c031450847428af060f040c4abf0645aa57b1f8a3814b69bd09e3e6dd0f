@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "XAMPP-D0002",
+        "check_id": "XAMPP-C0002",
+        "module": "xampp",
+        "name": "Restore the missing XAMPP installation root diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Restore the missing XAMPP installation root.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed xampp root missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "XAMPP-0002"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

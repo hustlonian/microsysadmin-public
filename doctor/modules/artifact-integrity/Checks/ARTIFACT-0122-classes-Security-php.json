@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0122",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/Security.php",
+        "summary": "Verify classes/Security.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0122",
+        "path": "{APP_ROOT}/classes/Security.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4ea57d10a5c17e0dbfe0b491701e3392aeeddecc5eb1a4d481d9e5cbef3533bb",
+        "sha256": "4ea57d10a5c17e0dbfe0b491701e3392aeeddecc5eb1a4d481d9e5cbef3533bb",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

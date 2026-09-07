@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C2018",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact vendor/monolog/monolog/src/Monolog/Processor/ProcessIdProcessor.php",
+        "summary": "Verify vendor/monolog/monolog/src/Monolog/Processor/ProcessIdProcessor.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-2018",
+        "path": "{APP_ROOT}/vendor/monolog/monolog/src/Monolog/Processor/ProcessIdProcessor.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7c8ccc3afa7d1c28442b449c9e9bbfc4b2a3cccaafcd71c338b58cca3efd70c8",
+        "sha256": "7c8ccc3afa7d1c28442b449c9e9bbfc4b2a3cccaafcd71c338b58cca3efd70c8",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

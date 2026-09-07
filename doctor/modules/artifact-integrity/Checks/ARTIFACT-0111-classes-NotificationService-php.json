@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0111",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/NotificationService.php",
+        "summary": "Verify classes/NotificationService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0111",
+        "path": "{APP_ROOT}/classes/NotificationService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/608b2da2f7296fd48eabe3f3cb047676e8a61636741c00824f2900cf8a3ba339",
+        "sha256": "608b2da2f7296fd48eabe3f3cb047676e8a61636741c00824f2900cf8a3ba339",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

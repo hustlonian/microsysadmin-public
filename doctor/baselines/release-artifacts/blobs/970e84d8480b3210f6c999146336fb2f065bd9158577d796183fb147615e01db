@@ -1,0 +1,28 @@
+{
+    "metadata": {
+        "check_id": "APACHE-C0009",
+        "module": "apache",
+        "name": "Resolve an unavailable Apache HTTPS listener",
+        "summary": "Resolve an unavailable Apache HTTPS listener.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "apache",
+            "https-port-unavailable"
+        ]
+    },
+    "supports": {
+        "primary_web_server": [
+            "apache",
+            "xampp"
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "tcp_connect",
+        "host": "127.0.0.1",
+        "port": 443,
+        "timeout": 1
+    },
+    "failure_status": "FAIL"
+}

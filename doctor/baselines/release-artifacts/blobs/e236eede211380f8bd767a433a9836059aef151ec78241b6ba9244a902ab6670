@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "MYSQL-C0007",
+        "module": "mysql",
+        "name": "Restore the missing XAMPP MySQL data directory",
+        "summary": "Restore the missing XAMPP MySQL data directory.",
+        "severity": "CRITICAL",
+        "version": "1.0.0",
+        "tags": [
+            "mysql",
+            "mysql-data-directory-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "/opt/lampp/var/mysql"
+    },
+    "failure_status": "FAIL"
+}

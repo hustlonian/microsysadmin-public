@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0699",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Repairs/GIT-0004-MergeConflictInProgress.json",
+        "summary": "Verify doctor/modules/git/Repairs/GIT-0004-MergeConflictInProgress.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0699",
+        "path": "{APP_ROOT}/doctor/modules/git/Repairs/GIT-0004-MergeConflictInProgress.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6ec126b48e2167bc08694e5242817b06196a6a949bb6c7da2b6161d95b2fd7e1",
+        "sha256": "6ec126b48e2167bc08694e5242817b06196a6a949bb6c7da2b6161d95b2fd7e1",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

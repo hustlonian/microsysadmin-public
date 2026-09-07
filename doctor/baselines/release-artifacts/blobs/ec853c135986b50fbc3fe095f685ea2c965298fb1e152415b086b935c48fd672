@@ -1,0 +1,48 @@
+{
+    "metadata": {
+        "diagnosis_id": "LARAVEL-D0001",
+        "check_id": "LARAVEL-C0001",
+        "module": "laravel",
+        "name": "Create a missing Laravel environment file safely diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Create a missing Laravel environment file safely.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed environment file missing condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "LARAVEL-0001"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "When .env.example exists, Doctor can copy that exact local template to the missing .env path, verify file creation, and remove only its hash-matching output during rollback."
+    },
+    "repair_generation": {
+        "repair_id": "LARAVEL-0001",
+        "name": "Create a missing Laravel environment file safely",
+        "automation_class": "APPROVAL_REQUIRED",
+        "risk_level": "MEDIUM",
+        "detection": {
+            "type": "file_from_template_state",
+            "path": "{PROJECT}/.env",
+            "source": "{PROJECT}/.env.example"
+        },
+        "action": {
+            "type": "copy_file",
+            "source": "{PROJECT}/.env.example",
+            "path": "{PROJECT}/.env",
+            "mode": 416
+        },
+        "files_modified": [
+            "{PROJECT}/.env"
+        ],
+        "required_permissions": [
+            "create the missing project environment file"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "commercial_tier": "professional",
+        "support_issue_family": "laravel-bootstrap"
+    }
+}

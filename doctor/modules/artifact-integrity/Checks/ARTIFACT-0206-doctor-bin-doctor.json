@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0206",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/bin/doctor",
+        "summary": "Verify doctor/bin/doctor against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0206",
+        "path": "{APP_ROOT}/doctor/bin/doctor",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d218195408c6cb81e0b93a5c4274f57242be567c3e9178a925504b6a8bab6741",
+        "sha256": "d218195408c6cb81e0b93a5c4274f57242be567c3e9178a925504b6a8bab6741",
+        "mode": 493
+    },
+    "failure_status": "FAIL"
+}

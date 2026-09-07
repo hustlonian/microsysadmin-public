@@ -1,0 +1,125 @@
+{
+    "metadata": {
+        "repair_id": "LARAVEL-0001",
+        "module": "laravel",
+        "name": "Create a missing Laravel environment file safely",
+        "summary": "Create a missing Laravel environment file safely.",
+        "problem_description": "Create a missing Laravel environment file safely.",
+        "symptoms": [
+            "Create a missing Laravel environment file safely."
+        ],
+        "probable_causes": [
+            "The observed environment file missing condition differs from the required state."
+        ],
+        "severity": "CRITICAL",
+        "risk_level": "MEDIUM",
+        "automation_class": "APPROVAL_REQUIRED",
+        "default_execution_policy": "manual",
+        "supported_operating_systems": [
+            "Linux"
+        ],
+        "supported_distributions": [
+            "Debian",
+            "Ubuntu",
+            "RHEL-family",
+            "XAMPP/LAMPP"
+        ],
+        "supported_versions": [
+            "actively supported releases"
+        ],
+        "supported_web_servers": [
+            "Apache",
+            "Nginx",
+            "XAMPP/LAMPP"
+        ],
+        "supported_php_versions": [
+            "8.2+"
+        ],
+        "supported_framework_versions": [
+            "Laravel 9+"
+        ],
+        "required_commands": [],
+        "required_packages": [],
+        "required_permissions": [
+            "create the missing project environment file"
+        ],
+        "required_services": [],
+        "dependencies": [],
+        "conflicts": [],
+        "files_read": [
+            "{PROJECT}/.env",
+            "{PROJECT}/.env.example"
+        ],
+        "files_modified": [
+            "{PROJECT}/.env"
+        ],
+        "directories_modified": [],
+        "services_affected": [],
+        "packages_affected": [],
+        "databases_affected": [],
+        "network_effects": [],
+        "backup_strategy": "primitive-owned exact rollback",
+        "rollback_supported": true,
+        "destructive": false,
+        "estimated_duration": "<1 minute",
+        "verification_method": "Re-run the independent LARAVEL-C0001 probe after execution.",
+        "repair_version": "1.0.0",
+        "introduced_in": "1.0.0",
+        "deprecated": false,
+        "replacement_repair_id": null,
+        "tags": [
+            "laravel",
+            "environment-file-missing",
+            "sdk-generated",
+            "copy_file"
+        ],
+        "documentation_reference": "modules/laravel/Docs/LARAVEL-0001.md",
+        "commercial_tier": "professional",
+        "customer_impact": "restores a bounded supported state",
+        "support_issue_family": "laravel-bootstrap",
+        "safety_review": "contract-ready"
+    },
+    "confidence": 0.9499999999999999555910790149937383830547332763671875,
+    "detection": {
+        "type": "file_from_template_state",
+        "path": "{PROJECT}/.env",
+        "source": "{PROJECT}/.env.example"
+    },
+    "actions": [
+        {
+            "type": "copy_file",
+            "source": "{PROJECT}/.env.example",
+            "path": "{PROJECT}/.env",
+            "mode": 416,
+            "description": "Create a missing Laravel environment file safely."
+        }
+    ],
+    "backup_paths": [],
+    "verification": {
+        "type": "file_exists",
+        "path": "{PROJECT}/.env"
+    },
+    "rollback": {
+        "supported": true,
+        "strategy": "primitive-owned exact rollback",
+        "primitive": "copy_file",
+        "compensating_action": null
+    },
+    "audit": {
+        "event_namespace": "doctor.repair.laravel-0001",
+        "primitive": "copy_file",
+        "record_plan_hash": true,
+        "record_backup_manifest": true,
+        "record_verification": true,
+        "redaction_required": true
+    },
+    "commercial": {
+        "tier": "professional",
+        "support_issue_family": "laravel-bootstrap",
+        "deterministic": true,
+        "bounded": true,
+        "reversible": true,
+        "independently_verifiable": true,
+        "quality_status": "contract-ready"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1652",
+    "artifact": "doctor/modules/ssl/Checks/SSL-0002-CertificateFileMissing.json",
+    "baseline_sha256": "a2d87044f3682e2f9d3783906b7a7c9c1bf59f29ed0ff212d0e95c4417e00e6b",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

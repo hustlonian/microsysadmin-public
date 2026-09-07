@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1596",
+    "artifact": "doctor/modules/security/Diagnoses/SECURITY-0004-SshConfigurationMissing.json",
+    "baseline_sha256": "2227909350c12e6f77a87c6cf060bfaf509878bc6ab4c34bafde3c692aac0d57",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

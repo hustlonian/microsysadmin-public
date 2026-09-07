@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1346",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/Checks/PHP-0002-UnsupportedPhpVersion.json",
+        "summary": "Verify doctor/modules/php/Checks/PHP-0002-UnsupportedPhpVersion.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1346",
+        "path": "{APP_ROOT}/doctor/modules/php/Checks/PHP-0002-UnsupportedPhpVersion.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/69ef1021b7ee9c331a2199edeaa58faa573d855d1db8f37e98766f3dc4cd3c94",
+        "sha256": "69ef1021b7ee9c331a2199edeaa58faa573d855d1db8f37e98766f3dc4cd3c94",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

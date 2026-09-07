@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0168",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/COMMERCIAL-DEPLOYMENT.md",
+        "summary": "Verify docs/COMMERCIAL-DEPLOYMENT.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0168",
+        "path": "{APP_ROOT}/docs/COMMERCIAL-DEPLOYMENT.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3022656630dc4fd5ef47cf937afc5f06f85b57061d6a9763a86c20f9df34d238",
+        "sha256": "3022656630dc4fd5ef47cf937afc5f06f85b57061d6a9763a86c20f9df34d238",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

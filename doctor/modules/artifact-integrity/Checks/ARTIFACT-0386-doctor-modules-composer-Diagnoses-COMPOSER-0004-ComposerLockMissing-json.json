@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0386",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/composer/Diagnoses/COMPOSER-0004-ComposerLockMissing.json",
+        "summary": "Verify doctor/modules/composer/Diagnoses/COMPOSER-0004-ComposerLockMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0386",
+        "path": "{APP_ROOT}/doctor/modules/composer/Diagnoses/COMPOSER-0004-ComposerLockMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0c2d318f9b0900bdcfab659bc0be455f45ec34e0b6394f088a4853e33981fcd0",
+        "sha256": "0c2d318f9b0900bdcfab659bc0be455f45ec34e0b6394f088a4853e33981fcd0",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

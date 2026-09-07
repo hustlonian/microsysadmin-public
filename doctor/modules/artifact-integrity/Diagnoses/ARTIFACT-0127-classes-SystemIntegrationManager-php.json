@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D0127",
+        "check_id": "ARTIFACT-C0127",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for classes/SystemIntegrationManager.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact classes/SystemIntegrationManager.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 1aa646e0f2655936c0b1f3e02f791cc026b0da6f67730178b117ee552511f899 with mode 0644.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-0127"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

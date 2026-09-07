@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "SSL-D0010",
+        "check_id": "SSL-C0010",
+        "module": "ssl",
+        "name": "Correct unsafe TLS private-key directory permissions diagnosis",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Correct unsafe TLS private-key directory permissions.",
+        "expected_state": "The narrowly checked condition passes.",
+        "probable_cause": "The observed private key directory unsafe condition differs from the required state.",
+        "confidence": 0.95,
+        "related_repair_ids": [
+            "SSL-0010"
+        ],
+        "automation_allowed": false,
+        "automation_reason": "Execution is withheld because evidence, intent, or data-safety requirements require an operator decision."
+    }
+}

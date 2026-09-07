@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0789",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/linux/Docs/LINUX-0004.md",
+        "summary": "Verify doctor/modules/linux/Docs/LINUX-0004.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0789",
+        "path": "{APP_ROOT}/doctor/modules/linux/Docs/LINUX-0004.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7eac273d442b8c2bc194175b93068ed7d82c75951f7f79996e57c03150dec052",
+        "sha256": "7eac273d442b8c2bc194175b93068ed7d82c75951f7f79996e57c03150dec052",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

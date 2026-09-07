@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0867",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/Repairs/MAIL-0004-PostfixServiceStopped.json",
+        "summary": "Verify doctor/modules/mail/Repairs/MAIL-0004-PostfixServiceStopped.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0867",
+        "path": "{APP_ROOT}/doctor/modules/mail/Repairs/MAIL-0004-PostfixServiceStopped.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2dbf3944c44e32dea3fd5070ba090e0501bdddb842b5f9ef147130a1dfe78b0a",
+        "sha256": "2dbf3944c44e32dea3fd5070ba090e0501bdddb842b5f9ef147130a1dfe78b0a",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

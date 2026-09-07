@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1180",
+    "artifact": "doctor/modules/git/Changelog/GIT-0008.md",
+    "baseline_sha256": "77bca0b0bc412170ec63ea16d7368910a122c91ef74e2e972cbefa1cd8b5c41e",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

@@ -1,0 +1,21 @@
+{
+    "metadata": {
+        "check_id": "SECURITY-C0006",
+        "module": "security",
+        "name": "Restore the missing audit-log directory",
+        "summary": "Restore the missing audit-log directory.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "security",
+            "audit-log-directory-missing"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [],
+    "probe": {
+        "type": "directory_exists",
+        "path": "{STORAGE_PATH}/logs"
+    },
+    "failure_status": "FAIL"
+}

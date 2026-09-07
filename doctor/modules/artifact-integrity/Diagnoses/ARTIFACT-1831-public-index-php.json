@@ -1,0 +1,20 @@
+{
+    "metadata": {
+        "diagnosis_id": "ARTIFACT-D1831",
+        "check_id": "ARTIFACT-C1831",
+        "module": "artifact-integrity",
+        "name": "Diagnose managed artifact drift for public/index.php",
+        "version": "1.0.0"
+    },
+    "diagnosis": {
+        "condition": "Managed release artifact public/index.php is missing, modified, or has the wrong mode.",
+        "expected_state": "SHA-256 0ed26f7d8a773c164dab9b07691532531e97fd15e9864cc8afd83037dbeea1af with mode 0664.",
+        "probable_cause": "Local release artifact drift occurred after installation or update.",
+        "confidence": 1,
+        "related_repair_ids": [
+            "ARTIFACT-1831"
+        ],
+        "automation_allowed": true,
+        "automation_reason": "The exact application-owned target, local baseline blob, hash, mode, backup, rollback, and verification are predetermined."
+    }
+}

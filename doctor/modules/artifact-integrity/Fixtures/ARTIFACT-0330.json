@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0330",
+    "artifact": "doctor/modules/backups/Diagnoses/BACKUP-0004-DatabaseBackupToolMissing.json",
+    "baseline_sha256": "c4f79f31908fcf3a6aeed5b42bf7fa90560de79645ed2c1113029013d8b78b01",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

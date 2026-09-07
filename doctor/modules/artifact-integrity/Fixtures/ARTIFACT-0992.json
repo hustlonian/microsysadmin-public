@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-0992",
+    "artifact": "doctor/modules/performance/Checks/PERFORMANCE-0004-PhpMemoryLimitTooLow.json",
+    "baseline_sha256": "902dae379bc55683bc2fae82ce5ad5ed2695dc0c0bb5e484a9251e5dd559dc4a",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

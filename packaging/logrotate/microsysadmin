@@ -1,0 +1,10 @@
+"@MICROSYSADMIN_STORAGE_ROOT@/logs"/*.log {
+    daily
+    rotate 14
+    compress
+    delaycompress
+    missingok
+    notifempty
+    copytruncate
+    su @MICROSYSADMIN_USER@ @MICROSYSADMIN_GROUP@
+}

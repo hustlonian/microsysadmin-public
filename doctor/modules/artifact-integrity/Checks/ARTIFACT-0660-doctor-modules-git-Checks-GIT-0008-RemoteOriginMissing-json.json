@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0660",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/git/Checks/GIT-0008-RemoteOriginMissing.json",
+        "summary": "Verify doctor/modules/git/Checks/GIT-0008-RemoteOriginMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0660",
+        "path": "{APP_ROOT}/doctor/modules/git/Checks/GIT-0008-RemoteOriginMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/13bcabd41098a6e129986959bd1a9b3edcac2408bc5630b01a084fdd06767002",
+        "sha256": "13bcabd41098a6e129986959bd1a9b3edcac2408bc5630b01a084fdd06767002",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

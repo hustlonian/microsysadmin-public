@@ -1,0 +1,42 @@
+[
+    {
+        "repair_id": "FILESYSTEM-0001",
+        "fixture": "../Fixtures/FILESYSTEM-0001.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "FILESYSTEM-0002",
+        "fixture": "../Fixtures/FILESYSTEM-0002.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "FILESYSTEM-0004",
+        "fixture": "../Fixtures/FILESYSTEM-0004.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "FILESYSTEM-0005",
+        "fixture": "../Fixtures/FILESYSTEM-0005.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "FILESYSTEM-0007",
+        "fixture": "../Fixtures/FILESYSTEM-0007.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "FILESYSTEM-0008",
+        "fixture": "../Fixtures/FILESYSTEM-0008.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "FILESYSTEM-0009",
+        "fixture": "../Fixtures/FILESYSTEM-0009.json",
+        "contract_suite": "doctor/tests/run.php"
+    },
+    {
+        "repair_id": "FILESYSTEM-0010",
+        "fixture": "../Fixtures/FILESYSTEM-0010.json",
+        "contract_suite": "doctor/tests/run.php"
+    }
+]

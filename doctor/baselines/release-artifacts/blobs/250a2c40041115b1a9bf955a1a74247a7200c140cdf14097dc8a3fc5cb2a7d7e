@@ -1,0 +1,43 @@
+{
+    "repair_id": "SECURITY-0007",
+    "lifecycle": [
+        "detect-failure",
+        "diagnose",
+        "plan",
+        "backup",
+        "execute",
+        "verify-pass",
+        "rollback",
+        "verify-failure-again"
+    ],
+    "primitive_descriptor": {
+        "type": "set_env_value",
+        "category": "configuration",
+        "local_only": true,
+        "structured_arguments": true,
+        "reversible": true,
+        "rollback": "secret-safe exact file snapshot with post-repair hash guard",
+        "internal_backup": true,
+        "safety_class": "allowlisted-production-dotenv-transition",
+        "required_fields": [
+            "repair_id",
+            "path",
+            "key",
+            "value",
+            "guard_key",
+            "guard_value"
+        ],
+        "allowed_key_values": {
+            "APP_DEBUG": [
+                "false"
+            ]
+        }
+    },
+    "prohibited": [
+        "shell-string-command",
+        "unbounded-path",
+        "missing-verification",
+        "missing-rollback",
+        "network-without-declaration"
+    ]
+}

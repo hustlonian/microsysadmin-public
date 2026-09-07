@@ -1,0 +1,19 @@
+{
+    "repair_id": "ARTIFACT-1707",
+    "artifact": "doctor/modules/ssl/Repairs/SSL-0004-CertificateExpired.json",
+    "baseline_sha256": "158d341c0b3789174b7a338e157fad68130c8c9d305b17033e7ab794a1d9a253",
+    "mode": "0644",
+    "time_forward_horizons": [
+        "2027-01-15T00:00:00Z",
+        "2028-07-01T12:00:00Z",
+        "2031-01-01T00:00:00Z"
+    ],
+    "scenarios": {
+        "healthy": "exact hash and mode pass",
+        "content_drift": "modified bytes fail, restore, verify, and rollback",
+        "missing": "missing file fails, restore, verify, and hash-guarded rollback",
+        "mode_drift": "wrong mode fails and exact mode is restored"
+    },
+    "network_access": false,
+    "external_interaction": false
+}

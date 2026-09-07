@@ -1,0 +1,23 @@
+{
+    "metadata": {
+        "check_id": "CRON-C0003",
+        "module": "cron",
+        "name": "Enable the disabled cron scheduler service",
+        "summary": "Enable the disabled cron scheduler service.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "cron",
+            "cron-service-disabled"
+        ]
+    },
+    "supports": [],
+    "requires_commands": [
+        "systemctl"
+    ],
+    "probe": {
+        "type": "service_enabled",
+        "service": "cron"
+    },
+    "failure_status": "FAIL"
+}

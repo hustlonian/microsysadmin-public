@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1549",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/redis/README.md",
+        "summary": "Verify doctor/modules/redis/README.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1549",
+        "path": "{APP_ROOT}/doctor/modules/redis/README.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d736f824c727f45657b98c06291c9c8fe8426a4046668564b90ee6325212f691",
+        "sha256": "d736f824c727f45657b98c06291c9c8fe8426a4046668564b90ee6325212f691",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

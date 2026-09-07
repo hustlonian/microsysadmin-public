@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0875",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/mail/module.json",
+        "summary": "Verify doctor/modules/mail/module.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0875",
+        "path": "{APP_ROOT}/doctor/modules/mail/module.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/92aec0af440b6d9eed9e7ce4159c7a1978aa9676d9b305a1cb004e54d1bbe366",
+        "sha256": "92aec0af440b6d9eed9e7ce4159c7a1978aa9676d9b305a1cb004e54d1bbe366",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

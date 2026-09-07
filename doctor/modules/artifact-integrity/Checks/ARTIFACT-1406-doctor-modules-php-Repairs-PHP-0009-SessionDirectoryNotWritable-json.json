@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1406",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/php/Repairs/PHP-0009-SessionDirectoryNotWritable.json",
+        "summary": "Verify doctor/modules/php/Repairs/PHP-0009-SessionDirectoryNotWritable.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1406",
+        "path": "{APP_ROOT}/doctor/modules/php/Repairs/PHP-0009-SessionDirectoryNotWritable.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/6f4120d5c51bb379fffde2c00a072c05afed4040d2c651a6b1d57d3ea6f6c17e",
+        "sha256": "6f4120d5c51bb379fffde2c00a072c05afed4040d2c651a6b1d57d3ea6f6c17e",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

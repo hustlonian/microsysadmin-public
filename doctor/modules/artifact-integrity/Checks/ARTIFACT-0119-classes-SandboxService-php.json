@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0119",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact classes/SandboxService.php",
+        "summary": "Verify classes/SandboxService.php against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0119",
+        "path": "{APP_ROOT}/classes/SandboxService.php",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/3fb45ec0cfaa964298624153ed483d7b188b85d804427f3f4c22b1dfa4dd147c",
+        "sha256": "3fb45ec0cfaa964298624153ed483d7b188b85d804427f3f4c22b1dfa4dd147c",
+        "mode": 436
+    },
+    "failure_status": "FAIL"
+}

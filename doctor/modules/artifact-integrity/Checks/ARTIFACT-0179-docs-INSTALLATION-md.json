@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C0179",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact docs/INSTALLATION.md",
+        "summary": "Verify docs/INSTALLATION.md against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-0179",
+        "path": "{APP_ROOT}/docs/INSTALLATION.md",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/909577dc2b87900be557bbd59862e0e7d709348c6f1fc193daea0900e76ee950",
+        "sha256": "909577dc2b87900be557bbd59862e0e7d709348c6f1fc193daea0900e76ee950",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}

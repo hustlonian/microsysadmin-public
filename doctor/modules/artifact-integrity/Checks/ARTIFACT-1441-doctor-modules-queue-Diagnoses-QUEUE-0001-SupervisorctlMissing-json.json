@@ -1,0 +1,30 @@
+{
+    "metadata": {
+        "check_id": "ARTIFACT-C1441",
+        "module": "artifact-integrity",
+        "name": "Restore managed artifact doctor/modules/queue/Diagnoses/QUEUE-0001-SupervisorctlMissing.json",
+        "summary": "Verify doctor/modules/queue/Diagnoses/QUEUE-0001-SupervisorctlMissing.json against its immutable local release baseline.",
+        "severity": "HIGH",
+        "version": "1.0.0",
+        "tags": [
+            "artifact-integrity",
+            "local-only",
+            "time-forward"
+        ]
+    },
+    "supports": {
+        "managed_release_integrity": [
+            true
+        ]
+    },
+    "requires_commands": [],
+    "probe": {
+        "type": "managed_artifact_integrity",
+        "repair_id": "ARTIFACT-1441",
+        "path": "{APP_ROOT}/doctor/modules/queue/Diagnoses/QUEUE-0001-SupervisorctlMissing.json",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/0d1f7a7020c303244bfe803f96551bd700a25b63b410ba96a7c6d1d32307de63",
+        "sha256": "0d1f7a7020c303244bfe803f96551bd700a25b63b410ba96a7c6d1d32307de63",
+        "mode": 420
+    },
+    "failure_status": "FAIL"
+}
