@@ -10,7 +10,7 @@
     "retired_count": 150,
     "retired_directory_count": 1,
     "retired_directory_mode_repair_count": 0,
-    "catalog_revision": "14f728fc4fbc47d5df89fd97950186e8335cc52b9031a2778585b4ac8f590aff",
+    "catalog_revision": "07ae5fa3996d3f4836d0d52dd56d224185cc26d85b07cafe2be80b85882ea00b",
     "selection": {
         "strategy": "all_eligible_release_files_locked_vendor_and_cause_specific_directory_topology",
         "provenance": {
@@ -30677,10 +30677,10 @@
             "check_id": "ARTIFACT-C1846",
             "diagnosis_id": "ARTIFACT-D1846",
             "path": "scripts/installer-lib.sh",
-            "baseline": "doctor/baselines/release-artifacts/blobs/2402ee647983a9f4324c6d36a1dafd496775a49b51eb12cd26f2311ba53d39fe",
-            "sha256": "2402ee647983a9f4324c6d36a1dafd496775a49b51eb12cd26f2311ba53d39fe",
+            "baseline": "doctor/baselines/release-artifacts/blobs/b1caa61e54ccd8f81f5cb5a2a8ca459c821c35683bc1f2674198390d8cd1e62e",
+            "sha256": "b1caa61e54ccd8f81f5cb5a2a8ca459c821c35683bc1f2674198390d8cd1e62e",
             "mode": 493,
-            "size": 59005,
+            "size": 59128,
             "definition_files": [
                 "Checks/ARTIFACT-1846-scripts-installer-lib-sh.json",
                 "Diagnoses/ARTIFACT-1846-scripts-installer-lib-sh.json",

@@ -796,6 +796,8 @@ lp_install_dependencies() {
     lp_install_composer
     mkdir -p "$LP_PRIVATE_ROOT/composer"
     chmod 0770 "$LP_PRIVATE_ROOT/composer"
+    "$LP_PHP_BINARY" "$LP_INSTALL_ROOT/scripts/materialize-locked-composer-vendor.php" \
+        "--root=$LP_INSTALL_ROOT"
     "$LP_PHP_BINARY" "$LP_INSTALL_ROOT/scripts/verify-locked-composer-vendor.php" \
         "--root=$LP_INSTALL_ROOT"
     "$LP_PHP_BINARY" "$LP_COMPOSER_BINARY" validate \

@@ -44,6 +44,46 @@ expect_failure "unsupported operating system is rejected" "Unsupported operating
 expect_failure "insufficient disk is rejected" "Insufficient disk space" \
     env MICROSYSADMIN_MIN_DISK_MB=999999999 "$source_root/install.sh" --check
 
+dependency_root="$test_root/fresh-dependencies"
+mkdir -p "$dependency_root/scripts" "$dependency_root/doctor/sdk/Generation" "$dependency_root/doctor/baselines"
+cp "$source_root/composer.json" "$source_root/composer.lock" "$dependency_root/"
+cp "$source_root/scripts/materialize-locked-composer-vendor.php" "$source_root/scripts/verify-locked-composer-vendor.php" "$dependency_root/scripts/"
+cp "$source_root/doctor/sdk/Generation/LockedComposerVendorCatalog.php" "$dependency_root/doctor/sdk/Generation/"
+cp "$source_root/doctor/baselines/locked-composer-vendor.json" "$dependency_root/doctor/baselines/"
+php_binary="${MICROSYSADMIN_PHP_BINARY:-}"
+if [[ -z "$php_binary" ]]; then
+    if [[ -x /opt/lampp/bin/php ]]; then php_binary=/opt/lampp/bin/php
+    else php_binary="$(command -v php)"
+    fi
+fi
+# Only locked dependency blobs are needed to reproduce a clone without vendor/.
+# shellcheck disable=SC2016
+"$php_binary" -r '
+    $manifest = json_decode(file_get_contents($argv[1] . "/doctor/baselines/locked-composer-vendor.json"), true, 512, JSON_THROW_ON_ERROR);
+    foreach ($manifest["artifacts"] as $artifact) {
+        $target = $argv[2] . "/" . $artifact["baseline"];
+        if (!is_dir(dirname($target))) { mkdir(dirname($target), 0755, true); }
+        if (!copy($argv[1] . "/" . $artifact["baseline"], $target)) { exit(1); }
+    }
+' "$source_root" "$dependency_root"
+# shellcheck disable=SC2016
+if env TEST_SOURCE_ROOT="$source_root" TEST_DEPENDENCY_ROOT="$dependency_root" TEST_PHP_BINARY="$php_binary" bash -c '
+    set -Eeuo pipefail
+    source "$TEST_SOURCE_ROOT/scripts/installer-lib.sh"
+    LP_INSTALL_ROOT="$TEST_DEPENDENCY_ROOT"
+    LP_PRIVATE_ROOT="$TEST_DEPENDENCY_ROOT/private"
+    LP_PHP_BINARY="$TEST_PHP_BINARY"
+    [[ ! -e "$LP_INSTALL_ROOT/vendor" ]]
+    lp_install_dependencies
+    [[ -f "$LP_INSTALL_ROOT/vendor/autoload.php" ]]
+    lp_install_dependencies
+' > "$test_root/dependencies.log" 2>&1; then
+    pass "fresh clone restores and verifies locked dependencies idempotently"
+else
+    sed -n '1,30p' "$test_root/dependencies.log" >&2
+    fail "fresh clone restores and verifies locked dependencies idempotently"
+fi
+
 secret_marker="Installer-Secret-Must-Remain-Redacted-91!"
 set +e
 secret_output="$("$source_root/install.sh" --admin-password="$secret_marker" 2>&1)"

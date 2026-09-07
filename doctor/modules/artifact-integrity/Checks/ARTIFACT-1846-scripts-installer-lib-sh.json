@@ -22,8 +22,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-1846",
         "path": "{APP_ROOT}/scripts/installer-lib.sh",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/2402ee647983a9f4324c6d36a1dafd496775a49b51eb12cd26f2311ba53d39fe",
-        "sha256": "2402ee647983a9f4324c6d36a1dafd496775a49b51eb12cd26f2311ba53d39fe",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/b1caa61e54ccd8f81f5cb5a2a8ca459c821c35683bc1f2674198390d8cd1e62e",
+        "sha256": "b1caa61e54ccd8f81f5cb5a2a8ca459c821c35683bc1f2674198390d8cd1e62e",
         "mode": 493
     },
     "failure_status": "FAIL"

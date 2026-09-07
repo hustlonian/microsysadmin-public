@@ -1,7 +1,7 @@
 {
     "repair_id": "ARTIFACT-1846",
     "artifact": "scripts/installer-lib.sh",
-    "baseline_sha256": "2402ee647983a9f4324c6d36a1dafd496775a49b51eb12cd26f2311ba53d39fe",
+    "baseline_sha256": "b1caa61e54ccd8f81f5cb5a2a8ca459c821c35683bc1f2674198390d8cd1e62e",
     "mode": "0755",
     "time_forward_horizons": [
         "2027-01-15T00:00:00Z",

@@ -456,8 +456,8 @@ PHP);
         'doc_sdk_contract',
         new EnvironmentContext([
             'commands' => [
-                'php' => '/opt/lampp/bin/php',
-                'xampp-php' => '/opt/lampp/bin/php',
+                'php' => PHP_BINARY,
+                'xampp-php' => PHP_BINARY,
             ],
             'laravel_detected' => true,
         ]),
@@ -673,12 +673,12 @@ SH);
     chmod($crontabStub, 0750);
     $cronContext = new DoctorContext(
         'doc_sdk_contract',
-        new EnvironmentContext(['commands' => ['crontab' => $crontabStub, 'xampp-php' => '/opt/lampp/bin/php'], 'laravel_detected' => true]),
+        new EnvironmentContext(['commands' => ['crontab' => $crontabStub, 'php' => PHP_BINARY, 'xampp-php' => PHP_BINARY], 'laravel_detected' => true]),
         $temporary . '/project',
         ['doctor_runtime_root' => $temporary . '/runtime'],
         $runner, $filesystem, $backups, $audit, $redactor,
     );
-    $runLifecycle('cron', 'CRON-0004', $cronContext);
+    $runLifecycle('cron', 'CRON-0004', $cronContext, ['/opt/lampp/bin/php' => PHP_BINARY]);
     file_put_contents($crontabState, implode("\n", [
         '* * * * * /first # MicroSysAdmin Doctor CRON-0004',
         '5 * * * * /unrelated # customer entry',
