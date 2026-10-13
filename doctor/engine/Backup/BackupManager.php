@@ -51,14 +51,42 @@ final readonly class BackupManager
 
     public function restore(BackupResult $backup): bool
     {
+        if (!$backup->successful()) {
+            throw new \RuntimeException('Doctor refuses to restore an unsuccessful backup.');
+        }
+
+        // Validate the entire set before changing any target. Retain the bytes
+        // we checked so a later read cannot substitute unverified contents.
+        $restores = [];
         foreach ((array) $backup->get('records', []) as $record) {
             $metadata = (array) ($record['metadata'] ?? []);
             $source = (string) ($record['backup_path'] ?? '');
             $target = (string) ($metadata['path'] ?? '');
-            if ($source !== '' && $target !== '') {
-                $this->filesystem->atomicWrite($target, $this->filesystem->read($source), (int) ($metadata['mode'] ?? 0640));
+            if (($metadata['type'] ?? '') === 'file' || $source !== '') {
+                if ($source === '' || $target === '') {
+                    throw new \RuntimeException('Doctor backup file reference is missing.');
+                }
+                $target = $this->filesystem->normalize($target, false, true);
+                $contents = $this->filesystem->read($source);
+                $actualHash = hash('sha256', $contents);
+                foreach ([$metadata['sha256'] ?? '', $record['backup_sha256'] ?? ''] as $expectedHash) {
+                    if (!is_string($expectedHash)
+                        || !preg_match('/^[a-f0-9]{64}$/', $expectedHash)
+                        || !hash_equals($expectedHash, $actualHash)) {
+                        throw new \RuntimeException('Doctor backup integrity validation failed; no targets were restored.');
+                    }
+                }
+                $restores[] = [$target, $contents, (int) ($metadata['mode'] ?? 0640)];
             } elseif ($target !== '' && file_exists($target)) {
-                $this->filesystem->chmod($target, (int) ($metadata['mode'] ?? 0750));
+                $target = $this->filesystem->normalize($target, true, true);
+                $restores[] = [$target, null, (int) ($metadata['mode'] ?? 0750)];
+            }
+        }
+        foreach ($restores as [$target, $contents, $mode]) {
+            if ($contents !== null) {
+                $this->filesystem->atomicWrite($target, $contents, $mode);
+            } else {
+                $this->filesystem->chmod($target, $mode);
             }
         }
         return true;

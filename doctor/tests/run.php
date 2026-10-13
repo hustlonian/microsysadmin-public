@@ -25,6 +25,7 @@ use SysAdmin\Doctor\engine\Reporting\ReportBuilder;
 use SysAdmin\Doctor\engine\Scoring\HealthScorer;
 use SysAdmin\Doctor\engine\Security\SecretRedactor;
 use SysAdmin\Doctor\engine\Support\CheckStatus;
+use SysAdmin\Doctor\engine\Support\Value\BackupResult;
 
 $tests = 0;
 $failures = [];
@@ -84,6 +85,70 @@ try {
         'laravel_detected' => true, 'commands' => ['php' => PHP_BINARY],
     ]);
     $context = new DoctorContext('doc_test_execution', $environment, $temporary . '/project', [], $runner, $filesystem, $backups, $audit, $redactor);
+
+    $restoreTargets = [$temporary . '/project/restore-first.txt', $temporary . '/project/restore-second.txt'];
+    foreach ($restoreTargets as $path) {
+        file_put_contents($path, 'original contents');
+        chmod($path, 0600);
+    }
+    $restoreBackup = $backups->capture('doc_restore_integrity', 'TEST-9001', $restoreTargets)->toArray();
+    $secondSnapshot = $restoreBackup['records'][1]['backup_path'];
+    $invalidBackups = [
+        'corrupt file' => static function (array &$data) use ($secondSnapshot): void {
+            file_put_contents($secondSnapshot, 'corrupted contents');
+        },
+        'missing file' => static function (array &$data) use ($secondSnapshot): void {
+            unlink($secondSnapshot);
+        },
+        'symbolic file' => static function (array &$data) use ($secondSnapshot, $restoreTargets): void {
+            unlink($secondSnapshot);
+            symlink($restoreTargets[0], $secondSnapshot);
+        },
+        'missing checksum' => static function (array &$data): void {
+            unset($data['records'][1]['backup_sha256']);
+        },
+        'invalid checksum' => static function (array &$data): void {
+            $data['records'][1]['backup_sha256'] = 'invalid';
+        },
+        'changed original checksum' => static function (array &$data): void {
+            $data['records'][1]['metadata']['sha256'] = str_repeat('0', 64);
+        },
+        'missing snapshot reference' => static function (array &$data): void {
+            $data['records'][1]['backup_path'] = null;
+        },
+        'invalid destination' => static function (array &$data): void {
+            $data['records'][1]['metadata']['path'] = '/microsysadmin-outside-allowed-roots.txt';
+        },
+        'unsuccessful capture' => static function (array &$data): void {
+            $data['successful'] = false;
+        },
+    ];
+    foreach ($invalidBackups as $label => $invalidate) {
+        if (is_link($secondSnapshot)) {
+            unlink($secondSnapshot);
+        }
+        file_put_contents($secondSnapshot, 'original contents');
+        foreach ($restoreTargets as $path) {
+            file_put_contents($path, 'repaired contents');
+            chmod($path, 0640);
+        }
+        $candidate = $restoreBackup;
+        $invalidate($candidate);
+        $expectException(static fn () => $backups->restore(new BackupResult($candidate)), "Restore rejects {$label}.");
+        foreach ($restoreTargets as $path) {
+            clearstatcache(true, $path);
+            $assert(file_get_contents($path) === 'repaired contents' && (fileperms($path) & 0777) === 0640,
+                "Restore leaves every target untouched after {$label}.");
+        }
+    }
+    file_put_contents($secondSnapshot, 'original contents');
+    $assert($backups->restore(new BackupResult($restoreBackup)), 'A persisted valid backup remains restorable.');
+    foreach ($restoreTargets as $path) {
+        clearstatcache(true, $path);
+        $assert(file_get_contents($path) === 'original contents' && (fileperms($path) & 0777) === 0600,
+            'Valid restore recovers exact bytes and captured permissions.');
+    }
+    $assert($backups->restore($backups->none('doc_restore_integrity', 'TEST-9002')), 'A no-backup-required result remains a valid no-op.');
 
     $argumentMarker = $temporary . '/must-not-exist';
     $command = $runner->run([PHP_BINARY, '-r', 'echo $argv[1];', '; touch ' . $argumentMarker], 3);

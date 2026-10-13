@@ -22,8 +22,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-0211",
         "path": "{APP_ROOT}/doctor/engine/Backup/BackupManager.php",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/eeef6b5fab3831729c3119016de41a30c63bcea05a62a03bc3c78b20429074bd",
-        "sha256": "eeef6b5fab3831729c3119016de41a30c63bcea05a62a03bc3c78b20429074bd",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/c4dd41b20d30959c42fc171a8b11d8539d83d30f1706b960d98a107a062ee34f",
+        "sha256": "c4dd41b20d30959c42fc171a8b11d8539d83d30f1706b960d98a107a062ee34f",
         "mode": 420
     },
     "failure_status": "FAIL"

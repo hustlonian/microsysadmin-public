@@ -8,7 +8,7 @@
     },
     "diagnosis": {
         "condition": "Managed release artifact doctor/engine/Backup/BackupManager.php is missing, modified, or has the wrong mode.",
-        "expected_state": "SHA-256 eeef6b5fab3831729c3119016de41a30c63bcea05a62a03bc3c78b20429074bd with mode 0644.",
+        "expected_state": "SHA-256 c4dd41b20d30959c42fc171a8b11d8539d83d30f1706b960d98a107a062ee34f with mode 0644.",
         "probable_cause": "Local release artifact drift occurred after installation or update.",
         "confidence": 1,
         "related_repair_ids": [

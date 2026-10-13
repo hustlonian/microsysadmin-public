@@ -64,3 +64,17 @@ Perform restore drills on a disposable installation. Verify application login, p
 The exact clean-install canary writes controlled data, creates and checks a backup, changes the data, runs the safeguarded restore, and verifies that the original value returns. It also confirms that uninstall creates a verified recovery bundle while preserving the database and backup root.
 
 Large archives still require capacity and resource testing for the customer’s environment.
+
+## Doctor file snapshots
+
+Doctor validates every file snapshot against both its captured source SHA-256
+and backup SHA-256 before writing any restore target. Missing, symbolic, damaged,
+or unverifiable snapshots stop the restore and leave targets unchanged. This
+also applies when an execution resumes from its saved backup records.
+
+Validated contents are held in memory until preflight finishes, then restored
+through the scoped atomic-write helper with the recorded permissions. Capacity
+must accommodate the complete snapshot set. Each file replacement is atomic;
+the overall restore is not a transaction, so an I/O failure during writing can
+still require reconciliation. Integrity hashes do not replace protected storage
+or authorize a restore. Application and database rollback remain separate.

@@ -10,7 +10,7 @@
     "retired_count": 150,
     "retired_directory_count": 1,
     "retired_directory_mode_repair_count": 0,
-    "catalog_revision": "ba6b8d44fc41c1fa121537557f7b10ba19e2a94fbe0205d6ce30cbf5be1ad125",
+    "catalog_revision": "f67735300c71b82d73eb008a42c3e4530ad31a1e77bd66b1329c7a3ea04fe410",
     "selection": {
         "strategy": "all_eligible_release_files_locked_vendor_and_cause_specific_directory_topology",
         "provenance": {
@@ -2849,10 +2849,10 @@
             "check_id": "ARTIFACT-C0162",
             "diagnosis_id": "ARTIFACT-D0162",
             "path": "docs/BACKUPS.md",
-            "baseline": "doctor/baselines/release-artifacts/blobs/55fb7ecb4a258fa4b5f01fd152ec1839c2c9b4114fdda47041704add85db61af",
-            "sha256": "55fb7ecb4a258fa4b5f01fd152ec1839c2c9b4114fdda47041704add85db61af",
+            "baseline": "doctor/baselines/release-artifacts/blobs/4a2da1a4a8087f9feee14a6c9146cd9b9d80389c8e890839de6a39b094ba040b",
+            "sha256": "4a2da1a4a8087f9feee14a6c9146cd9b9d80389c8e890839de6a39b094ba040b",
             "mode": 420,
-            "size": 3475,
+            "size": 4278,
             "definition_files": [
                 "Checks/ARTIFACT-0162-docs-BACKUPS-md.json",
                 "Diagnoses/ARTIFACT-0162-docs-BACKUPS-md.json",
@@ -3515,10 +3515,10 @@
             "check_id": "ARTIFACT-C0211",
             "diagnosis_id": "ARTIFACT-D0211",
             "path": "doctor/engine/Backup/BackupManager.php",
-            "baseline": "doctor/baselines/release-artifacts/blobs/eeef6b5fab3831729c3119016de41a30c63bcea05a62a03bc3c78b20429074bd",
-            "sha256": "eeef6b5fab3831729c3119016de41a30c63bcea05a62a03bc3c78b20429074bd",
+            "baseline": "doctor/baselines/release-artifacts/blobs/c4dd41b20d30959c42fc171a8b11d8539d83d30f1706b960d98a107a062ee34f",
+            "sha256": "c4dd41b20d30959c42fc171a8b11d8539d83d30f1706b960d98a107a062ee34f",
             "mode": 420,
-            "size": 3015,
+            "size": 4501,
             "definition_files": [
                 "Checks/ARTIFACT-0211-doctor-engine-Backup-BackupManager-php.json",
                 "Diagnoses/ARTIFACT-0211-doctor-engine-Backup-BackupManager-php.json",
