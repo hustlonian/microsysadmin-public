@@ -1,7 +1,7 @@
 {
     "repair_id": "ARTIFACT-1837",
     "artifact": "scripts/check-repository.sh",
-    "baseline_sha256": "641c1d50428220f37a5a18336ed80519db3263a0934714d013616c1cd8284b05",
+    "baseline_sha256": "832fe4dc9400e72bbc00bdf29556fe4e472c0a2ec11382cdc7110a2e0afbd1e3",
     "mode": "0755",
     "time_forward_horizons": [
         "2027-01-15T00:00:00Z",

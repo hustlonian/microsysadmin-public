@@ -23,7 +23,7 @@
 
 ## Jobs and integrations
 
-- The queue is durable, but cancellation of an already running process is not cooperative and job timeout metadata is not yet enforced centrally by the worker.
+- Job deadlines use GNU coreutils timeout and a separate process group. Interrupted, expired or unsuccessful attempts require effect reconciliation and are never automatically retried. Interactive cancellation of running jobs, deliberately detached processes, cross-UUID request deduplication and external-effect rollback remain unsupported. See [background jobs](BACKGROUND-JOBS.md).
 - systemd worker restart behavior has not been soak-tested in this repository.
 - Webhook signing is tested; live delivery/retry across external receivers has not completed a production integration test.
 - SMTP settings and test-send UI exist, but no customer SMTP matrix was tested.

@@ -49,7 +49,7 @@
         "conflicts": [],
         "files_read": [
             "{APP_ROOT}/views/pages/administration.php",
-            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/28f1edfd44506a98bb0572b75526df85037c36b22b9be9860ffbed91c56c2a22"
+            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a00f353d9db78ba0972e9be69e1f899414eb26a72b374424b880b577f1451052"
         ],
         "files_modified": [
             "{APP_ROOT}/views/pages/administration.php"
@@ -82,8 +82,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-1865",
         "path": "{APP_ROOT}/views/pages/administration.php",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/28f1edfd44506a98bb0572b75526df85037c36b22b9be9860ffbed91c56c2a22",
-        "sha256": "28f1edfd44506a98bb0572b75526df85037c36b22b9be9860ffbed91c56c2a22",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a00f353d9db78ba0972e9be69e1f899414eb26a72b374424b880b577f1451052",
+        "sha256": "a00f353d9db78ba0972e9be69e1f899414eb26a72b374424b880b577f1451052",
         "mode": 420
     },
     "actions": [
@@ -91,8 +91,8 @@
             "type": "restore_managed_artifact",
             "repair_id": "ARTIFACT-1865",
             "path": "{APP_ROOT}/views/pages/administration.php",
-            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/28f1edfd44506a98bb0572b75526df85037c36b22b9be9860ffbed91c56c2a22",
-            "sha256": "28f1edfd44506a98bb0572b75526df85037c36b22b9be9860ffbed91c56c2a22",
+            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a00f353d9db78ba0972e9be69e1f899414eb26a72b374424b880b577f1451052",
+            "sha256": "a00f353d9db78ba0972e9be69e1f899414eb26a72b374424b880b577f1451052",
             "mode": 420,
             "description": "Atomically restore views/pages/administration.php from its exact local release baseline."
         }
@@ -104,8 +104,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-1865",
         "path": "{APP_ROOT}/views/pages/administration.php",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/28f1edfd44506a98bb0572b75526df85037c36b22b9be9860ffbed91c56c2a22",
-        "sha256": "28f1edfd44506a98bb0572b75526df85037c36b22b9be9860ffbed91c56c2a22",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/a00f353d9db78ba0972e9be69e1f899414eb26a72b374424b880b577f1451052",
+        "sha256": "a00f353d9db78ba0972e9be69e1f899414eb26a72b374424b880b577f1451052",
         "mode": 420
     },
     "rollback": {

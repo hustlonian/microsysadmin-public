@@ -19,14 +19,18 @@ final class JobQueue
         if (!preg_match('/^[a-z0-9][a-z0-9._-]{2,119}$/', $type)) {
             throw new \InvalidArgumentException('Job type is invalid.');
         }
+        $timeoutSeconds ??= (int) config_value('jobs.default_timeout', 600);
+        $maxAttempts ??= (int) config_value('jobs.max_attempts', 3);
+        if ($timeoutSeconds < 1 || $timeoutSeconds > 2147483647 || $maxAttempts < 1 || $maxAttempts > 65535) {
+            throw new \InvalidArgumentException('Job timeout and attempt limits must be positive and within storage limits.');
+        }
         $uuid = MachineIdentity::uuid();
-        $now = date('Y-m-d H:i:s');
         $statement = Database::pdo()->prepare(
             'INSERT INTO jobs (
                 uuid, organization_id, machine_id, type, payload, status, progress,
                 max_attempts, timeout_seconds, available_at, owned_by,
                 audit_correlation_id, created_at, updated_at
-             ) VALUES (?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?)'
+             ) VALUES (?, ?, ?, ?, ?, ?, 0, ?, ?, CURRENT_TIMESTAMP, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)'
         );
         $statement->execute([
             $uuid,
@@ -35,13 +39,10 @@ final class JobQueue
             $type,
             json_encode($payload, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR),
             'queued',
-            $maxAttempts ?? (int) config_value('jobs.max_attempts', 3),
-            $timeoutSeconds ?? (int) config_value('jobs.default_timeout', 600),
-            $now,
+            $maxAttempts,
+            $timeoutSeconds,
             $ownerId ?? Auth::id(),
             RequestContext::auditCorrelationId(),
-            $now,
-            $now,
         ]);
         $job = $this->find($uuid);
         AuditLogger::info('job.queued', ['job_uuid' => $uuid, 'type' => $type]);
@@ -55,7 +56,7 @@ final class JobQueue
         try {
             $reserve = $pdo->prepare(
                 "SELECT * FROM jobs
-                 WHERE status = 'queued' AND available_at <= NOW() AND machine_id = ?
+                 WHERE status = 'queued' AND attempts = 0 AND available_at <= NOW() AND machine_id = ?
                  ORDER BY id
                  LIMIT 1
                  FOR UPDATE"
@@ -66,14 +67,13 @@ final class JobQueue
                 $pdo->commit();
                 return null;
             }
-            $now = date('Y-m-d H:i:s');
             $statement = $pdo->prepare(
                 "UPDATE jobs
-                 SET status = 'running', attempts = attempts + 1, reserved_at = ?,
-                     started_at = COALESCE(started_at, ?), updated_at = ?
-                 WHERE id = ? AND status = 'queued'"
+                 SET status = 'reserved', attempts = attempts + 1, reserved_at = CURRENT_TIMESTAMP,
+                     updated_at = CURRENT_TIMESTAMP
+                 WHERE id = ? AND status = 'queued' AND attempts = 0"
             );
-            $statement->execute([$now, $now, $now, (int) $job['id']]);
+            $statement->execute([(int) $job['id']]);
             if ($statement->rowCount() !== 1) {
                 $pdo->rollBack();
                 return null;
@@ -88,71 +88,171 @@ final class JobQueue
         }
     }
 
-    public function progress(string $uuid, int $progress, string $summary = ''): void
+    /** Claim an attempt once and hold its database-session lock through execution. */
+    public function beginExecution(string $uuid, int $attempt): ?array
+    {
+        if (!$this->acquireExecutionLock($uuid)) {
+            return null;
+        }
+        try {
+            $statement = Database::pdo()->prepare(
+                "UPDATE jobs SET status = 'running', started_at = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP
+                 WHERE uuid = ? AND machine_id = ? AND status = 'reserved' AND attempts = ?
+                   AND reserved_at IS NOT NULL AND timeout_seconds > 0
+                   AND TIMESTAMPDIFF(SECOND, reserved_at, CURRENT_TIMESTAMP) < timeout_seconds"
+            );
+            $statement->execute([$uuid, CommercialContext::machineId(), $attempt]);
+            if ($statement->rowCount() === 1) {
+                return $this->find($uuid);
+            }
+        } catch (\Throwable $exception) {
+            $this->releaseExecutionLock($uuid);
+            throw $exception;
+        }
+        $this->releaseExecutionLock($uuid);
+        return null;
+    }
+
+    public function releaseExecutionLock(string $uuid): void
+    {
+        $statement = Database::pdo()->prepare('SELECT RELEASE_LOCK(?)');
+        $statement->execute([$this->executionLockName($uuid)]);
+    }
+
+    public function progress(string $uuid, int $attempt, int $progress, string $summary = ''): void
     {
         $statement = Database::pdo()->prepare(
-            "UPDATE jobs SET progress = ?, output_summary = ?, updated_at = ?
-             WHERE uuid = ? AND status = 'running'"
+            "UPDATE jobs SET progress = ?, output_summary = ?, updated_at = CURRENT_TIMESTAMP
+             WHERE uuid = ? AND machine_id = ? AND status = 'running' AND attempts = ?
+               AND TIMESTAMPDIFF(SECOND, reserved_at, CURRENT_TIMESTAMP) < timeout_seconds"
         );
         $statement->execute([
             min(99, max(0, $progress)),
             $summary !== '' ? substr($summary, 0, 65535) : null,
-            date('Y-m-d H:i:s'),
             $uuid,
+            CommercialContext::machineId(),
+            $attempt,
         ]);
     }
 
-    public function complete(string $uuid, mixed $result): void
+    public function complete(string $uuid, int $attempt, mixed $result): bool
     {
         $summary = is_string($result)
             ? $result
             : json_encode($result, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        Database::pdo()->prepare(
+        $statement = Database::pdo()->prepare(
             "UPDATE jobs
              SET status = 'completed', progress = 100, output_summary = ?,
-                 completed_at = ?, updated_at = ?
-             WHERE uuid = ?"
-        )->execute([
+                 completed_at = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP
+             WHERE uuid = ? AND machine_id = ? AND status = 'running' AND attempts = ?
+               AND TIMESTAMPDIFF(SECOND, reserved_at, CURRENT_TIMESTAMP) < timeout_seconds"
+        );
+        $statement->execute([
             substr((string) $summary, 0, 65535),
-            date('Y-m-d H:i:s'),
-            date('Y-m-d H:i:s'),
             $uuid,
+            CommercialContext::machineId(),
+            $attempt,
         ]);
+        if ($statement->rowCount() !== 1) {
+            $this->requireReconciliation($uuid, $attempt, 'execution_timeout');
+            return false;
+        }
         AuditLogger::info('job.completed', ['job_uuid' => $uuid]);
+        return true;
     }
 
-    public function fail(string $uuid, \Throwable $exception): void
+    public function fail(string $uuid, int $attempt, \Throwable $exception): void
     {
-        $job = $this->find($uuid);
-        $attempts = (int) ($job['attempts'] ?? 1);
-        $maximum = (int) ($job['max_attempts'] ?? 1);
-        $retry = $attempts < $maximum && !($exception instanceof HttpException && $exception->statusCode() < 500);
-        $delay = min(300, 2 ** max(1, $attempts));
-        Database::pdo()->prepare(
-            'UPDATE jobs SET status = ?, error_message = ?, available_at = ?,
-             reserved_at = NULL, updated_at = ?, completed_at = ?
-             WHERE uuid = ?'
-        )->execute([
-            $retry ? 'queued' : 'failed',
-            substr(Security::productionSafeMessage($exception, 'Job failed.'), 0, 2000),
-            date('Y-m-d H:i:s', time() + $delay),
-            date('Y-m-d H:i:s'),
-            $retry ? null : date('Y-m-d H:i:s'),
-            $uuid,
+        if ($this->requireReconciliation($uuid, $attempt, 'handler_failed')) {
+            AuditLogger::error('job.failed', [
+                'job_uuid' => $uuid, 'attempt' => $attempt, 'retrying' => false,
+                'error' => Security::productionSafeMessage($exception, 'Job handler failed; outcome unknown.'),
+            ]);
+        }
+    }
+
+    /** Unknown effects are terminal for automation, never an implicit retry. */
+    public function requireReconciliation(string $uuid, int $attempt, string $reason): bool
+    {
+        if (!in_array($reason, ['execution_timeout', 'worker_interrupted', 'handler_failed', 'previous_attempt_unreconciled'], true)) {
+            throw new \InvalidArgumentException('Unknown job reconciliation reason.');
+        }
+        $statement = Database::pdo()->prepare(
+            "UPDATE jobs SET status = 'needs_reconciliation', error_message = ?,
+                completed_at = CURRENT_TIMESTAMP, updated_at = CURRENT_TIMESTAMP
+             WHERE uuid = ? AND machine_id = ? AND attempts = ?
+               AND (status IN ('reserved', 'running') OR (status = 'queued' AND attempts > 0))"
+        );
+        $statement->execute([
+            $reason . ': Outcome unknown. Automatic retry disabled; inspect effects before any new job.',
+            $uuid, CommercialContext::machineId(), $attempt,
         ]);
-        AuditLogger::error('job.failed', [
-            'job_uuid' => $uuid,
-            'retrying' => $retry,
-            'attempt' => $attempts,
-            'error' => $exception->getMessage(),
+        if ($statement->rowCount() !== 1) {
+            return false;
+        }
+        AuditLogger::error('job.needs_reconciliation', [
+            'job_uuid' => $uuid, 'attempt' => $attempt, 'reason' => $reason, 'retrying' => false,
         ]);
+        return true;
+    }
+
+    /** Run on worker ticks and independently from cron, including after restart. */
+    public function reconcile(): int
+    {
+        $statement = Database::pdo()->prepare(
+            "SELECT uuid, status, attempts,
+                (reserved_at IS NULL OR timeout_seconds = 0
+                    OR TIMESTAMPDIFF(SECOND, reserved_at, CURRENT_TIMESTAMP) >= timeout_seconds) AS expired,
+                (reserved_at IS NOT NULL
+                    AND TIMESTAMPDIFF(SECOND, reserved_at, CURRENT_TIMESTAMP) < 30) AS launching
+             FROM jobs WHERE machine_id = ?
+               AND (status IN ('reserved', 'running') OR (status = 'queued' AND attempts > 0))"
+        );
+        $statement->execute([CommercialContext::machineId()]);
+        $changed = 0;
+        foreach ($statement->fetchAll() as $job) {
+            $uuid = (string) $job['uuid'];
+            $attempt = (int) $job['attempts'];
+            if ($job['status'] === 'queued') {
+                $changed += (int) $this->requireReconciliation($uuid, $attempt, 'previous_attempt_unreconciled');
+            } elseif ((bool) $job['expired']) {
+                // A timeout does not establish that the handler or its effects stopped.
+                $changed += (int) $this->requireReconciliation($uuid, $attempt, 'execution_timeout');
+            } elseif ($job['status'] === 'reserved' && (bool) $job['launching']) {
+                continue;
+            } elseif ($this->acquireExecutionLock($uuid)) {
+                try {
+                    $changed += (int) $this->requireReconciliation($uuid, $attempt, 'worker_interrupted');
+                } finally {
+                    $this->releaseExecutionLock($uuid);
+                }
+            }
+        }
+        return $changed;
+    }
+
+    private function acquireExecutionLock(string $uuid): bool
+    {
+        $statement = Database::pdo()->prepare('SELECT GET_LOCK(?, 0)');
+        $statement->execute([$this->executionLockName($uuid)]);
+        $result = $statement->fetchColumn();
+        if ($result === null || $result === false) {
+            throw new \RuntimeException('Job ownership could not be checked.');
+        }
+        return (int) $result === 1;
+    }
+
+    private function executionLockName(string $uuid): string
+    {
+        $database = (string) Database::pdo()->query('SELECT DATABASE()')->fetchColumn();
+        return 'microsysadmin.job.' . sha1($database . ':' . $uuid);
     }
 
     public function cancel(string $uuid): void
     {
         Database::pdo()->prepare(
             "UPDATE jobs SET status = 'cancelled', cancelled_at = ?, updated_at = ?
-             WHERE uuid = ? AND status = 'queued' AND organization_id = ? AND machine_id = ?"
+             WHERE uuid = ? AND status = 'queued' AND attempts = 0 AND organization_id = ? AND machine_id = ?"
         )->execute([
             date('Y-m-d H:i:s'),
             date('Y-m-d H:i:s'),

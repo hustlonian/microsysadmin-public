@@ -49,7 +49,7 @@
         "conflicts": [],
         "files_read": [
             "{APP_ROOT}/classes/JobQueue.php",
-            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1"
+            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4b2c02a45ba97a23eb19ad10b6256b82ce8b526dddc01fa8c08ff0d19212532f"
         ],
         "files_modified": [
             "{APP_ROOT}/classes/JobQueue.php"
@@ -82,8 +82,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-0098",
         "path": "{APP_ROOT}/classes/JobQueue.php",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1",
-        "sha256": "1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4b2c02a45ba97a23eb19ad10b6256b82ce8b526dddc01fa8c08ff0d19212532f",
+        "sha256": "4b2c02a45ba97a23eb19ad10b6256b82ce8b526dddc01fa8c08ff0d19212532f",
         "mode": 420
     },
     "actions": [
@@ -91,8 +91,8 @@
             "type": "restore_managed_artifact",
             "repair_id": "ARTIFACT-0098",
             "path": "{APP_ROOT}/classes/JobQueue.php",
-            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1",
-            "sha256": "1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1",
+            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4b2c02a45ba97a23eb19ad10b6256b82ce8b526dddc01fa8c08ff0d19212532f",
+            "sha256": "4b2c02a45ba97a23eb19ad10b6256b82ce8b526dddc01fa8c08ff0d19212532f",
             "mode": 420,
             "description": "Atomically restore classes/JobQueue.php from its exact local release baseline."
         }
@@ -104,8 +104,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-0098",
         "path": "{APP_ROOT}/classes/JobQueue.php",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1",
-        "sha256": "1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/4b2c02a45ba97a23eb19ad10b6256b82ce8b526dddc01fa8c08ff0d19212532f",
+        "sha256": "4b2c02a45ba97a23eb19ad10b6256b82ce8b526dddc01fa8c08ff0d19212532f",
         "mode": 420
     },
     "rollback": {

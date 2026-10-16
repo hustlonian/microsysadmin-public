@@ -133,6 +133,7 @@ run_tests() {
     [[ -n "$php_binary" ]] || return 1
     local failed=0
     "$php_binary" "$root/tests/run.php" || failed=1
+    python3 "$root/tests/job-recovery-isolated.py" --evidence-dir "$(mktemp -d /tmp/msa-job-evidence.XXXXXXXX)" || failed=1
     "$php_binary" "$root/doctor/tests/sdk.php" || failed=1
     "$php_binary" "$root/doctor/tests/run.php" || failed=1
     "$php_binary" "$root/doctor/tests/time-forward.php" || failed=1

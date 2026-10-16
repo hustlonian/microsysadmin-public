@@ -8,7 +8,7 @@
     },
     "diagnosis": {
         "condition": "Managed release artifact classes/JobWorker.php is missing, modified, or has the wrong mode.",
-        "expected_state": "SHA-256 067a2f7aefb07e226d17195eb413b0c8f0348cba3218f6bf4da009b95f2292f3 with mode 0644.",
+        "expected_state": "SHA-256 91ee657fb29d643e30e422493dac0d4986d395732067c942568ff9a2572e692d with mode 0644.",
         "probable_cause": "Local release artifact drift occurred after installation or update.",
         "confidence": 1,
         "related_repair_ids": [

@@ -1,7 +1,7 @@
 {
     "repair_id": "ARTIFACT-0180",
     "artifact": "docs/KNOWN-LIMITATIONS.md",
-    "baseline_sha256": "2466feb36637df1caee2a7950e9c7ffe09f625d521fc7ae1ad746e7cf6453d08",
+    "baseline_sha256": "3d9bc96ce37b89893465e373c2f5408ccf1732ed3522e8b2a25d89771a1b5fe9",
     "mode": "0644",
     "time_forward_horizons": [
         "2027-01-15T00:00:00Z",

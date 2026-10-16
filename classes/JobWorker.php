@@ -4,22 +4,76 @@ declare(strict_types=1);
 
 namespace SysAdmin;
 
+use Symfony\Component\Process\Exception\ProcessTimedOutException;
+use Symfony\Component\Process\Process;
+
 final class JobWorker
 {
     public function runOnce(): bool
     {
+        // GNU timeout owns a separate process group and survives loss of this PHP
+        // supervisor. Killing only the executor leaves its nested commands alive.
+        $timeoutBinary = $this->timeoutBinary();
         $queue = new JobQueue();
+        $queue->reconcile();
         $job = $queue->reserve();
         if (!$job) {
             return false;
         }
 
+        $started = hrtime(true);
         try {
-            $queue->progress((string) $job['uuid'], 5, 'Job started.');
-            $result = $this->handle((string) $job['type'], (array) $job['payload'], $queue, (string) $job['uuid']);
-            $queue->complete((string) $job['uuid'], $result);
+            $process = new Process([
+                $timeoutBinary, '--signal=KILL', (string) $job['timeout_seconds'],
+                PHP_BINARY, APP_ROOT . '/scripts/job-worker.php', '--execute',
+                (string) $job['uuid'], (string) $job['attempts'],
+            ], APP_ROOT);
+            $process->setTimeout((int) $job['timeout_seconds'] + 5);
+            $process->disableOutput();
+            $process->run();
+            // A clean process exit alone is not durable completion evidence.
+            $queue->requireReconciliation((string) $job['uuid'], (int) $job['attempts'], 'worker_interrupted');
+        } catch (ProcessTimedOutException) {
+            $queue->requireReconciliation((string) $job['uuid'], (int) $job['attempts'], 'execution_timeout');
         } catch (\Throwable $exception) {
-            $queue->fail((string) $job['uuid'], $exception);
+            if ((hrtime(true) - $started) / 1e9 >= (int) $job['timeout_seconds']) {
+                $queue->requireReconciliation((string) $job['uuid'], (int) $job['attempts'], 'execution_timeout');
+            } else {
+                $queue->fail((string) $job['uuid'], (int) $job['attempts'], $exception);
+            }
+        }
+        return true;
+    }
+
+    private function timeoutBinary(): string
+    {
+        foreach (['/usr/bin/timeout', '/bin/timeout'] as $path) {
+            if (is_executable($path)) {
+                return $path;
+            }
+        }
+        throw new \RuntimeException('Background jobs require the GNU coreutils timeout command. No job was reserved.');
+    }
+
+    /** Internal CLI entry: atomically claim one reserved attempt before effects. */
+    public function execute(string $uuid, int $attempt): bool
+    {
+        $queue = new JobQueue();
+        $job = $queue->beginExecution($uuid, $attempt);
+        if ($job === null) {
+            return false;
+        }
+        try {
+            $queue->progress($uuid, $attempt, 5, 'Job started.');
+            $result = $this->handle((string) $job['type'], (array) $job['payload'], $queue, (string) $job['uuid']);
+            if (is_array($result) && array_key_exists('ok', $result) && $result['ok'] === false) {
+                throw new \RuntimeException('Job handler reported an unsuccessful result.');
+            }
+            $queue->complete($uuid, $attempt, $result);
+        } catch (\Throwable $exception) {
+            $queue->fail($uuid, $attempt, $exception);
+        } finally {
+            $queue->releaseExecutionLock($uuid);
         }
         return true;
     }

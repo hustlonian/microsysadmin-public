@@ -1,7 +1,7 @@
 {
     "repair_id": "ARTIFACT-0099",
     "artifact": "classes/JobWorker.php",
-    "baseline_sha256": "067a2f7aefb07e226d17195eb413b0c8f0348cba3218f6bf4da009b95f2292f3",
+    "baseline_sha256": "91ee657fb29d643e30e422493dac0d4986d395732067c942568ff9a2572e692d",
     "mode": "0644",
     "time_forward_horizons": [
         "2027-01-15T00:00:00Z",

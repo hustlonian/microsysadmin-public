@@ -8,7 +8,7 @@
     },
     "diagnosis": {
         "condition": "Managed release artifact scripts/check-repository.sh is missing, modified, or has the wrong mode.",
-        "expected_state": "SHA-256 641c1d50428220f37a5a18336ed80519db3263a0934714d013616c1cd8284b05 with mode 0755.",
+        "expected_state": "SHA-256 832fe4dc9400e72bbc00bdf29556fe4e472c0a2ec11382cdc7110a2e0afbd1e3 with mode 0755.",
         "probable_cause": "Local release artifact drift occurred after installation or update.",
         "confidence": 1,
         "related_repair_ids": [

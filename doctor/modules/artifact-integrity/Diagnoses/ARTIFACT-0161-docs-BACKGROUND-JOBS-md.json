@@ -8,7 +8,7 @@
     },
     "diagnosis": {
         "condition": "Managed release artifact docs/BACKGROUND-JOBS.md is missing, modified, or has the wrong mode.",
-        "expected_state": "SHA-256 8cc3e233ca3b38663e91e98ceb4e6d958269685e3bc5bcf60068ff69874bf26c with mode 0644.",
+        "expected_state": "SHA-256 fcb7f95d53eeb8112b402b7fce0bd45c5465cd321b700841fe496a7cceb05a59 with mode 0644.",
         "probable_cause": "Local release artifact drift occurred after installation or update.",
         "confidence": 1,
         "related_repair_ids": [

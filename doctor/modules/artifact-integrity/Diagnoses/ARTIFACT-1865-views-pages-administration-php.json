@@ -8,7 +8,7 @@
     },
     "diagnosis": {
         "condition": "Managed release artifact views/pages/administration.php is missing, modified, or has the wrong mode.",
-        "expected_state": "SHA-256 28f1edfd44506a98bb0572b75526df85037c36b22b9be9860ffbed91c56c2a22 with mode 0644.",
+        "expected_state": "SHA-256 a00f353d9db78ba0972e9be69e1f899414eb26a72b374424b880b577f1451052 with mode 0644.",
         "probable_cause": "Local release artifact drift occurred after installation or update.",
         "confidence": 1,
         "related_repair_ids": [

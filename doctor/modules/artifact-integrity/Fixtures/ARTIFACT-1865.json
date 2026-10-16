@@ -1,7 +1,7 @@
 {
     "repair_id": "ARTIFACT-1865",
     "artifact": "views/pages/administration.php",
-    "baseline_sha256": "28f1edfd44506a98bb0572b75526df85037c36b22b9be9860ffbed91c56c2a22",
+    "baseline_sha256": "a00f353d9db78ba0972e9be69e1f899414eb26a72b374424b880b577f1451052",
     "mode": "0644",
     "time_forward_horizons": [
         "2027-01-15T00:00:00Z",

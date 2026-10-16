@@ -1,7 +1,7 @@
 {
     "repair_id": "ARTIFACT-0195",
     "artifact": "docs/STAGED-FILE-MANIFEST.md",
-    "baseline_sha256": "61b1f9c6757c69e08366e9e9e9a8f88c88801c86f7a7999f994455fc669bfa2f",
+    "baseline_sha256": "f85c731f3dc3458f08e4281bae7cc11619059a2b8870e2c42c2748e798a164a8",
     "mode": "0644",
     "time_forward_horizons": [
         "2027-01-15T00:00:00Z",

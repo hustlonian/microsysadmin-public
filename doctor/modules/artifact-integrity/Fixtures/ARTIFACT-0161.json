@@ -1,7 +1,7 @@
 {
     "repair_id": "ARTIFACT-0161",
     "artifact": "docs/BACKGROUND-JOBS.md",
-    "baseline_sha256": "8cc3e233ca3b38663e91e98ceb4e6d958269685e3bc5bcf60068ff69874bf26c",
+    "baseline_sha256": "fcb7f95d53eeb8112b402b7fce0bd45c5465cd321b700841fe496a7cceb05a59",
     "mode": "0644",
     "time_forward_horizons": [
         "2027-01-15T00:00:00Z",

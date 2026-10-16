@@ -49,7 +49,7 @@
         "conflicts": [],
         "files_read": [
             "{APP_ROOT}/cron/runner.php",
-            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7376f67e65c6d3f6c41cb858a660e364819eb9fc5bb6c9245cadfa7ba6c301b0"
+            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d0396b46ba15781a6dbc4db1e61d097e0fed2ea972b499d3660e7085e0a774cf"
         ],
         "files_modified": [
             "{APP_ROOT}/cron/runner.php"
@@ -82,8 +82,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-0150",
         "path": "{APP_ROOT}/cron/runner.php",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7376f67e65c6d3f6c41cb858a660e364819eb9fc5bb6c9245cadfa7ba6c301b0",
-        "sha256": "7376f67e65c6d3f6c41cb858a660e364819eb9fc5bb6c9245cadfa7ba6c301b0",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d0396b46ba15781a6dbc4db1e61d097e0fed2ea972b499d3660e7085e0a774cf",
+        "sha256": "d0396b46ba15781a6dbc4db1e61d097e0fed2ea972b499d3660e7085e0a774cf",
         "mode": 436
     },
     "actions": [
@@ -91,8 +91,8 @@
             "type": "restore_managed_artifact",
             "repair_id": "ARTIFACT-0150",
             "path": "{APP_ROOT}/cron/runner.php",
-            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7376f67e65c6d3f6c41cb858a660e364819eb9fc5bb6c9245cadfa7ba6c301b0",
-            "sha256": "7376f67e65c6d3f6c41cb858a660e364819eb9fc5bb6c9245cadfa7ba6c301b0",
+            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d0396b46ba15781a6dbc4db1e61d097e0fed2ea972b499d3660e7085e0a774cf",
+            "sha256": "d0396b46ba15781a6dbc4db1e61d097e0fed2ea972b499d3660e7085e0a774cf",
             "mode": 436,
             "description": "Atomically restore cron/runner.php from its exact local release baseline."
         }
@@ -104,8 +104,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-0150",
         "path": "{APP_ROOT}/cron/runner.php",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/7376f67e65c6d3f6c41cb858a660e364819eb9fc5bb6c9245cadfa7ba6c301b0",
-        "sha256": "7376f67e65c6d3f6c41cb858a660e364819eb9fc5bb6c9245cadfa7ba6c301b0",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/d0396b46ba15781a6dbc4db1e61d097e0fed2ea972b499d3660e7085e0a774cf",
+        "sha256": "d0396b46ba15781a6dbc4db1e61d097e0fed2ea972b499d3660e7085e0a774cf",
         "mode": 436
     },
     "rollback": {

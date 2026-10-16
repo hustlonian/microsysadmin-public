@@ -8,7 +8,7 @@
     },
     "diagnosis": {
         "condition": "Managed release artifact classes/JobQueue.php is missing, modified, or has the wrong mode.",
-        "expected_state": "SHA-256 1db475ae35b741f4cc2a59f3d66b24d6a445e06ebb1ee134dab0dff461579fd1 with mode 0644.",
+        "expected_state": "SHA-256 4b2c02a45ba97a23eb19ad10b6256b82ce8b526dddc01fa8c08ff0d19212532f with mode 0644.",
         "probable_cause": "Local release artifact drift occurred after installation or update.",
         "confidence": 1,
         "related_repair_ids": [

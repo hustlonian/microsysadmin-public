@@ -49,7 +49,7 @@
         "conflicts": [],
         "files_read": [
             "{APP_ROOT}/scripts/job-worker.php",
-            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4"
+            "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/99ee0d67586d5806d0ab67f302184251d8ff33a7f77cf79cb597d3dd18a3188a"
         ],
         "files_modified": [
             "{APP_ROOT}/scripts/job-worker.php"
@@ -82,8 +82,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-1847",
         "path": "{APP_ROOT}/scripts/job-worker.php",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4",
-        "sha256": "583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/99ee0d67586d5806d0ab67f302184251d8ff33a7f77cf79cb597d3dd18a3188a",
+        "sha256": "99ee0d67586d5806d0ab67f302184251d8ff33a7f77cf79cb597d3dd18a3188a",
         "mode": 493
     },
     "actions": [
@@ -91,8 +91,8 @@
             "type": "restore_managed_artifact",
             "repair_id": "ARTIFACT-1847",
             "path": "{APP_ROOT}/scripts/job-worker.php",
-            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4",
-            "sha256": "583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4",
+            "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/99ee0d67586d5806d0ab67f302184251d8ff33a7f77cf79cb597d3dd18a3188a",
+            "sha256": "99ee0d67586d5806d0ab67f302184251d8ff33a7f77cf79cb597d3dd18a3188a",
             "mode": 493,
             "description": "Atomically restore scripts/job-worker.php from its exact local release baseline."
         }
@@ -104,8 +104,8 @@
         "type": "managed_artifact_integrity",
         "repair_id": "ARTIFACT-1847",
         "path": "{APP_ROOT}/scripts/job-worker.php",
-        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4",
-        "sha256": "583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4",
+        "baseline": "{APP_ROOT}/doctor/baselines/release-artifacts/blobs/99ee0d67586d5806d0ab67f302184251d8ff33a7f77cf79cb597d3dd18a3188a",
+        "sha256": "99ee0d67586d5806d0ab67f302184251d8ff33a7f77cf79cb597d3dd18a3188a",
         "mode": 493
     },
     "rollback": {

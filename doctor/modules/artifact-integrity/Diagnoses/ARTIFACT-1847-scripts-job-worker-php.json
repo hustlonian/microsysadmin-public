@@ -8,7 +8,7 @@
     },
     "diagnosis": {
         "condition": "Managed release artifact scripts/job-worker.php is missing, modified, or has the wrong mode.",
-        "expected_state": "SHA-256 583b7f9b4d62c83cf7ba5e7ffe1f811ade8f7e055f9a1c2d08a53a46ef07c7f4 with mode 0755.",
+        "expected_state": "SHA-256 99ee0d67586d5806d0ab67f302184251d8ff33a7f77cf79cb597d3dd18a3188a with mode 0755.",
         "probable_cause": "Local release artifact drift occurred after installation or update.",
         "confidence": 1,
         "related_repair_ids": [

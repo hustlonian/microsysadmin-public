@@ -11,6 +11,8 @@ if (SysAdmin\DemoMode::enabled()) {
     exit;
 }
 
+(new SysAdmin\JobQueue())->reconcile();
+
 $pdo = SysAdmin\Database::pdo();
 $taskStatement = $pdo->prepare(
     'SELECT * FROM scheduled_tasks WHERE enabled = 1 AND machine_id = ? ORDER BY id'
