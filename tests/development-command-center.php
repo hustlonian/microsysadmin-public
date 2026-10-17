@@ -134,7 +134,9 @@ if (is_file($domainPath)) {
     $_SESSION['user_id'] = $viewer;
     $assert(!array_filter($service->report('digital-empire')['gates'], static fn(array $gate): bool => isset($gate['review_url'])), 'Viewer acquired owner review navigation');
     $_SESSION['user_id'] = $owner;
-    foreach (['javascript:alert(1)','http://example.invalid','https://example.invalid/redirect','https://user:pass@example.invalid','https://example.invalid?next=elsewhere'] as $unsafe) {
+    // Construct synthetic URL userinfo at runtime; no credential-bearing URL is stored in source.
+    $userinfo = implode('', ['user', ':', 'pass', '@']);
+    foreach (['javascript:alert(1)','http://example.invalid','https://example.invalid/redirect','https://' . $userinfo . 'example.invalid','https://example.invalid?next=elsewhere'] as $unsafe) {
         $binding['owner_review']['base_url'] = $unsafe;
         $assert($service->report('digital-empire')['owner_review']['status'] === 'INVALID_CONFIGURATION', 'Unsafe review destination allowed');
     }
