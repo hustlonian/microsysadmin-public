@@ -7,6 +7,9 @@ return [
         ['label' => 'Dashboard', 'slug' => 'dashboard', 'icon' => 'fa-gauge-high'],
         ['label' => 'Doctor', 'slug' => 'doctor', 'icon' => 'fa-user-doctor'],
     ],
+    'Development' => [
+        ['label' => 'Command Center', 'slug' => 'development-command-center', 'icon' => 'fa-diagram-project'],
+    ],
     'Project workspace' => [
         ['label' => 'Projects', 'slug' => 'sites', 'icon' => 'fa-window-restore'],
         ['label' => 'Files', 'slug' => 'explorer', 'icon' => 'fa-folder-tree'],

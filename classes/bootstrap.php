@@ -61,6 +61,8 @@ spl_autoload_register(static function (string $class): void {
     $relative = substr($class, strlen('SysAdmin\\'));
     $relativePath = str_replace('\\', DIRECTORY_SEPARATOR, $relative) . '.php';
     $candidates = [
+        APP_ROOT . '/controllers/' . preg_replace('~^Controllers/~', '', str_replace(DIRECTORY_SEPARATOR, '/', $relativePath)),
+        APP_ROOT . '/models/' . preg_replace('~^Models/~', '', str_replace(DIRECTORY_SEPARATOR, '/', $relativePath)),
         APP_ROOT . '/classes/' . $relativePath,
         APP_ROOT . '/controllers/' . $relativePath,
         APP_ROOT . '/models/' . $relativePath,

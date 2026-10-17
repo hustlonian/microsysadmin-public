@@ -7,6 +7,8 @@ $releasePublicKey = trim((string) @file_get_contents(__DIR__ . '/release-public-
 $defaultUpdateChannel = str_contains($releaseVersion, '-beta.') ? 'beta' : 'stable';
 
 return [
+    // Explicit platform-provisioned organization/project bindings; never auto-enroll.
+    'development' => ['projects' => []],
     'app' => [
         'name' => 'MicroSysAdmin',
         'base_url' => '/microsysadmin',

@@ -19,7 +19,11 @@ def main():
     parser.add_argument('--evidence-dir', required=True, type=Path)
     parser.add_argument('--application-suite', action='store_true')
     parser.add_argument('--install-suite', action='store_true')
+    parser.add_argument('--development-projection', type=Path)
+    parser.add_argument('--development-only', action='store_true')
     args = parser.parse_args()
+    if args.development_only and not args.development_projection:
+        parser.error('--development-only requires a sanitized projection')
     source = Path(__file__).resolve().parents[1]
     evidence = args.evidence_dir.resolve()
     evidence.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -97,7 +101,15 @@ def main():
             time.sleep(0.1)
         else:
             raise RuntimeError('Disposable MariaDB readiness timed out')
-        run('job-recovery', [php, 'tests/job-recovery.php'])
+        if args.development_projection:
+            projection = json.loads(args.development_projection.read_text())
+            if projection.get('kind') != 'DEVELOPMENT_COMMAND_CENTER':
+                raise RuntimeError('Expected sanitized development projection')
+            (app / 'storage').mkdir(exist_ok=True)
+            shutil.copyfile(args.development_projection, app / 'storage/development-fixture.json')
+            run('development-command-center', [php, 'tests/development-command-center.php'])
+        if not args.development_only:
+            run('job-recovery', [php, 'tests/job-recovery.php'])
         if args.application_suite:
             run('application-suite', [php, 'tests/run.php'])
         if args.install_suite:
@@ -117,7 +129,8 @@ def main():
                 failure = (failure or '') + '; exact child MariaDB did not stop; reconcile before retry'
         receipt = {'status': 'FAIL' if failure else 'PASS', 'runtime': str(runtime),
                    'checks': results, 'error': failure, 'server_exit': server.poll() if server else None,
-                   'production_connections': 0, 'real_data_imports': 0, 'config_copied': False}
+                   'production_connections': 0, 'customer_data_imports': 0, 'config_copied': False,
+                   'sanitized_controller_replay': bool(args.development_projection)}
         (evidence / 'isolation.json').write_text(json.dumps(receipt, indent=2) + '\n')
         print(json.dumps(receipt, indent=2), flush=True)
     return 1 if failure else 0

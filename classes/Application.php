@@ -70,6 +70,11 @@ final class Application
             redirect_to('change-password');
         }
 
+        if ($path === 'development-command-center' || str_starts_with($path, 'development-command-center/')) {
+            (new \SysAdmin\Controllers\DevelopmentController())->handle($path);
+            return;
+        }
+
         if (str_starts_with($path, 'workspace-preview/')) {
             if (\SysAdmin\DemoMode::enabled()) {
                 http_response_code(404);

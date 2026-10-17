@@ -1,0 +1,113 @@
+<?php
+
+declare(strict_types=1);
+
+define('APP_ROOT', dirname(__DIR__));
+$configuration = require APP_ROOT . '/config/config.php';
+if (!preg_match('~^/tmp/msa-job-test-[^/]+/app$~', APP_ROOT)
+    || ($configuration['database']['name'] ?? '') !== 'microsysadmin_job_test_isolated'
+    || ($configuration['database']['socket'] ?? '') !== dirname(APP_ROOT) . '/mysql.sock') {
+    throw new RuntimeException('Use the disposable development runner.');
+}
+require APP_ROOT . '/classes/bootstrap.php';
+set_exception_handler(static function (Throwable $e): never { fwrite(STDERR, $e->getMessage() . "\n"); exit(1); });
+
+use SysAdmin\Auth;
+use SysAdmin\Database;
+use SysAdmin\DevelopmentCommandCenter;
+use SysAdmin\HttpException;
+use SysAdmin\Controllers\DevelopmentController;
+
+$pdo = Database::pdo();
+$now = date('Y-m-d H:i:s');
+$organization = static function (string $slug) use ($pdo, $now): int {
+    $pdo->prepare('INSERT INTO organizations(uuid,name,slug,status,created_at,updated_at) VALUES(?,?,?,?,?,?)')
+        ->execute([bin2hex(random_bytes(18)), 'Fixture ' . $slug, $slug, 'active', $now, $now]);
+    return (int) $pdo->lastInsertId();
+};
+$org = $organization('development-owner');
+$other = $organization('development-other');
+$createUser = static function (string $name, int $organization, string $role = 'Viewer') use ($pdo, $now): int {
+    $pdo->prepare('INSERT INTO users(username,password_hash,role,organization_id,is_disabled,force_password_change,created_at,updated_at) VALUES(?,?,?,?,0,0,?,?)')
+        ->execute([$name, password_hash('DisposableOnly-789', PASSWORD_DEFAULT), $role, $organization, $now, $now]);
+    $id = (int) $pdo->lastInsertId();
+    $pdo->prepare('INSERT INTO organization_members(organization_id,user_id,organization_role,status,created_at,updated_at) VALUES(?,?,?,?,?,?)')
+        ->execute([$organization, $id, $role === 'Administrator' ? 'admin' : 'viewer', 'active', $now, $now]);
+    return $id;
+};
+$owner = $createUser('development-owner', $org);
+$viewer = $createUser('development-viewer', $org);
+$unassigned = $createUser('development-unassigned', $org);
+$outsider = $createUser('development-other-admin', $other, 'Administrator');
+$fixture = STORAGE_PATH . '/development-fixture.json';
+$actual = json_decode((string) file_get_contents($fixture), true, 48, JSON_THROW_ON_ERROR);
+if (($actual['kind'] ?? '') !== 'DEVELOPMENT_COMMAND_CENTER' || ($actual['project']['id'] ?? '') !== 'digital-empire') {
+    throw new RuntimeException('Actual sanitized controller projection was not provided.');
+}
+$GLOBALS['sysadmin_config']['development']['projects']['digital-empire'] = [
+    'organization_id' => $org, 'tenant_key' => 'customer-zero-digital-empire', 'name' => 'Digital Empire',
+    'projection_file' => $fixture, 'users' => [$owner => 'owner', $viewer => 'viewer'],
+];
+$_SESSION['user_id'] = $owner;
+$service = new DevelopmentCommandCenter();
+$checks = 0;
+$assert = static function (bool $value, string $why) use (&$checks): void { $checks++; if (!$value) { throw new RuntimeException($why); } };
+$assert($service->authorize('digital-empire') === 'owner', 'Assigned tenant owner denied');
+$assert(!Auth::can('security.settings'), 'Tenant owner unexpectedly has platform privileges');
+$report = $service->report('digital-empire');
+$assert($report['available'], 'Actual controller projection unavailable');
+$assert(count($report['history']) >= 3, 'Real previous checkpoints not imported');
+$assert(count($report['workstreams']) === 12 && count($report['gates']) === 12, 'Digital Empire scope missing');
+$assert($report['readiness'] === 'NOT_VERIFIED', 'Fabricated release readiness');
+$assert(array_unique(array_column($report['gates'], 'state')) === ['DRAFT'], 'Infrastructure completion promoted top-level gates');
+$assert(!str_contains(json_encode($report), '/opt/lampp'), 'Private host paths exposed');
+$assert(!isset($report['project']['tenant_key']), 'Internal tenant binding exported');
+$assert($service->filter($report, ['agent' => 'no-such-agent'])['history'] === [], 'History filter ignored');
+$assert(str_contains($service->markdown($report), 'NOT_VERIFIED'), 'Markdown hides readiness limits');
+foreach (['overview','history','working','roadmap','gates','reports'] as $view) {
+    $_GET = ['project' => 'digital-empire', 'view' => $view];
+    ob_start(); (new DevelopmentController())->handle('development-command-center'); $html = (string) ob_get_clean();
+    $assert(str_contains($html, 'main-sidebar') && str_contains($html, 'Development Command Center'), 'Host AdminLTE layout not preserved: ' . $view);
+    $assert(str_contains($html, 'development-command-center'), 'Working host navigation missing');
+    file_put_contents(STORAGE_PATH . '/development-' . $view . '.html', $html);
+}
+foreach (['snapshot','export.json','export.md'] as $endpoint) {
+    $_GET = ['project' => 'digital-empire'];
+    ob_start(); (new DevelopmentController())->handle('development-command-center/' . $endpoint); $body = (string) ob_get_clean();
+    $assert($body !== '' && !str_contains($body, 'password_hash'), 'Unsafe export or API');
+}
+$_GET = ['project' => 'digital-empire', 'partial' => '1'];
+ob_start(); (new DevelopmentController())->handle('development-command-center'); $partial = (string) ob_get_clean();
+$assert(str_contains($partial, 'development-content') && !str_contains($partial, 'main-sidebar'), 'Polling did not return scoped partial');
+$_SESSION['user_id'] = $viewer;
+$assert($service->authorize('digital-empire') === 'viewer', 'Assigned viewer denied');
+foreach ([$outsider, $unassigned] as $denied) {
+    $_SESSION['user_id'] = $denied;
+    $assert($service->projects() === [], 'Other project metadata leaked');
+    foreach (['snapshot','export.json','export.md'] as $endpoint) {
+        $_GET = ['project' => 'digital-empire'];
+        try { (new DevelopmentController())->handle('development-command-center/' . $endpoint); throw new RuntimeException('Scope bypass: ' . $endpoint); }
+        catch (HttpException $e) { $assert($e->statusCode() === 403, 'Incorrect scope rejection'); }
+    }
+}
+$_SESSION['user_id'] = $owner;
+$pdo->prepare("UPDATE organization_members SET status='suspended' WHERE user_id=?")->execute([$owner]);
+try { $service->authorize('digital-empire'); throw new RuntimeException('Revoked membership accepted'); }
+catch (HttpException $e) { $assert($e->statusCode() === 403, 'Revocation not enforced'); }
+$pdo->prepare("UPDATE organization_members SET status='active' WHERE user_id=?")->execute([$owner]);
+$stale = $actual; $stale['source']['persisted_at'] = '2020-01-01T00:00:00+00:00';
+file_put_contents($fixture, json_encode($stale));
+$report = $service->report('digital-empire');
+$assert($report['freshness'] === 'STALE' && $report['ownership']['status'] === 'NOT_CONFIRMED_ACTIVE', 'Stale agent shown active');
+$wrong = $actual; $wrong['project']['tenant_key'] = 'different-tenant'; file_put_contents($fixture, json_encode($wrong));
+$assert(!$service->report('digital-empire')['available'], 'Wrong-tenant projection accepted');
+$incomplete = $actual; unset($incomplete['last_verified']); file_put_contents($fixture, json_encode($incomplete));
+$assert(!$service->report('digital-empire')['available'], 'Incomplete projection accepted');
+file_put_contents($fixture, '{interrupted');
+$assert(!$service->report('digital-empire')['available'], 'Corrupt projection presented as live');
+file_put_contents($fixture, json_encode($actual));
+// Keep only generated fixture configuration for browser acceptance; never installed config.
+$config = $GLOBALS['sysadmin_config'];
+file_put_contents(APP_ROOT . '/config/config.php', '<?php return ' . var_export($config, true) . ';');
+file_put_contents(STORAGE_PATH . '/development-browser.json', json_encode(['owner_id'=>$owner,'viewer_id'=>$viewer,'outsider_id'=>$outsider,'organization_id'=>$org]));
+echo "PASS: development host bridge, real controller replay, authorization, rendering and freshness — {$checks} assertions.\n";
