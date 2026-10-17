@@ -145,7 +145,27 @@ if (is_file($domainPath)) {
     ob_start(); (new DevelopmentController())->handle('development-command-center'); $evidenceHtml = (string) ob_get_clean();
     $assert(str_contains($evidenceHtml, 'Assessment at capture') && str_contains($evidenceHtml, 'No matching evidence record')
         && str_contains($evidenceHtml, 'LG-12.criterion-3'), 'Evidence inspection missing exact criteria or absence of proof');
-    $assert(str_contains($evidenceHtml, 'Project access and enrollment') && str_contains($evidenceHtml, 'Owner decisions are not connected'), 'Enrollment authority boundary hidden');
+    $assert(str_contains($evidenceHtml, 'Project access and enrollment') && str_contains($evidenceHtml, 'Owner review links are configured.')
+        && !str_contains($evidenceHtml, 'Owner decisions are not connected'), 'Configured owner review mislabeled as disconnected');
+    $assert(str_contains($evidenceHtml, 'grants no platform administration or operating-system access')
+        && str_contains($evidenceHtml, 'does not grant approval access in Software Ops'), 'Project role overstates its permissions');
+    foreach (['viewer', 'invalid', 'stale'] as $accessCase) {
+        $_SESSION['user_id'] = $accessCase === 'viewer' ? $viewer : $owner;
+        $binding['owner_review']['base_url'] = $accessCase === 'invalid' ? 'javascript:alert(1)' : 'http://127.0.0.1:18081';
+        $accessDomain = $domain;
+        if ($accessCase === 'stale') $accessDomain['source']['captured_at'] = '2020-01-01T00:00:00+00:00';
+        file_put_contents($domainPath, json_encode($accessDomain));
+        ob_start(); (new DevelopmentController())->handle('development-command-center'); $accessHtml = (string) ob_get_clean();
+        $expected = match ($accessCase) {
+            'viewer' => 'Owner decisions are not connected for this account.',
+            'invalid' => 'Owner review configuration is invalid.',
+            'stale' => 'Owner review links are unavailable until a fresh canonical workflow snapshot is available.',
+        };
+        $assert(str_contains($accessHtml, $expected) && !preg_match('/<a\b[^>]*\bdata-owner-review\b/', $accessHtml), 'Incorrect review access display: ' . $accessCase);
+    }
+    $_SESSION['user_id'] = $owner;
+    $binding['owner_review']['base_url'] = 'http://127.0.0.1:18081';
+    file_put_contents($domainPath, json_encode($domain));
     $_GET = ['project' => 'digital-empire', 'view' => 'gates'];
     ob_start(); (new DevelopmentController())->handle('development-command-center'); $html = (string) ob_get_clean();
     $assert(str_contains($html, 'Decision revision') && str_contains($html, 'LG-12.criterion-3'), 'Imported gate provenance/requirements not rendered');
