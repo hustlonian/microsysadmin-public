@@ -26,7 +26,7 @@ const path = require('path');
  await login(context,'development-owner');
  const page=await context.newPage();
  page.on('requestfailed',r=>{if(!r.url().startsWith(base))assetFailures.push(r.url());});
- for(const tab of ['overview','history','working','roadmap','gates','reports']) {
+ for(const tab of ['overview','history','working','roadmap','gates','evidence','reports']) {
    const response=await page.goto(base+'/development-command-center?project=digital-empire&view='+tab,{waitUntil:'domcontentloaded'});
    assert(response.status()===200,'Host view failed '+tab);
    assert(await page.locator('.main-sidebar').count()===1,'Existing host navigation lost');
@@ -45,6 +45,11 @@ const path = require('path');
    await page.goto(base+'/development-command-center?project=digital-empire&view=gates',{waitUntil:'domcontentloaded'});
    assert((await page.locator('#development-content').innerText()).includes('Decision revision'),'Actual imported gate provenance missing');
    assert((await page.locator('#development-content').innerText()).includes('exact criterion coverage required'),'Actual gate blockers missing');
+   await page.goto(base+'/development-command-center?project=digital-empire&view=evidence',{waitUntil:'domcontentloaded'});
+   const inspection=await page.locator('#development-content').innerText();
+   assert(inspection.includes('Assessment at capture') && inspection.includes('No matching evidence record'),'Criterion evidence inspection missing');
+   await page.locator('summary').filter({hasText:'Project access and enrollment'}).click();
+   assert((await page.locator('#development-content').innerText()).includes('Owner decisions are not connected'),'Enrollment authority boundary hidden');
    await page.clock.install();
    await page.clock.fastForward(65000);
    await page.waitForFunction(() => [...document.querySelectorAll('[data-domain-captured] .badge')].every(b => b.textContent === 'BLOCKED'), {timeout:10000});

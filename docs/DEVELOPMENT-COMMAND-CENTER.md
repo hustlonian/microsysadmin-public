@@ -103,3 +103,19 @@ For integration tests, `--development-domain` accepts only an explicitly labeled
 disposable canonical importer replay, alongside `--development-projection`. Its
 real roadmap/DRAFT records are rendered using synthetic accounts and databases;
 no test output is written as actual Customer Zero gate acceptance.
+
+## Enrollment and evidence inspection
+
+Each authorized project displays the authenticated user's explicit project role,
+active organization membership and read-only access. Enrollment is checked on
+every request, including unavailable-data responses. The screen distinguishes
+host access from workflow data availability and explicitly states that owner
+decisions are not connected. It creates no users, memberships or authority.
+
+The Evidence inspection tab displays every exact criterion, proof dimension,
+capture-time assessment and matching evidence reference from the scoped workflow
+snapshot. Missing proof is explicit. Source, environment, gate revision and capture
+time remain visible. Malformed or missing criterion assessments fail closed;
+private artifact paths are excluded. Capture-time passes remain historical, and
+cached gate claims expire after polling just as they do on the LockGate board.
+The host cannot grant approvals or fetch arbitrary files through evidence IDs.

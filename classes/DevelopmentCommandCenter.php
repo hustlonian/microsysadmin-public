@@ -45,10 +45,12 @@ final class DevelopmentCommandCenter
 
     public function report(string $project): array
     {
-        $this->authorize($project);
+        $role = $this->authorize($project);
         $binding = $this->binding($project);
         $unavailable = ['available' => false, 'freshness' => 'UNAVAILABLE', 'project' => ['id' => $project,
-            'name' => (string) ($binding['name'] ?? $project)], 'readiness' => 'NOT_VERIFIED'];
+            'name' => (string) ($binding['name'] ?? $project)], 'readiness' => 'NOT_VERIFIED',
+            'access' => ['role' => $role, 'organization_membership' => 'ACTIVE', 'project_assignment' => 'EXPLICIT',
+                'mode' => 'READ_ONLY', 'owner_decisions' => 'NOT_CONNECTED']];
         $path = $binding['projection_file'] ?? null;
         if (!is_string($path) || !is_file($path) || is_link($path) || !is_readable($path)
             || filesize($path) > 2097152) {
@@ -91,6 +93,7 @@ final class DevelopmentCommandCenter
             }
             // Counts and historical acceptance never become overall release acceptance.
             $report['readiness'] = 'NOT_VERIFIED';
+            $report['access'] = $unavailable['access'];
             $report = $this->domain($report, $binding);
             $report['available'] = true;
             return $report;
@@ -197,6 +200,21 @@ final class DevelopmentCommandCenter
                         return $report;
                     }
                 }
+                // Only exact criterion assessments leave this adapter. Cached results
+                // describe capture-time verification, never current owner acceptance.
+                $evidence = [];
+                foreach ($declared['criteria'] as $criterion) {
+                    $item = $gate['assessment']['evidence'][$criterion['id']] ?? null;
+                    if (!is_array($item) || !in_array($item['status'] ?? null,
+                        ['PASS','FAIL','UNVERIFIED','TAMPERED','STALE','ARTIFACT_INVALID'], true)
+                        || (($item['status'] ?? null) === 'PASS' && empty($item['evidence_id']))
+                        || ($gate['assessment']['accepted'] && ($item['status'] ?? null) !== 'PASS')
+                        || (!is_null($item['evidence_id'] ?? null) && (!is_string($item['evidence_id'])
+                            || !preg_match('/\A[a-zA-Z0-9-]{1,200}\z/', $item['evidence_id'])))) {
+                        return $report;
+                    }
+                    $evidence[$criterion['id']] = ['status' => $item['status'], 'evidence_id' => $item['evidence_id'] ?? null];
+                }
                 $declared['state'] = $freshness === 'RECENT' ? $gate['state'] : 'BLOCKED';
                 if ($declared['state'] === 'ACTIVE') {
                     $heartbeat = $this->timestamp($gate['heartbeat_at'] ?? null);
@@ -207,7 +225,8 @@ final class DevelopmentCommandCenter
                 }
                 $declared['domain'] = ['recorded_state' => $gate['recorded_state'], 'revision' => $gate['revision'],
                     'source_hash' => $gate['source_hash'], 'environment' => $gate['environment'],
-                    'unmet' => $gate['assessment']['unmet'], 'heartbeat_at' => $gate['heartbeat_at'] ?? null];
+                    'unmet' => $gate['assessment']['unmet'], 'heartbeat_at' => $gate['heartbeat_at'] ?? null,
+                    'evidence' => $evidence];
                 if ($freshness !== 'RECENT') {
                     $declared['domain']['unmet'][] = 'Workflow snapshot is stale or clock-skewed; current acceptance must be rechecked.';
                 }

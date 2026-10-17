@@ -56,6 +56,8 @@ $assert($service->authorize('digital-empire') === 'owner', 'Assigned tenant owne
 $assert(!Auth::can('security.settings'), 'Tenant owner unexpectedly has platform privileges');
 $report = $service->report('digital-empire');
 $assert($report['available'], 'Actual controller projection unavailable');
+$assert($report['access']['role'] === 'owner' && $report['access']['mode'] === 'READ_ONLY'
+    && $report['access']['owner_decisions'] === 'NOT_CONNECTED', 'Host role implied canonical approval authority');
 $assert(count($report['history']) >= 3, 'Real previous checkpoints not imported');
 $assert(count($report['workstreams']) === 12 && count($report['gates']) === 12, 'Digital Empire scope missing');
 $assert($report['readiness'] === 'NOT_VERIFIED', 'Fabricated release readiness');
@@ -64,7 +66,7 @@ $assert(!str_contains(json_encode($report), '/opt/lampp'), 'Private host paths e
 $assert(!isset($report['project']['tenant_key']), 'Internal tenant binding exported');
 $assert($service->filter($report, ['agent' => 'no-such-agent'])['history'] === [], 'History filter ignored');
 $assert(str_contains($service->markdown($report), 'NOT_VERIFIED'), 'Markdown hides readiness limits');
-foreach (['overview','history','working','roadmap','gates','reports'] as $view) {
+foreach (['overview','history','working','roadmap','gates','evidence','reports'] as $view) {
     $_GET = ['project' => 'digital-empire', 'view' => $view];
     ob_start(); (new DevelopmentController())->handle('development-command-center'); $html = (string) ob_get_clean();
     $assert(str_contains($html, 'main-sidebar') && str_contains($html, 'Development Command Center'), 'Host AdminLTE layout not preserved: ' . $view);
@@ -105,6 +107,7 @@ $incomplete = $actual; unset($incomplete['last_verified']); file_put_contents($f
 $assert(!$service->report('digital-empire')['available'], 'Incomplete projection accepted');
 file_put_contents($fixture, '{interrupted');
 $assert(!$service->report('digital-empire')['available'], 'Corrupt projection presented as live');
+$assert($service->report('digital-empire')['access']['project_assignment'] === 'EXPLICIT', 'Unavailable data hid verified enrollment');
 file_put_contents($fixture, json_encode($actual));
 // Optional replay from the actual canonical importer in a disposable workflow database.
 $domainPath = STORAGE_PATH . '/development-domain-replay.json';
@@ -117,16 +120,28 @@ if (is_file($domainPath)) {
     $assert($report['domain']['status'] === 'RECENT', 'Canonical imported domain replay unavailable');
     $assert(count($report['gates']) === 12 && array_unique(array_column($report['gates'], 'state')) === ['DRAFT'], 'Import fabricated gate acceptance');
     $assert(!empty($report['gates'][0]['domain']['unmet']), 'Actual independent acceptance blockers missing');
+    $assert(count($report['gates'][0]['domain']['evidence']) === count($report['gates'][0]['criteria']), 'Criterion assessments omitted');
+    $_GET = ['project' => 'digital-empire', 'view' => 'evidence'];
+    ob_start(); (new DevelopmentController())->handle('development-command-center'); $evidenceHtml = (string) ob_get_clean();
+    $assert(str_contains($evidenceHtml, 'Assessment at capture') && str_contains($evidenceHtml, 'No matching evidence record')
+        && str_contains($evidenceHtml, 'LG-12.criterion-3'), 'Evidence inspection missing exact criteria or absence of proof');
+    $assert(str_contains($evidenceHtml, 'Project access and enrollment') && str_contains($evidenceHtml, 'Owner decisions are not connected'), 'Enrollment authority boundary hidden');
     $_GET = ['project' => 'digital-empire', 'view' => 'gates'];
     ob_start(); (new DevelopmentController())->handle('development-command-center'); $html = (string) ob_get_clean();
     $assert(str_contains($html, 'Decision revision') && str_contains($html, 'LG-12.criterion-3'), 'Imported gate provenance/requirements not rendered');
-    foreach (['tenant','requirements','duplicate','completion','finish-line','clock','active','stale'] as $case) {
+    foreach (['tenant','requirements','duplicate','completion','finish-line','evidence-status','evidence-reference','evidence-missing','evidence-empty-pass','evidence-contradiction','clock','active','stale'] as $case) {
         $changed = $domain;
         if ($case === 'tenant') $changed['project']['tenant_key'] = 'other-tenant';
         if ($case === 'requirements') $changed['gates'][0]['definition']['criteria'][0]['description'] = 'Forged requirement';
         if ($case === 'duplicate') $changed['gates'][1]['key'] = $changed['gates'][0]['key'];
         if ($case === 'completion') $changed['gates'][0]['state'] = 'UNLOCKED';
         if ($case === 'finish-line') $changed['scope']['definition_of_done']['initial_scope'] = ['LG-01'];
+        $criterionId = $domain['gates'][0]['definition']['criteria'][0]['id'];
+        if ($case === 'evidence-status') $changed['gates'][0]['assessment']['evidence'][$criterionId]['status'] = 'ACCEPTED_BY_OWNER';
+        if ($case === 'evidence-reference') $changed['gates'][0]['assessment']['evidence'][$criterionId]['evidence_id'] = '/private/other-tenant';
+        if ($case === 'evidence-missing') unset($changed['gates'][0]['assessment']['evidence'][$criterionId]);
+        if ($case === 'evidence-empty-pass') $changed['gates'][0]['assessment']['evidence'][$criterionId] = ['status' => 'PASS', 'evidence_id' => null];
+        if ($case === 'evidence-contradiction') $changed['gates'][0]['assessment']['accepted'] = true;
         if ($case === 'clock') $changed['source']['captured_at'] = gmdate('c', time()+3600);
         if ($case === 'stale') $changed['source']['captured_at'] = '2020-01-01T00:00:00+00:00';
         if ($case === 'active') { $changed['gates'][0]['state'] = 'ACTIVE'; $changed['gates'][0]['heartbeat_at'] = '2020-01-01T00:00:00+00:00'; }

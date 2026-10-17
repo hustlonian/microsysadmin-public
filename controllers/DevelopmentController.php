@@ -23,7 +23,7 @@ final class DevelopmentController
             throw new HttpException(422, 'Invalid project.');
         }
         $view = $_GET['view'] ?? 'overview';
-        if (!is_string($view) || !in_array($view, ['overview','history','working','roadmap','gates','reports'], true)) {
+        if (!is_string($view) || !in_array($view, ['overview','history','working','roadmap','gates','evidence','reports'], true)) {
             throw new HttpException(422, 'Invalid development view.');
         }
         $data = ['title' => 'Development Command Center', 'active' => 'development-command-center',
