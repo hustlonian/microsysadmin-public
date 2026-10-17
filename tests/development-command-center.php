@@ -121,6 +121,24 @@ if (is_file($domainPath)) {
     $assert(count($report['gates']) === 12 && array_unique(array_column($report['gates'], 'state')) === ['DRAFT'], 'Import fabricated gate acceptance');
     $assert(!empty($report['gates'][0]['domain']['unmet']), 'Actual independent acceptance blockers missing');
     $assert(count($report['gates'][0]['domain']['evidence']) === count($report['gates'][0]['criteria']), 'Criterion assessments omitted');
+    $binding =& $GLOBALS['sysadmin_config']['development']['projects']['digital-empire'];
+    $binding['owner_review'] = ['base_url' => 'http://127.0.0.1:18081', 'bindings' => [$owner => 'fixture-owner-review']];
+    $reviewReport = $service->report('digital-empire');
+    $links = array_values(array_filter($reviewReport['gates'], static fn(array $gate): bool => isset($gate['review_url'])));
+    $assert($reviewReport['owner_review']['status'] === 'INDEPENDENT_LOGIN_REQUIRED' && count($links) > 0, 'Explicit owner review navigation missing');
+    parse_str((string) parse_url($links[0]['review_url'], PHP_URL_QUERY), $reviewInput);
+    $assert($reviewInput['review_binding'] === 'fixture-owner-review' && $reviewInput['revision'] === (string) $links[0]['domain']['revision']
+        && $reviewInput['source_hash'] === $links[0]['domain']['source_hash'] && strlen($reviewInput['definition_hash']) === 64,
+        'Review link lost exact canonical context');
+    $assert(!str_contains($links[0]['review_url'], 'expires_at') && !str_contains($links[0]['review_url'], 'operation_id'), 'Navigation attempted to submit a decision');
+    $_SESSION['user_id'] = $viewer;
+    $assert(!array_filter($service->report('digital-empire')['gates'], static fn(array $gate): bool => isset($gate['review_url'])), 'Viewer acquired owner review navigation');
+    $_SESSION['user_id'] = $owner;
+    foreach (['javascript:alert(1)','http://example.invalid','https://example.invalid/redirect','https://user:pass@example.invalid','https://example.invalid?next=elsewhere'] as $unsafe) {
+        $binding['owner_review']['base_url'] = $unsafe;
+        $assert($service->report('digital-empire')['owner_review']['status'] === 'INVALID_CONFIGURATION', 'Unsafe review destination allowed');
+    }
+    $binding['owner_review']['base_url'] = 'http://127.0.0.1:18081';
     $_GET = ['project' => 'digital-empire', 'view' => 'evidence'];
     ob_start(); (new DevelopmentController())->handle('development-command-center'); $evidenceHtml = (string) ob_get_clean();
     $assert(str_contains($evidenceHtml, 'Assessment at capture') && str_contains($evidenceHtml, 'No matching evidence record')
@@ -129,6 +147,7 @@ if (is_file($domainPath)) {
     $_GET = ['project' => 'digital-empire', 'view' => 'gates'];
     ob_start(); (new DevelopmentController())->handle('development-command-center'); $html = (string) ob_get_clean();
     $assert(str_contains($html, 'Decision revision') && str_contains($html, 'LG-12.criterion-3'), 'Imported gate provenance/requirements not rendered');
+    $assert(str_contains($html, 'data-owner-review') && str_contains($html, 'Independent owner login required'), 'Owner review boundary not rendered');
     foreach (['tenant','requirements','duplicate','completion','finish-line','evidence-status','evidence-reference','evidence-missing','evidence-empty-pass','evidence-contradiction','clock','active','stale'] as $case) {
         $changed = $domain;
         if ($case === 'tenant') $changed['project']['tenant_key'] = 'other-tenant';
@@ -149,6 +168,7 @@ if (is_file($domainPath)) {
         $result = $service->report('digital-empire');
         if (in_array($case, ['clock','active','stale'], true)) {
             $assert($result['gates'][0]['state'] === 'BLOCKED', 'Expired/clock-skewed gate claims current status: ' . $case);
+            if ($case !== 'active') $assert($result['owner_review']['status'] === 'FRESH_WORKFLOW_REQUIRED', 'Stale snapshot retained review navigation');
         } else {
             $assert($result['domain']['status'] === 'UNAVAILABLE' && $result['gates'][0]['state'] === 'DRAFT', 'Invalid domain bypass: ' . $case);
         }

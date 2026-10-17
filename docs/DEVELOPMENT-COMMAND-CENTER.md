@@ -119,3 +119,21 @@ time remain visible. Malformed or missing criterion assessments fail closed;
 private artifact paths are excluded. Capture-time passes remain historical, and
 cached gate claims expire after polling just as they do on the LockGate board.
 The host cannot grant approvals or fetch arbitrary files through evidence IDs.
+
+## Owner review navigation
+
+A reviewed project binding may add `owner_review.base_url` (an HTTPS origin or
+HTTP loopback origin) and `owner_review.bindings`, mapping an explicit local owner
+user ID to a literal canonical review binding identifier. Only fresh workflow
+snapshots produce links, only assigned owners see them, and expired cached cards
+lose their links. There is no default mapping, automatic user enrollment or host
+POST proxy. Exact source, environment, gate revision and semantic definition hash
+travel with the link. Unsafe schemes, credentials, paths and redirects are rejected.
+
+The destination requires a separate Software Ops login. Its trusted mapping
+must name the exact project, tenant and canonical owner principal, with reviewed
+host organization/user provenance. Software Ops independently checks ownership
+and current gate scope, then offers an explicit CSRF-protected decision form.
+An approval can never be submitted by opening the link. Durable request receipts
+make retries idempotent; stale or conflicting requests fail closed. Installed
+configuration, schemas, owner mappings and Customer Zero gates remain unchanged.

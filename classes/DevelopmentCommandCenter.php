@@ -95,6 +95,7 @@ final class DevelopmentCommandCenter
             $report['readiness'] = 'NOT_VERIFIED';
             $report['access'] = $unavailable['access'];
             $report = $this->domain($report, $binding);
+            $report = $this->ownerReview($report, $binding, $role);
             $report['available'] = true;
             return $report;
         } catch (\Throwable) {
@@ -251,6 +252,45 @@ final class DevelopmentCommandCenter
             return $items;
         };
         return hash('sha256', json_encode($sort($value), JSON_THROW_ON_ERROR));
+    }
+
+    /** Navigation only: Software Ops independently authenticates and authorizes the owner. */
+    private function ownerReview(array $report, array $binding, string $role): array
+    {
+        $report['owner_review'] = ['status' => 'NOT_CONFIGURED'];
+        $review = $binding['owner_review'] ?? null;
+        if (!is_array($review) || $role !== 'owner') {
+            return $report;
+        }
+        $origin = $review['base_url'] ?? null;
+        $mapping = $review['bindings'][(int) Auth::user()['id']] ?? null;
+        // A configured origin cannot contain credentials, a path, redirect, query or script scheme.
+        if (!is_string($origin) || !preg_match('~\A(?:https://[a-zA-Z0-9.-]+|http://(?:127\.0\.0\.1|localhost))(?::[1-9][0-9]{0,4})?\z~', $origin)
+            || !is_string($mapping) || !preg_match('/\A[a-zA-Z0-9-]{1,80}\z/', $mapping)) {
+            $report['owner_review']['status'] = 'INVALID_CONFIGURATION';
+            return $report;
+        }
+        $report['owner_review']['status'] = 'INDEPENDENT_LOGIN_REQUIRED';
+        if (($report['domain']['status'] ?? null) !== 'RECENT') {
+            $report['owner_review']['status'] = 'FRESH_WORKFLOW_REQUIRED';
+            return $report;
+        }
+        foreach ($report['gates'] as &$gate) {
+            if (empty($gate['owner_approval']) || empty($gate['domain'])) { continue; }
+            $definition = $gate;
+            // Use the original declaration, before host-only display fields are added.
+            unset($definition['domain'], $definition['review_url']);
+            $definition['state'] = 'DRAFT';
+            $definition['milestone'] ??= $gate['id'];
+            $gate['review_url'] = $origin . '/development/projects/' . rawurlencode($report['project']['id'])
+                . '/owner-review/' . rawurlencode($gate['id']) . '?' . http_build_query([
+                    'review_binding' => $mapping, 'revision' => $gate['domain']['revision'],
+                    'source_hash' => $gate['domain']['source_hash'], 'environment' => $gate['domain']['environment'],
+                    'definition_hash' => $this->hash($definition),
+                ]);
+        }
+        unset($gate);
+        return $report;
     }
 
     private function timestamp(mixed $value): ?int

@@ -45,15 +45,22 @@ const path = require('path');
    await page.goto(base+'/development-command-center?project=digital-empire&view=gates',{waitUntil:'domcontentloaded'});
    assert((await page.locator('#development-content').innerText()).includes('Decision revision'),'Actual imported gate provenance missing');
    assert((await page.locator('#development-content').innerText()).includes('exact criterion coverage required'),'Actual gate blockers missing');
+   const reviewLink=page.locator('[data-owner-review][href]').first();
+   assert(await reviewLink.count()===1,'Configured owner review link missing');
+   const reviewUrl=new URL(await reviewLink.getAttribute('href'));
+   assert(reviewUrl.origin==='http://127.0.0.1:18081' && reviewUrl.searchParams.get('review_binding')==='fixture-owner-review'
+     && !reviewUrl.searchParams.has('operation_id'),'Review navigation changed decision scope');
    await page.goto(base+'/development-command-center?project=digital-empire&view=evidence',{waitUntil:'domcontentloaded'});
    const inspection=await page.locator('#development-content').innerText();
    assert(inspection.includes('Assessment at capture') && inspection.includes('No matching evidence record'),'Criterion evidence inspection missing');
    await page.locator('summary').filter({hasText:'Project access and enrollment'}).click();
    assert((await page.locator('#development-content').innerText()).includes('Owner decisions are not connected'),'Enrollment authority boundary hidden');
+   await page.goto(base+'/development-command-center?project=digital-empire&view=gates',{waitUntil:'domcontentloaded'});
    await page.clock.install();
    await page.clock.fastForward(65000);
    await page.waitForFunction(() => [...document.querySelectorAll('[data-domain-captured] .badge')].every(b => b.textContent === 'BLOCKED'), {timeout:10000});
    assert(true,'Cached domain acceptance expires, including refreshed content');
+   assert(await page.locator('[data-owner-review][href]').count()===0,'Expired cached state retained decision navigation');
    await page.clock.setSystemTime(new Date());
  }
  const partial=await(await context.request.get(base+'/development-command-center?project=digital-empire&partial=1')).text();
