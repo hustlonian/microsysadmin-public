@@ -20,6 +20,7 @@ def main():
     parser.add_argument('--application-suite', action='store_true')
     parser.add_argument('--install-suite', action='store_true')
     parser.add_argument('--development-projection', type=Path)
+    parser.add_argument('--development-domain', type=Path)
     parser.add_argument('--development-only', action='store_true')
     args = parser.parse_args()
     if args.development_only and not args.development_projection:
@@ -107,6 +108,11 @@ def main():
                 raise RuntimeError('Expected sanitized development projection')
             (app / 'storage').mkdir(exist_ok=True)
             shutil.copyfile(args.development_projection, app / 'storage/development-fixture.json')
+            if args.development_domain:
+                domain = json.loads(args.development_domain.read_text())
+                if domain.get('validation_context') != 'DISPOSABLE_DATABASE_SYNTHETIC_ACCOUNTS_REAL_ROADMAP_NO_ACCEPTANCE' or domain.get('domain', {}).get('kind') != 'LOCKGATE_DOMAIN':
+                    raise RuntimeError('Expected labeled disposable domain import replay')
+                (app / 'storage/development-domain-replay.json').write_text(json.dumps(domain['domain']))
             run('development-command-center', [php, 'tests/development-command-center.php'])
         if not args.development_only:
             run('job-recovery', [php, 'tests/job-recovery.php'])

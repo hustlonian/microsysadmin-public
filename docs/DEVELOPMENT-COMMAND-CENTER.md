@@ -73,3 +73,33 @@ Owner approval request/actions and independent gate verification stay in the
 canonical LockGate domain. A future authenticated mutation bridge must be
 separately verified; a host read projection is never mutation authority. New
 product code and enrollment have not been deployed by this local development.
+
+## Workflow-domain gate snapshots
+
+An installation may explicitly configure a second private read-only
+`domain_projection_file` in the same project binding. The candidate Software Ops
+command `development:export-domain <project> --actor=<authorized-user-id>` emits
+this `LOCKGATE_DOMAIN` contract from the existing workflow database. It exports no
+private artifact paths and confers no host mutation authority. There is no default
+enrollment, scheduled producer, shared session, or installed configuration change.
+Use reviewed atomic file replacement when authorized to enroll the producer.
+
+The host checks exact tenant/project/scope version, all committed gate definitions,
+workstreams and Definition of Done, unique gate identities, source/decision
+revisions and independent acceptance results. It shows actual unmet criteria and
+workflow provenance in the gate board and scoped JSON export. Missing or invalid
+snapshots leave the authorized roadmap visible and explicitly label domain status
+NOT_ENROLLED or UNAVAILABLE. Declaration states are not database acceptance.
+
+Snapshots older than 60 seconds or from the future cannot assert current gate
+acceptance: the view becomes BLOCKED while retaining the historical stored state.
+Expired executor heartbeats also block ACTIVE display. The browser independently
+expires visible claims when a refresh fails. Overall product readiness remains
+NOT_VERIFIED. This adds read access only; owner decisions remain in the canonical
+backend until a separately verified principal/revision/idempotency/audit contract
+connects the applications.
+
+For integration tests, `--development-domain` accepts only an explicitly labeled
+disposable canonical importer replay, alongside `--development-projection`. Its
+real roadmap/DRAFT records are rendered using synthetic accounts and databases;
+no test output is written as actual Customer Zero gate acceptance.

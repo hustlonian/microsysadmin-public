@@ -106,6 +106,44 @@ $assert(!$service->report('digital-empire')['available'], 'Incomplete projection
 file_put_contents($fixture, '{interrupted');
 $assert(!$service->report('digital-empire')['available'], 'Corrupt projection presented as live');
 file_put_contents($fixture, json_encode($actual));
+// Optional replay from the actual canonical importer in a disposable workflow database.
+$domainPath = STORAGE_PATH . '/development-domain-replay.json';
+if (is_file($domainPath)) {
+    $domain = json_decode((string) file_get_contents($domainPath), true, 48, JSON_THROW_ON_ERROR);
+    $domain['source']['captured_at'] = gmdate('c'); // Replayed capture, never operational acceptance.
+    file_put_contents($domainPath, json_encode($domain));
+    $GLOBALS['sysadmin_config']['development']['projects']['digital-empire']['domain_projection_file'] = $domainPath;
+    $report = $service->report('digital-empire');
+    $assert($report['domain']['status'] === 'RECENT', 'Canonical imported domain replay unavailable');
+    $assert(count($report['gates']) === 12 && array_unique(array_column($report['gates'], 'state')) === ['DRAFT'], 'Import fabricated gate acceptance');
+    $assert(!empty($report['gates'][0]['domain']['unmet']), 'Actual independent acceptance blockers missing');
+    $_GET = ['project' => 'digital-empire', 'view' => 'gates'];
+    ob_start(); (new DevelopmentController())->handle('development-command-center'); $html = (string) ob_get_clean();
+    $assert(str_contains($html, 'Decision revision') && str_contains($html, 'LG-12.criterion-3'), 'Imported gate provenance/requirements not rendered');
+    foreach (['tenant','requirements','duplicate','completion','finish-line','clock','active','stale'] as $case) {
+        $changed = $domain;
+        if ($case === 'tenant') $changed['project']['tenant_key'] = 'other-tenant';
+        if ($case === 'requirements') $changed['gates'][0]['definition']['criteria'][0]['description'] = 'Forged requirement';
+        if ($case === 'duplicate') $changed['gates'][1]['key'] = $changed['gates'][0]['key'];
+        if ($case === 'completion') $changed['gates'][0]['state'] = 'UNLOCKED';
+        if ($case === 'finish-line') $changed['scope']['definition_of_done']['initial_scope'] = ['LG-01'];
+        if ($case === 'clock') $changed['source']['captured_at'] = gmdate('c', time()+3600);
+        if ($case === 'stale') $changed['source']['captured_at'] = '2020-01-01T00:00:00+00:00';
+        if ($case === 'active') { $changed['gates'][0]['state'] = 'ACTIVE'; $changed['gates'][0]['heartbeat_at'] = '2020-01-01T00:00:00+00:00'; }
+        file_put_contents($domainPath, json_encode($changed));
+        $result = $service->report('digital-empire');
+        if (in_array($case, ['clock','active','stale'], true)) {
+            $assert($result['gates'][0]['state'] === 'BLOCKED', 'Expired/clock-skewed gate claims current status: ' . $case);
+        } else {
+            $assert($result['domain']['status'] === 'UNAVAILABLE' && $result['gates'][0]['state'] === 'DRAFT', 'Invalid domain bypass: ' . $case);
+        }
+    }
+    file_put_contents($domainPath, json_encode($domain));
+    $_SESSION['user_id'] = $outsider;
+    try { $service->report('digital-empire'); throw new RuntimeException('Domain export bypassed tenant auth'); }
+    catch (HttpException $e) { $assert($e->statusCode() === 403, 'Domain tenant denial missing'); }
+    $_SESSION['user_id'] = $owner;
+}
 // Keep only generated fixture configuration for browser acceptance; never installed config.
 $config = $GLOBALS['sysadmin_config'];
 file_put_contents(APP_ROOT . '/config/config.php', '<?php return ' . var_export($config, true) . ';');

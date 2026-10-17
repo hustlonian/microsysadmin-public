@@ -30,9 +30,10 @@ $projectUrl = static fn(string $view): string => url('development-command-center
 <h3 class="h5">Digital Empire workstreams</h3><ul><?php foreach ($report['workstreams'] as $stream): ?><li><?= e($stream['name']) ?> — <?= e($stream['state']) ?></li><?php endforeach; ?></ul>
 <?php endif; ?>
 <?php if (in_array($tab, ['overview','gates','roadmap'], true)): ?>
-<h3 class="h5">LockGate dependency board</h3><p>These are committed initial-scope gate definitions. Historical infrastructure acceptance has not unlocked these gates.</p>
+<h3 class="h5">LockGate dependency board</h3><p>These are committed initial-scope gate definitions. Requirements import alone never unlocks a gate.</p>
+<p>Workflow domain: <strong><?= e($report['domain']['status']) ?></strong><?php if (isset($report['domain']['captured_at'])): ?> · Captured <?= e($report['domain']['captured_at']) ?> · Decision revision <?= e((string) $report['domain']['revision']) ?><?php else: ?>. Gate states below are roadmap declarations; live database enrollment is not established.<?php endif; ?></p>
 <?php if ($tab === 'overview'): ?><p><a href="<?= e($projectUrl('gates')) ?>">Inspect all <?= e((string) count($report['gates'])) ?> gates and their exact criteria</a></p><?php endif; ?>
-<?php foreach (($tab === 'overview' ? array_slice($report['gates'], 0, 3) : $report['gates']) as $gate): ?><article class="card"><div class="card-header"><strong><?= e($gate['id']) ?> — <?= e($gate['name']) ?></strong><span class="badge bg-secondary float-end"><?= e($gate['state']) ?></span></div><div class="card-body"><p><?= e($gate['business_objective']) ?></p><p>Priority <?= e((string) $gate['priority']) ?> · Role: <?= e($gate['responsible_role']) ?> · Prerequisites: <?= e(implode(', ', $gate['dependencies']) ?: 'None') ?></p><details><summary>Exact unmet criteria and required proof</summary><ul><?php foreach ($gate['criteria'] as $criterion): ?><li><?= e($criterion['description']) ?> — <?= e($criterion['dimension']) ?> evidence required (<code><?= e($criterion['id']) ?></code>)</li><?php endforeach; ?></ul><p><?= e($gate['technical_objective']) ?></p></details><p>Why advancement is blocked: independent acceptance evidence has not been imported and verified for this gate.</p><?php if ($gate['owner_approval']): ?><p>Explicit independent owner approval is also required. This view grants no authorization.</p><?php endif; ?><p>Recovery: <?= e($gate['recovery']) ?><br>After opening: <?= e($gate['next']) ?></p></div></article><?php endforeach; ?>
+<?php foreach (($tab === 'overview' ? array_slice($report['gates'], 0, 3) : $report['gates']) as $gate): ?><article class="card" data-domain-captured="<?= e($report['domain']['captured_at'] ?? '') ?>" data-domain-heartbeat="<?= e($gate['domain']['heartbeat_at'] ?? '') ?>"><div class="card-header"><strong><?= e($gate['id']) ?> — <?= e($gate['name']) ?></strong><span class="badge bg-secondary float-end"><?= e($gate['state']) ?></span></div><div class="card-body"><p><?= e($gate['business_objective']) ?></p><p>Priority <?= e((string) $gate['priority']) ?> · Role: <?= e($gate['responsible_role']) ?> · Prerequisites: <?= e(implode(', ', $gate['dependencies']) ?: 'None') ?></p><details><summary>Exact unmet criteria and required proof</summary><ul><?php foreach ($gate['criteria'] as $criterion): ?><li><?= e($criterion['description']) ?> — <?= e($criterion['dimension']) ?> evidence required (<code><?= e($criterion['id']) ?></code>)</li><?php endforeach; ?></ul><p><?= e($gate['technical_objective']) ?></p></details><?php if (isset($gate['domain'])): ?><p>Workflow source <code><?= e($gate['domain']['source_hash']) ?></code> · Environment <?= e($gate['domain']['environment']) ?> · Gate revision <?= e((string) $gate['domain']['revision']) ?> · Stored decision <?= e($gate['domain']['recorded_state']) ?></p><ul><?php foreach ($gate['domain']['unmet'] as $unmet): ?><li><?= e($unmet) ?></li><?php endforeach; ?></ul><?php else: ?><p>Why advancement is blocked: independent acceptance evidence has not been imported and verified for this gate.</p><?php endif; ?><?php if ($gate['owner_approval']): ?><p>Explicit independent owner approval is also required. This view grants no authorization.</p><?php endif; ?><p>Recovery: <?= e($gate['recovery']) ?><br>After opening: <?= e($gate['next']) ?></p></div></article><?php endforeach; ?>
 <?php endif; ?>
 <?php if (in_array($tab, ['reports','gates'], true)): ?>
 <h3 class="h5">Versioned Definition of Done</h3><p>Version <?= e((string) $report['definition_of_done']['version']) ?>. New proposals do not silently change the initial scope.</p><?php foreach (['minimum_viable_commercial_release'=>'Minimum viable commercial release','production_ready_release'=>'Production-ready release','initial_scope'=>'Fully accepted initial scope'] as $key=>$title): ?><details><summary><?= e($title) ?></summary><ul><?php foreach ($report['definition_of_done'][$key] as $criterion): ?><li><?= e($criterion) ?></li><?php endforeach; ?></ul></details><?php endforeach; ?>
@@ -61,15 +62,32 @@ async function refresh() {
         const content = doc.getElementById('development-content');
         if (!content) throw new Error('Invalid response');
         document.getElementById('development-content').replaceWith(document.importNode(content, true));
+        expireClaims();
         status.textContent = 'Status refreshed at ' + new Date().toISOString() + '. Check the source freshness shown above.';
     } catch (_) { status.textContent = 'Refresh unavailable; displayed data is cached as of its shown timestamp.'; }
     finally { clearTimeout(timeout); }
     setTimeout(refresh, 30000);
 }
-setInterval(() => document.querySelectorAll('[data-agent-status]').forEach(label => {
-    const age = Date.now() - Date.parse(label.dataset.heartbeat);
-    if (!Number.isFinite(age) || age < 0 || age > 60000) label.textContent = 'NOT_CONFIRMED_ACTIVE';
-}), 5000);
+function expireClaims() {
+    document.querySelectorAll('[data-agent-status]').forEach(label => {
+        const age = Date.now() - Date.parse(label.dataset.heartbeat);
+        if (!Number.isFinite(age) || age < 0 || age > 60000) label.textContent = 'NOT_CONFIRMED_ACTIVE';
+    });
+    document.querySelectorAll('[data-domain-captured]').forEach(card => {
+        if (!card.dataset.domainCaptured) return;
+        const badge = card.querySelector('.badge');
+        const captureAge = Date.now() - Date.parse(card.dataset.domainCaptured);
+        const heartbeatAge = Date.now() - Date.parse(card.dataset.domainHeartbeat);
+        if (!Number.isFinite(captureAge) || captureAge < 0 || captureAge > 60000 ||
+            (badge.textContent === 'ACTIVE' && (!Number.isFinite(heartbeatAge) || heartbeatAge < 0 || heartbeatAge > 60000))) {
+            badge.textContent = 'BLOCKED';
+            badge.title = 'Cached workflow state expired; current acceptance must be rechecked.';
+        }
+    });
+}
+setInterval(expireClaims, 5000);
+document.addEventListener('visibilitychange', expireClaims);
+expireClaims();
 setTimeout(refresh, 30000);
 })();
 </script>

@@ -91,6 +91,7 @@ final class DevelopmentCommandCenter
             }
             // Counts and historical acceptance never become overall release acceptance.
             $report['readiness'] = 'NOT_VERIFIED';
+            $report = $this->domain($report, $binding);
             $report['available'] = true;
             return $report;
         } catch (\Throwable) {
@@ -129,6 +130,108 @@ final class DevelopmentCommandCenter
             $lines[] = '- ' . $gate['id'] . ': ' . $gate['name'] . ' — ' . $gate['state'];
         }
         return implode("\n", $lines) . "\n";
+    }
+
+    /** Fixed trusted file only; no identity sharing, database writes or mutation proxy. */
+    private function domain(array $report, array $binding): array
+    {
+        $report['domain'] = ['status' => 'NOT_ENROLLED'];
+        $path = $binding['domain_projection_file'] ?? null;
+        if ($path === null) {
+            return $report;
+        }
+        $report['domain']['status'] = 'UNAVAILABLE';
+        if (!is_string($path) || !is_file($path) || is_link($path) || !is_readable($path) || filesize($path) > 2097152) {
+            return $report;
+        }
+        try {
+            $domain = json_decode((string) file_get_contents($path), true, 48, JSON_THROW_ON_ERROR);
+            if (($domain['schema_version'] ?? null) !== 1 || ($domain['kind'] ?? '') !== 'LOCKGATE_DOMAIN'
+                || ($domain['project']['id'] ?? null) !== $report['project']['id']
+                || ($domain['project']['tenant_key'] ?? null) !== ($binding['tenant_key'] ?? null)
+                || ($domain['scope']['version'] ?? null) !== $report['project']['scope_version']
+                || ($domain['source']['kind'] ?? '') !== 'WORKFLOW_DATABASE'
+                || !is_int($domain['source']['revision'] ?? null) || $domain['source']['revision'] < 1
+                || !preg_match('/\A[a-f0-9]{64}\z/', (string) ($domain['scope']['manifest_hash'] ?? ''))
+                || !is_array($domain['gates'] ?? null) || count($domain['gates']) !== count($report['gates'])) {
+                return $report;
+            }
+            if (!is_array($domain['scope']['definition_of_done'] ?? null) || !is_array($domain['scope']['workstreams'] ?? null)
+                || $this->hash($domain['scope']['definition_of_done']) !== $this->hash($report['definition_of_done'])
+                || $this->hash($domain['scope']['workstreams']) !== $this->hash($report['workstreams'])) {
+                return $report;
+            }
+            $captured = $this->timestamp($domain['source']['captured_at'] ?? null);
+            if ($captured === null) {
+                return $report;
+            }
+            $age = time() - $captured;
+            $freshness = $age < 0 ? 'CLOCK_SKEW' : ($age > 60 ? 'STALE' : 'RECENT');
+            $indexed = [];
+            foreach ($domain['gates'] as $gate) {
+                if (!is_array($gate) || !is_string($gate['key'] ?? null) || isset($indexed[$gate['key']])) {
+                    return $report;
+                }
+                $indexed[$gate['key']] = $gate;
+            }
+            $gates = [];
+            $states = ['DRAFT','READY','ACTIVE','VERIFYING','VERIFIED','UNLOCKED','BLOCKED','FAILED','AWAITING_APPROVAL','REOPENED','SUPERSEDED'];
+            foreach ($report['gates'] as $declared) {
+                $gate = $indexed[$declared['id']] ?? [];
+                $expected = $declared;
+                $expected['milestone'] ??= $declared['id'];
+                if (!is_array($gate['definition'] ?? null) || $this->hash($gate['definition']) !== $this->hash($expected)
+                    || !in_array($gate['state'] ?? null, $states, true) || !in_array($gate['recorded_state'] ?? null, $states, true)
+                    || !is_int($gate['revision'] ?? null) || $gate['revision'] < 1
+                    || !preg_match('/\A(?:[a-f0-9]{40}|[a-f0-9]{64})\z/', (string) ($gate['source_hash'] ?? ''))
+                    || !preg_match('/\A[a-z][a-z0-9-]{1,40}\z/', (string) ($gate['environment'] ?? ''))
+                    || !is_bool($gate['assessment']['accepted'] ?? null) || !is_array($gate['assessment']['unmet'] ?? null)
+                    || count($gate['assessment']['unmet']) > 200) {
+                    return $report;
+                }
+                if (in_array($gate['state'], ['VERIFIED','UNLOCKED'], true) && !$gate['assessment']['accepted']) {
+                    return $report;
+                }
+                foreach ($gate['assessment']['unmet'] as $reason) {
+                    if (!is_string($reason) || strlen($reason) > 5000) {
+                        return $report;
+                    }
+                }
+                $declared['state'] = $freshness === 'RECENT' ? $gate['state'] : 'BLOCKED';
+                if ($declared['state'] === 'ACTIVE') {
+                    $heartbeat = $this->timestamp($gate['heartbeat_at'] ?? null);
+                    if ($heartbeat === null || time() - $heartbeat < 0 || time() - $heartbeat > 60) {
+                        $declared['state'] = 'BLOCKED';
+                        $gate['assessment']['unmet'][] = 'Executor heartbeat expired; reconcile before takeover.';
+                    }
+                }
+                $declared['domain'] = ['recorded_state' => $gate['recorded_state'], 'revision' => $gate['revision'],
+                    'source_hash' => $gate['source_hash'], 'environment' => $gate['environment'],
+                    'unmet' => $gate['assessment']['unmet'], 'heartbeat_at' => $gate['heartbeat_at'] ?? null];
+                if ($freshness !== 'RECENT') {
+                    $declared['domain']['unmet'][] = 'Workflow snapshot is stale or clock-skewed; current acceptance must be rechecked.';
+                }
+                $gates[] = $declared;
+            }
+            $report['gates'] = $gates;
+            $report['domain'] = ['status' => $freshness, 'captured_at' => $domain['source']['captured_at'],
+                'revision' => $domain['source']['revision'], 'manifest_hash' => $domain['scope']['manifest_hash']];
+        } catch (\Throwable) {
+            // Keep the authorized roadmap declaration visible; never invent live domain acceptance.
+        }
+        return $report;
+    }
+
+    private function hash(array $value): string
+    {
+        $sort = function (array $items) use (&$sort): array {
+            foreach ($items as &$item) {
+                if (is_array($item)) { $item = $sort($item); }
+            }
+            if (!array_is_list($items)) { ksort($items); }
+            return $items;
+        };
+        return hash('sha256', json_encode($sort($value), JSON_THROW_ON_ERROR));
     }
 
     private function timestamp(mixed $value): ?int
