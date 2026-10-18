@@ -201,6 +201,24 @@ if (is_file($domainPath)) {
     catch (HttpException $e) { $assert($e->statusCode() === 403, 'Domain tenant denial missing'); }
     $_SESSION['user_id'] = $owner;
 }
+// One atomic sanitized bundle avoids mixed controller/domain file generations.
+if (isset($domain)) {
+    $bundle = $actual;
+    $bundle['source']['persisted_at'] = gmdate('c');
+    $bundle['domain_snapshot'] = $domain;
+    $bundle['domain_snapshot']['source']['captured_at'] = gmdate('c');
+    $GLOBALS['sysadmin_config']['development']['projects']['digital-empire']['projection_bundle'] = true;
+    file_put_contents($fixture, json_encode($bundle));
+    $assert($service->report('digital-empire')['domain']['status'] === 'RECENT', 'Atomic bundle not consumed');
+    $bundle['domain_snapshot']['project']['tenant_key'] = 'other-tenant';
+    file_put_contents($fixture, json_encode($bundle));
+    $assert($service->report('digital-empire')['domain']['status'] === 'UNAVAILABLE', 'Bundled tenant bypass');
+    unset($bundle['domain_snapshot']);
+    file_put_contents($fixture, json_encode($bundle));
+    $assert($service->report('digital-empire')['available'] === false, 'Missing bundled domain accepted');
+    unset($GLOBALS['sysadmin_config']['development']['projects']['digital-empire']['projection_bundle']);
+    file_put_contents($fixture, json_encode($actual));
+}
 // Keep only generated fixture configuration for browser acceptance; never installed config.
 $config = $GLOBALS['sysadmin_config'];
 file_put_contents(APP_ROOT . '/config/config.php', '<?php return ' . var_export($config, true) . ';');

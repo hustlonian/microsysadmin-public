@@ -58,6 +58,11 @@ final class DevelopmentCommandCenter
         }
         try {
             $report = json_decode((string) file_get_contents($path), true, 48, JSON_THROW_ON_ERROR);
+            $bundled = ($binding['projection_bundle'] ?? false) === true;
+            $inlineDomain = $bundled ? ($report['domain_snapshot'] ?? null) : null;
+            if ($bundled && !is_array($inlineDomain)) {
+                return $unavailable;
+            }
             if (($report['schema_version'] ?? null) !== 1 || ($report['kind'] ?? '') !== 'DEVELOPMENT_COMMAND_CENTER'
                 || ($report['project']['id'] ?? null) !== $project
                 || ($report['project']['tenant_key'] ?? null) !== ($binding['tenant_key'] ?? null)
@@ -94,7 +99,7 @@ final class DevelopmentCommandCenter
             // Counts and historical acceptance never become overall release acceptance.
             $report['readiness'] = 'NOT_VERIFIED';
             $report['access'] = $unavailable['access'];
-            $report = $this->domain($report, $binding);
+            $report = $this->domain($report, $binding, $inlineDomain);
             $report = $this->ownerReview($report, $binding, $role);
             $report['available'] = true;
             return $report;
@@ -137,19 +142,19 @@ final class DevelopmentCommandCenter
     }
 
     /** Fixed trusted file only; no identity sharing, database writes or mutation proxy. */
-    private function domain(array $report, array $binding): array
+    private function domain(array $report, array $binding, ?array $inlineDomain = null): array
     {
         $report['domain'] = ['status' => 'NOT_ENROLLED'];
         $path = $binding['domain_projection_file'] ?? null;
-        if ($path === null) {
+        if ($path === null && $inlineDomain === null) {
             return $report;
         }
         $report['domain']['status'] = 'UNAVAILABLE';
-        if (!is_string($path) || !is_file($path) || is_link($path) || !is_readable($path) || filesize($path) > 2097152) {
+        if ($inlineDomain === null && (!is_string($path) || !is_file($path) || is_link($path) || !is_readable($path) || filesize($path) > 2097152)) {
             return $report;
         }
         try {
-            $domain = json_decode((string) file_get_contents($path), true, 48, JSON_THROW_ON_ERROR);
+            $domain = $inlineDomain ?? json_decode((string) file_get_contents($path), true, 48, JSON_THROW_ON_ERROR);
             if (($domain['schema_version'] ?? null) !== 1 || ($domain['kind'] ?? '') !== 'LOCKGATE_DOMAIN'
                 || ($domain['project']['id'] ?? null) !== $report['project']['id']
                 || ($domain['project']['tenant_key'] ?? null) !== ($binding['tenant_key'] ?? null)
