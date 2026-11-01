@@ -155,6 +155,17 @@ final readonly class ProbeExecutor
     {
         $path = (string) ($probe['path'] ?? '');
         $needle = (string) ($probe['contains'] ?? '');
+        $marker = (string)($probe['applicability_marker'] ?? '');
+        if (!empty($probe['skip_if_missing']) && !file_exists($path) && !is_link($path) && ($marker === '' || !file_exists($marker))) {
+            return [
+                'healthy' => true,
+                'skipped' => true,
+                'expected' => 'applicable configuration file',
+                'actual' => 'file absent',
+                'message' => 'This configuration check does not apply to the target project.',
+                'details' => ['path' => $path, 'applicable' => false],
+            ];
+        }
         $content = is_file($path) && is_readable($path) ? $context->filesystem->read($path) : '';
         $healthy = $content !== '' && str_contains($content, $needle);
         return ['healthy' => $healthy, 'expected' => $needle, 'actual' => $healthy ? 'present' : 'absent', 'message' => $healthy ? 'Expected configuration content is present.' : 'Expected configuration content is absent.', 'details' => ['path' => $path]];

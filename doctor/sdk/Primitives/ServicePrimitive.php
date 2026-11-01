@@ -30,6 +30,8 @@ final readonly class ServicePrimitive implements RepairPrimitive
         if (!array_key_exists($stateField, $beforeState) || $beforeState[$stateField] === null) {
             throw new \RuntimeException("Service repair cannot capture the pre-repair {$stateField} state.");
         }
+        $partial = ['type' => 'service', 'service' => $service, 'action' => $operation, 'created' => false, 'before_state' => $beforeState];
+        try {
         $result = $manager->perform($service, $operation);
         if (empty($result['ok'])) {
             $detail = trim((string) ($result['error'] ?? '')) ?: trim((string) ($result['output'] ?? ''));
@@ -46,6 +48,9 @@ final readonly class ServicePrimitive implements RepairPrimitive
         }
         if (!array_key_exists($stateField, $state) || $state[$stateField] === null || (bool) $state[$stateField] !== $expectedValue) {
             throw new \RuntimeException('Service action was accepted, but the expected state was not reached.');
+        }
+        } catch (\Throwable $error) {
+            throw new \SysAdmin\Doctor\sdk\PartialActionFailure($error->getMessage(), $partial, $error);
         }
         return ['type' => 'service', 'service' => $service, 'action' => $operation, 'created' => false, 'before_state' => $beforeState, 'result' => $result, 'verified_state' => $state, 'description' => $action['description'] ?? 'Executed a scoped service action.'];
     }

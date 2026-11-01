@@ -16,7 +16,9 @@
     "probe": {
         "type": "file_contains",
         "path": "{PROJECT}/doctor/config/doctor.php",
-        "contains": "report_retention_days"
+        "contains": "report_retention_days",
+        "skip_if_missing": true,
+        "applicability_marker": "{PROJECT}/doctor/DoctorApplication.php"
     },
     "failure_status": "FAIL"
 }

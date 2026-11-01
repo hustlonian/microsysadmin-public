@@ -445,6 +445,18 @@ final class ApiController
         }
 
         Auth::requirePermission('command.execute');
+        foreach (['language', 'code', 'input', 'timeout', 'confirm_real'] as $field) {
+            if (isset($_POST[$field]) && !is_string($_POST[$field])) { throw new \SysAdmin\HttpException(422, 'Runner fields must be scalar text.'); }
+        }
+        if (array_diff(array_keys($_POST), ['_csrf','action','language','code','input','timeout','confirm_real']) !== []) {
+            throw new \SysAdmin\HttpException(422, 'Unexpected runner field; host directories and interpreter commands cannot be supplied.');
+        }
+        if (!in_array(strtolower(trim((string)($_POST['language'] ?? ''))), ['bash','php','python','javascript'], true)) {
+            throw new \SysAdmin\HttpException(422, 'Choose Bash, PHP, Python or JavaScript.');
+        }
+        if (isset($_POST['timeout']) && (!ctype_digit($_POST['timeout']) || (int)$_POST['timeout'] < 1 || (int)$_POST['timeout'] > 30)) {
+            throw new \SysAdmin\HttpException(422, 'Timeout must be between 1 and 30 seconds.');
+        }
         return ['ok' => true, 'data' => $service->run(
             (string) ($_POST['language'] ?? ''),
             (string) ($_POST['code'] ?? ''),

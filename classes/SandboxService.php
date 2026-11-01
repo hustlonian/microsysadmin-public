@@ -37,7 +37,7 @@ final class SandboxService implements \SysAdmin\Contracts\TerminalSessionInterfa
     {
         return [
             'php' => "<?php\n",
-            'bash' => '',
+            'bash' => "#!/usr/bin/env bash\nmessage='Hello from Bash'\nfor n in 1 2 3; do\n  printf '%s %s\\n' \"\$message\" \"\$n\"\ndone\n",
             'html' => <<<'HTML'
 <!doctype html>
 <html lang="en">
@@ -113,8 +113,8 @@ JS,
 
         return [
             'root' => $root,
-            'working_directory' => $executionRoot,
-            'bash_working_directory' => $this->bashWorkingDirectory(),
+            'working_directory' => '/work',
+            'bash_working_directory' => '/work',
             'php_file' => $root . '/php/main.php',
             'bash_file' => $root . '/bash/script.sh',
             'web_dir' => $root . '/web',
@@ -128,169 +128,20 @@ JS,
     public function run(string $language, string $code, string $input = '', int $timeout = 10, bool $confirmed = false): array
     {
         SecurityProfile::assertAllowed('code_runner');
-        $language = strtolower(trim($language));
-        if (!in_array($language, ['php', 'bash'], true)) {
-            throw new \InvalidArgumentException('Runner language must be PHP or Bash.');
-        }
-
-        if ($code === '') {
-            throw new \InvalidArgumentException('Runner code cannot be empty.');
-        }
-
-        if (strlen($code) > self::MAX_CODE_BYTES) {
-            throw new \InvalidArgumentException('Runner code is too large.');
-        }
-
-        if (strlen($input) > self::MAX_INPUT_BYTES) {
-            throw new \InvalidArgumentException('Runner input is too large.');
-        }
-
         $this->requireRealConfirmation($confirmed);
-
-        $timeout = max(1, min(30, $timeout));
-
-        $workspaceDir = $this->ensureWorkspaceDirectory($language);
-        $file = $language === 'php' ? $workspaceDir . '/main.php' : $workspaceDir . '/script.sh';
-        $source = $language === 'php' ? $this->cleanLegacyPhpSource($code) : $code;
-
-        if (file_put_contents($file, $source) === false) {
-            throw new \RuntimeException('Unable to write runner file.');
-        }
-        chmod($file, $language === 'bash' ? 0700 : 0600);
-
-        $executionRoot = $language === 'bash' ? $this->bashWorkingDirectory() : $this->executionRoot();
-        $bashCwdFile = null;
-        $command = $language === 'php'
-            ? $this->phpCommand($file)
-            : $this->bashCommand($file, $bashCwdFile = $workspaceDir . '/cwd-' . bin2hex(random_bytes(4)) . '.txt');
-
-        $started = microtime(true);
-        $result = $this->runProcess($command, $executionRoot, $input, $timeout, $this->workspaceRoot());
-        if ($language === 'bash' && $bashCwdFile !== null) {
-            $this->persistBashDirectory($bashCwdFile);
-            @unlink($bashCwdFile);
-        }
-        $currentWorkingDirectory = $language === 'bash' ? $this->bashWorkingDirectory() : $executionRoot;
-
-        $result['language'] = $language;
-        $result['saved_file'] = $file;
-        $result['working_directory'] = $currentWorkingDirectory;
-        $result['started_in'] = $executionRoot;
-        $result['real_files'] = true;
-        $result['warning'] = 'This run used the real application filesystem as the working directory.';
-        $result['elapsed_ms'] = (int) round((microtime(true) - $started) * 1000);
-
-        AuditLogger::info('code_runner.run', [
-            'language' => $language,
-            'file' => $file,
-            'working_directory' => $currentWorkingDirectory,
-            'started_in' => $executionRoot,
-            'exit_code' => $result['exit_code'],
-            'timed_out' => $result['timed_out'],
-            'elapsed_ms' => $result['elapsed_ms'],
-        ]);
-
+        $language = strtolower(trim($language));
+        $result = (new IsolatedCodeRunner())->run($language, $code, $input, $timeout);
+        AuditLogger::info('code_runner.run', ['language' => $language, 'submitted_source_sha256' => hash('sha256', $code),
+            'executed_source_sha256' => hash('sha256', str_replace(["\r\n", "\r"], "\n", $code)),
+            'exit_code' => $result['exit_code'], 'timed_out' => $result['timed_out'], 'output_limited' => $result['output_limited'],
+            'elapsed_ms' => $result['elapsed_ms'], 'isolation' => 'REQUIRED_NO_HOST_FALLBACK']);
         return $result;
     }
 
     public function startTerminal(string $language, string $code = '', bool $confirmed = false, int $cols = 100, int $rows = 30): array
     {
         SecurityProfile::assertAllowed('terminal');
-        $language = strtolower(trim($language));
-        if ($language !== 'bash') {
-            throw new \InvalidArgumentException('Interactive terminal sessions are available for Bash only.');
-        }
-
-        if (strlen($code) > self::MAX_CODE_BYTES) {
-            throw new \InvalidArgumentException('Runner code is too large.');
-        }
-
-        $this->requireRealConfirmation($confirmed);
-        if (!Process::isPtySupported()) {
-            throw new \RuntimeException('This server does not support pseudo-terminal sessions.');
-        }
-
-        $this->cleanupTerminalSessions();
-
-        $cols = max(40, min(240, $cols));
-        $rows = max(12, min(80, $rows));
-        $mode = trim($code) === '' ? 'shell' : 'script';
-        $savedFile = null;
-
-        $id = bin2hex(random_bytes(16));
-        $sessionDir = $this->ensureWorkspaceDirectory('terminal/' . $id);
-        $scriptFile = null;
-        if ($mode === 'script') {
-            $workspaceDir = $this->ensureWorkspaceDirectory('bash');
-            $savedFile = $workspaceDir . '/script.sh';
-            if (file_put_contents($savedFile, $code) === false) {
-                throw new \RuntimeException('Unable to write runner file.');
-            }
-            chmod($savedFile, 0700);
-
-            $scriptFile = $sessionDir . '/script.sh';
-            if (file_put_contents($scriptFile, $code) === false) {
-                throw new \RuntimeException('Unable to write terminal script.');
-            }
-            chmod($scriptFile, 0700);
-        }
-
-        $paths = $this->terminalPaths($sessionDir);
-        foreach (['input_queue', 'output', 'heartbeat'] as $key) {
-            if (file_put_contents($paths[$key], '') === false) {
-                throw new \RuntimeException('Unable to initialize terminal session.');
-            }
-            chmod($paths[$key], 0600);
-        }
-
-        $workingDirectory = $this->bashWorkingDirectory();
-        $meta = [
-            'id' => $id,
-            'user_id' => Auth::id(),
-            'pid' => null,
-            'created_at' => time(),
-            'language' => 'bash',
-            'mode' => $mode,
-            'saved_file' => $savedFile,
-            'script_file' => $scriptFile,
-            'working_directory' => $workingDirectory,
-            'cwd_file' => $paths['cwd'],
-            'cols' => $cols,
-            'rows' => $rows,
-        ];
-        $this->writeJsonFile($paths['meta'], $meta);
-        $this->writeJsonFile($paths['status'], [
-            'state' => 'starting',
-            'exit_code' => null,
-            'updated_at' => time(),
-        ]);
-
-        $pid = $this->launchTerminalWorker($sessionDir, $mode, $scriptFile, $workingDirectory, $paths['cwd'], $cols, $rows);
-        $meta['pid'] = $pid;
-        $this->writeJsonFile($paths['meta'], $meta);
-
-        AuditLogger::info('code_runner.terminal.start', [
-            'id' => $id,
-            'language' => 'bash',
-            'mode' => $mode,
-            'file' => $savedFile,
-            'working_directory' => $workingDirectory,
-            'pid' => $pid,
-        ]);
-
-        return [
-            'ok' => true,
-            'id' => $id,
-            'offset' => 0,
-            'running' => true,
-            'pid' => $pid,
-            'language' => 'bash',
-            'saved_file' => $savedFile,
-            'mode' => $mode,
-            'working_directory' => $workingDirectory,
-            'real_files' => true,
-            'warning' => 'This shell uses the real application filesystem as the working directory.',
-        ];
+        throw new \RuntimeException('Interactive host shells are disabled in Code Runner. Submit a bounded isolated Bash script.');
     }
 
     public function terminalOutput(string $id, int $offset = 0): array
@@ -329,27 +180,7 @@ JS,
     public function terminalInput(string $id, string $input): array
     {
         SecurityProfile::assertAllowed('terminal');
-        if ($input === '') {
-            return ['ok' => true];
-        }
-
-        if (strlen($input) > self::MAX_TERMINAL_INPUT_BYTES) {
-            throw new \InvalidArgumentException('Terminal input is too large.');
-        }
-
-        [$sessionDir, $meta] = $this->requireTerminalSession($id);
-        $paths = $this->terminalPaths($sessionDir);
-        $status = $this->readJsonFile($paths['status']);
-        if (!$this->terminalIsRunning($meta, $status)) {
-            throw new \RuntimeException('Terminal session is not running.');
-        }
-
-        @touch($paths['heartbeat']);
-        if (file_put_contents($paths['input_queue'], base64_encode($input) . "\n", FILE_APPEND | LOCK_EX) === false) {
-            throw new \RuntimeException('Unable to send terminal input.');
-        }
-
-        return ['ok' => true];
+        throw new \RuntimeException('Legacy host-shell input is disabled; use an isolated script.');
     }
 
     public function stopTerminal(string $id): array
@@ -410,7 +241,7 @@ JS,
             'preview_url' => url('workspace-preview/index.html'),
             'version' => time(),
             'real_files' => true,
-            'warning' => 'Saved HTML, CSS, and JavaScript are real files and will run in the browser when previewed.',
+            'warning' => 'Saved browser files preview in an isolated frame without application privileges.',
         ];
     }
 
@@ -425,18 +256,32 @@ JS,
         }
 
         $path = $this->workspacePath('web/' . $name);
-        if (!is_file($path) || !is_readable($path)) {
+        if (!is_file($path) || is_link($path) || !is_readable($path)) {
             http_response_code(404);
             header('Content-Type: text/plain; charset=utf-8');
             echo 'No saved preview file.';
             exit;
         }
 
+        header('X-Frame-Options: SAMEORIGIN');
+        header("Content-Security-Policy: sandbox allow-scripts; frame-ancestors 'self'; default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'");
         header('Content-Type: ' . self::WEB_FILE_TYPES[$name]);
         header('Cache-Control: no-store, max-age=0');
         header('X-Content-Type-Options: nosniff');
-        readfile($path);
+        if ($name === 'index.html') { echo $this->previewDocument((string)file_get_contents($path)); } else { readfile($path); }
         exit;
+    }
+
+    private function previewDocument(string $html): string
+    {
+        $flags = JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_THROW_ON_ERROR;
+        $css = json_encode($this->readWorkspaceFile('web/style.css') ?? '', $flags);
+        $js = json_encode($this->readWorkspaceFile('web/app.js') ?? '', $flags);
+        // Inline only the two fixed saved resources: opaque-origin frames cannot fetch authenticated files.
+        $html = preg_replace_callback('~<link\b(?=[^>]*\bhref=[\"\'](?:\./)?style\.css[\"\'])[^>]*>~i',
+            static fn() => '<script>(()=>{const s=document.createElement("style");s.textContent=' . $css . ';document.head.appendChild(s)})()</script>', $html) ?? $html;
+        return preg_replace_callback('~<script\b(?=[^>]*\bsrc=[\"\'](?:\./)?app\.js[\"\'])[^>]*>\s*</script>~i',
+            static fn() => '<script>(()=>{const run=()=>{const s=document.createElement("script");s.textContent=' . $js . ';document.body.appendChild(s)};if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",run,{once:true})}else{run()}})()</script>', $html) ?? $html;
     }
 
     private function phpCommand(string $file): array
@@ -563,7 +408,7 @@ PHP;
     private function readWorkspaceFile(string $relative): ?string
     {
         $path = $this->workspacePath($relative);
-        if (!is_file($path) || !is_readable($path)) {
+        if (!is_file($path) || is_link($path) || !is_readable($path)) {
             return null;
         }
 
@@ -811,7 +656,7 @@ PHP;
 
     private function readJsonFile(string $path): array
     {
-        if (!is_file($path) || !is_readable($path)) {
+        if (!is_file($path) || is_link($path) || !is_readable($path)) {
             return [];
         }
 

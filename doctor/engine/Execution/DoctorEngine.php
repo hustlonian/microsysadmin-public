@@ -99,20 +99,7 @@ final readonly class DoctorEngine
                 }
                 $plan = $repair->plan($context, $detection);
                 $decision = $this->policy->evaluate($repair->metadata(), $diagnosis, $plan, $policyName);
-                $planData = $plan->toArray();
-                $hashablePlan = [
-                    'repair_id' => $planData['repair_id'] ?? null,
-                    'severity' => $planData['severity'] ?? null,
-                    'risk' => $planData['risk'] ?? null,
-                    'automation_class' => $planData['automation_class'] ?? null,
-                    'actions' => $planData['actions'] ?? [],
-                    'affected_paths' => $planData['affected_paths'] ?? [],
-                    'backup_paths' => $planData['backup_paths'] ?? [],
-                    'requires_backup' => $planData['requires_backup'] ?? false,
-                    'rollback_supported' => $planData['rollback_supported'] ?? false,
-                    'verification_method' => $planData['verification_method'] ?? null,
-                ];
-                $hash = hash('sha256', json_encode($hashablePlan, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR));
+                $hash = self::planHash($plan);
                 $entry = ['repair' => $repair, 'diagnosis' => $diagnosis, 'detection' => $detection, 'plan' => $plan, 'policy' => $decision, 'plan_hash' => $hash];
                 $plans[] = $entry;
                 $context->audit->event('doctor.plan.generated', 'Doctor repair plan generated.', $this->serializePlan($entry));
@@ -121,76 +108,109 @@ final readonly class DoctorEngine
         return $plans;
     }
 
+    public static function planHash(RepairPlan $plan): string
+    {
+        $data = $plan->toArray(); $identity = [];
+        foreach (['repair_id','severity','risk','automation_class','actions','affected_paths','backup_paths','requires_backup','rollback_supported','verification_method'] as $key) {
+            $identity[$key] = $data[$key] ?? null;
+        }
+        return hash('sha256', json_encode($identity, JSON_UNESCAPED_SLASHES | JSON_THROW_ON_ERROR));
+    }
+
     /** @param array<int, array<string, mixed>> $plans */
     public function execute(DoctorContext $context, array $plans, callable $approval): array
     {
-        $results = [];
-        $this->lock->acquire((int) $context->option('lock_wait_seconds', 2));
+        $results = []; $this->lock->acquire((int)$context->option('lock_wait_seconds', 2));
         try {
             foreach ($plans as $entry) {
-                $repair = $entry['repair'];
-                $plan = $entry['plan'];
-                $decision = $entry['policy'];
-                if (!$decision->allowed()) {
-                    $results[] = ['repair' => new RepairResult(['repair_id' => $repair->metadata()->id(), 'status' => RepairStatus::BLOCKED->value, 'message' => $decision->get('reason'), 'changes' => []]), 'verification' => null, 'rollback' => null];
-                    continue;
-                }
-                if ($decision->requiresApproval() && !$approval($entry)) {
-                    $results[] = ['repair' => new RepairResult(['repair_id' => $repair->metadata()->id(), 'status' => RepairStatus::SKIPPED->value, 'message' => 'Generated plan was not approved.', 'changes' => []]), 'verification' => null, 'rollback' => null];
-                    continue;
-                }
-                $context->audit->event('doctor.repair.started', 'Doctor repair execution started.', ['repair_id' => $repair->metadata()->id(), 'plan_hash' => $entry['plan_hash']], 'WARNING');
+                $repair = $entry['repair']; $plan = $entry['plan']; $metadata = $repair->metadata();
+                $backup = null; $verification = null; $rollback = null; $started = false; $identity = null;
+                $lifecycle = ['PREFLIGHT'];
                 try {
+                    if ($plan->repairId() !== $metadata->id() || !hash_equals(self::planHash($plan), (string)$entry['plan_hash'])) {
+                        throw new \RuntimeException('Exact approved plan identity changed.');
+                    }
+                    if (in_array($metadata->automationClass()->value, ['REPORT_ONLY','PROHIBITED'], true) || $metadata->get('destructive', false)) {
+                        $results[] = $this->notExecuted($context, $metadata->id(), 'BLOCKED', 'Report-only, prohibited or destructive repairs cannot execute.'); continue;
+                    }
+                    $decision = $this->policy->evaluate($metadata, $entry['diagnosis'], $plan, (string)$entry['policy']->get('policy', 'manual'));
+                    if (!$decision->allowed() || !$repair->supports($context->environment)) {
+                        $results[] = $this->notExecuted($context, $metadata->id(), 'BLOCKED', (string)$decision->get('reason')); continue;
+                    }
+                    if ($repair instanceof \SysAdmin\Doctor\engine\Contracts\RecoveryVerifiableRepair) { $repair->preflight($context, $plan); }
+                    $candidateIdentity = json_encode([$context->executionId, $context->projectPath, $metadata->id(), $entry['plan_hash']], JSON_THROW_ON_ERROR);
+                    if ($this->lock->attempted($candidateIdentity)) {
+                        $results[] = $this->notExecuted($context, $metadata->id(), 'SKIPPED', 'Duplicate or unresolved prior execution; preserve its approval and reconcile its journal.'); continue;
+                    }
+                    if (($decision->requiresApproval() || !$metadata->rollbackSupported()) && !$approval($entry)) {
+                        $results[] = $this->notExecuted($context, $metadata->id(), 'SKIPPED', 'Generated exact plan was not approved.'); continue;
+                    }
+                    $lifecycle[] = 'AUTHORIZED';
+                    $identity = json_encode([$context->executionId, $context->projectPath, $metadata->id(), $entry['plan_hash']], JSON_THROW_ON_ERROR);
+                    if (!$this->lock->claim($identity)) {
+                        $results[] = $this->notExecuted($context, $metadata->id(), 'SKIPPED', 'Duplicate or interrupted execution; reconcile the original durable journal before any new attempt.'); continue;
+                    }
+                    $context->audit->event('doctor.repair.started', 'Authorized exact repair intent claimed.', ['repair_id' => $metadata->id(), 'plan_hash' => $entry['plan_hash'], 'lifecycle' => $lifecycle], 'WARNING');
                     $backup = $repair->backup($context, $plan);
-                    if (!$backup->successful()) {
+                    if (!$backup->successful() || ($plan->requiresBackup() && $backup->get('strategy') === 'none-required')) {
                         throw new \RuntimeException('Required backup did not validate.');
                     }
+                    $lifecycle[] = 'BACKED_UP';
+                    $context->audit->event('doctor.repair.backup', 'Prior state captured before execution.', ['repair_id' => $metadata->id(), 'backup' => $backup->toArray()]);
+                    $lifecycle[] = 'EXECUTING'; $started = true;
                     $result = $repair->repair($context, $plan);
-                    if (in_array((string) $result->get('status'), [RepairStatus::REPORT_ONLY->value, RepairStatus::BLOCKED->value, RepairStatus::SKIPPED->value], true)) {
-                        $results[] = ['repair' => $result, 'verification' => null, 'rollback' => null, 'backup' => $backup];
-                        $context->audit->event('doctor.repair.not_executed', 'Doctor finding was not executed.', $result->toArray(), 'INFO');
-                        continue;
-                    }
-                    $verification = $repair->verify($context, $result);
-                    $rollback = null;
+                    $lifecycle[] = 'VERIFYING';
+                    $verification = $result->successful() ? $repair->verify($context, $result)
+                        : new \SysAdmin\Doctor\engine\Support\Value\VerificationResult(['passed' => false, 'message' => 'Repair execution failed; no successful postcondition is claimed.']);
                     if ($result->successful() && $verification->passed()) {
-                        $result = new RepairResult([
-                            ...$result->toArray(),
-                            'status' => RepairStatus::VERIFIED->value,
-                            'message' => rtrim((string) $result->get('message'), '.') . '. Independent verification passed.',
-                        ]);
-                    } elseif ($result->successful() && !$verification->passed()) {
-                        if ($repair->metadata()->rollbackSupported()) {
-                            $rollback = $repair->rollback($context, $result);
-                            $result = new RepairResult([
-                                ...$result->toArray(),
-                                'status' => $rollback->successful() ? RepairStatus::ROLLED_BACK->value : RepairStatus::ROLLBACK_FAILED->value,
-                                'message' => $rollback->successful()
-                                    ? 'Verification failed; the recorded prior state was restored.'
-                                    : 'Verification failed and automatic rollback also failed.',
-                            ]);
-                        } else {
-                            $result = new RepairResult([
-                                ...$result->toArray(),
-                                'status' => RepairStatus::FAILED->value,
-                                'message' => 'Planned actions completed, but independent verification failed.',
-                            ]);
-                        }
+                        $lifecycle[] = 'COMMITTED';
+                        $result = new RepairResult([...$result->toArray(), 'status' => RepairStatus::VERIFIED->value, 'message' => 'Repair completed and independent verification passed.']);
+                    } else {
+                        $lifecycle[] = 'ROLLING_BACK';
+                        [$result, $rollback] = $this->recover($context, $repair, $result);
+                        $lifecycle[] = $rollback->successful() ? 'ROLLED_BACK' : 'RECOVERY_REQUIRED';
                     }
-                    $results[] = ['repair' => $result, 'verification' => $verification, 'rollback' => $rollback, 'backup' => $backup];
-                    $context->audit->event('doctor.repair.completed', 'Doctor repair execution completed.', [
-                        'repair' => $result->toArray(), 'verification' => $verification->toArray(), 'rollback' => $rollback?->toArray(),
-                    ], $verification->passed() ? 'INFO' : 'ERROR');
-                } catch (\Throwable $exception) {
-                    $result = new RepairResult(['repair_id' => $repair->metadata()->id(), 'status' => RepairStatus::FAILED->value, 'message' => $context->redactor->text($exception->getMessage()), 'changes' => []]);
-                    $results[] = ['repair' => $result, 'verification' => null, 'rollback' => null];
-                    $context->audit->event('doctor.repair.failed', 'Doctor repair execution failed.', $result->toArray(), 'ERROR');
+                } catch (\Throwable $error) {
+                    $result = new RepairResult([...isset($result) ? $result->toArray() : [], 'repair_id' => $metadata->id(), 'status' => RepairStatus::FAILED->value,
+                        'message' => $context->redactor->text($error->getMessage()), 'backup' => $backup?->toArray(), 'changes' => isset($result) ? $result->get('changes', []) : [],
+                        'unknown_effects' => $started && !isset($result)]);
+                    if ($started) {
+                        $lifecycle[] = 'ROLLING_BACK';
+                        [$result, $rollback] = $this->recover($context, $repair, $result);
+                        $lifecycle[] = $rollback->successful() ? 'ROLLED_BACK' : 'RECOVERY_REQUIRED';
+                    } else { $lifecycle[] = 'FAILED_BEFORE_EXECUTION'; }
                 }
+                $row = ['repair' => $result, 'verification' => $verification, 'rollback' => $rollback, 'backup' => $backup, 'lifecycle' => $lifecycle];
+                $safe = $context->audit->sanitize(['repair' => $result->toArray(), 'verification' => $verification?->toArray(), 'rollback' => $rollback?->toArray(), 'backup' => $backup?->toArray(), 'lifecycle' => $lifecycle]);
+                if ($identity !== null) { $this->lock->complete($identity, $safe); }
+                try { $context->audit->event('doctor.repair.completed', 'Repair lifecycle finished.', $safe, $result->get('status') === 'VERIFIED' ? 'INFO' : 'ERROR'); }
+                catch (\Throwable $error) { $row['audit_error'] = $context->redactor->text($error->getMessage()); } // fsynced journal remains the durable outcome.
+                $results[] = $row; unset($result);
             }
-        } finally {
-            $this->lock->release();
-        }
+        } finally { $this->lock->release(); }
         return $results;
+    }
+
+    private function notExecuted(DoctorContext $context, string $id, string $status, string $message): array
+    {
+        $context->audit->event('doctor.repair.not_executed', 'Repair execution was denied or already recorded.', ['repair_id' => $id, 'status' => $status, 'message' => $message]);
+        return ['repair' => new RepairResult(['repair_id' => $id, 'status' => $status, 'message' => $message, 'changes' => []]), 'verification' => null, 'rollback' => null];
+    }
+
+    private function recover(DoctorContext $context, \SysAdmin\Doctor\engine\Contracts\RepairInterface $repair, RepairResult $result): array
+    {
+        try {
+            $rollback = $repair->rollback($context, $result);
+            if (!$repair instanceof \SysAdmin\Doctor\engine\Contracts\RecoveryVerifiableRepair) { throw new \RuntimeException('Independent rollback verifier unavailable; manual recovery evidence is required.'); }
+            $verified = $repair->verifyRollback($context, $result);
+            $ok = $rollback->successful() && $verified->passed() && !$result->get('unknown_effects', false);
+            $rollback = new \SysAdmin\Doctor\engine\Support\Value\RollbackResult([...$rollback->toArray(), 'successful' => $ok, 'verification' => $verified->toArray()]);
+        } catch (\Throwable $error) {
+            $rollback = new \SysAdmin\Doctor\engine\Support\Value\RollbackResult(['successful' => false, 'message' => $context->redactor->text($error->getMessage())]);
+        }
+        return [new RepairResult([...$result->toArray(), 'status' => $rollback->successful() ? RepairStatus::ROLLED_BACK->value : RepairStatus::ROLLBACK_FAILED->value,
+            'recovery_required' => !$rollback->successful(), 'failure_message' => $result->get('message'),
+            'message' => $rollback->successful() ? 'Repair failed; prior state independently verified after rollback.' : 'Repair failed; rollback incomplete or unverified. Preserve backups and reconcile before retry.']), $rollback];
     }
 
     public function score(array $checks): \SysAdmin\Doctor\engine\Support\Value\HealthScore

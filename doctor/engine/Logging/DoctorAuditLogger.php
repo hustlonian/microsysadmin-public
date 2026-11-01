@@ -16,10 +16,21 @@ final readonly class DoctorAuditLogger
     ) {
     }
 
+    public function sanitize(array $value): array
+    {
+        foreach ($value as $key => &$item) {
+            if (in_array(strtolower((string)$key), ['contents', 'diff'], true) && is_string($item)) {
+                $item = ['redacted' => true, 'sha256' => hash('sha256', $item), 'bytes' => strlen($item)];
+            } elseif (is_array($item)) { $item = $this->sanitize($item); }
+        }
+        unset($item);
+        return (array)$this->redactor->value($value);
+    }
+
     public function event(string $type, string $message, array $context = [], string $level = 'INFO'): AuditEvent
     {
         $safeMessage = $this->redactor->text($message);
-        $safeContext = (array) $this->redactor->value($context);
+        $safeContext = $this->sanitize($context);
         $event = new AuditEvent([
             'execution_id' => $this->executionId,
             'level' => strtoupper($level),
