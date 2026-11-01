@@ -1336,13 +1336,13 @@
         if (phpEditor) {
             initPhpEditor(phpEditor);
         }
-        initSandboxTerminalControls();
+        // Code Runner uses bounded scripts; never auto-start a host shell.
 
         document.querySelectorAll('.js-sandbox-run').forEach((form) => {
             form.addEventListener('submit', async (event) => {
                 event.preventDefault();
-                const language = form.dataset.language || form.querySelector('[name="language"]')?.value || 'php';
-                const output = document.getElementById(language === 'bash' ? 'sandboxBashOutput' : 'sandboxPhpOutput');
+                const language = form.querySelector('[name="language"]')?.value || form.dataset.language || 'php';
+                const output = document.getElementById(language === 'php' ? 'sandboxPhpOutput' : 'sandboxBashOutput');
                 const submitter = event.submitter || form.querySelector('[type="submit"]');
                 const confirmed = form.dataset.skipConfirm === '1' || await confirmRealCodeAction(form);
                 if (!confirmed) {
@@ -1909,7 +1909,7 @@
             `language: ${data.language}`,
             `file: ${data.saved_file || ''}`,
             `cwd: ${data.working_directory || ''}`,
-            'real files: yes',
+            `workspace: ${data.isolated ? 'isolated, temporary' : 'unavailable'}`,
             `exit: ${data.exit_code}`,
             `elapsed: ${data.elapsed_ms}ms`
         ];
@@ -1939,13 +1939,14 @@
         const fallbackHtml = fallback ? `<pre style="white-space: pre-wrap;">${escapeHtml(fallback)}</pre>` : '';
 
         frame.removeAttribute('src');
-        frame.srcdoc = `${output}${errorHtml}${fallbackHtml}`;
+        const status = `<pre>${escapeHtml(`exit: ${data.exit_code ?? ''} | elapsed: ${data.elapsed_ms ?? 0}ms | workspace: isolated, temporary`)}</pre>`;
+        frame.srcdoc = `<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">${status}${output}${errorHtml}${fallbackHtml}`;
     }
 
     function formatSandboxWebResult(data) {
         const lines = [
             'browser files saved',
-            'real files: yes',
+            'browser preview: sandboxed',
             `preview: ${data.preview_url || ''}`
         ];
         if (data.warning) lines.push(`warning: ${data.warning}`);

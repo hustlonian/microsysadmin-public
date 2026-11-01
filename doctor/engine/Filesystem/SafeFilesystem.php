@@ -91,7 +91,7 @@ final class SafeFilesystem
             throw new \RuntimeException('Unable to create atomic-write file.');
         }
         try {
-            if (!flock($handle, LOCK_EX) || fwrite($handle, $contents) !== strlen($contents) || !fflush($handle)) {
+            if (!flock($handle, LOCK_EX) || fwrite($handle, $contents) !== strlen($contents) || !fflush($handle) || !fsync($handle)) {
                 throw new \RuntimeException('Unable to complete atomic write.');
             }
             $targetMode = $mode ?? (is_file($path) ? (fileperms($path) & 0777) : 0640);

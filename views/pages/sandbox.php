@@ -11,7 +11,7 @@ $cwd = $workspace['working_directory'] ?? APP_ROOT;
 <section class="content">
     <div class="container-fluid">
         <div class="alert alert-warning">
-            Code and shell commands run against real files as the web server user. PHP executes from <code><?= e($cwd) ?></code>; Bash opens a live shell; browser code is saved before previewing.
+            Scripts run in a private temporary workspace at <code>/work</code>. Files disappear after each run. Network, application files and privileged operations are unavailable. Browser previews run in a separate sandbox.
         </div>
 
         <ul class="nav nav-pills mb-3 sandbox-tabs" role="tablist">
@@ -51,48 +51,36 @@ $cwd = $workspace['working_directory'] ?? APP_ROOT;
                     <div class="col-xl-5">
                         <div class="card">
                             <div class="card-header"><h2 class="card-title">Output</h2></div>
-                            <div class="card-body p-0"><iframe class="sandbox-frame sandbox-php-output" id="sandboxPhpOutput" title="PHP output"></iframe></div>
+                            <div class="card-body p-0"><iframe class="sandbox-frame sandbox-php-output" id="sandboxPhpOutput" sandbox="allow-scripts" referrerpolicy="no-referrer" title="PHP output"></iframe></div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="tab-pane fade" id="sandboxBashPane" role="tabpanel" aria-labelledby="sandbox-bash-tab" tabindex="0">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card sandbox-terminal-card" id="sandboxTerminalCard">
-                            <div class="card-header d-flex align-items-center">
-                                <div>
-                                    <h2 class="card-title mb-1">Bash terminal</h2>
-                                    <div class="sandbox-current-path">
-                                        <i class="fas fa-folder-open"></i>
-                                        <span>Working path:</span>
-                                        <code id="sandboxBashCwd"><?= e($workspace['bash_working_directory'] ?? $workspace['working_directory']) ?></code>
-                                    </div>
-                                </div>
-                                <div class="ms-auto d-flex align-items-center gap-2">
-                                    <span class="sandbox-terminal-state" id="sandboxTerminalStatus">Idle</span>
-                                    <div class="btn-group btn-group-sm">
-                                        <button class="btn btn-outline-secondary js-sandbox-terminal-start" type="button" aria-label="Start or restart shell" title="Start or restart shell"><i class="fas fa-rotate-right"></i></button>
-                                        <button class="btn btn-outline-secondary js-sandbox-terminal-fullscreen" type="button" aria-label="Toggle fullscreen terminal" title="Toggle fullscreen terminal" aria-pressed="false"><i class="fas fa-expand"></i></button>
-                                        <button class="btn btn-outline-secondary js-sandbox-terminal-clear" type="button" aria-label="Clear terminal" title="Clear terminal"><i class="fas fa-eraser"></i></button>
-                                        <button class="btn btn-outline-danger js-sandbox-terminal-stop" type="button" disabled aria-label="Stop terminal session" title="Stop terminal session"><i class="fas fa-stop"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-body p-0">
-                                <div class="sandbox-terminal" id="sandboxBashTerminal"></div>
-                                <pre class="sys-output sandbox-output sandbox-terminal-fallback" id="sandboxBashOutput" hidden></pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <form class="js-sandbox-run" data-language="bash" data-skip-confirm="1">
+                    <input type="hidden" name="_csrf" value="<?= e(\SysAdmin\Csrf::token()) ?>">
+                    <input type="hidden" name="confirm_real" value="1">
+                    <div class="card"><div class="card-header"><h2 class="card-title">Isolated script runner</h2></div>
+                    <div class="card-body">
+                        <label for="sandboxLanguage">Language</label>
+                        <select class="form-select mb-3" name="language" id="sandboxLanguage">
+                            <option value="bash">Bash</option><option value="python">Python</option><option value="javascript">JavaScript (Node)</option>
+                        </select>
+                        <label for="sandboxBashCode">Script</label>
+                        <textarea class="form-control sandbox-editor" id="sandboxBashCode" name="code" spellcheck="false"><?= e($examples['bash']) ?></textarea>
+                        <label for="sandboxInput">Standard input</label><textarea class="form-control" name="input" id="sandboxInput" maxlength="32768"></textarea>
+                        <label for="sandboxTimeout">Timeout (1–30 seconds)</label><input class="form-control" id="sandboxTimeout" type="number" name="timeout" min="1" max="30" value="10">
+                        <button class="btn btn-primary mt-3" type="submit">Run script</button>
+                    </div></div>
+                </form>
+                <div class="card"><div class="card-header"><h2 class="card-title">Execution result</h2></div><div class="card-body"><pre class="sys-output sandbox-output" id="sandboxBashOutput" aria-live="polite"></pre></div></div>
             </div>
 
             <div class="tab-pane fade" id="sandboxWebPane" role="tabpanel" aria-labelledby="sandbox-web-tab" tabindex="0">
                 <div class="row">
                     <div class="col-xl-6">
-                        <form class="js-sandbox-web" data-preview-url="<?= e($workspace['preview_url']) ?>" data-real-title="Save and preview real browser files?" data-real-warning="This overwrites the saved HTML, CSS, and JavaScript files, then loads them in the browser with normal page privileges." data-confirm-label="Save & Preview">
+                        <form class="js-sandbox-web" data-preview-url="<?= e($workspace['preview_url']) ?>" data-real-title="Save and preview real browser files?" data-real-warning="This overwrites the saved HTML, CSS, and JavaScript files, then loads them in an isolated browser preview." data-confirm-label="Save & Preview">
                             <input type="hidden" name="_csrf" value="<?= e(\SysAdmin\Csrf::token()) ?>">
                             <input type="hidden" name="action" value="save-web">
                             <input type="hidden" name="confirm_real" value="0">
@@ -101,7 +89,7 @@ $cwd = $workspace['working_directory'] ?? APP_ROOT;
                                     <h2 class="card-title mb-0">Browser files</h2>
                                     <div class="ms-auto btn-group btn-group-sm">
                                         <button class="btn btn-primary" type="submit"><i class="fas fa-floppy-disk"></i> Save & Preview</button>
-                                        <button class="btn btn-outline-secondary js-sandbox-load-preview" type="button" data-preview-url="<?= e($workspace['preview_url']) ?>" data-real-title="Preview saved browser files?" data-real-warning="This loads the saved HTML, CSS, and JavaScript in the browser with normal page privileges." data-confirm-label="Preview"><i class="fas fa-eye"></i> Preview Saved</button>
+                                        <button class="btn btn-outline-secondary js-sandbox-load-preview" type="button" data-preview-url="<?= e($workspace['preview_url']) ?>" data-real-title="Preview saved browser files?" data-real-warning="This loads the saved files in a sandboxed preview without application privileges." data-confirm-label="Preview"><i class="fas fa-eye"></i> Preview Saved</button>
                                         <button class="btn btn-outline-secondary js-sandbox-reset" type="button" data-target="#sandboxHtml,#sandboxCss,#sandboxJs" aria-label="Reset browser example" title="Reset browser example"><i class="fas fa-arrow-rotate-left"></i></button>
                                     </div>
                                 </div>
@@ -135,7 +123,7 @@ $cwd = $workspace['working_directory'] ?? APP_ROOT;
                         <div class="card">
                             <div class="card-header"><h2 class="card-title">Preview</h2></div>
                             <div class="card-body p-0">
-                                <iframe class="sandbox-frame" id="sandboxFrame" title="Code preview"></iframe>
+                                <iframe class="sandbox-frame" id="sandboxFrame" sandbox="allow-scripts" referrerpolicy="no-referrer" title="Code preview"></iframe>
                             </div>
                         </div>
                         <pre class="sys-output compact mt-3" id="sandboxConsole"></pre>

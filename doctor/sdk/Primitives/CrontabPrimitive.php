@@ -154,13 +154,17 @@ final readonly class CrontabPrimitive implements RepairPrimitive
             return ['type' => 'crontab', 'created' => false, 'changed' => false, 'marker' => $marker, 'backup_path' => $backupPath, 'had_crontab' => $hadCrontab, 'before_sha256' => hash('sha256', $before), 'description' => $action['description'] ?? 'Verified the exact managed crontab state.'];
         }
         $context->filesystem->atomicWrite($installPath, $updated, 0600);
-        $installed = $context->process->run([$crontab, $installPath], 15);
-        @unlink($installPath);
-        if (!$installed->successful()) {
-            $detail = trim((string) $installed->get('stderr')) ?: trim((string) $installed->get('stdout'));
-            throw new \RuntimeException('Unable to install the scoped managed crontab state.' . ($detail !== '' ? ' ' . $detail : ''));
-        }
-        return ['type' => 'crontab', 'created' => !$hadCrontab, 'changed' => true, 'marker' => $marker, 'backup_path' => $backupPath, 'had_crontab' => $hadCrontab, 'before_sha256' => hash('sha256', $before), 'after_sha256' => hash('sha256', $updated), 'description' => $action['description'] ?? 'Installed the exact managed crontab state.'];
+        $change = ['type' => 'crontab', 'created' => !$hadCrontab, 'changed' => true, 'marker' => $marker, 'backup_path' => $backupPath, 'had_crontab' => $hadCrontab, 'before_sha256' => hash('sha256', $before), 'after_sha256' => hash('sha256', $updated), 'description' => $action['description'] ?? 'Installed the exact managed crontab state.'];
+        try {
+            $installed = $context->process->run([$crontab, $installPath], 15);
+            if (!$installed->successful()) {
+                $detail = trim((string) $installed->get('stderr')) ?: trim((string) $installed->get('stdout'));
+                throw new \RuntimeException('Unable to install the scoped managed crontab state.' . ($detail !== '' ? ' ' . $detail : ''));
+            }
+        } catch (\Throwable $error) {
+            throw new \SysAdmin\Doctor\sdk\PartialActionFailure($error->getMessage(), $change, $error);
+        } finally { @unlink($installPath); }
+        return $change;
     }
 
     public function rollback(array $change, DoctorContext $context): bool
@@ -176,7 +180,12 @@ final readonly class CrontabPrimitive implements RepairPrimitive
         if ($crontab === null || $backupPath === '' || !is_file($backupPath)) {
             throw new \RuntimeException('The captured crontab rollback state is unavailable.');
         }
-        [$current] = $this->captureCurrent($crontab, $context);
+        $captured = $context->filesystem->read($backupPath);
+        if (!hash_equals((string)($change['before_sha256'] ?? ''), hash('sha256', $captured))) {
+            throw new \RuntimeException('Crontab backup integrity failed; restoration refused.');
+        }
+        [$current, $currentlyPresent] = $this->captureCurrent($crontab, $context);
+        if ($currentlyPresent === (bool)$change['had_crontab'] && hash_equals($captured, $current)) { return true; }
         $afterSha256 = (string) ($change['after_sha256'] ?? '');
         if (!preg_match('/^[a-f0-9]{64}$/', $afterSha256) || !hash_equals($afterSha256, hash('sha256', $current))) {
             throw new \RuntimeException('Crontab changed after repair; rollback refuses to overwrite newer scheduler state.');
@@ -184,7 +193,7 @@ final readonly class CrontabPrimitive implements RepairPrimitive
         if (!empty($change['had_crontab'])) {
             $transferId = substr(hash('sha256', $context->executionId . ':' . (string) ($change['marker'] ?? 'crontab') . ':rollback'), 0, 20);
             $restorePath = '/tmp/microsysadmin-doctor-' . $transferId . '.cron';
-            $context->filesystem->atomicWrite($restorePath, $context->filesystem->read($backupPath), 0600);
+            $context->filesystem->atomicWrite($restorePath, $captured, 0600);
             $result = $context->process->run([$crontab, $restorePath], 15);
             @unlink($restorePath);
         } else {
@@ -192,6 +201,10 @@ final readonly class CrontabPrimitive implements RepairPrimitive
         }
         if (!$result->successful()) {
             throw new \RuntimeException('Unable to restore the captured service-account crontab.');
+        }
+        [$restored, $hasCrontab] = $this->captureCurrent($crontab, $context);
+        if ($hasCrontab !== (bool)$change['had_crontab'] || !hash_equals((string)$change['before_sha256'], hash('sha256', $restored))) {
+            throw new \RuntimeException('Crontab rollback did not restore the exact captured state.');
         }
         return true;
     }

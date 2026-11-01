@@ -29,6 +29,12 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction --no-progress --prefer-dist
 
+      - name: Install isolated Code Runner backend
+        run: sudo apt-get update && sudo apt-get install --yes bubblewrap
+
+      - name: Verify isolated language runners
+        run: php tests/code-runner.php
+
       - name: Validate Composer metadata
         run: composer validate --no-check-publish --no-interaction
 
@@ -43,6 +49,7 @@ jobs:
 
       - name: Doctor commercial contracts
         run: |
+          php doctor/tests/rollback.php
           php doctor/tests/sdk.php
           php doctor/tests/run.php
           php doctor/tests/time-forward.php
@@ -130,9 +137,13 @@ jobs:
             --terminal-available=0 \
             --system-integration=skip
 
+      - name: Install isolated Code Runner backend
+        run: sudo apt-get update && sudo apt-get install --yes bubblewrap
+
       - name: Run MicroSysAdmin tests
         run: |
           php tests/run.php
+          php tests/code-runner-service.php
           php tests/demo-login.php
           ./tests/git-manager-failure-modes.sh
 
