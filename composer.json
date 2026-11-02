@@ -6,7 +6,7 @@
   "require": {
     "php": ">=8.2",
     "monolog/monolog": "^3.0",
-    "symfony/process": "^7.0",
+    "symfony/process": "^8.1",
     "phpmailer/phpmailer": "^6.9"
   },
   "autoload": {
