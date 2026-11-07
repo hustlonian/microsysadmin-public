@@ -22,12 +22,16 @@ final class DevelopmentController
         if (!is_string($project)) {
             throw new HttpException(422, 'Invalid project.');
         }
+        $projects = $service->projects();
+        if ($project === '' && count($projects) === 1) {
+            $project = $projects[0]['id'];
+        }
         $view = $_GET['view'] ?? 'overview';
         if (!is_string($view) || !in_array($view, ['overview','history','working','roadmap','gates','evidence','reports'], true)) {
             throw new HttpException(422, 'Invalid development view.');
         }
         $data = ['title' => 'Development Command Center', 'active' => 'development-command-center',
-            'navigation' => require APP_ROOT . '/config/navigation.php', 'projects' => $service->projects(),
+            'navigation' => require APP_ROOT . '/config/navigation.php', 'projects' => $projects,
             'selectedProject' => $project, 'tab' => $view, 'report' => null, 'partial' => ($_GET['partial'] ?? '') === '1'];
         header('Cache-Control: private, no-store');
         if ($project !== '') {

@@ -63,6 +63,25 @@ $assert(count($report['workstreams']) === 12 && count($report['gates']) === 12, 
 $assert($report['readiness'] === 'NOT_VERIFIED', 'Fabricated release readiness');
 $assert(array_unique(array_column($report['gates'], 'state')) === ['DRAFT'], 'Infrastructure completion promoted top-level gates');
 $assert(!str_contains(json_encode($report), '/opt/lampp'), 'Private host paths exposed');
+// Reconcile installed local configuration without inheriting platform authority.
+$configuredProjects = $GLOBALS['sysadmin_config']['development']['projects'];
+file_put_contents(APP_ROOT . '/config/development.local.php', '<?php return ' . var_export($configuredProjects, true) . ';');
+unset($GLOBALS['sysadmin_config']['development']['projects']);
+$assert($service->authorize('digital-empire') === 'owner' && count($service->projects()) === 1, 'Trusted local project bindings unavailable');
+$_SESSION['user_id'] = $outsider;
+$assert($service->projects() === [], 'Local bindings disclosed an unassigned project');
+try { $service->report('digital-empire'); throw new RuntimeException('Local binding bypassed tenant authorization'); }
+catch (HttpException $e) { $assert($e->statusCode() === 403, 'Local tenant denial missing'); }
+$_SESSION['user_id'] = $owner;
+$GLOBALS['sysadmin_config']['development']['projects'] = [];
+$assert($service->projects() === [], 'Explicit empty configuration did not override local fallback');
+$GLOBALS['sysadmin_config']['development']['projects'] = $configuredProjects;
+$_GET = ['view' => 'overview', 'partial' => '1'];
+ob_start(); (new DevelopmentController())->handle('development-command-center'); $defaultHtml = (string) ob_get_clean();
+$assert(str_contains($defaultHtml, 'id="development-summary"') && str_contains($defaultHtml, 'Project access and enrollment'), 'Default authorized project lost narrative or access explanation');
+$assert(str_contains($defaultHtml, 'Evidence inspection') && str_contains($defaultHtml, 'grants no platform administration'), 'Narrative reconciliation removed evidence navigation or authority limits');
+$assert(!\SysAdmin\DevelopmentNarrative::summary(array_replace($report, ['freshness' => 'STALE']))['active'], 'Stale narrative claims current work');
+$_GET = [];
 $assert(!isset($report['project']['tenant_key']), 'Internal tenant binding exported');
 $assert($service->filter($report, ['agent' => 'no-such-agent'])['history'] === [], 'History filter ignored');
 $assert(str_contains($service->markdown($report), 'NOT_VERIFIED'), 'Markdown hides readiness limits');

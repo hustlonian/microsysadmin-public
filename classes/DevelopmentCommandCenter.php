@@ -11,7 +11,7 @@ final class DevelopmentCommandCenter
     {
         Auth::requireLogin();
         $result = [];
-        foreach ((array) config_value('development.projects', []) as $id => $binding) {
+        foreach ($this->bindings() as $id => $binding) {
             try {
                 $role = $this->authorize((string) $id);
                 $result[] = ['id' => (string) $id, 'name' => (string) ($binding['name'] ?? $id), 'role' => $role];
@@ -307,12 +307,24 @@ final class DevelopmentCommandCenter
         return $time === false ? null : $time;
     }
 
+    /** Trusted local bindings remain subject to the same tenant authorization. */
+    private function bindings(): array
+    {
+        $configured = config_value('development.projects', null);
+        if (is_array($configured)) {
+            return $configured;
+        }
+        $path = APP_ROOT . '/config/development.local.php';
+        $local = is_file($path) ? require $path : [];
+        return is_array($local) ? $local : [];
+    }
+
     private function binding(string $project): array
     {
         if (!preg_match('/\A[a-z][a-z0-9-]{0,79}\z/', $project)) {
             throw new HttpException(404, 'Project not found.');
         }
-        $binding = config_value('development.projects.' . $project);
+        $binding = $this->bindings()[$project] ?? null;
         if (!is_array($binding)) {
             throw new HttpException(404, 'Project not found.');
         }

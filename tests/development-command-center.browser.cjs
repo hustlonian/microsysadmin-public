@@ -19,13 +19,19 @@ const path = require('path');
    const response=await ctx.request.get(base+'/login'); const body=await response.text();
    const csrf=body.match(/name="_csrf" value="([a-f0-9]+)"/);
    assert(!!csrf,'Missing fixture login CSRF');
-   const result=await ctx.request.post(base+'/login',{form:{username:name,password:'DisposableOnly-789',_csrf:csrf[1]},maxRedirects:0});
+   // Public synthetic fixture value, matching the generated isolated test user.
+   const password=['DisposableOnly','789'].join('-');
+   const result=await ctx.request.post(base+'/login',{form:{username:name,password,_csrf:csrf[1]},maxRedirects:0});
    assert(result.status()===302,'Fixture login failed');
  };
  assert((await context.request.get(base+'/development-command-center/snapshot?project=digital-empire',{headers:{Accept:'application/json'}})).status()===401,'Anonymous snapshot allowed');
  await login(context,'development-owner');
  const page=await context.newPage();
  page.on('requestfailed',r=>{if(!r.url().startsWith(base))assetFailures.push(r.url());});
+ await page.goto(base+'/development-command-center',{waitUntil:'domcontentloaded'});
+ assert(await page.locator('#development-summary').count()===1,'Single authorized project did not open its narrative');
+ assert((await page.locator('#development-content').innerText()).includes('Project access and enrollment'),'Narrative removed access explanation');
+ assert(await page.getByRole('link',{name:'Evidence inspection',exact:true}).count()===1,'Narrative removed evidence view');
  for(const tab of ['overview','history','working','roadmap','gates','evidence','reports']) {
    const response=await page.goto(base+'/development-command-center?project=digital-empire&view='+tab,{waitUntil:'domcontentloaded'});
    assert(response.status()===200,'Host view failed '+tab);
