@@ -44,7 +44,7 @@ final class OwnerSetupService
         $applicationUrl = $this->url((string) ($input['application_url'] ?? ''));
         $deploymentMethod = $this->choice($input['deployment_method'] ?? '', ['sftp', 'ssh', 'cpanel', 'git', 'manual', 'other'], 'Deployment method');
         $config = $this->stored();
-        $hosting = $this->publicFields($input, ['provider', 'environment', 'domain', 'application_url', 'deployment_method', 'control_panel', 'php_requirement', 'database_requirement', 'scheduler_requirement', 'queue_requirement', 'ssl_requirement', 'backup_destination', 'restore_verified']);
+        $hosting = $this->publicFields($input, ['provider', 'environment', 'domain', 'application_url', 'deployment_method', 'control_panel', 'php_requirement', 'database_requirement', 'scheduler_requirement', 'queue_requirement', 'ssl_requirement', 'backup_destination', 'restore_verified', 'deployment_scope', 'database_host', 'database_name', 'database_username']);
         $hosting['provider'] = $provider;
         $hosting['environment'] = $environment;
         $hosting['domain'] = $domain;
@@ -70,6 +70,12 @@ final class OwnerSetupService
         $email['provider'] = $provider;
         $email['owner_email'] = $ownerEmail;
         $email['sender_email'] = $senderEmail;
+        if (!empty($email['reply_to'])) $email['reply_to'] = $this->email((string) $email['reply_to']);
+        if (!empty($email['additional_recipients'])) {
+            $recipients = array_filter(array_map('trim', preg_split('/[,;\s]+/', (string) $email['additional_recipients']) ?: []));
+            foreach ($recipients as $recipient) $this->email($recipient);
+            $email['additional_recipients'] = implode(', ', array_values(array_unique($recipients)));
+        }
         if (array_key_exists('provider_credential', $input) && (string) $input['provider_credential'] !== '') {
             $email['provider_credential'] = Crypto::encrypt((string) $input['provider_credential']);
         } elseif (!empty($config['email']['provider_credential'])) {

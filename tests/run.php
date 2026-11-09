@@ -657,6 +657,16 @@ $test->test('owner setup stores secrets encrypted and keeps service states fail-
         $test->assert($hosting['state'] === 'CREDENTIALS_REQUIRED', 'Saving credentials implied a verified host.');
         $test->assert(!array_key_exists('deploy_credential', $hosting), 'Hosting secret was returned to the caller.');
 
+        $mailSecret = 'synthetic-email-provider-token';
+        $email = $service->saveEmail([
+            'provider' => 'smtp', 'owner_email' => 'owner@example.test', 'sender_email' => 'noreply@example.test',
+            'sender_name' => 'Synthetic Test Sender', 'reply_to' => 'support@example.test',
+            'additional_recipients' => 'admin@example.test', 'provider_credential' => $mailSecret,
+        ]);
+        $test->assert($email['state'] === 'EMAIL_CONFIGURED_NOT_TESTED', 'Saving email credentials implied successful delivery.');
+        $test->assert($email['configuration']['owner_email'] === 'owner@example.test', 'Owner notification address was not retained.');
+        $test->assert(!array_key_exists('provider_credential', $email), 'Email provider secret was returned to the caller.');
+
         $stripeSecret = 'sk_test_synthetic_key_12345678';
         $stripe = $service->saveStripeCredentials('test', $stripeSecret, 'whsec_synthetic_12345678');
         $test->assert($stripe['test_state'] === 'TEST_CREDENTIALS_SAVED', 'Stripe test credential state was not recorded.');
@@ -667,7 +677,7 @@ $test->test('owner setup stores secrets encrypted and keeps service states fail-
         $test->assert($live['live_payments_enabled'] === false, 'Saving a live key enabled charges.');
 
         $stored = (string) Setting::all()[$key];
-        $test->assert(!str_contains($stored, $hostingSecret) && !str_contains($stored, $stripeSecret), 'A provider secret was stored in plaintext.');
+        $test->assert(!str_contains($stored, $hostingSecret) && !str_contains($stored, $mailSecret) && !str_contains($stored, $stripeSecret), 'A provider secret was stored in plaintext.');
         $test->assert(str_contains($stored, 'v1:'), 'Encrypted secret payload marker was not persisted.');
         $test->assert(!str_contains(json_encode($service->overview()), $stripeSecret), 'A Stripe secret appeared in owner status.');
 
