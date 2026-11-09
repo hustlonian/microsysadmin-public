@@ -110,6 +110,11 @@ final class TestRunner
 
 $test = new TestRunner();
 
+// Integration tests use a local synthetic key when an installation has none configured.
+if (empty($GLOBALS['sysadmin_config']['security']['app_key'])) {
+    $GLOBALS['sysadmin_config']['security']['app_key'] = bin2hex(random_bytes(32));
+}
+
 $test->test('installer detection is idempotent', function () use ($test): void {
     $executor = new ProcessExecutor();
     $first = $executor->run([PHP_BINARY, APP_ROOT . '/scripts/install-production.php', '--check'], 30, APP_ROOT);
@@ -629,6 +634,50 @@ $test->test('published migration source cleanup remains compatible with existing
         if (is_string($originalChecksum)) {
             $update->execute([$originalChecksum, $migration]);
         }
+    }
+});
+
+$test->test('owner setup stores secrets encrypted and keeps service states fail-closed', function () use ($test): void {
+    $key = 'owner_setup.configuration.v1';
+    $old = Setting::all()[$key] ?? null;
+    $service = new \SysAdmin\OwnerSetupService();
+    try {
+        Database::pdo()->prepare('DELETE FROM settings WHERE setting_key = ?')->execute([$key]);
+        $initial = $service->overview();
+        $test->assert($initial['hosting']['state'] === 'HOSTING_NOT_CONFIGURED', 'Hosting did not start unconfigured.');
+        $test->assert($initial['stripe']['test_state'] === 'TEST_CREDENTIALS_REQUIRED', 'Stripe test mode did not start gated.');
+        $test->assert($initial['stripe']['live_payments_enabled'] === false, 'Live payments were not disabled by default.');
+
+        $hostingSecret = 'synthetic-scoped-host-token';
+        $hosting = $service->saveHosting([
+            'provider' => 'cpanel', 'environment' => 'shared', 'domain' => 'example.test',
+            'application_url' => 'https://example.test/app', 'deployment_method' => 'sftp',
+            'deploy_credential' => $hostingSecret,
+        ]);
+        $test->assert($hosting['state'] === 'CREDENTIALS_REQUIRED', 'Saving credentials implied a verified host.');
+        $test->assert(!array_key_exists('deploy_credential', $hosting), 'Hosting secret was returned to the caller.');
+
+        $stripeSecret = 'sk_test_synthetic_key_12345678';
+        $stripe = $service->saveStripeCredentials('test', $stripeSecret, 'whsec_synthetic_12345678');
+        $test->assert($stripe['test_state'] === 'TEST_CREDENTIALS_SAVED', 'Stripe test credential state was not recorded.');
+        $test->assert($stripe['live_payments_enabled'] === false, 'Test configuration enabled live payments.');
+        $service->saveStripeCredentials('live', 'sk_live_synthetic_key_12345678');
+        $live = $service->overview()['stripe'];
+        $test->assert($live['live_state'] === 'LIVE_CREDENTIALS_SAVED_OWNER_ACTIVATION_REQUIRED', 'Live key did not remain owner-gated.');
+        $test->assert($live['live_payments_enabled'] === false, 'Saving a live key enabled charges.');
+
+        $stored = (string) Setting::all()[$key];
+        $test->assert(!str_contains($stored, $hostingSecret) && !str_contains($stored, $stripeSecret), 'A provider secret was stored in plaintext.');
+        $test->assert(str_contains($stored, 'v1:'), 'Encrypted secret payload marker was not persisted.');
+        $test->assert(!str_contains(json_encode($service->overview()), $stripeSecret), 'A Stripe secret appeared in owner status.');
+
+        $invalidModeRejected = false;
+        try { $service->saveStripeCredentials('live', 'sk_test_synthetic_key_12345678'); }
+        catch (InvalidArgumentException) { $invalidModeRejected = true; }
+        $test->assert($invalidModeRejected, 'Stripe test key was accepted as a live key.');
+    } finally {
+        if ($old === null) Database::pdo()->prepare('DELETE FROM settings WHERE setting_key = ?')->execute([$key]);
+        else Setting::set($key, (string) $old);
     }
 });
 

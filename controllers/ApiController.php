@@ -59,6 +59,7 @@ final class ApiController
                 'settings' => $this->settings(),
                 'media' => $this->media(),
                 'notifications' => $this->notifications(),
+                'owner-setup' => $this->ownerSetup(),
                 'users' => $this->users(),
                 'analytics' => $this->analytics(),
                 'administration' => $this->administration(),
@@ -503,6 +504,25 @@ final class ApiController
             'save' => ['ok' => true, 'data' => $service->saveConfiguration($_POST)],
             'test' => ['ok' => true, 'data' => $service->sendTest((string) ($_POST['email'] ?? ''))],
             default => ['ok' => false, 'error' => 'Unknown notification action.'],
+        };
+    }
+
+    private function ownerSetup(): array
+    {
+        Auth::requirePermission('security.settings');
+        $service = new \SysAdmin\OwnerSetupService();
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            return ['ok' => true, 'data' => $service->overview()];
+        }
+        return match ((string) ($_POST['action'] ?? '')) {
+            'save-hosting' => ['ok' => true, 'data' => $service->saveHosting($_POST)],
+            'save-email' => ['ok' => true, 'data' => $service->saveEmail($_POST)],
+            'save-stripe-credentials' => ['ok' => true, 'data' => $service->saveStripeCredentials(
+                (string) ($_POST['mode'] ?? ''),
+                (string) ($_POST['secret_key'] ?? ''),
+                (string) ($_POST['webhook_secret'] ?? '')
+            )],
+            default => ['ok' => false, 'error' => 'Unknown owner setup action.'],
         };
     }
 

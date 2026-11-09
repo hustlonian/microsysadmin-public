@@ -51,6 +51,7 @@ return [
         ['label' => 'API Access', 'slug' => 'api-access', 'icon' => 'fa-plug'],
         ['label' => 'Webhooks', 'slug' => 'webhooks', 'icon' => 'fa-link'],
         ['label' => 'Notifications', 'slug' => 'notifications', 'icon' => 'fa-bell'],
+        ['label' => 'Owner Setup', 'slug' => 'owner-setup', 'icon' => 'fa-screwdriver-wrench'],
         ['label' => 'Environment', 'slug' => 'environment', 'icon' => 'fa-sliders'],
         ['label' => 'Hub Connection', 'slug' => 'hub-connection', 'icon' => 'fa-cloud-arrow-up'],
         ['label' => 'Security', 'slug' => 'security', 'icon' => 'fa-shield-halved'],

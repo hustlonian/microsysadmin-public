@@ -52,6 +52,11 @@ final class Application
             redirect_to('login');
         }
 
+        if ($path === 'api/owner-setup') {
+            (new \SysAdmin\Controllers\ApiController())->handle('owner-setup');
+            return;
+        }
+
         Auth::requireLogin();
 
         if (\SysAdmin\DemoMode::enabled() && $path === 'change-password') {
