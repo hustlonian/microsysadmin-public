@@ -654,7 +654,7 @@ $test->test('owner setup stores secrets encrypted and keeps service states fail-
             'application_url' => 'https://example.test/app', 'deployment_method' => 'sftp',
             'deploy_credential' => $hostingSecret,
         ]);
-        $test->assert($hosting['state'] === 'CREDENTIALS_REQUIRED', 'Saving credentials implied a verified host.');
+        $test->assert($hosting['state'] === 'HOSTING_CONFIGURED_NOT_VERIFIED', 'Saving credentials implied a verified host.');
         $test->assert(!array_key_exists('deploy_credential', $hosting), 'Hosting secret was returned to the caller.');
 
         $mailSecret = 'synthetic-email-provider-token';

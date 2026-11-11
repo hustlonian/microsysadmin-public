@@ -17,7 +17,7 @@ final class OwnerSetupService
         return [
             'hosting' => [
                 'state' => $this->hostingState($config['hosting'] ?? []),
-                'configuration' => $this->publicFields($config['hosting'] ?? [], ['provider', 'environment', 'domain', 'application_url', 'deployment_method', 'control_panel', 'php_requirement', 'database_requirement', 'scheduler_requirement', 'queue_requirement', 'ssl_requirement', 'backup_destination', 'restore_verified']),
+                'configuration' => $this->publicFields($config['hosting'] ?? [], ['provider', 'environment', 'domain', 'application_url', 'deployment_method', 'control_panel', 'php_requirement', 'database_requirement', 'scheduler_requirement', 'queue_requirement', 'ssl_requirement', 'backup_destination', 'restore_verified', 'deployment_scope', 'database_host', 'database_name', 'database_username']),
                 'credential_saved' => !empty($config['hosting']['deploy_credential']),
             ],
             'email' => [
@@ -31,6 +31,8 @@ final class OwnerSetupService
                 'live_state' => $this->stripeLiveState($config['stripe'] ?? []),
                 'test_credential_saved' => !empty($config['stripe']['test_secret']),
                 'live_credential_saved' => !empty($config['stripe']['live_secret']),
+                'test_webhook_saved' => !empty($config['stripe']['test_webhook_secret']),
+                'live_webhook_saved' => !empty($config['stripe']['live_webhook_secret']),
                 'live_payments_enabled' => false,
             ],
         ];
@@ -92,9 +94,8 @@ final class OwnerSetupService
         if (!in_array($mode, ['test', 'live'], true)) {
             throw new \InvalidArgumentException('Stripe mode must be test or live.');
         }
-        $prefix = $mode === 'test' ? 'sk_test_' : 'sk_live_';
-        if (!str_starts_with($secretKey, $prefix) || strlen($secretKey) < strlen($prefix) + 8) {
-            throw new \InvalidArgumentException('Stripe secret key does not match the selected mode.');
+        if (!preg_match('/\A(?:sk|rk)_' . $mode . '_[A-Za-z0-9_]{8,}\z/', $secretKey)) {
+            throw new \InvalidArgumentException('Stripe API key does not match the selected mode.');
         }
         if ($webhookSecret !== '' && !str_starts_with($webhookSecret, 'whsec_')) {
             throw new \InvalidArgumentException('Stripe webhook signing secret is invalid.');
@@ -137,7 +138,7 @@ final class OwnerSetupService
     {
         if (empty($hosting['provider'])) return 'HOSTING_NOT_CONFIGURED';
         if (empty($hosting['deploy_credential'])) return 'CREDENTIALS_REQUIRED';
-        return 'CREDENTIALS_REQUIRED'; // Saved credentials require a separate, read-only verification step.
+        return 'HOSTING_CONFIGURED_NOT_VERIFIED';
     }
 
     private function emailState(array $email): string

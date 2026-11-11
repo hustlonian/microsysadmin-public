@@ -41,8 +41,10 @@
             <form class="js-api-form" data-endpoint="<?= e(url('api/owner-setup.php')) ?>" data-output="#ownerSetupOutput">
                 <input type="hidden" name="_csrf" value="<?= e(\SysAdmin\Csrf::token()) ?>"><input type="hidden" name="action" value="save-stripe-credentials">
                 <label class="form-label">Credential mode</label><select class="form-select mb-2" name="mode"><option value="test">Test</option><option value="live">Live (stored separately; payments remain disabled)</option></select>
-                <label class="form-label">Stripe secret key</label><input class="form-control mb-2" name="secret_key" type="password" autocomplete="new-password" required>
-                <label class="form-label">Webhook signing secret (optional)</label><input class="form-control mb-3" name="webhook_secret" type="password" autocomplete="new-password">
+                <label class="form-label">Stripe restricted API key (recommended) or secret key</label><input class="form-control mb-2" name="secret_key" type="password" autocomplete="new-password" required>
+                <p class="text-muted">Use a restricted key with only the permissions needed. Saving a key does not test its permissions.</p>
+                <label class="form-label">Webhook signing secret</label><input class="form-control mb-3" name="webhook_secret" type="password" autocomplete="new-password" placeholder="Leave blank to retain an existing signing secret">
+                <p class="text-muted">Webhook verification is required before payment integration acceptance. Test signing secret saved: <?= !empty($setup['stripe']['test_webhook_saved']) ? 'Yes' : 'No' ?>. Live signing secret saved: <?= !empty($setup['stripe']['live_webhook_saved']) ? 'Yes' : 'No' ?>.</p>
                 <button class="btn btn-primary">Save Stripe credentials</button>
             </form>
         </div></div></div>
