@@ -70,6 +70,26 @@ $test('successful job runs exactly once with durable completion', static functio
     $assert(file_get_contents($marker) === "effect\n", 'Effect duplicated.');
 });
 
+$test('completed health inspection preserves degraded findings without retry', static function () use ($queue, $assert): void {
+    $configPath = APP_ROOT . '/config/config.php';
+    $original = file_get_contents($configPath);
+    $config = require $configPath;
+    $config['environment']['composer_binary'] = APP_ROOT . '/missing-fixture-composer';
+    file_put_contents($configPath, '<?php return ' . var_export($config, true) . ';');
+    try {
+        $job = $queue->dispatch('maintenance.health-check', [], null, 30, 1);
+        $assert((new JobWorker())->runOnce(), 'Health inspection was not reserved.');
+        $saved = $queue->find($job['uuid']);
+        $assert($saved['status'] === 'completed' && (int) $saved['progress'] === 100, 'Completed inspection was treated as an unknown effect.');
+        $report = json_decode($saved['output_summary'], true, 512, JSON_THROW_ON_ERROR);
+        $assert($report['ok'] === false && $report['status'] === 'degraded' && $report['failed'] > 0, 'Unhealthy findings were hidden.');
+        $assert(!(new JobWorker())->runOnce(), 'Completed health inspection was retried.');
+        $assert($queue->find($job['uuid'])['attempts'] === 1, 'Health inspection attempt changed.');
+    } finally {
+        file_put_contents($configPath, $original);
+    }
+});
+
 $test('unsuccessful handler with an effect is held without retry', static function () use ($queue, $script, $assert): void {
     $marker = STORAGE_PATH . '/failed-effect';
     $script('failure', 'echo effect >> ' . escapeshellarg($marker) . "\nexit 1");

@@ -66,7 +66,11 @@ final class JobWorker
         try {
             $queue->progress($uuid, $attempt, 5, 'Job started.');
             $result = $this->handle((string) $job['type'], (array) $job['payload'], $queue, (string) $job['uuid']);
-            if (is_array($result) && array_key_exists('ok', $result) && $result['ok'] === false) {
+            // A health inspection can finish successfully and report degraded
+            // services. Preserve that report; it is not an uncertain mutation.
+            // Every effectful handler retains the fail-closed outcome rule.
+            if ($job['type'] !== 'maintenance.health-check'
+                && is_array($result) && array_key_exists('ok', $result) && $result['ok'] === false) {
                 throw new \RuntimeException('Job handler reported an unsuccessful result.');
             }
             $queue->complete($uuid, $attempt, $result);

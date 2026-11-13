@@ -35,6 +35,7 @@ jobs:
       - name: Repository policy
         run: |
           ./scripts/check-forbidden-files.sh
+          bash tests/secret-history-fixtures.sh
           ./scripts/check-secrets.sh --history
           MICROSYSADMIN_GIT_SKIP_TESTS=1 ./scripts/check-repository.sh
 
