@@ -671,6 +671,48 @@ $test->test('owner setup stores secrets encrypted and keeps service states fail-
         $stripe = $service->saveStripeCredentials('test', $stripeSecret, 'whsec_synthetic_12345678');
         $test->assert($stripe['test_state'] === 'TEST_CREDENTIALS_SAVED', 'Stripe test credential state was not recorded.');
         $test->assert($stripe['live_payments_enabled'] === false, 'Test configuration enabled live payments.');
+
+        $hostingReceipt = $service->verifyHostingCompatibility('host-ci-check-0001', static function (array $configuration, string $credential, string $requestId) use ($hostingSecret): array {
+            if (($configuration['provider'] ?? '') !== 'cpanel' || $credential !== $hostingSecret || $requestId !== 'host-ci-check-0001') {
+                throw new RuntimeException('Unexpected hosting verification inputs.');
+            }
+            return ['php' => true, 'database' => true, 'scheduler' => true, 'queue' => true, 'ssl' => true, 'backup' => true, 'restore' => true];
+        });
+        $test->assert($hostingReceipt['status'] === 'HOSTING_COMPATIBILITY_VERIFIED', 'Hosting verification receipt was not persisted.');
+        $hostingReplay = $service->verifyHostingCompatibility('host-ci-check-0001', static fn (): never => throw new RuntimeException('Hosting replay invoked adapter.'));
+        $test->assert($hostingReplay['replayed'] === true, 'Hosting verification replay was not deduplicated.');
+
+        $delivery = $service->verifyEmailDelivery('mail-ci-check-0001', static function (array $configuration, string $credential, string $requestId) use ($mailSecret): array {
+            if (($configuration['owner_email'] ?? '') !== 'owner@example.test' || $credential !== $mailSecret || $requestId !== 'mail-ci-check-0001') {
+                throw new RuntimeException('Unexpected email verification inputs.');
+            }
+            return ['status' => 'DELIVERED', 'provider_message_id' => 'synthetic-ci-message-0001'];
+        });
+        $test->assert($delivery['status'] === 'DELIVERED', 'Email delivery receipt was not persisted.');
+        try {
+            $service->verifyEmailDelivery('mail-ci-unknown-0001', static fn (): never => throw new RuntimeException('Synthetic interrupted delivery.'));
+            $test->assert(false, 'Interrupted email delivery was accepted.');
+        } catch (RuntimeException $exception) {
+            $test->assert(str_contains($exception->getMessage(), 'outcome is unknown'), 'Interrupted email was not marked unknown.');
+        }
+        $reconciled = $service->reconcileEmailDelivery('mail-ci-unknown-0001', 'NOT_DELIVERED');
+        $test->assert($reconciled['status'] === 'NOT_DELIVERED_RECONCILED', 'Interrupted email could not be reconciled safely.');
+
+        $eventId = 'evt_test_ci_0001';
+        $payload = json_encode(['id' => $eventId, 'livemode' => false], JSON_THROW_ON_ERROR);
+        $timestamp = (string) time();
+        $signature = \SysAdmin\WebhookSigner::sign('whsec_synthetic_12345678', $timestamp, $payload);
+        $webhookReceipt = $service->verifyStripeTestWebhook($eventId, $timestamp, $payload, $signature);
+        $test->assert($webhookReceipt['status'] === 'TEST_WEBHOOK_VERIFIED', 'Stripe test webhook receipt was not persisted.');
+        $webhookReplay = $service->verifyStripeTestWebhook($eventId, $timestamp, $payload, $signature);
+        $test->assert($webhookReplay['replayed'] === true, 'Stripe test webhook replay was not deduplicated.');
+        try {
+            $service->verifyStripeTestWebhook($eventId, $timestamp, $payload, 'v1=' . str_repeat('0', 64));
+            $test->assert(false, 'Stripe replay with invalid signature was accepted.');
+        } catch (RuntimeException $exception) {
+            $test->assert(str_contains($exception->getMessage(), 'signature'), 'Stripe invalid-signature rejection was unclear.');
+        }
+
         $service->saveStripeCredentials('live', 'sk_live_synthetic_key_12345678');
         $live = $service->overview()['stripe'];
         $test->assert($live['live_state'] === 'LIVE_CREDENTIALS_SAVED_OWNER_ACTIVATION_REQUIRED', 'Live key did not remain owner-gated.');
