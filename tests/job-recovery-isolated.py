@@ -22,7 +22,11 @@ def main():
     parser.add_argument('--development-projection', type=Path)
     parser.add_argument('--development-domain', type=Path)
     parser.add_argument('--development-only', action='store_true')
+    parser.add_argument('--owner-setup-only', action='store_true')
+    parser.add_argument('--vendor-dir', type=Path, help='Existing dependency directory to copy into the disposable runtime')
     args = parser.parse_args()
+    if args.owner_setup_only and (args.development_projection or args.application_suite or args.install_suite):
+        parser.error('--owner-setup-only cannot run unrelated suites')
     if args.development_only and not args.development_projection:
         parser.error('--development-only requires a sanitized projection')
     source = Path(__file__).resolve().parents[1]
@@ -44,7 +48,7 @@ def main():
 
     # Copy only versioned source and this suite, never local config or runtime state.
     names = subprocess.check_output(['git', '-C', str(source), 'ls-files', '-z']).split(b'\0')
-    names += [b'tests/job-recovery.php', b'tests/job-recovery-isolated.py']
+    names += [b'tests/job-recovery.php', b'tests/job-recovery-isolated.py', b'tests/owner-setup.php']
     for name in set(filter(None, names)):
         relative = Path(os.fsdecode(name))
         if relative.parts[0] in {'.git', '.agents', '.codex', 'storage', 'vendor', 'dist'}:
@@ -57,7 +61,7 @@ def main():
         target = app / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(origin, target)
-    shutil.copytree(source / 'vendor', app / 'vendor')
+    shutil.copytree(args.vendor_dir.resolve() if args.vendor_dir else source / 'vendor', app / 'vendor')
     builder = runtime / 'configuration.php'
     builder.write_text(r'''<?php
     $c = require $argv[1].'/config/config.sample.php';
@@ -114,7 +118,9 @@ def main():
                     raise RuntimeError('Expected labeled disposable domain import replay')
                 (app / 'storage/development-domain-replay.json').write_text(json.dumps(domain['domain']))
             run('development-command-center', [php, 'tests/development-command-center.php'])
-        if not args.development_only:
+        if args.owner_setup_only:
+            run('owner-setup', [php, 'tests/owner-setup.php'])
+        if not args.development_only and not args.owner_setup_only:
             run('job-recovery', [php, 'tests/job-recovery.php'])
         if args.application_suite:
             run('application-suite', [php, 'tests/run.php'])

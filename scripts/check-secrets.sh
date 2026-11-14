@@ -155,6 +155,16 @@ prefilter_files() {
     fi
 }
 
+historical_synthetic_fixture() {
+    local commit="$1" file="$2" line="$3" category="$4" content="$5"
+    # One reviewed negative-test URL from 59326359, removed by 5a6b4148.
+    # Bind the entire historical blob AND exact line; never exempt a path,
+    # category, new value, or current worktree finding.
+    [[ "$category" == "credential-in-url" && "$file" == "tests/development-command-center.php" && "$line" == "137" ]] || return 1
+    [[ "$(git -C "$root" rev-parse "$commit:$file")" == "e4829bda800c115abdc6b8ea9af310282fb958e5" ]] || return 1
+    [[ "$(printf '%s' "$content" | sha256sum | cut -d ' ' -f 1)" == "e0bb23fd53fbc08a11868cf4b88b10b0373535f339bb04cf279b9cfc392d05e5" ]]
+}
+
 scan_history() {
     git -C "$root" rev-parse --git-dir >/dev/null 2>&1 || {
         echo "Secret scan BLOCKED: history scan requires a Git repository." >&2
@@ -182,9 +192,12 @@ scan_history() {
             fi
         done < <(git -C "$root" rev-list --all)
         while IFS=: read -r commit file line rest; do
-            : "$commit" "$rest"
             [[ -n "$file" && -n "$line" ]] || continue
             excluded_path "$file" && continue
+            if historical_synthetic_fixture "$commit" "$file" "$line" "$category" "$rest"; then
+                echo "Verified historical synthetic URL fixture (exact blob and line); no current-source exemption."
+                continue
+            fi
             record_finding "$file" "$line" "$category"
         done < "$candidates_file"
     done <<'PATTERNS'
